@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+ <debug showDebugMenu="0" />
+ <systemtable filter="All Interfaces">
+  <columns>
+   <connections preferredWidth="95" />
+   <irq preferredWidth="34" />
+   <export preferredWidth="292" />
+  </columns>
+ </systemtable>
+ <library
+   expandedCategories="Library,Library/University Program,Library/Interface Protocols/Audio &amp; Video,Project,Library/University Program/Clock,Library/University Program/Audio &amp; Video,Library/University Program/Audio &amp; Video/Video,Library/Interface Protocols" />
+ <window width="1456" height="876" x="-8" y="-8" />
+ <generation synthesis="VHDL" />
+ <hdlexample language="VHDL" />
+</preferences>
