@@ -221,7 +221,7 @@ static  void  AppTaskStart (void *p_arg)
     //enable_audio_read_interrupt();
     //enable_audio_write_interrupt();
 
-    INT8S lbuffer[44100];
+    INT8U* lbuffer = (INT8U*) malloc(44100 * sizeof(INT8U));
     INT32U rbuffer[AUDIO_BUFFER_SIZE];
     INT32U lws = 0;
     INT32U rws = 0;
@@ -232,9 +232,9 @@ static  void  AppTaskStart (void *p_arg)
     write_audio_cfg_register(0x2, 0x7F);
     write_audio_cfg_register(0x3, 0x7F);
     write_audio_cfg_register(0x4, 0x15); // bits 3, 4, and 5 corresponding to selecting LINE IN BYPASS, DAC output, and MIC BYPASS respectively
-    write_audio_cfg_register(0x5, 0x00);
+    write_audio_cfg_register(0x5, 0x06);
     write_audio_cfg_register(0x6, 0x00);
-    write_audio_cfg_register(0x7, 0x0D);
+    write_audio_cfg_register(0x7, 0x4D);
     write_audio_cfg_register(0x8, 0x18);
     write_audio_cfg_register(0x9, 0x01);
 
@@ -244,19 +244,21 @@ static  void  AppTaskStart (void *p_arg)
         unsigned int fifospace;
         volatile int * audio_ptr = AUDIO_BASE; // audio port
         int i;
-        for(i = 0; i < 44100; i++) {
-        	double inter = 125 * sin(1000 * 2 * M_PI * i / 44100);
-        	lbuffer[i] = (INT8S) inter;
-        }
+//        for(i = 0; i < 44100; i++) {
+//        	double inter =
+//        	lbuffer[i] = (INT8U) inter;
+//        }
         	i = 0;
         	while (1)
         	{
+                BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
+//                printf("%p %p %p\n", audio_ptr+1, audio_ptr+2, audio_ptr+3);
         		fifospace = *(audio_ptr+1); // read the audio port fifospace register
-        		if ((fifospace & 0x000000FF) > 0 &&		// Available sample right
+        		if (		// Available sample right
         			(fifospace & 0x00FF0000) > 0 &&		// Available write space right
         			(fifospace & 0xFF000000) > 0)		// Available write space left
         		{
-        			int sample = lbuffer[i];
+        			int sample = (int) 2000000000 * sin(440 * 2 * M_PI * i / 44100);
         			i++;
         			if(i >= 44100) {
         				i = 0;
@@ -266,8 +268,8 @@ static  void  AppTaskStart (void *p_arg)
         			*(audio_ptr + 3) = sample;
         		}
         		else {
-        			*(audio_ptr) = 0x8;
-        			*(audio_ptr) = 0x0;
+//        			*(audio_ptr) = 0xC;
+//        			*(audio_ptr) = 0x0;
         		}
         	}
         /*if (1)

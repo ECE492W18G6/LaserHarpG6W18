@@ -69,10 +69,10 @@ endif
 all: LaserHarpG6W18.axf
 
 # Tool invocations
-LaserHarpG6W18.axf: $(OBJS) C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/BSP/ARM_COMPILER/scatter.scat $(USER_OBJS) $(LIBS)
+LaserHarpG6W18.axf: $(OBJS) C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/BSP/ARM_COMPILER/scatter.scat $(USER_OBJS) $(LIBS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: ARM Linker 5'
-	armlink --cpu=Cortex-A9 --entry=Start --scatter=""C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/BSP/ARM_COMPILER/scatter.scat"" --info=sizes -o "LaserHarpG6W18.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	armlink --cpu=Cortex-A9 --entry=Start --scatter=""C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/BSP/ARM_COMPILER/scatter.scat"" --info=sizes -o "LaserHarpG6W18.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
