@@ -29,11 +29,6 @@
 			CLOCK_50					: in std_logic := 'X';
 			
 			
-			-- Reset Key
-			
-			KEY_N_0 					: in std_logic := 'X';
-			
-			
 			-- HPS to DDR3 pins
 			
 			HPS_DDR3_ADDR 			: out std_logic_vector(14 downto 0);
@@ -144,7 +139,20 @@
 		
 		-- FPGA side pins
 			
-			LEDR 						: out std_logic_vector(9 downto 0) 
+			LEDR 						: out std_logic_vector(9 downto 0);
+			KEY_N						: in std_logic_vector(3 downto 0);
+			
+		-- I2C Interface
+			FPGA_I2C_SCLK			: out std_logic;
+			FPGA_I2C_SDAT			: inout std_logic := 'X';
+			
+		-- Audio
+			AUD_ADCDAT				: in std_logic := 'X';
+			AUD_ADCLRCK				: in std_logic := 'X';
+			AUD_BCLK					: in std_logic := 'X';
+			AUD_DACDAT				: out std_logic;
+			AUD_DACLRCK				: in std_logic := 'X';
+			AUD_XCK					: out std_logic	
 	);
 end LaserHarpG6W18;
 
@@ -223,7 +231,21 @@ architecture rtl of LaserHarpG6W18 is
             hps_io_hps_io_gpio_inst_GPIO53      : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO53
             hps_io_hps_io_gpio_inst_GPIO54      : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO54
             hps_io_hps_io_gpio_inst_GPIO61      : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO61
-            character_lcd_0_external_interface_DATA : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- DATA
+            
+				audio_0_external_interface_ADCDAT                : in    std_logic                     := 'X';             -- ADCDAT
+            audio_0_external_interface_ADCLRCK               : in    std_logic                     := 'X';             -- ADCLRCK
+            audio_0_external_interface_BCLK                  : in    std_logic                     := 'X';             -- BCLK
+            audio_0_external_interface_DACDAT                : out   std_logic;                                        -- DACDAT
+            audio_0_external_interface_DACLRCK               : in    std_logic                     := 'X';             -- DACLRCK
+            audio_and_video_config_0_external_interface_SDAT : inout std_logic                     := 'X';             -- SDAT
+            audio_and_video_config_0_external_interface_SCLK : out   std_logic;                                        -- SCLK
+            button_0_external_connection_export              : in    std_logic                     := 'X';             -- export
+            button_1_external_connection_export              : in    std_logic                     := 'X';             -- export
+            button_2_external_connection_export              : in    std_logic                     := 'X';             -- export
+            button_3_external_connection_export              : in    std_logic                     := 'X';             -- export
+            pll_0_outclk0_clk                                : out   std_logic;                                        -- clk
+				
+				character_lcd_0_external_interface_DATA : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- DATA
             character_lcd_0_external_interface_EN   : out   std_logic;                                        -- EN
             character_lcd_0_external_interface_RS   : out   std_logic;                                        -- RS
             character_lcd_0_external_interface_RW   : out   std_logic;													  -- RW
@@ -248,7 +270,7 @@ begin
 	  u0 : component soc_system
         port map (
 						clk_clk 										=> CLOCK_50,
-						reset_reset_n 								=> KEY_N_0,
+						reset_reset_n 								=> KEY_N(0),
 						memory_mem_a 								=> HPS_DDR3_ADDR,
 						memory_mem_ba 								=> HPS_DDR3_BA,
 						memory_mem_ck 								=> HPS_DDR3_CK_P,
@@ -319,6 +341,18 @@ begin
 						character_lcd_0_external_interface_RS   => GPIO_0_8,
 						character_lcd_0_external_interface_RW   => GPIO_0_10,	
 						switches_external_connection_export	=> SW,
+						audio_and_video_config_0_external_interface_SDAT => FPGA_I2C_SDAT, -- audio_and_video_config_0_external_interface.SDAT
+						audio_and_video_config_0_external_interface_SCLK => FPGA_I2C_SCLK, --                                            .SCLK
+						audio_0_external_interface_ADCDAT                => AUD_ADCDAT,                --                  audio_0_external_interface.ADCDAT
+						audio_0_external_interface_ADCLRCK               => AUD_ADCLRCK,               --                                            .ADCLRCK
+						audio_0_external_interface_BCLK                  => AUD_BCLK,                  --                                            .BCLK
+						audio_0_external_interface_DACDAT                => AUD_DACDAT,                --                                            .DACDAT
+						audio_0_external_interface_DACLRCK               => AUD_DACLRCK,                --                                            .DACLRCK
+						pll_0_outclk0_clk				=> AUD_XCK,
+						button_0_external_connection_export => KEY_N(0),
+						button_1_external_connection_export => KEY_N(1),
+						button_2_external_connection_export => KEY_N(2),
+						button_3_external_connection_export => KEY_N(3),
 						red_leds_external_connection_export => LEDR 
         );
 

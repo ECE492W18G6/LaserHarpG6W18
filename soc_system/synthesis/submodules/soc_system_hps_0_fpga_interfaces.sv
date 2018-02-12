@@ -53,6 +53,10 @@ module soc_system_hps_0_fpga_interfaces(
  ,input wire [1 - 1 : 0 ] h2f_lw_RLAST
  ,input wire [1 - 1 : 0 ] h2f_lw_RVALID
  ,output wire [1 - 1 : 0 ] h2f_lw_RREADY
+// f2h_irq0
+ ,input wire [32 - 1 : 0 ] f2h_irq_p0
+// f2h_irq1
+ ,input wire [32 - 1 : 0 ] f2h_irq_p1
 );
 
 
@@ -264,6 +268,14 @@ cyclonev_hps_interface_fpga2sdram f2sdram(
   })
 ,.cfg_cport_wfifo_map({
     18'b000000000000000000 // 17:0
+  })
+);
+
+
+cyclonev_hps_interface_interrupts interrupts(
+ .irq({
+    f2h_irq_p1[31:0] // 63:32
+   ,f2h_irq_p0[31:0] // 31:0
   })
 );
 

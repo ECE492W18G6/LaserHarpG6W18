@@ -1,5 +1,22 @@
 
 module soc_system (
+	audio_0_external_interface_ADCDAT,
+	audio_0_external_interface_ADCLRCK,
+	audio_0_external_interface_BCLK,
+	audio_0_external_interface_DACDAT,
+	audio_0_external_interface_DACLRCK,
+	audio_and_video_config_0_external_interface_SDAT,
+	audio_and_video_config_0_external_interface_SCLK,
+	button_0_external_connection_export,
+	button_1_external_connection_export,
+	button_2_external_connection_export,
+	button_3_external_connection_export,
+	character_lcd_0_external_interface_DATA,
+	character_lcd_0_external_interface_ON,
+	character_lcd_0_external_interface_BLON,
+	character_lcd_0_external_interface_EN,
+	character_lcd_0_external_interface_RS,
+	character_lcd_0_external_interface_RW,
 	clk_clk,
 	hps_io_hps_io_emac1_inst_TX_CLK,
 	hps_io_hps_io_emac1_inst_TXD0,
@@ -66,20 +83,28 @@ module soc_system (
 	memory_mem_odt,
 	memory_mem_dm,
 	memory_oct_rzqin,
-	reset_reset_n,
 	red_leds_external_connection_export,
-	character_lcd_0_external_interface_DATA,
-	character_lcd_0_external_interface_ON,
-	character_lcd_0_external_interface_BLON,
-	character_lcd_0_external_interface_EN,
-	character_lcd_0_external_interface_RS,
-	character_lcd_0_external_interface_RW,
+	reset_reset_n,
 	switches_external_connection_export,
-	audio_0_external_interface_BCLK,
-	audio_0_external_interface_DACDAT,
-	audio_0_external_interface_DACLRCK,
-	audio_0_interrupt_irq);	
+	pll_0_outclk0_clk);	
 
+	input		audio_0_external_interface_ADCDAT;
+	input		audio_0_external_interface_ADCLRCK;
+	input		audio_0_external_interface_BCLK;
+	output		audio_0_external_interface_DACDAT;
+	input		audio_0_external_interface_DACLRCK;
+	inout		audio_and_video_config_0_external_interface_SDAT;
+	output		audio_and_video_config_0_external_interface_SCLK;
+	input		button_0_external_connection_export;
+	input		button_1_external_connection_export;
+	input		button_2_external_connection_export;
+	input		button_3_external_connection_export;
+	inout	[7:0]	character_lcd_0_external_interface_DATA;
+	output		character_lcd_0_external_interface_ON;
+	output		character_lcd_0_external_interface_BLON;
+	output		character_lcd_0_external_interface_EN;
+	output		character_lcd_0_external_interface_RS;
+	output		character_lcd_0_external_interface_RW;
 	input		clk_clk;
 	output		hps_io_hps_io_emac1_inst_TX_CLK;
 	output		hps_io_hps_io_emac1_inst_TXD0;
@@ -146,17 +171,8 @@ module soc_system (
 	output		memory_mem_odt;
 	output	[3:0]	memory_mem_dm;
 	input		memory_oct_rzqin;
-	input		reset_reset_n;
 	output	[9:0]	red_leds_external_connection_export;
-	inout	[7:0]	character_lcd_0_external_interface_DATA;
-	output		character_lcd_0_external_interface_ON;
-	output		character_lcd_0_external_interface_BLON;
-	output		character_lcd_0_external_interface_EN;
-	output		character_lcd_0_external_interface_RS;
-	output		character_lcd_0_external_interface_RW;
+	input		reset_reset_n;
 	input	[9:0]	switches_external_connection_export;
-	input		audio_0_external_interface_BCLK;
-	output		audio_0_external_interface_DACDAT;
-	input		audio_0_external_interface_DACLRCK;
-	output		audio_0_interrupt_irq;
+	output		pll_0_outclk0_clk;
 endmodule

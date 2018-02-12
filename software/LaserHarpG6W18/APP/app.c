@@ -57,7 +57,10 @@
 #include  <hps.h>
 #include  <socal.h>
 #include  <hwlib.h>
+#include <math.h>
 
+#include "audio_cfg.h"
+#include "audio.h"
 
 // Compute absolute address of any slave component attached to lightweight bridge
 // base is address of component in QSYS window
@@ -70,7 +73,10 @@
 #define TASK_STACK_SIZE 4096
 #define LEDR_ADD 0x00000000
 #define LEDR_BASE FPGA_TO_HPS_LW_ADDR(LEDR_ADD)
-
+#define AUDIO_ADDR 0x00000400
+#define AUDIO_BASE FPGA_TO_HPS_LW_ADDR(AUDIO_ADDR)
+#define AUDIO_BUFFER_SIZE 128
+#define M_PI 3.14159265358979323846
 /*
 *********************************************************************************************************
 *                                       LOCAL GLOBAL VARIABLES
@@ -163,26 +169,142 @@ int main ()
 *********************************************************************************************************
 */
 
+void audio_isr(CPU_INT32U cpu_id) {
+	if (is_audio_read_interrupt_pending()) {
+		INT32U lbuffer[AUDIO_BUFFER_SIZE];
+		INT32U rbuffer[AUDIO_BUFFER_SIZE];
+
+		INT32U lws = read_audio_data(lbuffer, AUDIO_BUFFER_SIZE, LEFT_CHANNEL);
+		INT32U rws = read_audio_data(rbuffer, AUDIO_BUFFER_SIZE, RIGHT_CHANNEL);
+
+		INT32U lw = write_audio_data(lbuffer, lws, LEFT_CHANNEL);
+		INT32U rw = write_audio_data(rbuffer, rws, RIGHT_CHANNEL);
+
+		printf("%d %d\n", lbuffer[0], rbuffer[0]);
+
+	}
+	else if (is_audio_write_interrupt_pending()) {
+		INT32U lbuffer[AUDIO_BUFFER_SIZE];
+		INT32U rbuffer[AUDIO_BUFFER_SIZE];
+
+		INT32U lws = read_audio_data(lbuffer, AUDIO_BUFFER_SIZE, LEFT_CHANNEL);
+		INT32U rws = read_audio_data(rbuffer, AUDIO_BUFFER_SIZE, RIGHT_CHANNEL);
+
+		INT32U lw = write_audio_data(lbuffer, AUDIO_BUFFER_SIZE, LEFT_CHANNEL);
+		INT32U rw = write_audio_data(rbuffer, AUDIO_BUFFER_SIZE, RIGHT_CHANNEL);
+
+
+
+		printf("%d %d\n", lws, rws);
+		printf("*%d %d\n", lw, rw);
+	}
+
+	// need to acknowledge interrupt in audio core?
+}
+
+
 static  void  AppTaskStart (void *p_arg)
 {
 
     BSP_OS_TmrTickInit(OS_TICKS_PER_SEC);                       /* Configure and enable OS tick interrupt.              */
 
+    // enable interrupt
+   	//Install handler and set prio
+    BSP_IntVectSet   (72u,   // 72 is source for irq 0 via lwhpsfpga bus
+    		                         2,	    // prio
+    								 DEF_BIT_00,	    // cpu target list
+    								 audio_isr  // ISR
+    								 );
+    // Enable INT at GIC level
+    BSP_IntSrcEn(72u);
+
+    //enable_audio_read_interrupt();
+    //enable_audio_write_interrupt();
+
+    INT8S lbuffer[44100];
+    INT32U rbuffer[AUDIO_BUFFER_SIZE];
+    INT32U lws = 0;
+    INT32U rws = 0;
+    // Configure audio device
+    // See WM8731 datasheet Register Map
+    write_audio_cfg_register(0x0, 0x17);
+    write_audio_cfg_register(0x1, 0x17);
+    write_audio_cfg_register(0x2, 0x7F);
+    write_audio_cfg_register(0x3, 0x7F);
+    write_audio_cfg_register(0x4, 0x15); // bits 3, 4, and 5 corresponding to selecting LINE IN BYPASS, DAC output, and MIC BYPASS respectively
+    write_audio_cfg_register(0x5, 0x00);
+    write_audio_cfg_register(0x6, 0x00);
+    write_audio_cfg_register(0x7, 0x0D);
+    write_audio_cfg_register(0x8, 0x18);
+    write_audio_cfg_register(0x9, 0x01);
 
     for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
 
-        OSTimeDlyHMSM(0, 0, 0, 500);
+        unsigned int fifospace;
+        volatile int * audio_ptr = AUDIO_BASE; // audio port
+        int i;
+        for(i = 0; i < 44100; i++) {
+        	double inter = 125 * sin(1000 * 2 * M_PI * i / 44100);
+        	lbuffer[i] = (INT8S) inter;
+        }
+        	i = 0;
+        	while (1)
+        	{
+        		fifospace = *(audio_ptr+1); // read the audio port fifospace register
+        		if ((fifospace & 0x000000FF) > 0 &&		// Available sample right
+        			(fifospace & 0x00FF0000) > 0 &&		// Available write space right
+        			(fifospace & 0xFF000000) > 0)		// Available write space left
+        		{
+        			int sample = lbuffer[i];
+        			i++;
+        			if(i >= 44100) {
+        				i = 0;
+        			}
+        			// read right channel only
+        			*(audio_ptr + 2) = sample;		// Write to both channels
+        			*(audio_ptr + 3) = sample;
+        		}
+        		else {
+        			*(audio_ptr) = 0x8;
+        			*(audio_ptr) = 0x0;
+        		}
+        	}
+        /*if (1)
+        {
+        	lws = read_audio_data(lbuffer, AUDIO_BUFFER_SIZE, LEFT_CHANNEL);
+        	rws = read_audio_data(rbuffer, AUDIO_BUFFER_SIZE, RIGHT_CHANNEL);
 
-        BSP_LED_On();
+        	OSTimeDlyHMSM(0, 0, 0, 100);
 
-        alt_write_word(LEDR_BASE, 0x00);
+        	INT32U lw = write_audio_data(lbuffer, AUDIO_BUFFER_SIZE, LEFT_CHANNEL);
+        	INT32U rw = write_audio_data(rbuffer, AUDIO_BUFFER_SIZE, RIGHT_CHANNEL);
 
-        OSTimeDlyHMSM(0, 0, 0, 500);
+        	clear_adudio_FIFO();
 
-        BSP_LED_Off();
+    		printf("%d %d\n", lws, rws);
+    		printf("*%d %d\n", lw, rw);
 
-        alt_write_word(LEDR_BASE, 0x3ff);
+        	//reset_audio_core();
+        }
+        else
+        {
+
+	        	OSTimeDlyHMSM(0, 0, 0, 500);
+
+				BSP_LED_On();
+
+				alt_write_word(LEDR_BASE, 0x00);
+
+				OSTimeDlyHMSM(0, 0, 0, 500);
+
+				BSP_LED_Off();
+
+				alt_write_word(LEDR_BASE, 0x3ff);
+	        }
+
+
+    }*/
     }
 
 }
