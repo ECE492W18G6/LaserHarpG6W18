@@ -1,3 +1,6 @@
+% https://stackoverflow.com/questions/29341664/direct-digital-synthesis-what-is-phase-truncation
+% This code was found online at the link above, and used to understand how DDS (Direct Digital Synthesis) works.
+
 function [wave, fs] = synthesis(freq)
     % INPUT PARAMETERS
     %-----------------------
