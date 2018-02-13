@@ -258,7 +258,7 @@ static  void  AppTaskStart (void *p_arg)
         			(fifospace & 0x00FF0000) > 0 &&		// Available write space right
         			(fifospace & 0xFF000000) > 0)		// Available write space left
         		{
-        			int sample = (int) 2000000000 * sin(440 * 2 * M_PI * i / 44100);
+        			int sample = (int) 2000 * sin(660 * 2 * M_PI * i / 44100);
         			i++;
         			if(i >= 44100) {
         				i = 0;

@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.arm.debugger.launcher2">
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data Model" value="104909"/>
-<mapEntry key="*list global low level symbols" value="4424235"/>
+<mapEntry key="*Fetching Data" value="3166817"/>
+<mapEntry key="*Fetching Data Model" value="132807"/>
+<mapEntry key="*list global low level symbols" value="3688127"/>
 <mapEntry key="*loading memory from target" value="14492798"/>
 <mapEntry key="*loading values from target" value="2746567"/>
 <mapEntry key="*updating registers" value="302360538"/>
 <mapEntry key="*updating variables" value="650157"/>
-<mapEntry key="AddEventObserver" value="201443"/>
-<mapEntry key="Evaluate" value="1153611"/>
+<mapEntry key="AddEventObserver" value="216003"/>
+<mapEntry key="Evaluate" value="774281"/>
 <mapEntry key="Retrieving globals list" value="1990528"/>
-<mapEntry key="areCachesAvailable" value="466918"/>
-<mapEntry key="break" value="11335837"/>
-<mapEntry key="continue" value="28662376"/>
+<mapEntry key="areCachesAvailable" value="462092"/>
+<mapEntry key="break" value="13131165"/>
+<mapEntry key="continue" value="20543127"/>
 <mapEntry key="disassemble" value="80653710"/>
-<mapEntry key="evaluate address" value="467597"/>
-<mapEntry key="file" value="11238952"/>
+<mapEntry key="evaluate address" value="539617"/>
+<mapEntry key="file" value="30934815"/>
 <mapEntry key="get byte order" value="427478"/>
-<mapEntry key="get capabilities" value="126765"/>
-<mapEntry key="get execution addresss" value="222744"/>
-<mapEntry key="get source lines" value="299533"/>
-<mapEntry key="getValidEncodings" value="417003"/>
-<mapEntry key="initialize command help" value="20295139"/>
-<mapEntry key="interrupt" value="23931186"/>
-<mapEntry key="list breakpoints" value="180594"/>
-<mapEntry key="list instruction sets" value="123769"/>
-<mapEntry key="list signals" value="24539953"/>
-<mapEntry key="list watchpoints" value="176411"/>
-<mapEntry key="loadfile" value="523207023"/>
+<mapEntry key="get capabilities" value="247372"/>
+<mapEntry key="get execution addresss" value="230181"/>
+<mapEntry key="get source lines" value="227567"/>
+<mapEntry key="getValidEncodings" value="375969"/>
+<mapEntry key="initialize command help" value="21423823"/>
+<mapEntry key="interrupt" value="36732573"/>
+<mapEntry key="list breakpoints" value="176973"/>
+<mapEntry key="list instruction sets" value="97593"/>
+<mapEntry key="list signals" value="29626722"/>
+<mapEntry key="list watchpoints" value="187509"/>
+<mapEntry key="loadfile" value="446189245"/>
 <mapEntry key="next" value="81961610"/>
 <mapEntry key="remove" value="19205351"/>
-<mapEntry key="set CWD" value="493975"/>
-<mapEntry key="set breakpoint properties" value="15951423"/>
-<mapEntry key="set debug-from" value="727220"/>
-<mapEntry key="source altera_target_check.py" value="208477576"/>
-<mapEntry key="source preloader.ds" value="2243039046"/>
-<mapEntry key="start" value="49952390"/>
+<mapEntry key="set CWD" value="612813"/>
+<mapEntry key="set breakpoint properties" value="21662639"/>
+<mapEntry key="set debug-from" value="1359767"/>
+<mapEntry key="source altera_target_check.py" value="224261235"/>
+<mapEntry key="source preloader.ds" value="3329892330"/>
+<mapEntry key="start" value="50760344"/>
 <mapEntry key="step" value="64285586"/>
 <mapEntry key="toggleBreakpoint" value="15933031"/>
-<mapEntry key="waitForTargetToStop" value="416662716"/>
+<mapEntry key="waitForTargetToStop" value="415092151"/>
 </mapAttribute>
 <intAttribute key="DEBUG_TAB..RESOURCES.COUNT" value="0"/>
 <intAttribute key="FILES.CONNECT_TO_GDB_SERVER.RESOURCES.COUNT" value="0"/>
@@ -168,7 +169,7 @@
 <stringAttribute key="config_file" value="CDB://Altera_DEV5XS1.rvc"/>
 <booleanAttribute key="connectOnly" value="false"/>
 <stringAttribute key="connection_type" value="USB-Blaster"/>
-<stringAttribute key="debugger.view.DataView.os:DataView" value="rO0ABXNyACtjb20uYXJtLmRlYnVnLnZpZXdzLmRhdGEuRGF0YVZpZXdQcm9wZXJ0aWVzAAAAAAAAAAECAAB4cgAlY29tLmFybS5kZWJ1Zy52aWV3cy5kYXRhLlByb3BlcnR5VHJlZQAAAAAAAAABAwABTAAFbURhdGF0ABNMamF2YS91dGlsL0hhc2hNYXA7eHB3BAAAAAJ0ABJkYXRhYmFzZVByb3BlcnRpZXNzcQB+AAF3BAAAAAF0AAZ1Y29zaWlzcgArY29tLmFybS5kZWJ1Zy52aWV3cy5kYXRhLkRhdGFiYXNlUHJvcGVydGllcwAAAAAAAAABAgAAeHEAfgABdwQAAAACdAACaWRxAH4ABnQADGN1cnJlbnRUYWJsZXQABnF1ZXVlc3h4dAAPY3VycmVudERhdGFiYXNldAAGdWNvc2lpeA=="/>
+<stringAttribute key="debugger.view.DataView.os:DataView" value="rO0ABXNyACtjb20uYXJtLmRlYnVnLnZpZXdzLmRhdGEuRGF0YVZpZXdQcm9wZXJ0aWVzAAAAAAAAAAECAAB4cgAlY29tLmFybS5kZWJ1Zy52aWV3cy5kYXRhLlByb3BlcnR5VHJlZQAAAAAAAAABAwABTAAFbURhdGF0ABNMamF2YS91dGlsL0hhc2hNYXA7eHB3BAAAAAJ0ABJkYXRhYmFzZVByb3BlcnRpZXNzcQB+AAF3BAAAAAF0AAZ1Y29zaWlzcgArY29tLmFybS5kZWJ1Zy52aWV3cy5kYXRhLkRhdGFiYXNlUHJvcGVydGllcwAAAAAAAAABAgAAeHEAfgABdwQAAAADdAAGdGFibGVzc3EAfgABdwQAAAABdAAGcXVldWVzc3IAKGNvbS5hcm0uZGVidWcudmlld3MuZGF0YS5UYWJsZVByb3BlcnRpZXMAAAAAAAAAAQIAAHhxAH4AAXcEAAAABHQAAmlkcQB+AAt0ABBjb2x1bW5BdXRvUmVzaXplc3EAfgABdwQAAAALdAABMHQABHRydWV0AAExcQB+ABJ0AAEycQB+ABJ0AAEzcQB+ABJ0AAItMXEAfgASdAABNHEAfgASdAABNXEAfgASdAABNnEAfgASdAABN3EAfgASdAABOHEAfgASdAABOXEAfgASeHQADGNvbHVtbldpZHRoc3NxAH4AAXcEAAAAC3QAATB0AAI3NXQAATF0AAI1M3QAATJ0AAI1NnQAATN0AAI0NXQAAi0xdAACMjR0AAE0dAACNDV0AAE1dAACNDF0AAE2dAACMzB0AAE3dAACNDF0AAE4dAACNDF0AAE5dAACNTZ4dAAGY29uZmlndAEQT3V0bGluZUNvbmZpZzEJMTEJLTEJZmFsc2UJdHJ1ZQkyNAktMQl0cnVlCTAJdHJ1ZQl0cnVlCTc1CS0xCXRydWUJMQl0cnVlCXRydWUJNTMJLTEJdHJ1ZQkyCXRydWUJdHJ1ZQk1NgktMQl0cnVlCTMJdHJ1ZQl0cnVlCTQ1CS0xCXRydWUJNAl0cnVlCXRydWUJNDUJLTEJdHJ1ZQk1CXRydWUJdHJ1ZQk0MQktMQl0cnVlCTYJdHJ1ZQl0cnVlCTMwCS0xCXRydWUJNwl0cnVlCXRydWUJNDEJLTEJdHJ1ZQk4CXRydWUJdHJ1ZQk0MQktMQl0cnVlCTkJdHJ1ZQl0cnVlCTU2CS0xCXRydWV4eHQAAmlkcQB+AAZ0AAxjdXJyZW50VGFibGV0AAZxdWV1ZXN4eHQAD2N1cnJlbnREYXRhYmFzZXQABnVjb3NpaXg="/>
 <listAttribute key="debugger.view.DisassemblyView:current">
 <listEntry value="&lt;Next Instruction&gt;"/>
 <listEntry value="100"/>
