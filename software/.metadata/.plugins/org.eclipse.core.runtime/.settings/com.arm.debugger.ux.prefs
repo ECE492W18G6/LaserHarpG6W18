@@ -1,2 +1,4 @@
+ConnectionManager.savedConnections=<?xml version\="1.0" encoding\="UTF-8"?>\n<connections>\n\t<connection current\="yes" mode\="debug" type\="com.arm.debugger.launcher2">DE1-SoC connection</connection>\n</connections>\n
 PreferredTargetHasBeenSet=true
+com.arm.debugger.ux.scripts.favorites.new=script.file.tag\=C\:\\intelFPGA\\17.0\\embedded\\ds-5\\sw\\debugger\\configdb\\Scripts\\altera_target_check.py\nscript.verbose.tag\=false\nscript.file.tag\=C\:\\Users\\anarten\\ECE492_Projects\\eclass_preloader\\preloader.ds\nscript.verbose.tag\=false\n
 eclipse.preferences.version=1

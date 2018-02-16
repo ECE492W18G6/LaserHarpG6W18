@@ -57,7 +57,10 @@
 #include  <hps.h>
 #include  <socal.h>
 #include  <hwlib.h>
+#include <math.h>
 
+#include "audio_cfg.h"
+#include "audio.h"
 
 // Compute absolute address of any slave component attached to lightweight bridge
 // base is address of component in QSYS window
@@ -67,10 +70,15 @@
 #define FPGA_TO_HPS_LW_ADDR(base)  ((void *) (((char *)  (ALT_LWFPGASLVS_ADDR))+ (base)))
 
 #define APP_TASK_PRIO 5
+#define AUDIO_TASK_PRIO 7
+#define LCD_TASK_PRIO 6
+
 #define TASK_STACK_SIZE 4096
 #define LEDR_ADD 0x00000000
 #define LEDR_BASE FPGA_TO_HPS_LW_ADDR(LEDR_ADD)
 
+#define AUDIO_BUFFER_SIZE 128
+#define M_PI 3.14159265358979323846
 /*
 *********************************************************************************************************
 *                                       LOCAL GLOBAL VARIABLES
@@ -78,6 +86,8 @@
 */
 
 CPU_STK AppTaskStartStk[TASK_STACK_SIZE];
+CPU_STK AudioTaskStartStk[TASK_STACK_SIZE];
+CPU_STK LCDTaskStartStk[TASK_STACK_SIZE];
 
 
 /*
@@ -87,6 +97,8 @@ CPU_STK AppTaskStartStk[TASK_STACK_SIZE];
 */
 
 static  void  AppTaskStart              (void        *p_arg);
+static  void  AudioTaskStart            (void        *p_arg);
+static  void  LCDTaskStart              (void        *p_arg);
 
 
 /*
@@ -140,6 +152,34 @@ int main ()
         ; /* Handle error. */
     }
 
+    os_err = OSTaskCreateExt((void (*)(void *)) AudioTaskStart,   /* Create the audio task.                               */
+							 (void          * ) 0,
+							 (OS_STK        * )&AudioTaskStartStk[TASK_STACK_SIZE - 1],
+							 (INT8U           ) AUDIO_TASK_PRIO,
+							 (INT16U          ) AUDIO_TASK_PRIO,  // reuse prio for ID
+							 (OS_STK        * )&AudioTaskStartStk[0],
+							 (INT32U          ) TASK_STACK_SIZE,
+							 (void          * )0,
+							 (INT16U          )(OS_TASK_OPT_STK_CLR | OS_TASK_OPT_STK_CHK));
+
+	if (os_err != OS_ERR_NONE) {
+		; /* Handle error. */
+	}
+
+	os_err = OSTaskCreateExt((void (*)(void *)) LCDTaskStart,   /* Create the start task.                               */
+							 (void          * ) 0,
+							 (OS_STK        * )&LCDTaskStartStk[TASK_STACK_SIZE - 1],
+							 (INT8U           ) LCD_TASK_PRIO,
+							 (INT16U          ) LCD_TASK_PRIO,  // reuse prio for ID
+							 (OS_STK        * )&LCDTaskStartStk[0],
+							 (INT32U          ) TASK_STACK_SIZE,
+							 (void          * )0,
+							 (INT16U          )(OS_TASK_OPT_STK_CLR | OS_TASK_OPT_STK_CHK));
+
+	if (os_err != OS_ERR_NONE) {
+		; /* Handle error. */
+	}
+
     CPU_IntEn();
 
     OSStart();
@@ -162,7 +202,6 @@ int main ()
 * Notes       : (1) The ticker MUST be initialised AFTER multitasking has started.
 *********************************************************************************************************
 */
-
 static  void  AppTaskStart (void *p_arg)
 {
 
@@ -172,17 +211,94 @@ static  void  AppTaskStart (void *p_arg)
     for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
 
-        OSTimeDlyHMSM(0, 0, 0, 500);
+		OSTimeDlyHMSM(0, 0, 0, 500);
 
-        BSP_LED_On();
+		BSP_LED_On();
 
-        alt_write_word(LEDR_BASE, 0x00);
+		alt_write_word(LEDR_BASE, 0x00);
 
-        OSTimeDlyHMSM(0, 0, 0, 500);
+		OSTimeDlyHMSM(0, 0, 0, 500);
 
-        BSP_LED_Off();
+		BSP_LED_Off();
 
-        alt_write_word(LEDR_BASE, 0x3ff);
+		alt_write_word(LEDR_BASE, 0x3ff);
+    }
+}
+
+/*
+*********************************************************************************************************
+*                                           AudioTaskStart()
+*
+* Description : Startup task example code.
+*
+* Arguments   : p_arg       Argument passed by 'OSTaskCreate()'.
+*
+* Returns     : none.
+*
+* Created by  : main().
+*
+* Notes       : (1) The ticker MUST be initialised AFTER multitasking has started.
+*********************************************************************************************************
+*/
+static  void  AudioTaskStart (void *p_arg)
+{
+    INT32S* lbuffer = (INT32S*) malloc(44100 * sizeof(INT32S));
+//    INT32U rbuffer[AUDIO_BUFFER_SIZE];
+
+    // Configure audio device
+    // See WM8731 datasheet Register Map
+    write_audio_cfg_register(0x0, 0x17);
+    write_audio_cfg_register(0x1, 0x17);
+    write_audio_cfg_register(0x2, 0x7F);
+    write_audio_cfg_register(0x3, 0x7F);
+    write_audio_cfg_register(0x4, 0x15); // bits 3, 4, and 5 corresponding to selecting LINE IN BYPASS, DAC output, and MIC BYPASS respectively
+    write_audio_cfg_register(0x5, 0x06);
+    write_audio_cfg_register(0x6, 0x00);
+    write_audio_cfg_register(0x7, 0x4D);
+    write_audio_cfg_register(0x8, 0x18);
+    write_audio_cfg_register(0x9, 0x01);
+
+	int i;
+	for(i = 0; i < 44100; i++) {
+		lbuffer[i] = (INT32S) 2000 * sin(660 * 2 * M_PI * i / 44100);
+	}
+
+    for(;;) {
+        BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
+
+        write_audio_data(lbuffer, 44100);
+
     }
 
 }
+
+/*
+*********************************************************************************************************
+*                                           LCDTaskStart()
+*
+* Description : Startup task example code.
+*
+* Arguments   : p_arg       Argument passed by 'OSTaskCreate()'.
+*
+* Returns     : none.
+*
+* Created by  : main().
+*
+* Notes       : (1) The ticker MUST be initialised AFTER multitasking has started.
+*********************************************************************************************************
+*/
+static  void  LCDTaskStart (void *p_arg)
+{
+
+	InitLCD();
+	HomeLCD();
+	PrintStringLCD("Hello World\n");
+
+	for(;;) {
+        BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
+
+        OSTimeDlyHMSM(0,1,0,0);
+	}
+}
+
+

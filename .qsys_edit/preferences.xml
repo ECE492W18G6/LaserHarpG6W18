@@ -3,14 +3,17 @@
  <debug showDebugMenu="0" />
  <systemtable filter="All Interfaces">
   <columns>
-   <connections preferredWidth="95" />
-   <irq preferredWidth="34" />
-   <export preferredWidth="292" />
+   <connections preferredWidth="143" />
+   <irq preferredWidth="47" />
+   <export preferredWidth="269" />
+   <description preferredWidth="147" />
+   <inputclock preferredWidth="92" />
+   <baseaddress preferredWidth="106" />
+   <name preferredWidth="232" />
   </columns>
  </systemtable>
- <library
-   expandedCategories="Library,Library/University Program,Library/Interface Protocols/Audio &amp; Video,Project,Library/University Program/Clock,Library/University Program/Audio &amp; Video,Library/University Program/Audio &amp; Video/Video,Library/Interface Protocols" />
- <window width="1456" height="876" x="-8" y="-8" />
+ <library expandedCategories="Project,Library" />
+ <window width="1440" height="860" x="0" y="0" />
  <generation synthesis="VHDL" />
  <hdlexample language="VHDL" />
 </preferences>

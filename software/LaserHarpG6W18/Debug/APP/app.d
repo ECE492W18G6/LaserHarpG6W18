@@ -20,3 +20,5 @@ APP/app.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W
 APP/app.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av/socal/hps.h
 APP/app.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av/socal/socal.h
 APP/app.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/hwlib.h
+APP/app.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/HWLIBS/audio_cfg.h
+APP/app.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/HWLIBS/audio.h
