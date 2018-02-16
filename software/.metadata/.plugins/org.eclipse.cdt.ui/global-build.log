@@ -34239,3 +34239,1077 @@ Image component sizes
 
 'Finished building target: LaserHarpG6W18.axf'
 ' '
+15:28:53 **** Incremental Build of configuration Debug for project LaserHarpG6W18 ****
+make all 
+'Building file: ../uCOS-II/Source/os_core.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uCOS-II/Source" -c -o "uCOS-II/Source/os_core.o" "../uCOS-II/Source/os_core.c"
+'Finished building: ../uCOS-II/Source/os_core.c'
+' '
+'Building file: ../uCOS-II/Source/os_dbg_r.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uCOS-II/Source" -c -o "uCOS-II/Source/os_dbg_r.o" "../uCOS-II/Source/os_dbg_r.c"
+'Finished building: ../uCOS-II/Source/os_dbg_r.c'
+' '
+'Building file: ../uCOS-II/Source/os_flag.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uCOS-II/Source" -c -o "uCOS-II/Source/os_flag.o" "../uCOS-II/Source/os_flag.c"
+'Finished building: ../uCOS-II/Source/os_flag.c'
+' '
+'Building file: ../uCOS-II/Source/os_mbox.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uCOS-II/Source" -c -o "uCOS-II/Source/os_mbox.o" "../uCOS-II/Source/os_mbox.c"
+'Finished building: ../uCOS-II/Source/os_mbox.c'
+' '
+'Building file: ../uCOS-II/Source/os_mem.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uCOS-II/Source" -c -o "uCOS-II/Source/os_mem.o" "../uCOS-II/Source/os_mem.c"
+'Finished building: ../uCOS-II/Source/os_mem.c'
+' '
+'Building file: ../uCOS-II/Source/os_mutex.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uCOS-II/Source" -c -o "uCOS-II/Source/os_mutex.o" "../uCOS-II/Source/os_mutex.c"
+'Finished building: ../uCOS-II/Source/os_mutex.c'
+' '
+'Building file: ../uCOS-II/Source/os_q.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uCOS-II/Source" -c -o "uCOS-II/Source/os_q.o" "../uCOS-II/Source/os_q.c"
+'Finished building: ../uCOS-II/Source/os_q.c'
+' '
+'Building file: ../uCOS-II/Source/os_sem.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uCOS-II/Source" -c -o "uCOS-II/Source/os_sem.o" "../uCOS-II/Source/os_sem.c"
+'Finished building: ../uCOS-II/Source/os_sem.c'
+' '
+'Building file: ../uCOS-II/Source/os_task.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uCOS-II/Source" -c -o "uCOS-II/Source/os_task.o" "../uCOS-II/Source/os_task.c"
+'Finished building: ../uCOS-II/Source/os_task.c'
+' '
+'Building file: ../uCOS-II/Source/os_time.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uCOS-II/Source" -c -o "uCOS-II/Source/os_time.o" "../uCOS-II/Source/os_time.c"
+'Finished building: ../uCOS-II/Source/os_time.c'
+' '
+'Building file: ../uCOS-II/Source/os_tmr.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uCOS-II/Source" -c -o "uCOS-II/Source/os_tmr.o" "../uCOS-II/Source/os_tmr.c"
+'Finished building: ../uCOS-II/Source/os_tmr.c'
+' '
+'Building file: ../uCOS-II/Ports/os_cpu_c.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uCOS-II/Ports" -c -o "uCOS-II/Ports/os_cpu_c.o" "../uCOS-II/Ports/os_cpu_c.c"
+'Finished building: ../uCOS-II/Ports/os_cpu_c.c'
+' '
+'Building file: ../uC-LIBS/lib_ascii.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uC-LIBS" -c -o "uC-LIBS/lib_ascii.o" "../uC-LIBS/lib_ascii.c"
+'Finished building: ../uC-LIBS/lib_ascii.c'
+' '
+'Building file: ../uC-LIBS/lib_math.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uC-LIBS" -c -o "uC-LIBS/lib_math.o" "../uC-LIBS/lib_math.c"
+'Finished building: ../uC-LIBS/lib_math.c'
+' '
+'Building file: ../uC-LIBS/lib_mem.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uC-LIBS" -c -o "uC-LIBS/lib_mem.o" "../uC-LIBS/lib_mem.c"
+'Finished building: ../uC-LIBS/lib_mem.c'
+' '
+'Building file: ../uC-LIBS/lib_str.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uC-LIBS" -c -o "uC-LIBS/lib_str.o" "../uC-LIBS/lib_str.c"
+'Finished building: ../uC-LIBS/lib_str.c'
+' '
+'Building file: ../uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uC-CPU/Cache" -c -o "uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2.o" "../uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2.c"
+'Finished building: ../uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2.c'
+' '
+'Building file: ../uC-CPU/cpu_core.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="uC-CPU" -c -o "uC-CPU/cpu_core.o" "../uC-CPU/cpu_core.c"
+'Finished building: ../uC-CPU/cpu_core.c'
+' '
+'Building file: ../HWLIBS/alt_16550_uart.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="HWLIBS" -c -o "HWLIBS/alt_16550_uart.o" "../HWLIBS/alt_16550_uart.c"
+'Finished building: ../HWLIBS/alt_16550_uart.c'
+' '
+'Building file: ../HWLIBS/alt_bridge_manager.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="HWLIBS" -c -o "HWLIBS/alt_bridge_manager.o" "../HWLIBS/alt_bridge_manager.c"
+"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\alt_i2c.h", line 358: Warning:  #2532-D: support for trigraphs is disabled
+   * Discuss special handling of abrt_sbyte_norstrt TX_ABRT source required in ???() function.
+                                                                                ^
+../HWLIBS/alt_bridge_manager.c: 1 warning, 0 errors
+'Finished building: ../HWLIBS/alt_bridge_manager.c'
+' '
+'Building file: ../HWLIBS/alt_clock_manager.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="HWLIBS" -c -o "HWLIBS/alt_clock_manager.o" "../HWLIBS/alt_clock_manager.c"
+'Finished building: ../HWLIBS/alt_clock_manager.c'
+' '
+'Building file: ../HWLIBS/alt_fpga_manager.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="HWLIBS" -c -o "HWLIBS/alt_fpga_manager.o" "../HWLIBS/alt_fpga_manager.c"
+"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\alt_i2c.h", line 358: Warning:  #2532-D: support for trigraphs is disabled
+   * Discuss special handling of abrt_sbyte_norstrt TX_ABRT source required in ???() function.
+                                                                                ^
+../HWLIBS/alt_fpga_manager.c: 1 warning, 0 errors
+'Finished building: ../HWLIBS/alt_fpga_manager.c'
+' '
+'Building file: ../HWLIBS/audio.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="HWLIBS" -c -o "HWLIBS/audio.o" "../HWLIBS/audio.c"
+"../HWLIBS/audio.h", line 54: Warning:  #1295-D: Deprecated declaration reset_audio_core - give arg types
+  void reset_audio_core();
+       ^
+"../HWLIBS/audio.h", line 55: Warning:  #1295-D: Deprecated declaration enable_audio_read_interrupt - give arg types
+  void enable_audio_read_interrupt();
+       ^
+"../HWLIBS/audio.h", line 56: Warning:  #1295-D: Deprecated declaration disable_audio_read_interrupt - give arg types
+  void disable_audio_read_interrupt();
+       ^
+"../HWLIBS/audio.h", line 57: Warning:  #1295-D: Deprecated declaration enable_audio_write_interrupt - give arg types
+  void enable_audio_write_interrupt();
+       ^
+"../HWLIBS/audio.h", line 58: Warning:  #1295-D: Deprecated declaration disable_audio_write_interrupt - give arg types
+  void disable_audio_write_interrupt();
+       ^
+"../HWLIBS/audio.h", line 59: Warning:  #1295-D: Deprecated declaration is_audio_read_interrupt_pending - give arg types
+  INT32U is_audio_read_interrupt_pending();
+         ^
+"../HWLIBS/audio.h", line 60: Warning:  #1295-D: Deprecated declaration is_audio_write_interrupt_pending - give arg types
+  INT32U is_audio_write_interrupt_pending();
+         ^
+"../HWLIBS/audio.c", line 16: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	control = 
+lt_read_word(AUDIO_BASE + AUDIO_CONTROL_OFFSET);
+  	          ^
+"../HWLIBS/audio.c", line 20: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	
+lt_write_word(AUDIO_BASE + AUDIO_CONTROL_OFFSET, control);
+  	^
+"../HWLIBS/audio.c", line 24: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	
+lt_write_word(AUDIO_BASE + AUDIO_CONTROL_OFFSET, control);
+  	^
+"../HWLIBS/audio.c", line 40: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	control = 
+lt_read_word(AUDIO_BASE + AUDIO_CONTROL_OFFSET);
+  	          ^
+"../HWLIBS/audio.c", line 43: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	
+lt_write_word(AUDIO_BASE + AUDIO_CONTROL_OFFSET, control);
+  	^
+"../HWLIBS/audio.c", line 59: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	control = 
+lt_read_word(AUDIO_BASE + AUDIO_CONTROL_OFFSET);
+  	          ^
+"../HWLIBS/audio.c", line 62: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	
+lt_write_word(AUDIO_BASE + AUDIO_CONTROL_OFFSET, control);
+  	^
+"../HWLIBS/audio.c", line 77: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	control = 
+lt_read_word(AUDIO_BASE + AUDIO_CONTROL_OFFSET);
+  	          ^
+"../HWLIBS/audio.c", line 80: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	
+lt_write_word(AUDIO_BASE + AUDIO_CONTROL_OFFSET, control);
+  	^
+"../HWLIBS/audio.c", line 96: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	control = 
+lt_read_word(AUDIO_BASE + AUDIO_CONTROL_OFFSET);
+  	          ^
+"../HWLIBS/audio.c", line 99: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	
+lt_write_word(AUDIO_BASE + AUDIO_CONTROL_OFFSET, control);
+  	^
+"../HWLIBS/audio.c", line 117: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	control = 
+lt_read_word(AUDIO_BASE + AUDIO_CONTROL_OFFSET);
+  	          ^
+"../HWLIBS/audio.c", line 141: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	control = 
+lt_read_word(AUDIO_BASE + AUDIO_CONTROL_OFFSET);
+  	          ^
+"../HWLIBS/audio.c", line 183: Warning:  #1254-D: arithmetic on pointer to void or function type
+  		fifospace = 
+lt_read_word(AUDIO_BASE + 1);
+  		            ^
+"../HWLIBS/audio.c", line 200: Warning:  #1254-D: arithmetic on pointer to void or function type
+  				INT32U read = 
+lt_read_word(AUDIO_BASE + 2);
+  				              ^
+"../HWLIBS/audio.c", line 205: Warning:  #1254-D: arithmetic on pointer to void or function type
+  				buffer[count] = 
+lt_read_word(AUDIO_BASE + 3);
+  				                ^
+"../HWLIBS/audio.c", line 244: Warning:  #1254-D: arithmetic on pointer to void or function type
+  		fifospace = 
+lt_read_word(AUDIO_BASE + AUDIO_FIFOSPACE_OFFSET);
+  		            ^
+"../HWLIBS/audio.c", line 252: Warning:  #1254-D: arithmetic on pointer to void or function type
+  			
+lt_write_word(AUDIO_BASE + AUDIO_LEFTDATA_OFFSET, buffer[count]);
+  			^
+"../HWLIBS/audio.c", line 253: Warning:  #1254-D: arithmetic on pointer to void or function type
+  			
+lt_write_word(AUDIO_BASE + AUDIO_RIGHTDATA_OFFSET, buffer[count]);
+  			^
+../HWLIBS/audio.c: 26 warnings, 0 errors
+'Finished building: ../HWLIBS/audio.c'
+' '
+'Building file: ../HWLIBS/audio_cfg.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="HWLIBS" -c -o "HWLIBS/audio_cfg.o" "../HWLIBS/audio_cfg.c"
+"../HWLIBS/audio_cfg.c", line 21: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	
+lt_write_byte(AUDIOCFG_DEVICE, AUDIO_DEVICE_AUDIO);
+  	^
+"../HWLIBS/audio_cfg.c", line 21: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	
+lt_write_byte(AUDIOCFG_DEVICE, AUDIO_DEVICE_AUDIO);
+  	^
+"../HWLIBS/audio_cfg.c", line 24: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	
+lt_write_byte(AUDIOCFG_ADDRESS, address);
+  	^
+"../HWLIBS/audio_cfg.c", line 24: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	
+lt_write_byte(AUDIOCFG_ADDRESS, address);
+  	^
+"../HWLIBS/audio_cfg.c", line 27: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	
+lt_write_hword(AUDIOCFG_DATA, data);
+  	^
+"../HWLIBS/audio_cfg.c", line 27: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	
+lt_write_hword(AUDIOCFG_DATA, data);
+  	^
+../HWLIBS/audio_cfg.c: 6 warnings, 0 errors
+'Finished building: ../HWLIBS/audio_cfg.c'
+' '
+'Building file: ../HWLIBS/lcd.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="HWLIBS" -c -o "HWLIBS/lcd.o" "../HWLIBS/lcd.c"
+"../HWLIBS/lcd.c", line 75: Warning:  #1254-D: arithmetic on pointer to void or function type
+  	
+lt_write_byte(LCD_BASE+1, data);
+  	^
+../HWLIBS/lcd.c: 1 warning, 0 errors
+'Finished building: ../HWLIBS/lcd.c'
+' '
+'Building file: ../BSP/OS/bsp_os.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="BSP/OS" -c -o "BSP/OS/bsp_os.o" "../BSP/OS/bsp_os.c"
+'Finished building: ../BSP/OS/bsp_os.c'
+' '
+'Building file: ../BSP/bsp.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="BSP" -c -o "BSP/bsp.o" "../BSP/bsp.c"
+'Finished building: ../BSP/bsp.c'
+' '
+'Building file: ../BSP/bsp_int.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="BSP" -c -o "BSP/bsp_int.o" "../BSP/bsp_int.c"
+'Finished building: ../BSP/bsp_int.c'
+' '
+'Building file: ../BSP/cpu_bsp.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="BSP" -c -o "BSP/cpu_bsp.o" "../BSP/cpu_bsp.c"
+'Finished building: ../BSP/cpu_bsp.c'
+' '
+'Building file: ../APP/app.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="APP" -c -o "APP/app.o" "../APP/app.c"
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 54: Warning:  #1295-D: Deprecated declaration reset_audio_core - give arg types
+  void reset_audio_core();
+       ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 55: Warning:  #1295-D: Deprecated declaration enable_audio_read_interrupt - give arg types
+  void enable_audio_read_interrupt();
+       ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 56: Warning:  #1295-D: Deprecated declaration disable_audio_read_interrupt - give arg types
+  void disable_audio_read_interrupt();
+       ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 57: Warning:  #1295-D: Deprecated declaration enable_audio_write_interrupt - give arg types
+  void enable_audio_write_interrupt();
+       ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 58: Warning:  #1295-D: Deprecated declaration disable_audio_write_interrupt - give arg types
+  void disable_audio_write_interrupt();
+       ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 59: Warning:  #1295-D: Deprecated declaration is_audio_read_interrupt_pending - give arg types
+  INT32U is_audio_read_interrupt_pending();
+         ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 60: Warning:  #1295-D: Deprecated declaration is_audio_write_interrupt_pending - give arg types
+  INT32U is_audio_write_interrupt_pending();
+         ^
+"../APP/app.c", line 245: Warning:  #223-D: function "malloc" declared implicitly
+      INT32S* lbuffer = (INT32S*) malloc(44100 * sizeof(INT32S));
+                                  ^
+"../APP/app.c", line 293: Warning:  #223-D: function "InitLCD" declared implicitly
+  	InitLCD();
+  	^
+"../APP/app.c", line 294: Warning:  #223-D: function "HomeLCD" declared implicitly
+  	HomeLCD();
+  	^
+"../APP/app.c", line 295: Warning:  #223-D: function "PrintStringLCD" declared implicitly
+  	PrintStringLCD("Hello World\n");
+  	^
+../APP/app.c: 11 warnings, 0 errors
+'Finished building: ../APP/app.c'
+' '
+'Building target: LaserHarpG6W18.axf'
+'Invoking: ARM Linker 5'
+armlink --cpu=Cortex-A9 --entry=Start --scatter=""C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/BSP/ARM_COMPILER/scatter.scat"" --info=sizes -o "LaserHarpG6W18.axf"  ./uCOS-II/Source/os_core.o ./uCOS-II/Source/os_dbg_r.o ./uCOS-II/Source/os_flag.o ./uCOS-II/Source/os_mbox.o ./uCOS-II/Source/os_mem.o ./uCOS-II/Source/os_mutex.o ./uCOS-II/Source/os_q.o ./uCOS-II/Source/os_sem.o ./uCOS-II/Source/os_task.o ./uCOS-II/Source/os_time.o ./uCOS-II/Source/os_tmr.o  ./uCOS-II/Ports/os_cpu_a_vfp-d32.o ./uCOS-II/Ports/os_cpu_c.o  ./uC-LIBS/lib_ascii.o ./uC-LIBS/lib_math.o ./uC-LIBS/lib_mem.o ./uC-LIBS/lib_str.o  ./uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2.o ./uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2_a.o  ./uC-CPU/ARM-Cortex-A/cpu_a.o  ./uC-CPU/cpu_core.o  ./HWLIBS/alt_16550_uart.o ./HWLIBS/alt_bridge_manager.o ./HWLIBS/alt_clock_manager.o ./HWLIBS/alt_fpga_manager.o ./HWLIBS/audio.o ./HWLIBS/audio_cfg.o ./HWLIBS/lcd.o  ./BSP/OS/bsp_os.o  ./BSP/ARM_Compiler/armv7a_tthelp.o ./BSP/ARM_Compiler/bsp_cache.o ./BSP/ARM_Compiler/startup.o  ./BSP/bsp.o ./BSP/bsp_int.o ./BSP/cpu_bsp.o  ./APP/app.o   
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+       692         84          0          0      49152       3323   app.o
+        96          0          0          0          0        572   armv7a_tthelp.o
+       448          8          0          0          0       3135   audio.o
+        32          0          0          0          0        591   audio_cfg.o
+       136         16          0          0          0       1701   bsp.o
+       436          0          0          0          0        904   bsp_cache.o
+       832         32          0          0       1024       5835   bsp_int.o
+       280         12          0          0          0       3002   bsp_os.o
+        96          0          0          0          0        792   cpu_a.o
+       220          4          0          0          0       1332   cpu_bsp.o
+        44         12          0          8          0        942   cpu_cache_armv7_generic_l1_l2c310_l2.o
+       204          0          0          0          0        680   cpu_cache_armv7_generic_l1_l2c310_l2_a.o
+       888         20        260          4          0       6920   cpu_core.o
+      1440        276          0          9          0       2585   lcd.o
+         0          0          0          0          0      13532   lib_ascii.o
+         0          0          0          0          0       1508   lib_math.o
+      5136         76          0          4   16777236      27601   lib_mem.o
+      5836        160        256         80      10920      24563   os_core.o
+       988          0          0          0          0        556   os_cpu_a_vfp-d32.o
+       608         36          0         12       4096      14781   os_cpu_c.o
+       376        184        118          0          0      12165   os_dbg_r.o
+      3768         36          0          0          0       7744   os_flag.o
+      1096         16          0          0          0       3776   os_mem.o
+      2916         28          0          0          0       6257   os_q.o
+      1832         20          0          0          0       4518   os_sem.o
+      3992         48          0          0          0       9044   os_task.o
+       796         28          0          0          0       1982   os_time.o
+       496         76          0          0          0        788   startup.o
+
+    ----------------------------------------------------------------------
+     33692       1180        652        120   50441916     161129   Object Totals
+         0          0         16          0   33599488          0   (incl. Generated)
+         8          8          2          3          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         8          0          0          0          0         68   __main.o
+       104          0          0          0          0         84   __printf.o
+         0          0          0          0          0          0   __rtentry.o
+        12          0          0          0          0          0   __rtentry2.o
+         8          4          0          0          0          0   __rtentry6.o
+        52          8          0          0          0          0   __scatter.o
+        28          0          0          0          0          0   __scatter_zi.o
+        48          6          0          0          0         96   _printf_char_common.o
+        36          4          0          0          0         80   _printf_char_file.o
+       112         16          0          0          0         92   _printf_dec.o
+         6          0          0          0          0          0   _printf_i.o
+       178          0          0          0          0         88   _printf_intcommon.o
+         0          0          0          0          0          0   _printf_percent.o
+         4          0          0          0          0          0   _printf_percent_end.o
+        22          0          0          0          0        100   _rserrno.o
+       416          0          0          0          0        144   aeabi_sdiv.o
+        10          0          0          0          0         68   defsig_exit.o
+        50          0          0          0          0         88   defsig_general.o
+        80         58          0          0          0         76   defsig_rtmem_inner.o
+        14          0          0          0          0         80   defsig_rtmem_outer.o
+        52         38          0          0          0         76   defsig_rtred_inner.o
+        14          0          0          0          0         80   defsig_rtred_outer.o
+        18          0          0          0          0         80   exit.o
+        76          0          0          0          0         88   fclose.o
+         8          0          0          0          0         68   ferror.o
+       470          0          0          0          0         88   flsbuf.o
+       236          4          0          0          0        128   fopen.o
+        26          0          0          0          0         68   fputc.o
+       248          6          0          0          0         84   fseek.o
+        66          0          0          0          0         76   ftell.o
+        94          0          0          0          0         80   h1_alloc.o
+        48          0          0          0          0         68   h1_extend.o
+        78          0          0          0          0         80   h1_free.o
+        14          0          0          0          0         84   h1_init.o
+        80          6          0          4          0         96   heapauxa.o
+         4          0          0          0          0        136   hguard.o
+         0          0          0          0          0          0   indicate_semi.o
+       136          0          0          0          0        168   init_alloc.o
+       312         46          0          0          0        112   initio.o
+         2          0          0          0          0          0   libinit.o
+        10          0          0          0          0          0   libinit2.o
+        16          8          0          0          0          0   libinit4.o
+         2          0          0          0          0          0   libshutdown.o
+         6          0          0          0          0          0   libshutdown2.o
+         0          0          0          0         96          0   libspace.o
+       816         64          0          0          0         84   lludiv5.o
+         0          0          0          0          0          0   maybetermalloc1.o
+        24          4          0          0          0         84   noretval__2printf.o
+         8          4          0          0          0         68   rt_errno_addr_intlibspace.o
+         8          4          0          0          0         68   rt_heap_descriptor_intlibspace.o
+        80          0          0          0          0        172   rt_neon_memclr_w.o
+         2          0          0          0          0          0   rtexit.o
+        10          0          0          0          0          0   rtexit2.o
+        44          0          0          0          0         68   rtudiv10.o
+        70          0          0          0          0         80   setvbuf.o
+       240          6          0          0          0        156   stdio.o
+         0          0          0         12        252          0   stdio_streams.o
+        58          0          0          0          0         68   strlen.o
+        12          4          0          0          0         68   sys_exit.o
+       102          0         12          0          0        240   sys_io.o
+        14          0          0          0          0         76   sys_wrch.o
+         2          0          0          0          0         68   use_no_semi.o
+        10          0          0          0          0        116   fpinit.o
+         0          0          0          0          0          0   usenofp.o
+       216         40         48          0          0        164   cos_i.o
+        48         28          0          0          0        232   dunder.o
+        24          0          0          0          0        124   fabs.o
+        48          0          0          0          0        124   fpclassify.o
+       122          0          0          0          0        116   poly.o
+       784        148        200          0          0        172   rred.o
+       180         22          0          0          0        160   sin.o
+       168         24         40          0          0        196   sin_i.o
+
+    ----------------------------------------------------------------------
+      6320        556        300         16        348       5428   Library Totals
+        26          4          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+      4694        290         12         16        348       4024   c_2.l
+        10          0          0          0          0        116   fz_2v.l
+      1590        262        288          0          0       1288   m_2v.l
+
+    ----------------------------------------------------------------------
+      6320        556        300         16        348       5428   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+     40012       1736        952        136   50442264     159025   Grand Totals
+     40012       1736        952        136   50442264     159025   ELF Image Totals
+     40012       1736        952        136          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                40964 (  40.00kB)
+    Total RW  Size (RW Data + ZI Data)          50442400 (49260.16kB)
+    Total ROM Size (Code + RO Data + RW Data)      41100 (  40.14kB)
+
+==============================================================================
+
+'Finished building target: LaserHarpG6W18.axf'
+' '
+15:33:27 **** Incremental Build of configuration Debug for project LaserHarpG6W18 ****
+make all 
+'Building file: ../APP/app.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="APP" -c -o "APP/app.o" "../APP/app.c"
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 54: Warning:  #1295-D: Deprecated declaration reset_audio_core - give arg types
+  void reset_audio_core();
+       ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 55: Warning:  #1295-D: Deprecated declaration enable_audio_read_interrupt - give arg types
+  void enable_audio_read_interrupt();
+       ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 56: Warning:  #1295-D: Deprecated declaration disable_audio_read_interrupt - give arg types
+  void disable_audio_read_interrupt();
+       ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 57: Warning:  #1295-D: Deprecated declaration enable_audio_write_interrupt - give arg types
+  void enable_audio_write_interrupt();
+       ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 58: Warning:  #1295-D: Deprecated declaration disable_audio_write_interrupt - give arg types
+  void disable_audio_write_interrupt();
+       ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 59: Warning:  #1295-D: Deprecated declaration is_audio_read_interrupt_pending - give arg types
+  INT32U is_audio_read_interrupt_pending();
+         ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 60: Warning:  #1295-D: Deprecated declaration is_audio_write_interrupt_pending - give arg types
+  INT32U is_audio_write_interrupt_pending();
+         ^
+"../APP/app.c", line 245: Warning:  #223-D: function "malloc" declared implicitly
+      INT32S* lbuffer = (INT32S*) malloc(44100 * sizeof(INT32S));
+                                  ^
+"../APP/app.c", line 293: Warning:  #223-D: function "InitLCD" declared implicitly
+  	InitLCD();
+  	^
+"../APP/app.c", line 294: Warning:  #223-D: function "HomeLCD" declared implicitly
+  	HomeLCD();
+  	^
+"../APP/app.c", line 295: Warning:  #223-D: function "PrintStringLCD" declared implicitly
+  	PrintStringLCD("Hello World\n");
+  	^
+../APP/app.c: 11 warnings, 0 errors
+'Finished building: ../APP/app.c'
+' '
+'Building target: LaserHarpG6W18.axf'
+'Invoking: ARM Linker 5'
+armlink --cpu=Cortex-A9 --entry=Start --scatter=""C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/BSP/ARM_COMPILER/scatter.scat"" --info=sizes -o "LaserHarpG6W18.axf"  ./uCOS-II/Source/os_core.o ./uCOS-II/Source/os_dbg_r.o ./uCOS-II/Source/os_flag.o ./uCOS-II/Source/os_mbox.o ./uCOS-II/Source/os_mem.o ./uCOS-II/Source/os_mutex.o ./uCOS-II/Source/os_q.o ./uCOS-II/Source/os_sem.o ./uCOS-II/Source/os_task.o ./uCOS-II/Source/os_time.o ./uCOS-II/Source/os_tmr.o  ./uCOS-II/Ports/os_cpu_a_vfp-d32.o ./uCOS-II/Ports/os_cpu_c.o  ./uC-LIBS/lib_ascii.o ./uC-LIBS/lib_math.o ./uC-LIBS/lib_mem.o ./uC-LIBS/lib_str.o  ./uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2.o ./uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2_a.o  ./uC-CPU/ARM-Cortex-A/cpu_a.o  ./uC-CPU/cpu_core.o  ./HWLIBS/alt_16550_uart.o ./HWLIBS/alt_bridge_manager.o ./HWLIBS/alt_clock_manager.o ./HWLIBS/alt_fpga_manager.o ./HWLIBS/audio.o ./HWLIBS/audio_cfg.o ./HWLIBS/lcd.o  ./BSP/OS/bsp_os.o  ./BSP/ARM_Compiler/armv7a_tthelp.o ./BSP/ARM_Compiler/bsp_cache.o ./BSP/ARM_Compiler/startup.o  ./BSP/bsp.o ./BSP/bsp_int.o ./BSP/cpu_bsp.o  ./APP/app.o   
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+       692         84          0          0      49152       3323   app.o
+        96          0          0          0          0        572   armv7a_tthelp.o
+       448          8          0          0          0       3135   audio.o
+        32          0          0          0          0        591   audio_cfg.o
+       136         16          0          0          0       1701   bsp.o
+       436          0          0          0          0        904   bsp_cache.o
+       832         32          0          0       1024       5835   bsp_int.o
+       280         12          0          0          0       3002   bsp_os.o
+        96          0          0          0          0        792   cpu_a.o
+       220          4          0          0          0       1332   cpu_bsp.o
+        44         12          0          8          0        942   cpu_cache_armv7_generic_l1_l2c310_l2.o
+       204          0          0          0          0        680   cpu_cache_armv7_generic_l1_l2c310_l2_a.o
+       888         20        260          4          0       6920   cpu_core.o
+      1440        276          0          9          0       2585   lcd.o
+         0          0          0          0          0      13532   lib_ascii.o
+         0          0          0          0          0       1508   lib_math.o
+      5136         76          0          4   16777236      27601   lib_mem.o
+      5836        160        256         80      10920      24563   os_core.o
+       988          0          0          0          0        556   os_cpu_a_vfp-d32.o
+       608         36          0         12       4096      14781   os_cpu_c.o
+       376        184        118          0          0      12165   os_dbg_r.o
+      3768         36          0          0          0       7744   os_flag.o
+      1096         16          0          0          0       3776   os_mem.o
+      2916         28          0          0          0       6257   os_q.o
+      1832         20          0          0          0       4518   os_sem.o
+      3992         48          0          0          0       9044   os_task.o
+       796         28          0          0          0       1982   os_time.o
+       496         76          0          0          0        788   startup.o
+
+    ----------------------------------------------------------------------
+     33692       1180        652        120   50441916     161129   Object Totals
+         0          0         16          0   33599488          0   (incl. Generated)
+         8          8          2          3          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         8          0          0          0          0         68   __main.o
+       104          0          0          0          0         84   __printf.o
+         0          0          0          0          0          0   __rtentry.o
+        12          0          0          0          0          0   __rtentry2.o
+         8          4          0          0          0          0   __rtentry6.o
+        52          8          0          0          0          0   __scatter.o
+        28          0          0          0          0          0   __scatter_zi.o
+        48          6          0          0          0         96   _printf_char_common.o
+        36          4          0          0          0         80   _printf_char_file.o
+       112         16          0          0          0         92   _printf_dec.o
+         6          0          0          0          0          0   _printf_i.o
+       178          0          0          0          0         88   _printf_intcommon.o
+         0          0          0          0          0          0   _printf_percent.o
+         4          0          0          0          0          0   _printf_percent_end.o
+        22          0          0          0          0        100   _rserrno.o
+       416          0          0          0          0        144   aeabi_sdiv.o
+        10          0          0          0          0         68   defsig_exit.o
+        50          0          0          0          0         88   defsig_general.o
+        80         58          0          0          0         76   defsig_rtmem_inner.o
+        14          0          0          0          0         80   defsig_rtmem_outer.o
+        52         38          0          0          0         76   defsig_rtred_inner.o
+        14          0          0          0          0         80   defsig_rtred_outer.o
+        18          0          0          0          0         80   exit.o
+        76          0          0          0          0         88   fclose.o
+         8          0          0          0          0         68   ferror.o
+       470          0          0          0          0         88   flsbuf.o
+       236          4          0          0          0        128   fopen.o
+        26          0          0          0          0         68   fputc.o
+       248          6          0          0          0         84   fseek.o
+        66          0          0          0          0         76   ftell.o
+        94          0          0          0          0         80   h1_alloc.o
+        48          0          0          0          0         68   h1_extend.o
+        78          0          0          0          0         80   h1_free.o
+        14          0          0          0          0         84   h1_init.o
+        80          6          0          4          0         96   heapauxa.o
+         4          0          0          0          0        136   hguard.o
+         0          0          0          0          0          0   indicate_semi.o
+       136          0          0          0          0        168   init_alloc.o
+       312         46          0          0          0        112   initio.o
+         2          0          0          0          0          0   libinit.o
+        10          0          0          0          0          0   libinit2.o
+        16          8          0          0          0          0   libinit4.o
+         2          0          0          0          0          0   libshutdown.o
+         6          0          0          0          0          0   libshutdown2.o
+         0          0          0          0         96          0   libspace.o
+       816         64          0          0          0         84   lludiv5.o
+         0          0          0          0          0          0   maybetermalloc1.o
+        24          4          0          0          0         84   noretval__2printf.o
+         8          4          0          0          0         68   rt_errno_addr_intlibspace.o
+         8          4          0          0          0         68   rt_heap_descriptor_intlibspace.o
+        80          0          0          0          0        172   rt_neon_memclr_w.o
+         2          0          0          0          0          0   rtexit.o
+        10          0          0          0          0          0   rtexit2.o
+        44          0          0          0          0         68   rtudiv10.o
+        70          0          0          0          0         80   setvbuf.o
+       240          6          0          0          0        156   stdio.o
+         0          0          0         12        252          0   stdio_streams.o
+        58          0          0          0          0         68   strlen.o
+        12          4          0          0          0         68   sys_exit.o
+       102          0         12          0          0        240   sys_io.o
+        14          0          0          0          0         76   sys_wrch.o
+         2          0          0          0          0         68   use_no_semi.o
+        10          0          0          0          0        116   fpinit.o
+         0          0          0          0          0          0   usenofp.o
+       216         40         48          0          0        164   cos_i.o
+        48         28          0          0          0        232   dunder.o
+        24          0          0          0          0        124   fabs.o
+        48          0          0          0          0        124   fpclassify.o
+       122          0          0          0          0        116   poly.o
+       784        148        200          0          0        172   rred.o
+       180         22          0          0          0        160   sin.o
+       168         24         40          0          0        196   sin_i.o
+
+    ----------------------------------------------------------------------
+      6320        556        300         16        348       5428   Library Totals
+        26          4          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+      4694        290         12         16        348       4024   c_2.l
+        10          0          0          0          0        116   fz_2v.l
+      1590        262        288          0          0       1288   m_2v.l
+
+    ----------------------------------------------------------------------
+      6320        556        300         16        348       5428   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+     40012       1736        952        136   50442264     159025   Grand Totals
+     40012       1736        952        136   50442264     159025   ELF Image Totals
+     40012       1736        952        136          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                40964 (  40.00kB)
+    Total RW  Size (RW Data + ZI Data)          50442400 (49260.16kB)
+    Total ROM Size (Code + RO Data + RW Data)      41100 (  40.14kB)
+
+==============================================================================
+
+'Finished building target: LaserHarpG6W18.axf'
+' '
+15:41:59 **** Incremental Build of configuration Debug for project LaserHarpG6W18 ****
+make all 
+'Building file: ../APP/app.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="APP" -c -o "APP/app.o" "../APP/app.c"
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 54: Warning:  #1295-D: Deprecated declaration reset_audio_core - give arg types
+  void reset_audio_core();
+       ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 55: Warning:  #1295-D: Deprecated declaration enable_audio_read_interrupt - give arg types
+  void enable_audio_read_interrupt();
+       ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 56: Warning:  #1295-D: Deprecated declaration disable_audio_read_interrupt - give arg types
+  void disable_audio_read_interrupt();
+       ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 57: Warning:  #1295-D: Deprecated declaration enable_audio_write_interrupt - give arg types
+  void enable_audio_write_interrupt();
+       ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 58: Warning:  #1295-D: Deprecated declaration disable_audio_write_interrupt - give arg types
+  void disable_audio_write_interrupt();
+       ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 59: Warning:  #1295-D: Deprecated declaration is_audio_read_interrupt_pending - give arg types
+  INT32U is_audio_read_interrupt_pending();
+         ^
+"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.h", line 60: Warning:  #1295-D: Deprecated declaration is_audio_write_interrupt_pending - give arg types
+  INT32U is_audio_write_interrupt_pending();
+         ^
+"../APP/app.c", line 245: Warning:  #223-D: function "malloc" declared implicitly
+      INT32S* lbuffer = (INT32S*) malloc(44100 * sizeof(INT32S));
+                                  ^
+"../APP/app.c", line 293: Warning:  #223-D: function "InitLCD" declared implicitly
+  	InitLCD();
+  	^
+"../APP/app.c", line 294: Warning:  #223-D: function "HomeLCD" declared implicitly
+  	HomeLCD();
+  	^
+"../APP/app.c", line 295: Warning:  #223-D: function "PrintStringLCD" declared implicitly
+  	PrintStringLCD("Hello World\n");
+  	^
+../APP/app.c: 11 warnings, 0 errors
+'Finished building: ../APP/app.c'
+' '
+'Building target: LaserHarpG6W18.axf'
+'Invoking: ARM Linker 5'
+armlink --cpu=Cortex-A9 --entry=Start --scatter=""C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/BSP/ARM_COMPILER/scatter.scat"" --info=sizes -o "LaserHarpG6W18.axf"  ./uCOS-II/Source/os_core.o ./uCOS-II/Source/os_dbg_r.o ./uCOS-II/Source/os_flag.o ./uCOS-II/Source/os_mbox.o ./uCOS-II/Source/os_mem.o ./uCOS-II/Source/os_mutex.o ./uCOS-II/Source/os_q.o ./uCOS-II/Source/os_sem.o ./uCOS-II/Source/os_task.o ./uCOS-II/Source/os_time.o ./uCOS-II/Source/os_tmr.o  ./uCOS-II/Ports/os_cpu_a_vfp-d32.o ./uCOS-II/Ports/os_cpu_c.o  ./uC-LIBS/lib_ascii.o ./uC-LIBS/lib_math.o ./uC-LIBS/lib_mem.o ./uC-LIBS/lib_str.o  ./uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2.o ./uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2_a.o  ./uC-CPU/ARM-Cortex-A/cpu_a.o  ./uC-CPU/cpu_core.o  ./HWLIBS/alt_16550_uart.o ./HWLIBS/alt_bridge_manager.o ./HWLIBS/alt_clock_manager.o ./HWLIBS/alt_fpga_manager.o ./HWLIBS/audio.o ./HWLIBS/audio_cfg.o ./HWLIBS/lcd.o  ./BSP/OS/bsp_os.o  ./BSP/ARM_Compiler/armv7a_tthelp.o ./BSP/ARM_Compiler/bsp_cache.o ./BSP/ARM_Compiler/startup.o  ./BSP/bsp.o ./BSP/bsp_int.o ./BSP/cpu_bsp.o  ./APP/app.o   
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+       688         84          0          0      49152       3323   app.o
+        96          0          0          0          0        572   armv7a_tthelp.o
+       448          8          0          0          0       3135   audio.o
+        32          0          0          0          0        591   audio_cfg.o
+       136         16          0          0          0       1701   bsp.o
+       436          0          0          0          0        904   bsp_cache.o
+       832         32          0          0       1024       5835   bsp_int.o
+       280         12          0          0          0       3002   bsp_os.o
+        96          0          0          0          0        792   cpu_a.o
+       220          4          0          0          0       1332   cpu_bsp.o
+        44         12          0          8          0        942   cpu_cache_armv7_generic_l1_l2c310_l2.o
+       204          0          0          0          0        680   cpu_cache_armv7_generic_l1_l2c310_l2_a.o
+       888         20        260          4          0       6920   cpu_core.o
+      1440        276          0          9          0       2585   lcd.o
+         0          0          0          0          0      13532   lib_ascii.o
+         0          0          0          0          0       1508   lib_math.o
+      5136         76          0          4   16777236      27601   lib_mem.o
+      5836        160        256         80      10920      24563   os_core.o
+       988          0          0          0          0        556   os_cpu_a_vfp-d32.o
+       608         36          0         12       4096      14781   os_cpu_c.o
+       376        184        118          0          0      12165   os_dbg_r.o
+      3768         36          0          0          0       7744   os_flag.o
+      1096         16          0          0          0       3776   os_mem.o
+      2916         28          0          0          0       6257   os_q.o
+      1832         20          0          0          0       4518   os_sem.o
+      3992         48          0          0          0       9044   os_task.o
+       796         28          0          0          0       1982   os_time.o
+       496         76          0          0          0        788   startup.o
+
+    ----------------------------------------------------------------------
+     33688       1180        652        120   50441916     161129   Object Totals
+         0          0         16          0   33599488          0   (incl. Generated)
+         8          8          2          3          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         8          0          0          0          0         68   __main.o
+       104          0          0          0          0         84   __printf.o
+         0          0          0          0          0          0   __rtentry.o
+        12          0          0          0          0          0   __rtentry2.o
+         8          4          0          0          0          0   __rtentry6.o
+        52          8          0          0          0          0   __scatter.o
+        28          0          0          0          0          0   __scatter_zi.o
+        48          6          0          0          0         96   _printf_char_common.o
+        36          4          0          0          0         80   _printf_char_file.o
+       112         16          0          0          0         92   _printf_dec.o
+         6          0          0          0          0          0   _printf_i.o
+       178          0          0          0          0         88   _printf_intcommon.o
+         0          0          0          0          0          0   _printf_percent.o
+         4          0          0          0          0          0   _printf_percent_end.o
+        22          0          0          0          0        100   _rserrno.o
+       416          0          0          0          0        144   aeabi_sdiv.o
+        10          0          0          0          0         68   defsig_exit.o
+        50          0          0          0          0         88   defsig_general.o
+        80         58          0          0          0         76   defsig_rtmem_inner.o
+        14          0          0          0          0         80   defsig_rtmem_outer.o
+        52         38          0          0          0         76   defsig_rtred_inner.o
+        14          0          0          0          0         80   defsig_rtred_outer.o
+        18          0          0          0          0         80   exit.o
+        76          0          0          0          0         88   fclose.o
+         8          0          0          0          0         68   ferror.o
+       470          0          0          0          0         88   flsbuf.o
+       236          4          0          0          0        128   fopen.o
+        26          0          0          0          0         68   fputc.o
+       248          6          0          0          0         84   fseek.o
+        66          0          0          0          0         76   ftell.o
+        94          0          0          0          0         80   h1_alloc.o
+        48          0          0          0          0         68   h1_extend.o
+        78          0          0          0          0         80   h1_free.o
+        14          0          0          0          0         84   h1_init.o
+        80          6          0          4          0         96   heapauxa.o
+         4          0          0          0          0        136   hguard.o
+         0          0          0          0          0          0   indicate_semi.o
+       136          0          0          0          0        168   init_alloc.o
+       312         46          0          0          0        112   initio.o
+         2          0          0          0          0          0   libinit.o
+        10          0          0          0          0          0   libinit2.o
+        16          8          0          0          0          0   libinit4.o
+         2          0          0          0          0          0   libshutdown.o
+         6          0          0          0          0          0   libshutdown2.o
+         0          0          0          0         96          0   libspace.o
+       816         64          0          0          0         84   lludiv5.o
+         0          0          0          0          0          0   maybetermalloc1.o
+        24          4          0          0          0         84   noretval__2printf.o
+         8          4          0          0          0         68   rt_errno_addr_intlibspace.o
+         8          4          0          0          0         68   rt_heap_descriptor_intlibspace.o
+        80          0          0          0          0        172   rt_neon_memclr_w.o
+         2          0          0          0          0          0   rtexit.o
+        10          0          0          0          0          0   rtexit2.o
+        44          0          0          0          0         68   rtudiv10.o
+        70          0          0          0          0         80   setvbuf.o
+       240          6          0          0          0        156   stdio.o
+         0          0          0         12        252          0   stdio_streams.o
+        58          0          0          0          0         68   strlen.o
+        12          4          0          0          0         68   sys_exit.o
+       102          0         12          0          0        240   sys_io.o
+        14          0          0          0          0         76   sys_wrch.o
+         2          0          0          0          0         68   use_no_semi.o
+        10          0          0          0          0        116   fpinit.o
+         0          0          0          0          0          0   usenofp.o
+       216         40         48          0          0        164   cos_i.o
+        48         28          0          0          0        232   dunder.o
+        24          0          0          0          0        124   fabs.o
+        48          0          0          0          0        124   fpclassify.o
+       122          0          0          0          0        116   poly.o
+       784        148        200          0          0        172   rred.o
+       180         22          0          0          0        160   sin.o
+       168         24         40          0          0        196   sin_i.o
+
+    ----------------------------------------------------------------------
+      6316        556        300         16        348       5428   Library Totals
+        22          4          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+      4694        290         12         16        348       4024   c_2.l
+        10          0          0          0          0        116   fz_2v.l
+      1590        262        288          0          0       1288   m_2v.l
+
+    ----------------------------------------------------------------------
+      6316        556        300         16        348       5428   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+     40004       1736        952        136   50442264     159025   Grand Totals
+     40004       1736        952        136   50442264     159025   ELF Image Totals
+     40004       1736        952        136          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                40956 (  40.00kB)
+    Total RW  Size (RW Data + ZI Data)          50442400 (49260.16kB)
+    Total ROM Size (Code + RO Data + RW Data)      41092 (  40.13kB)
+
+==============================================================================
+
+'Finished building target: LaserHarpG6W18.axf'
+' '
+16:14:16 **** Incremental Build of configuration Debug for project LaserHarpG6W18 ****
+make all 
+'Building file: ../HWLIBS/audio.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="HWLIBS" -c -o "HWLIBS/audio.o" "../HWLIBS/audio.c"
+"../HWLIBS/audio.c", line 24: Warning:  #1254-D: arithmetic on pointer to void or function type
+  		fifospace = 
+lt_read_word(AUDIO_BASE + AUDIO_FIFOSPACE_OFFSET);
+  		            ^
+"../HWLIBS/audio.c", line 32: Warning:  #1254-D: arithmetic on pointer to void or function type
+  			
+lt_write_word(AUDIO_BASE + AUDIO_LEFTDATA_OFFSET, buffer[count]);
+  			^
+"../HWLIBS/audio.c", line 33: Warning:  #1254-D: arithmetic on pointer to void or function type
+  			
+lt_write_word(AUDIO_BASE + AUDIO_RIGHTDATA_OFFSET, buffer[count]);
+  			^
+../HWLIBS/audio.c: 3 warnings, 0 errors
+'Finished building: ../HWLIBS/audio.c'
+' '
+'Building file: ../APP/app.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="APP" -c -o "APP/app.o" "../APP/app.c"
+"../APP/app.c", line 245: Warning:  #223-D: function "malloc" declared implicitly
+      INT32S* lbuffer = (INT32S*) malloc(44100 * sizeof(INT32S));
+                                  ^
+"../APP/app.c", line 293: Warning:  #223-D: function "InitLCD" declared implicitly
+  	InitLCD();
+  	^
+"../APP/app.c", line 294: Warning:  #223-D: function "HomeLCD" declared implicitly
+  	HomeLCD();
+  	^
+"../APP/app.c", line 295: Warning:  #223-D: function "PrintStringLCD" declared implicitly
+  	PrintStringLCD("Hello World\n");
+  	^
+../APP/app.c: 4 warnings, 0 errors
+'Finished building: ../APP/app.c'
+' '
+'Building target: LaserHarpG6W18.axf'
+'Invoking: ARM Linker 5'
+armlink --cpu=Cortex-A9 --entry=Start --scatter=""C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/BSP/ARM_COMPILER/scatter.scat"" --info=sizes -o "LaserHarpG6W18.axf"  ./uCOS-II/Source/os_core.o ./uCOS-II/Source/os_dbg_r.o ./uCOS-II/Source/os_flag.o ./uCOS-II/Source/os_mbox.o ./uCOS-II/Source/os_mem.o ./uCOS-II/Source/os_mutex.o ./uCOS-II/Source/os_q.o ./uCOS-II/Source/os_sem.o ./uCOS-II/Source/os_task.o ./uCOS-II/Source/os_time.o ./uCOS-II/Source/os_tmr.o  ./uCOS-II/Ports/os_cpu_a_vfp-d32.o ./uCOS-II/Ports/os_cpu_c.o  ./uC-LIBS/lib_ascii.o ./uC-LIBS/lib_math.o ./uC-LIBS/lib_mem.o ./uC-LIBS/lib_str.o  ./uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2.o ./uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2_a.o  ./uC-CPU/ARM-Cortex-A/cpu_a.o  ./uC-CPU/cpu_core.o  ./HWLIBS/alt_16550_uart.o ./HWLIBS/alt_bridge_manager.o ./HWLIBS/alt_clock_manager.o ./HWLIBS/alt_fpga_manager.o ./HWLIBS/audio.o ./HWLIBS/audio_cfg.o ./HWLIBS/lcd.o  ./BSP/OS/bsp_os.o  ./BSP/ARM_Compiler/armv7a_tthelp.o ./BSP/ARM_Compiler/bsp_cache.o ./BSP/ARM_Compiler/startup.o  ./BSP/bsp.o ./BSP/bsp_int.o ./BSP/cpu_bsp.o  ./APP/app.o   
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+       688         84          0          0      49152       3323   app.o
+        96          0          0          0          0        572   armv7a_tthelp.o
+        96          4          0          0          0       1219   audio.o
+        32          0          0          0          0        591   audio_cfg.o
+       136         16          0          0          0       1701   bsp.o
+       436          0          0          0          0        904   bsp_cache.o
+       832         32          0          0       1024       5835   bsp_int.o
+       280         12          0          0          0       3002   bsp_os.o
+        96          0          0          0          0        792   cpu_a.o
+       220          4          0          0          0       1332   cpu_bsp.o
+        44         12          0          8          0        942   cpu_cache_armv7_generic_l1_l2c310_l2.o
+       204          0          0          0          0        680   cpu_cache_armv7_generic_l1_l2c310_l2_a.o
+       888         20        260          4          0       6920   cpu_core.o
+      1440        276          0          9          0       2585   lcd.o
+         0          0          0          0          0      13532   lib_ascii.o
+         0          0          0          0          0       1508   lib_math.o
+      5136         76          0          4   16777236      27601   lib_mem.o
+      5836        160        256         80      10920      24563   os_core.o
+       988          0          0          0          0        556   os_cpu_a_vfp-d32.o
+       608         36          0         12       4096      14781   os_cpu_c.o
+       376        184        118          0          0      12165   os_dbg_r.o
+      3768         36          0          0          0       7744   os_flag.o
+      1096         16          0          0          0       3776   os_mem.o
+      2916         28          0          0          0       6257   os_q.o
+      1832         20          0          0          0       4518   os_sem.o
+      3992         48          0          0          0       9044   os_task.o
+       796         28          0          0          0       1982   os_time.o
+       496         76          0          0          0        788   startup.o
+
+    ----------------------------------------------------------------------
+     33336       1176        652        120   50441916     159213   Object Totals
+         0          0         16          0   33599488          0   (incl. Generated)
+         8          8          2          3          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         8          0          0          0          0         68   __main.o
+       104          0          0          0          0         84   __printf.o
+         0          0          0          0          0          0   __rtentry.o
+        12          0          0          0          0          0   __rtentry2.o
+         8          4          0          0          0          0   __rtentry6.o
+        52          8          0          0          0          0   __scatter.o
+        28          0          0          0          0          0   __scatter_zi.o
+        48          6          0          0          0         96   _printf_char_common.o
+        36          4          0          0          0         80   _printf_char_file.o
+       112         16          0          0          0         92   _printf_dec.o
+         6          0          0          0          0          0   _printf_i.o
+       178          0          0          0          0         88   _printf_intcommon.o
+         0          0          0          0          0          0   _printf_percent.o
+         4          0          0          0          0          0   _printf_percent_end.o
+        22          0          0          0          0        100   _rserrno.o
+       416          0          0          0          0        144   aeabi_sdiv.o
+        10          0          0          0          0         68   defsig_exit.o
+        50          0          0          0          0         88   defsig_general.o
+        80         58          0          0          0         76   defsig_rtmem_inner.o
+        14          0          0          0          0         80   defsig_rtmem_outer.o
+        52         38          0          0          0         76   defsig_rtred_inner.o
+        14          0          0          0          0         80   defsig_rtred_outer.o
+        18          0          0          0          0         80   exit.o
+        76          0          0          0          0         88   fclose.o
+         8          0          0          0          0         68   ferror.o
+       470          0          0          0          0         88   flsbuf.o
+       236          4          0          0          0        128   fopen.o
+        26          0          0          0          0         68   fputc.o
+       248          6          0          0          0         84   fseek.o
+        66          0          0          0          0         76   ftell.o
+        94          0          0          0          0         80   h1_alloc.o
+        48          0          0          0          0         68   h1_extend.o
+        78          0          0          0          0         80   h1_free.o
+        14          0          0          0          0         84   h1_init.o
+        80          6          0          4          0         96   heapauxa.o
+         4          0          0          0          0        136   hguard.o
+         0          0          0          0          0          0   indicate_semi.o
+       136          0          0          0          0        168   init_alloc.o
+       312         46          0          0          0        112   initio.o
+         2          0          0          0          0          0   libinit.o
+        10          0          0          0          0          0   libinit2.o
+        16          8          0          0          0          0   libinit4.o
+         2          0          0          0          0          0   libshutdown.o
+         6          0          0          0          0          0   libshutdown2.o
+         0          0          0          0         96          0   libspace.o
+       816         64          0          0          0         84   lludiv5.o
+         0          0          0          0          0          0   maybetermalloc1.o
+        24          4          0          0          0         84   noretval__2printf.o
+         8          4          0          0          0         68   rt_errno_addr_intlibspace.o
+         8          4          0          0          0         68   rt_heap_descriptor_intlibspace.o
+        80          0          0          0          0        172   rt_neon_memclr_w.o
+         2          0          0          0          0          0   rtexit.o
+        10          0          0          0          0          0   rtexit2.o
+        44          0          0          0          0         68   rtudiv10.o
+        70          0          0          0          0         80   setvbuf.o
+       240          6          0          0          0        156   stdio.o
+         0          0          0         12        252          0   stdio_streams.o
+        58          0          0          0          0         68   strlen.o
+        12          4          0          0          0         68   sys_exit.o
+       102          0         12          0          0        240   sys_io.o
+        14          0          0          0          0         76   sys_wrch.o
+         2          0          0          0          0         68   use_no_semi.o
+        10          0          0          0          0        116   fpinit.o
+         0          0          0          0          0          0   usenofp.o
+       216         40         48          0          0        164   cos_i.o
+        48         28          0          0          0        232   dunder.o
+        24          0          0          0          0        124   fabs.o
+        48          0          0          0          0        124   fpclassify.o
+       122          0          0          0          0        116   poly.o
+       784        148        200          0          0        172   rred.o
+       180         22          0          0          0        160   sin.o
+       168         24         40          0          0        196   sin_i.o
+
+    ----------------------------------------------------------------------
+      6316        556        300         16        348       5428   Library Totals
+        22          4          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+      4694        290         12         16        348       4024   c_2.l
+        10          0          0          0          0        116   fz_2v.l
+      1590        262        288          0          0       1288   m_2v.l
+
+    ----------------------------------------------------------------------
+      6316        556        300         16        348       5428   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+     39652       1732        952        136   50442264     157209   Grand Totals
+     39652       1732        952        136   50442264     157209   ELF Image Totals
+     39652       1732        952        136          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                40604 (  39.65kB)
+    Total RW  Size (RW Data + ZI Data)          50442400 (49260.16kB)
+    Total ROM Size (Code + RO Data + RW Data)      40740 (  39.79kB)
+
+==============================================================================
+
+'Finished building target: LaserHarpG6W18.axf'
+' '

@@ -259,14 +259,14 @@ static  void  AudioTaskStart (void *p_arg)
     write_audio_cfg_register(0x9, 0x01);
 
 	int i;
-	for(i = 0; i < 44100; i++) {
-		lbuffer[i] = (INT32S) 2000 * sin(660 * 2 * M_PI * i / 44100);
+	for(i = 0; i < 32000; i++) {
+		lbuffer[i] = (INT32S) 30000 * sin(441 * 2 * M_PI * i / 32000);
 	}
 
     for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
 
-        write_audio_data(lbuffer, 44100);
+        write_audio_data(lbuffer, 32000);
 
     }
 

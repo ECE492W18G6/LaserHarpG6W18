@@ -30,7 +30,8 @@ port (
 	sin_out5  : out std_logic_vector(11 downto 0);
 	sin_out6  : out std_logic_vector(11 downto 0);
 	sin_out7  : out std_logic_vector(11 downto 0);
-	sin_out7  : out std_logic_vector(11 downto 0));
+	sin_out8  : out std_logic_vector(11 downto 0)
+	);
 end entity;
 
 

@@ -19,7 +19,7 @@
 	use ieee.VITAL_Primitives.all;
 
 
-	entity LaserHarpG6W18 is
+entity LaserHarpG6W18 is
 	
 	port
 	(

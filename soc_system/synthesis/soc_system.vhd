@@ -327,19 +327,6 @@ architecture rtl of soc_system is
 		);
 	end component soc_system_sysid_qsys_0;
 
-	component soc_system_timer_0 is
-		port (
-			clk        : in  std_logic                     := 'X';             -- clk
-			reset_n    : in  std_logic                     := 'X';             -- reset_n
-			address    : in  std_logic_vector(2 downto 0)  := (others => 'X'); -- address
-			writedata  : in  std_logic_vector(15 downto 0) := (others => 'X'); -- writedata
-			readdata   : out std_logic_vector(15 downto 0);                    -- readdata
-			chipselect : in  std_logic                     := 'X';             -- chipselect
-			write_n    : in  std_logic                     := 'X';             -- write_n
-			irq        : out std_logic                                         -- irq
-		);
-	end component soc_system_timer_0;
-
 	component soc_system_mm_interconnect_0 is
 		port (
 			hps_0_h2f_lw_axi_master_awid                                        : in  std_logic_vector(11 downto 0) := (others => 'X'); -- awid
@@ -432,12 +419,7 @@ architecture rtl of soc_system is
 			switches_s1_writedata                                               : out std_logic_vector(31 downto 0);                    -- writedata
 			switches_s1_chipselect                                              : out std_logic;                                        -- chipselect
 			sysid_qsys_0_control_slave_address                                  : out std_logic_vector(0 downto 0);                     -- address
-			sysid_qsys_0_control_slave_readdata                                 : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
-			timer_0_s1_address                                                  : out std_logic_vector(2 downto 0);                     -- address
-			timer_0_s1_write                                                    : out std_logic;                                        -- write
-			timer_0_s1_readdata                                                 : in  std_logic_vector(15 downto 0) := (others => 'X'); -- readdata
-			timer_0_s1_writedata                                                : out std_logic_vector(15 downto 0);                    -- writedata
-			timer_0_s1_chipselect                                               : out std_logic                                         -- chipselect
+			sysid_qsys_0_control_slave_readdata                                 : in  std_logic_vector(31 downto 0) := (others => 'X')  -- readdata
 		);
 	end component soc_system_mm_interconnect_0;
 
@@ -451,7 +433,6 @@ architecture rtl of soc_system is
 			receiver3_irq : in  std_logic                     := 'X'; -- irq
 			receiver4_irq : in  std_logic                     := 'X'; -- irq
 			receiver5_irq : in  std_logic                     := 'X'; -- irq
-			receiver6_irq : in  std_logic                     := 'X'; -- irq
 			sender_irq    : out std_logic_vector(31 downto 0)         -- irq
 		);
 	end component soc_system_irq_mapper;
@@ -684,18 +665,12 @@ architecture rtl of soc_system is
 	signal mm_interconnect_0_button_3_s1_address                                         : std_logic_vector(1 downto 0);  -- mm_interconnect_0:button_3_s1_address -> button_3:address
 	signal mm_interconnect_0_button_3_s1_write                                           : std_logic;                     -- mm_interconnect_0:button_3_s1_write -> mm_interconnect_0_button_3_s1_write:in
 	signal mm_interconnect_0_button_3_s1_writedata                                       : std_logic_vector(31 downto 0); -- mm_interconnect_0:button_3_s1_writedata -> button_3:writedata
-	signal mm_interconnect_0_timer_0_s1_chipselect                                       : std_logic;                     -- mm_interconnect_0:timer_0_s1_chipselect -> timer_0:chipselect
-	signal mm_interconnect_0_timer_0_s1_readdata                                         : std_logic_vector(15 downto 0); -- timer_0:readdata -> mm_interconnect_0:timer_0_s1_readdata
-	signal mm_interconnect_0_timer_0_s1_address                                          : std_logic_vector(2 downto 0);  -- mm_interconnect_0:timer_0_s1_address -> timer_0:address
-	signal mm_interconnect_0_timer_0_s1_write                                            : std_logic;                     -- mm_interconnect_0:timer_0_s1_write -> mm_interconnect_0_timer_0_s1_write:in
-	signal mm_interconnect_0_timer_0_s1_writedata                                        : std_logic_vector(15 downto 0); -- mm_interconnect_0:timer_0_s1_writedata -> timer_0:writedata
 	signal irq_mapper_receiver0_irq                                                      : std_logic;                     -- audio_0:irq -> irq_mapper:receiver0_irq
-	signal irq_mapper_receiver1_irq                                                      : std_logic;                     -- timer_0:irq -> irq_mapper:receiver1_irq
-	signal irq_mapper_receiver2_irq                                                      : std_logic;                     -- switches:irq -> irq_mapper:receiver2_irq
-	signal irq_mapper_receiver3_irq                                                      : std_logic;                     -- button_0:irq -> irq_mapper:receiver3_irq
-	signal irq_mapper_receiver4_irq                                                      : std_logic;                     -- button_1:irq -> irq_mapper:receiver4_irq
-	signal irq_mapper_receiver5_irq                                                      : std_logic;                     -- button_2:irq -> irq_mapper:receiver5_irq
-	signal irq_mapper_receiver6_irq                                                      : std_logic;                     -- button_3:irq -> irq_mapper:receiver6_irq
+	signal irq_mapper_receiver1_irq                                                      : std_logic;                     -- switches:irq -> irq_mapper:receiver1_irq
+	signal irq_mapper_receiver2_irq                                                      : std_logic;                     -- button_0:irq -> irq_mapper:receiver2_irq
+	signal irq_mapper_receiver3_irq                                                      : std_logic;                     -- button_1:irq -> irq_mapper:receiver3_irq
+	signal irq_mapper_receiver4_irq                                                      : std_logic;                     -- button_2:irq -> irq_mapper:receiver4_irq
+	signal irq_mapper_receiver5_irq                                                      : std_logic;                     -- button_3:irq -> irq_mapper:receiver5_irq
 	signal hps_0_f2h_irq0_irq                                                            : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> hps_0:f2h_irq_p0
 	signal hps_0_f2h_irq1_irq                                                            : std_logic_vector(31 downto 0); -- irq_mapper_001:sender_irq -> hps_0:f2h_irq_p1
 	signal rst_controller_reset_out_reset                                                : std_logic;                     -- rst_controller:reset_out -> [audio_0:reset, audio_and_video_config_0:reset, character_lcd_0:reset, mm_interconnect_0:audio_0_reset_reset_bridge_in_reset_reset, rst_controller_reset_out_reset:in]
@@ -709,8 +684,7 @@ architecture rtl of soc_system is
 	signal mm_interconnect_0_button_1_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_1_s1_write:inv -> button_1:write_n
 	signal mm_interconnect_0_button_2_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_2_s1_write:inv -> button_2:write_n
 	signal mm_interconnect_0_button_3_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_3_s1_write:inv -> button_3:write_n
-	signal mm_interconnect_0_timer_0_s1_write_ports_inv                                  : std_logic;                     -- mm_interconnect_0_timer_0_s1_write:inv -> timer_0:write_n
-	signal rst_controller_reset_out_reset_ports_inv                                      : std_logic;                     -- rst_controller_reset_out_reset:inv -> [button_0:reset_n, button_1:reset_n, button_2:reset_n, button_3:reset_n, red_leds:reset_n, switches:reset_n, sysid_qsys_0:reset_n, timer_0:reset_n]
+	signal rst_controller_reset_out_reset_ports_inv                                      : std_logic;                     -- rst_controller_reset_out_reset:inv -> [button_0:reset_n, button_1:reset_n, button_2:reset_n, button_3:reset_n, red_leds:reset_n, switches:reset_n, sysid_qsys_0:reset_n]
 	signal hps_0_h2f_reset_reset_ports_inv                                               : std_logic;                     -- hps_0_h2f_reset_reset:inv -> [rst_controller:reset_in1, rst_controller_001:reset_in1, rst_controller_002:reset_in0]
 
 begin
@@ -758,7 +732,7 @@ begin
 			chipselect => mm_interconnect_0_button_0_s1_chipselect,      --                    .chipselect
 			readdata   => mm_interconnect_0_button_0_s1_readdata,        --                    .readdata
 			in_port    => button_0_external_connection_export,           -- external_connection.export
-			irq        => irq_mapper_receiver3_irq                       --                 irq.irq
+			irq        => irq_mapper_receiver2_irq                       --                 irq.irq
 		);
 
 	button_1 : component soc_system_button_0
@@ -771,7 +745,7 @@ begin
 			chipselect => mm_interconnect_0_button_1_s1_chipselect,      --                    .chipselect
 			readdata   => mm_interconnect_0_button_1_s1_readdata,        --                    .readdata
 			in_port    => button_1_external_connection_export,           -- external_connection.export
-			irq        => irq_mapper_receiver4_irq                       --                 irq.irq
+			irq        => irq_mapper_receiver3_irq                       --                 irq.irq
 		);
 
 	button_2 : component soc_system_button_0
@@ -784,7 +758,7 @@ begin
 			chipselect => mm_interconnect_0_button_2_s1_chipselect,      --                    .chipselect
 			readdata   => mm_interconnect_0_button_2_s1_readdata,        --                    .readdata
 			in_port    => button_2_external_connection_export,           -- external_connection.export
-			irq        => irq_mapper_receiver5_irq                       --                 irq.irq
+			irq        => irq_mapper_receiver4_irq                       --                 irq.irq
 		);
 
 	button_3 : component soc_system_button_0
@@ -797,7 +771,7 @@ begin
 			chipselect => mm_interconnect_0_button_3_s1_chipselect,      --                    .chipselect
 			readdata   => mm_interconnect_0_button_3_s1_readdata,        --                    .readdata
 			in_port    => button_3_external_connection_export,           -- external_connection.export
-			irq        => irq_mapper_receiver6_irq                       --                 irq.irq
+			irq        => irq_mapper_receiver5_irq                       --                 irq.irq
 		);
 
 	character_lcd_0 : component soc_system_character_lcd_0
@@ -962,7 +936,7 @@ begin
 			chipselect => mm_interconnect_0_switches_s1_chipselect,      --                    .chipselect
 			readdata   => mm_interconnect_0_switches_s1_readdata,        --                    .readdata
 			in_port    => switches_external_connection_export,           -- external_connection.export
-			irq        => irq_mapper_receiver2_irq                       --                 irq.irq
+			irq        => irq_mapper_receiver1_irq                       --                 irq.irq
 		);
 
 	sysid_qsys_0 : component soc_system_sysid_qsys_0
@@ -971,18 +945,6 @@ begin
 			reset_n  => rst_controller_reset_out_reset_ports_inv,                --         reset.reset_n
 			readdata => mm_interconnect_0_sysid_qsys_0_control_slave_readdata,   -- control_slave.readdata
 			address  => mm_interconnect_0_sysid_qsys_0_control_slave_address(0)  --              .address
-		);
-
-	timer_0 : component soc_system_timer_0
-		port map (
-			clk        => clk_clk,                                      --   clk.clk
-			reset_n    => rst_controller_reset_out_reset_ports_inv,     -- reset.reset_n
-			address    => mm_interconnect_0_timer_0_s1_address,         --    s1.address
-			writedata  => mm_interconnect_0_timer_0_s1_writedata,       --      .writedata
-			readdata   => mm_interconnect_0_timer_0_s1_readdata,        --      .readdata
-			chipselect => mm_interconnect_0_timer_0_s1_chipselect,      --      .chipselect
-			write_n    => mm_interconnect_0_timer_0_s1_write_ports_inv, --      .write_n
-			irq        => irq_mapper_receiver1_irq                      --   irq.irq
 		);
 
 	mm_interconnect_0 : component soc_system_mm_interconnect_0
@@ -1077,12 +1039,7 @@ begin
 			switches_s1_writedata                                               => mm_interconnect_0_switches_s1_writedata,                                       --                                                              .writedata
 			switches_s1_chipselect                                              => mm_interconnect_0_switches_s1_chipselect,                                      --                                                              .chipselect
 			sysid_qsys_0_control_slave_address                                  => mm_interconnect_0_sysid_qsys_0_control_slave_address,                          --                                    sysid_qsys_0_control_slave.address
-			sysid_qsys_0_control_slave_readdata                                 => mm_interconnect_0_sysid_qsys_0_control_slave_readdata,                         --                                                              .readdata
-			timer_0_s1_address                                                  => mm_interconnect_0_timer_0_s1_address,                                          --                                                    timer_0_s1.address
-			timer_0_s1_write                                                    => mm_interconnect_0_timer_0_s1_write,                                            --                                                              .write
-			timer_0_s1_readdata                                                 => mm_interconnect_0_timer_0_s1_readdata,                                         --                                                              .readdata
-			timer_0_s1_writedata                                                => mm_interconnect_0_timer_0_s1_writedata,                                        --                                                              .writedata
-			timer_0_s1_chipselect                                               => mm_interconnect_0_timer_0_s1_chipselect                                        --                                                              .chipselect
+			sysid_qsys_0_control_slave_readdata                                 => mm_interconnect_0_sysid_qsys_0_control_slave_readdata                          --                                                              .readdata
 		);
 
 	irq_mapper : component soc_system_irq_mapper
@@ -1095,7 +1052,6 @@ begin
 			receiver3_irq => irq_mapper_receiver3_irq, -- receiver3.irq
 			receiver4_irq => irq_mapper_receiver4_irq, -- receiver4.irq
 			receiver5_irq => irq_mapper_receiver5_irq, -- receiver5.irq
-			receiver6_irq => irq_mapper_receiver6_irq, -- receiver6.irq
 			sender_irq    => hps_0_f2h_irq0_irq        --    sender.irq
 		);
 
@@ -1314,8 +1270,6 @@ begin
 	mm_interconnect_0_button_2_s1_write_ports_inv <= not mm_interconnect_0_button_2_s1_write;
 
 	mm_interconnect_0_button_3_s1_write_ports_inv <= not mm_interconnect_0_button_3_s1_write;
-
-	mm_interconnect_0_timer_0_s1_write_ports_inv <= not mm_interconnect_0_timer_0_s1_write;
 
 	rst_controller_reset_out_reset_ports_inv <= not rst_controller_reset_out_reset;
 

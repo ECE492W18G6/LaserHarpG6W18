@@ -51,13 +51,5 @@
 #define AUDIO_LEFTDATA_OFFSET 8
 #define AUDIO_RIGHTDATA_OFFSET 12
 
-void reset_audio_core();
-void enable_audio_read_interrupt();
-void disable_audio_read_interrupt();
-void enable_audio_write_interrupt();
-void disable_audio_write_interrupt();
-INT32U is_audio_read_interrupt_pending();
-INT32U is_audio_write_interrupt_pending();
-INT32U read_audio_data(INT32U * buffer, INT32U len, INT32U channel);
 INT32U write_audio_data(INT32S * buffer, INT32U len);
 

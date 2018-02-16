@@ -262,6 +262,14 @@
          type = "String";
       }
    }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
    element switches
    {
       datum _sortIndex
@@ -1464,11 +1472,6 @@
    kind="clock"
    version="17.0"
    start="clk_0.clk"
-   end="Synthesizer_0.clock_sink" />
- <connection
-   kind="clock"
-   version="17.0"
-   start="clk_0.clk"
    end="SampleRateClk_0.clock_sink" />
  <connection
    kind="clock"
@@ -1476,11 +1479,6 @@
    start="clk_0.clk"
    end="hps_0.h2f_lw_axi_clock" />
  <connection kind="clock" version="17.0" start="clk_0.clk" end="pll_0.refclk" />
- <connection
-   kind="clock"
-   version="17.0"
-   start="SampleRateClk_0.clock_source"
-   end="Synthesizer_0.clock_sink_1" />
  <connection
    kind="interrupt"
    version="17.0"

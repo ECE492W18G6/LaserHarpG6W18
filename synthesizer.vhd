@@ -32,15 +32,15 @@ entity synthesizer is
 	data_out5 : out std_logic_vector(11 downto 0);
 	data_out6 : out std_logic_vector(11 downto 0);
 	data_out7 : out std_logic_vector(11 downto 0);
-	data_out8 : out std_logic_vector(11 downto 0); 
+	data_out8 : out std_logic_vector(11 downto 0) 
 	);
 
-end entitiy synthesizer;
+end synthesizer;
 
 
 architecture full_dds of synthesizer is
 
-component sine_lut is 
+component sin_lut is 
 
 	port (
 	clk : in std_logic;
@@ -48,27 +48,27 @@ component sine_lut is
 
 	-- take in the values from the phase accumulator.
 	-- All of the address inputs.
-	address_reg1 : in std-logic_vector(11 downto 0); 
-	address_reg2 : in std-logic_vector(11 downto 0);
-	address_reg3 : in std-logic_vector(11 downto 0);
-	address_reg4 : in std-logic_vector(11 downto 0);
-	address_reg5 : in std-logic_vector(11 downto 0);
-	address_reg6 : in std-logic_vector(11 downto 0);
-	address_reg7 : in std-logic_vector(11 downto 0);
-	address_reg8 : in std-logic_vector(11 downto 0);
+	address_reg1 : in std_logic_vector(11 downto 0); 
+	address_reg2 : in std_logic_vector(11 downto 0);
+	address_reg3 : in std_logic_vector(11 downto 0);
+	address_reg4 : in std_logic_vector(11 downto 0);
+	address_reg5 : in std_logic_vector(11 downto 0);
+	address_reg6 : in std_logic_vector(11 downto 0);
+	address_reg7 : in std_logic_vector(11 downto 0);
+	address_reg8 : in std_logic_vector(11 downto 0);
 
 	-- All of the sine outputs.
-	data_out1 : out std_logic_vector(11 downto 0);
-	data_out2 : out std_logic_vector(11 downto 0);
-	data_out3 : out std_logic_vector(11 downto 0);
-	data_out4 : out std_logic_vector(11 downto 0);
-	data_out5 : out std_logic_vector(11 downto 0);
-	data_out6 : out std_logic_vector(11 downto 0);
-	data_out7 : out std_logic_vector(11 downto 0);
-	data_out8 : out std_logic_vector(11 downto 0);
-	)
+	sin_out1  : out std_logic_vector(11 downto 0);
+	sin_out2  : out std_logic_vector(11 downto 0);
+	sin_out3  : out std_logic_vector(11 downto 0);
+	sin_out4  : out std_logic_vector(11 downto 0);
+	sin_out5  : out std_logic_vector(11 downto 0);
+	sin_out6  : out std_logic_vector(11 downto 0);
+	sin_out7  : out std_logic_vector(11 downto 0);
+	sin_out8  : out std_logic_vector(11 downto 0)
+	);
 
-end component sine_lut;
+end component sin_lut;
 
 signal phase_acc1 : std_logic_vector(31 downto 0);
 signal phase_acc2 : std_logic_vector(31 downto 0);
@@ -115,16 +115,16 @@ dds : process(clk, reset)
 begin
 
 	if (reset = '0') then
-		phase_acc1 <= x"00000000" -- reset accumulator.
-		phase_acc2 <= x"00000000" -- reset accumulator.
-		phase_acc3 <= x"00000000" -- reset accumulator.
-		phase_acc4 <= x"00000000" -- reset accumulator.
-		phase_acc5 <= x"00000000" -- reset accumulator.
-		phase_acc6 <= x"00000000" -- reset accumulator.
-		phase_acc7 <= x"00000000" -- reset accumulator.
-		phase_acc8 <= x"00000000" -- reset accumulator.
+		phase_acc1 <= x"00000000"; -- reset accumulator.
+		phase_acc2 <= x"00000000"; -- reset accumulator.
+		phase_acc3 <= x"00000000"; -- reset accumulator.
+		phase_acc4 <= x"00000000"; -- reset accumulator.
+		phase_acc5 <= x"00000000"; -- reset accumulator.
+		phase_acc6 <= x"00000000"; -- reset accumulator.
+		phase_acc7 <= x"00000000"; -- reset accumulator.
+		phase_acc8 <= x"00000000"; -- reset accumulator.
 
-	else if (rising_edge(clk)) then 
+	elsif (rising_edge(clk)) then 
 		-- at every falling edge, we are adding/changing the phase to the accumulator.
 		phase_acc1 <= unsigned(phase_acc1) + unsigned(phase_reg1);
 		phase_acc2 <= unsigned(phase_acc2) + unsigned(phase_reg2);
@@ -189,12 +189,13 @@ lut_data8 <= phase_acc6(31 downto 20);
 -- Phase resolution is 2Pi/4096 = 0.088 degrees                     --
 ----------------------------------------------------------------------
 
-lut: sin_lut
+lut: component sin_lut
 
   port map
   (
     	clk       => clk,
-    	--en        => en,
+    	reset		=> reset,
+		--en        => en,
 	 
     	address_reg1      => lut_data1,
 	address_reg2      => lut_data2,
@@ -204,15 +205,15 @@ lut: sin_lut
 	address_reg6      => lut_data6,
 	address_reg7      => lut_data7,
 	address_reg8      => lut_data8,
-	 
-	data_out1   => sin_out1,
-	data_out2   => sin_out2,
-	data_out3   => sin_out3,
-	data_out4   => sin_out4,
-	data_out5   => sin_out5,
-	data_out6   => sin_out6,
-	data_out7   => sin_out7,
-	data_out8   => sin_out8
+	
+	sin_out1 	=> data_out1,
+	sin_out2 	=> data_out2,
+	sin_out3 	=> data_out3,
+	sin_out4 	=> data_out4,
+	sin_out5 	=> data_out5,
+	sin_out6 	=> data_out6,
+	sin_out7 	=> data_out7,
+	sin_out8 	=> data_out8
   );
 
 
@@ -223,16 +224,16 @@ lut: sin_lut
 delay_regs: process(clk)
 begin
   if (rising_edge(clk)) then
-      	lut_data_reg1 <= lut_addr1;
-	lut_data_reg2 <= lut_addr2;
-	lut_data_reg3 <= lut_addr3;
-	lut_data_reg4 <= lut_addr4;
-	lut_data_reg5 <= lut_addr5;
-	lut_data_reg6 <= lut_addr6;
-	lut_data_reg7 <= lut_addr7;
-	lut_data_reg8 <= lut_addr8;
+   lut_data_reg1 <= lut_data1;
+	lut_data_reg2 <= lut_data2;
+	lut_data_reg3 <= lut_data3;
+	lut_data_reg4 <= lut_data4;
+	lut_data_reg5 <= lut_data5;
+	lut_data_reg6 <= lut_data6;
+	lut_data_reg7 <= lut_data7;
+	lut_data_reg8 <= lut_data8;
   end if;
 end process delay_regs;
 
 
-end architecture full_dds;
+end full_dds;

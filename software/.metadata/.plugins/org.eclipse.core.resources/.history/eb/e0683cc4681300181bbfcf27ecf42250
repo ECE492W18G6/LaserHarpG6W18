@@ -150,7 +150,9 @@ INT32U is_audio_write_interrupt_pending()
 
 
 
-
+void clear_adudio_FIFO() {
+	alt_write_byte(AUDIO_BASE, 0x4);
+}
 
 
 
@@ -174,11 +176,11 @@ INT32U read_audio_data(INT32U * buffer, INT32U len, INT32U channel) {
 
 	INT32U fifospace;
 	INT32U count = 0;
-	reset_audio_core();
+
 	while (count < len)
 	{
 		// determine the number of available words to be read from the channel
-		fifospace = alt_read_word(AUDIO_BASE + AUDIO_FIFOSPACE_OFFSET);
+		fifospace = alt_read_word(AUDIO_BASE + 1);
 
 		INT8U num_words;
 		if (channel == LEFT_CHANNEL)
@@ -195,12 +197,12 @@ INT32U read_audio_data(INT32U * buffer, INT32U len, INT32U channel) {
 		{
 			if (channel == LEFT_CHANNEL)
 			{
-				INT32U read = alt_read_word(AUDIO_BASE + AUDIO_LEFTDATA_OFFSET);
+				INT32U read = alt_read_word(AUDIO_BASE + 2);
 				buffer[count] = read;
 			}
 			else if (channel == RIGHT_CHANNEL)
 			{
-				buffer[count] = alt_read_word(AUDIO_BASE + AUDIO_RIGHTDATA_OFFSET);
+				buffer[count] = alt_read_word(AUDIO_BASE + 3);
 			}
 			count = count + 1;
 		}
@@ -222,19 +224,16 @@ INT32U read_audio_data(INT32U * buffer, INT32U len, INT32U channel) {
  *********************************************************************************************************
  *                                    write_audio_data()
  *
- * Description : Writes audio data to the Altera University IP core from a buffer
+ * Description : Writes audio data to both channels on the Altera University IP core from a buffer
  *
  * Arguments   : buffer	       	A buffer allocated to hold the audio data
  * 				len				The number of samples to be read
- * 				channel 		Specifies which channel
  *
  * Returns     : The number of audio samples read into the buffer
  *
  *********************************************************************************************************
  */
-INT32U write_audio_data(INT32U * buffer, INT32U len, INT32U channel) {
-
-	printf("write has been called\n");
+INT32U write_audio_data(INT32S * buffer, INT32U len) {
 
 	INT32U fifospace;
 	INT32U count = 0;
@@ -243,41 +242,19 @@ INT32U write_audio_data(INT32U * buffer, INT32U len, INT32U channel) {
 	{
 		// determine the number of available space for words in the channel
 		fifospace = alt_read_word(AUDIO_BASE + AUDIO_FIFOSPACE_OFFSET);
+		INT8U num_words_left, num_words_right;
+		num_words_left = (fifospace & AUDIO_FIFOSPACE_WSLC_MASK) >> AUDIO_FIFOSPACE_WSLC_BIT_OFFSET;
+		num_words_right = (fifospace & AUDIO_FIFOSPACE_WSRC_MASK) >> AUDIO_FIFOSPACE_WSRC_BIT_OFFSET;
 
-		INT8U num_words;
-		if (channel == LEFT_CHANNEL)
-		{
-			num_words = (fifospace & AUDIO_FIFOSPACE_WSLC_MASK) >> AUDIO_FIFOSPACE_WSLC_BIT_OFFSET;
-		}
-		else if (channel == RIGHT_CHANNEL)
-		{
-			num_words = (fifospace & AUDIO_FIFOSPACE_WSRC_MASK) >> AUDIO_FIFOSPACE_WSRC_BIT_OFFSET;
-		}
-
-		//printf("numwords: %d\n", num_words);
-		printf("next wirte: %d\n", buffer[count]);
 		// write word to the next available space
-		if (num_words > 0)
+		if (num_words_left > 0 && num_words_right > 0)
 		{
-			if (channel == LEFT_CHANNEL)
-			{
-				alt_write_word(AUDIO_BASE + AUDIO_LEFTDATA_OFFSET, buffer[count]);
-			}
-			else if (channel == RIGHT_CHANNEL)
-			{
-				alt_write_word(AUDIO_BASE + AUDIO_RIGHTDATA_OFFSET, buffer[count]);
-			}
+			alt_write_word(AUDIO_BASE + AUDIO_LEFTDATA_OFFSET, buffer[count]);
+			alt_write_word(AUDIO_BASE + AUDIO_RIGHTDATA_OFFSET, buffer[count]);
+
 			count = count + 1;
 		}
-		else
-		{
-			break;
-		}
-
 	}
-
-	alt_write_byte(AUDIO_BASE + AUDIO_CONTROL_OFFSET, 0xC);
-	alt_write_byte(AUDIO_BASE + AUDIO_CONTROL_OFFSET, 0x0);
 
 	return count;
 
