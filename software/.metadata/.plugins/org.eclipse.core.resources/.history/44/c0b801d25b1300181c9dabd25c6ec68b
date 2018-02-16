@@ -244,6 +244,8 @@ static  void  AudioTaskStart (void *p_arg)
 {
     INT32S* lbuffer = (INT32S*) malloc(44100 * sizeof(INT32S));
 //    INT32U rbuffer[AUDIO_BUFFER_SIZE];
+    INT32U lws = 0;
+    INT32U rws = 0;
 
     // Configure audio device
     // See WM8731 datasheet Register Map
@@ -258,15 +260,18 @@ static  void  AudioTaskStart (void *p_arg)
     write_audio_cfg_register(0x8, 0x18);
     write_audio_cfg_register(0x9, 0x01);
 
+//    unsigned int fifospace;
+//	volatile int * audio_ptr = AUDIO_BASE; // audio port
 	int i;
-	for(i = 0; i < 44100; i++) {
-		lbuffer[i] = (INT32S) 2000 * sin(660 * 2 * M_PI * i / 44100);
+	for(i = 0; i < AUDIO_BUFFER_SIZE; i++) {
+		lbuffer[i] = (INT32S) 2000 * sin(660 * 2 * M_PI * i);
 	}
+	i = 0;
 
     for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
 
-        write_audio_data(lbuffer, 44100);
+        write_audio_data(lbuffer, AUDIO_BUFFER_SIZE);
 
     }
 

@@ -172,7 +172,7 @@ void clear_adudio_FIFO() {
  *
  *********************************************************************************************************
  */
-INT32U read_audio_data(INT32U * buffer, INT32U len, INT32U channel) {
+INT32U read_audio_data(INT32S * buffer, INT32U len, INT32U channel) {
 
 	INT32U fifospace;
 	INT32U count = 0;
