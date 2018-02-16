@@ -65,23 +65,23 @@ preplace inst soc_system.hps_0.fpga_interfaces -pg 1
 preplace inst soc_system.audio_0 -pg 1 -lvl 4 -y 730
 preplace inst soc_system.pll_0 -pg 1 -lvl 2 -y 830
 preplace inst soc_system.hps_0.axi_sdram -pg 1
+preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)soc_system.reset) 1 0 1 NJ
 preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.switches_external_connection,(SLAVE)switches.external_connection) 1 0 5 NJ 1020 NJ 1020 NJ 1020 NJ 1020 NJ
-preplace netloc INTERCONNECT<net_container>soc_system</net_container>(SLAVE)button_3.reset,(SLAVE)switches.reset,(SLAVE)button_1.reset,(SLAVE)timer_0.reset,(SLAVE)pll_0.reset,(MASTER)hps_0.h2f_reset,(SLAVE)audio_and_video_config_0.reset,(SLAVE)sysid_qsys_0.reset,(MASTER)clk_0.clk_reset,(SLAVE)audio_0.reset,(SLAVE)button_2.reset,(SLAVE)button_0.reset,(SLAVE)red_leds.reset,(SLAVE)character_lcd_0.reset) 1 1 4 410 750 NJ 750 1090 690 1450
+preplace netloc INTERCONNECT<net_container>soc_system</net_container>(SLAVE)switches.reset,(SLAVE)button_2.reset,(SLAVE)red_leds.reset,(SLAVE)audio_0.reset,(MASTER)clk_0.clk_reset,(SLAVE)button_1.reset,(SLAVE)sysid_qsys_0.reset,(SLAVE)audio_and_video_config_0.reset,(SLAVE)pll_0.reset,(SLAVE)button_0.reset,(SLAVE)button_3.reset,(MASTER)hps_0.h2f_reset,(SLAVE)character_lcd_0.reset,(SLAVE)timer_0.reset) 1 1 4 410 750 NJ 750 1090 610 1510
+preplace netloc FAN_OUT<net_container>soc_system</net_container>(SLAVE)audio_and_video_config_0.avalon_av_config_slave,(SLAVE)character_lcd_0.avalon_lcd_slave,(SLAVE)switches.s1,(SLAVE)audio_0.avalon_audio_slave,(SLAVE)button_3.s1,(SLAVE)sysid_qsys_0.control_slave,(SLAVE)button_1.s1,(SLAVE)timer_0.s1,(SLAVE)button_0.s1,(MASTER)hps_0.h2f_lw_axi_master,(SLAVE)red_leds.s1,(SLAVE)button_2.s1) 1 3 2 1110 630 1530
 preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.memory,(SLAVE)hps_0.memory) 1 0 3 NJ 800 NJ 820 NJ
 preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.button_2_external_connection,(SLAVE)button_2.external_connection) 1 0 5 NJ 450 NJ 450 NJ 450 NJ 450 NJ
-preplace netloc FAN_OUT<net_container>soc_system</net_container>(SLAVE)button_0.clk,(SLAVE)sysid_qsys_0.clk,(SLAVE)red_leds.clk,(SLAVE)button_3.clk,(MASTER)clk_0.clk,(SLAVE)timer_0.clk,(SLAVE)button_2.clk,(SLAVE)button_1.clk,(SLAVE)pll_0.refclk,(SLAVE)character_lcd_0.clk,(SLAVE)hps_0.h2f_lw_axi_clock,(SLAVE)switches.clk) 1 1 4 450 800 740 650 NJ 650 1490
-preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)hps_0.hps_io,(SLAVE)soc_system.hps_io) 1 0 3 NJ 780 NJ 780 NJ
+preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
 preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.button_1_external_connection,(SLAVE)button_1.external_connection) 1 0 5 NJ 180 NJ 180 NJ 180 NJ 180 NJ
-preplace netloc FAN_OUT<net_container>soc_system</net_container>(SLAVE)button_3.irq,(SLAVE)button_2.irq,(SLAVE)button_1.irq,(SLAVE)timer_0.irq,(SLAVE)button_0.irq,(MASTER)hps_0.f2h_irq0,(SLAVE)audio_0.interrupt,(SLAVE)switches.irq) 1 3 2 1130 860 1510
-preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
-preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)clk_0.clk_in,(SLAVE)soc_system.clk) 1 0 1 NJ
-preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)red_leds.external_connection,(SLAVE)soc_system.red_leds_external_connection) 1 0 5 NJ 710 NJ 710 NJ 710 NJ 710 NJ
-preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)button_3.external_connection,(SLAVE)soc_system.button_3_external_connection) 1 0 5 NJ 570 NJ 570 NJ 570 NJ 570 NJ
+preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.hps_io,(SLAVE)hps_0.hps_io) 1 0 3 NJ 780 NJ 780 NJ
+preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.button_3_external_connection,(SLAVE)button_3.external_connection) 1 0 5 NJ 570 NJ 570 NJ 570 NJ 570 NJ
+preplace netloc EXPORT<net_container>soc_system</net_container>(MASTER)soc_system.pll_0_outclk0,(MASTER)pll_0.outclk0) 1 2 5 NJ 910 NJ 890 NJ 890 NJ 890 NJ
+preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)red_leds.external_connection,(SLAVE)soc_system.red_leds_external_connection) 1 0 5 NJ 690 NJ 690 NJ 690 NJ 690 NJ
 preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)audio_0.external_interface,(SLAVE)soc_system.audio_0_external_interface) 1 0 4 NJ 730 NJ 730 NJ 730 NJ
-preplace netloc FAN_OUT<net_container>soc_system</net_container>(SLAVE)audio_0.clk,(SLAVE)audio_and_video_config_0.clk,(MASTER)pll_0.outclk0) 1 2 2 NJ 910 1150
+preplace netloc FAN_OUT<net_container>soc_system</net_container>(SLAVE)button_0.irq,(SLAVE)timer_0.irq,(SLAVE)button_1.irq,(SLAVE)audio_0.interrupt,(SLAVE)button_3.irq,(SLAVE)switches.irq,(MASTER)hps_0.f2h_irq0,(SLAVE)button_2.irq) 1 3 2 1130 860 1490
+preplace netloc FAN_OUT<net_container>soc_system</net_container>(MASTER)clk_0.clk,(SLAVE)button_1.clk,(SLAVE)sysid_qsys_0.clk,(SLAVE)button_0.clk,(SLAVE)timer_0.clk,(SLAVE)button_2.clk,(SLAVE)button_3.clk,(SLAVE)switches.clk,(SLAVE)pll_0.refclk,(SLAVE)red_leds.clk,(SLAVE)audio_and_video_config_0.clk,(SLAVE)hps_0.h2f_lw_axi_clock,(SLAVE)character_lcd_0.clk,(SLAVE)audio_0.clk) 1 1 4 450 800 740 710 1130 550 1470
 preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.character_lcd_0_external_interface,(SLAVE)character_lcd_0.external_interface) 1 0 5 NJ 670 NJ 670 NJ 670 NJ 670 NJ
 preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.button_0_external_connection,(SLAVE)button_0.external_connection) 1 0 5 NJ 60 NJ 60 NJ 60 NJ 60 NJ
 preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)audio_and_video_config_0.external_interface,(SLAVE)soc_system.audio_and_video_config_0_external_interface) 1 0 4 NJ 120 NJ 120 NJ 120 NJ
-preplace netloc FAN_OUT<net_container>soc_system</net_container>(SLAVE)button_2.s1,(SLAVE)red_leds.s1,(SLAVE)timer_0.s1,(SLAVE)audio_0.avalon_audio_slave,(SLAVE)button_0.s1,(SLAVE)audio_and_video_config_0.avalon_av_config_slave,(SLAVE)sysid_qsys_0.control_slave,(SLAVE)button_1.s1,(MASTER)hps_0.h2f_lw_axi_master,(SLAVE)switches.s1,(SLAVE)button_3.s1,(SLAVE)character_lcd_0.avalon_lcd_slave) 1 3 2 1110 630 1530
-levelinfo -pg 1 0 200 2000
+levelinfo -pg 1 0 200 2100
 levelinfo -hier soc_system 210 240 570 880 1260 1710 1970 1990

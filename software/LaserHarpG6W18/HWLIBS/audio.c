@@ -234,7 +234,7 @@ INT32U read_audio_data(INT32U * buffer, INT32U len, INT32U channel) {
  *
  *********************************************************************************************************
  */
-INT32U write_audio_data(INT32U * buffer, INT32U len, INT32U channel) {
+INT32U write_audio_data(INT32S * buffer, INT32U len) {
 
 	//printf("write has been called\n");
 
@@ -243,6 +243,29 @@ INT32U write_audio_data(INT32U * buffer, INT32U len, INT32U channel) {
 
 	while (count < len)
 	{
+		fifospace = alt_read_word(AUDIO_BASE + AUDIO_FIFOSPACE_OFFSET);
+//		fifospace = *(audio_ptr+1); // read the audio port fifospace register
+		if (		// Available sample right
+			(fifospace & AUDIO_FIFOSPACE_WSLC_MASK) > 0 &&		// Available write space right
+			(fifospace & AUDIO_FIFOSPACE_WSRC_MASK) > 0)		// Available write space left
+		{
+//			INT32S sample = buffer[count];
+
+//			if(i >= 44100) {
+//				i = 0;
+//			}
+			// read right channel only
+			alt_write_word(AUDIO_BASE + AUDIO_LEFTDATA_OFFSET, buffer[count]);
+			alt_write_word(AUDIO_BASE + AUDIO_RIGHTDATA_OFFSET, buffer[count]);
+
+			count++;
+//			*(audio_ptr + 2) = sample;		// Write to both channels
+//			*(audio_ptr + 3) = sample;
+		}
+
+
+		/*
+
 		// determine the number of available space for words in the channel
 		fifospace = alt_read_word(AUDIO_BASE + AUDIO_FIFOSPACE_OFFSET);
 		INT8U num_words;
@@ -273,13 +296,15 @@ INT32U write_audio_data(INT32U * buffer, INT32U len, INT32U channel) {
 		}
 		else
 		{
-			break;
+//			break;
 		}
+
+		*/
 
 	}
 
-	alt_write_byte(AUDIO_BASE + AUDIO_CONTROL_OFFSET, 0xC);
-	alt_write_byte(AUDIO_BASE + AUDIO_CONTROL_OFFSET, 0x0);
+//	alt_write_byte(AUDIO_BASE + AUDIO_CONTROL_OFFSET, 0xC);
+//	alt_write_byte(AUDIO_BASE + AUDIO_CONTROL_OFFSET, 0x0);
 
 	return count;
 

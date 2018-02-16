@@ -116,14 +116,6 @@ Info: soc_system.switches: PIO inputs are not hardwired in test bench. Undefined
 Info: soc_system.sysid_qsys_0: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
 Info: soc_system.sysid_qsys_0: Time stamp will be automatically updated when this component is generated.
 Info: soc_system: Generating soc_system "soc_system" for QUARTUS_SYNTH
-Info: Inserting clock-crossing logic between cmd_demux.src0 and cmd_mux.sink0
-Info: Inserting clock-crossing logic between cmd_demux.src1 and cmd_mux_001.sink0
-Info: Inserting clock-crossing logic between cmd_demux_001.src0 and cmd_mux.sink1
-Info: Inserting clock-crossing logic between cmd_demux_001.src1 and cmd_mux_001.sink1
-Info: Inserting clock-crossing logic between rsp_demux.src0 and rsp_mux.sink0
-Info: Inserting clock-crossing logic between rsp_demux.src1 and rsp_mux_001.sink0
-Info: Inserting clock-crossing logic between rsp_demux_001.src0 and rsp_mux.sink1
-Info: Inserting clock-crossing logic between rsp_demux_001.src1 and rsp_mux_001.sink1
 Warning: hps_0.f2h_irq0: Cannot connect clock for irq_mapper.sender
 Warning: hps_0.f2h_irq0: Cannot connect reset for irq_mapper.sender
 Warning: hps_0.f2h_irq1: Cannot connect clock for irq_mapper_001.sender
@@ -133,7 +125,7 @@ Info: audio_0: "soc_system" instantiated altera_up_avalon_audio "audio_0"
 Info: audio_and_video_config_0: Starting Generation of Audio and Video Config
 Info: audio_and_video_config_0: "soc_system" instantiated altera_up_avalon_audio_and_video_config "audio_and_video_config_0"
 Info: button_0: Starting RTL generation for module 'soc_system_button_0'
-Info: button_0:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_button_0 --dir=C:/Users/rarog/AppData/Local/Temp/alt7573_1250315937820928700.dir/0004_button_0_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/rarog/AppData/Local/Temp/alt7573_1250315937820928700.dir/0004_button_0_gen//soc_system_button_0_component_configuration.pl  --do_build_sim=0  ]
+Info: button_0:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_button_0 --dir=C:/Users/rarog/AppData/Local/Temp/alt7573_2107588043345296331.dir/0004_button_0_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/rarog/AppData/Local/Temp/alt7573_2107588043345296331.dir/0004_button_0_gen//soc_system_button_0_component_configuration.pl  --do_build_sim=0  ]
 Info: button_0: Done RTL generation for module 'soc_system_button_0'
 Info: button_0: "soc_system" instantiated altera_avalon_pio "button_0"
 Info: character_lcd_0: Starting Generation of Character LCD
@@ -144,16 +136,16 @@ Info: hps_0: HPS peripherial PLL counter settings: n = 0  m = 39
 Info: hps_0: "soc_system" instantiated altera_hps "hps_0"
 Info: pll_0: "soc_system" instantiated altera_pll "pll_0"
 Info: red_leds: Starting RTL generation for module 'soc_system_red_leds'
-Info: red_leds:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_red_leds --dir=C:/Users/rarog/AppData/Local/Temp/alt7573_1250315937820928700.dir/0007_red_leds_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/rarog/AppData/Local/Temp/alt7573_1250315937820928700.dir/0007_red_leds_gen//soc_system_red_leds_component_configuration.pl  --do_build_sim=0  ]
+Info: red_leds:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_red_leds --dir=C:/Users/rarog/AppData/Local/Temp/alt7573_2107588043345296331.dir/0007_red_leds_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/rarog/AppData/Local/Temp/alt7573_2107588043345296331.dir/0007_red_leds_gen//soc_system_red_leds_component_configuration.pl  --do_build_sim=0  ]
 Info: red_leds: Done RTL generation for module 'soc_system_red_leds'
 Info: red_leds: "soc_system" instantiated altera_avalon_pio "red_leds"
 Info: switches: Starting RTL generation for module 'soc_system_switches'
-Info: switches:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_switches --dir=C:/Users/rarog/AppData/Local/Temp/alt7573_1250315937820928700.dir/0008_switches_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/rarog/AppData/Local/Temp/alt7573_1250315937820928700.dir/0008_switches_gen//soc_system_switches_component_configuration.pl  --do_build_sim=0  ]
+Info: switches:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_switches --dir=C:/Users/rarog/AppData/Local/Temp/alt7573_2107588043345296331.dir/0008_switches_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/rarog/AppData/Local/Temp/alt7573_2107588043345296331.dir/0008_switches_gen//soc_system_switches_component_configuration.pl  --do_build_sim=0  ]
 Info: switches: Done RTL generation for module 'soc_system_switches'
 Info: switches: "soc_system" instantiated altera_avalon_pio "switches"
 Info: sysid_qsys_0: "soc_system" instantiated altera_avalon_sysid_qsys "sysid_qsys_0"
 Info: timer_0: Starting RTL generation for module 'soc_system_timer_0'
-Info: timer_0:   Generation command is [exec C:/intelFPGA/17.0/quartus/bin64//perl/bin/perl.exe -I C:/intelFPGA/17.0/quartus/bin64//perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=soc_system_timer_0 --dir=C:/Users/rarog/AppData/Local/Temp/alt7573_1250315937820928700.dir/0010_timer_0_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/rarog/AppData/Local/Temp/alt7573_1250315937820928700.dir/0010_timer_0_gen//soc_system_timer_0_component_configuration.pl  --do_build_sim=0  ]
+Info: timer_0:   Generation command is [exec C:/intelFPGA/17.0/quartus/bin64//perl/bin/perl.exe -I C:/intelFPGA/17.0/quartus/bin64//perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=soc_system_timer_0 --dir=C:/Users/rarog/AppData/Local/Temp/alt7573_2107588043345296331.dir/0010_timer_0_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/rarog/AppData/Local/Temp/alt7573_2107588043345296331.dir/0010_timer_0_gen//soc_system_timer_0_component_configuration.pl  --do_build_sim=0  ]
 Info: timer_0: Done RTL generation for module 'soc_system_timer_0'
 Info: timer_0: "soc_system" instantiated altera_avalon_timer "timer_0"
 Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
@@ -188,19 +180,16 @@ Info: Reusing file C:/Users/rarog/ECE492/LaserHarpG6W18/soc_system/synthesis/sub
 Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
 Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
 Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
-Info: rsp_demux_002: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_002"
 Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
 Info: Reusing file C:/Users/rarog/ECE492/LaserHarpG6W18/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
 Info: character_lcd_0_avalon_lcd_slave_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "character_lcd_0_avalon_lcd_slave_rsp_width_adapter"
 Info: Reusing file C:/Users/rarog/ECE492/LaserHarpG6W18/soc_system/synthesis/submodules/altera_merlin_address_alignment.sv
 Info: Reusing file C:/Users/rarog/ECE492/LaserHarpG6W18/soc_system/synthesis/submodules/altera_merlin_burst_uncompressor.sv
-Info: crosser: "mm_interconnect_0" instantiated altera_avalon_st_handshake_clock_crosser "crosser"
-Info: Reusing file C:/Users/rarog/ECE492/LaserHarpG6W18/soc_system/synthesis/submodules/altera_avalon_st_pipeline_base.v
 Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
 Info: avalon_st_adapter_002: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_002"
 Info: border: "hps_io" instantiated altera_interface_generator "border"
 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
 Info: error_adapter_0: "avalon_st_adapter_002" instantiated error_adapter "error_adapter_0"
-Info: soc_system: Done "soc_system" with 38 modules, 122 files
+Info: soc_system: Done "soc_system" with 36 modules, 117 files
 Info: qsys-generate succeeded.
 Info: Finished: Create HDL design files for synthesis

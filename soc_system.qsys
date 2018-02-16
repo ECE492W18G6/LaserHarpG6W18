@@ -496,7 +496,7 @@
   <parameter name="dac_enable" value="true" />
   <parameter name="data_format" value="Left Justified" />
   <parameter name="device">On-Board Peripherals</parameter>
-  <parameter name="eai" value="true" />
+  <parameter name="eai" value="false" />
   <parameter name="exposure" value="false" />
   <parameter name="line_in_bypass" value="false" />
   <parameter name="mic_attenuation" value="-6dB" />

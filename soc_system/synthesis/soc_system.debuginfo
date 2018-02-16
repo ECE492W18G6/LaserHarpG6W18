@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="soc_system" kind="system" version="17.0" fabric="QSYS">
  <!-- Format version 17.0 602 (Future versions may contain additional information.) -->
- <!-- 2018.02.11.16:03:01 -->
+ <!-- 2018.02.16.10:19:56 -->
  <!-- A collection of modules and connections -->
  <parameter name="clockCrossingAdapter">
   <type>com.altera.sopcmodel.ensemble.EClockAdapter</type>
@@ -53,7 +53,7 @@
  </parameter>
  <parameter name="generationId">
   <type>int</type>
-  <value>1518390131</value>
+  <value>1518801540</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>true</visible>
@@ -871,7 +871,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="eai">
    <type>boolean</type>
-   <value>true</value>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -881,7 +881,7 @@ the requested settings for a module instance. -->
    <type>java.lang.String</type>
    <value>Microphone to ADC</value>
    <derived>false</derived>
-   <enabled>true</enabled>
+   <enabled>false</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
@@ -889,7 +889,7 @@ the requested settings for a module instance. -->
    <type>boolean</type>
    <value>true</value>
    <derived>false</derived>
-   <enabled>true</enabled>
+   <enabled>false</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
@@ -897,7 +897,7 @@ the requested settings for a module instance. -->
    <type>boolean</type>
    <value>false</value>
    <derived>false</derived>
-   <enabled>true</enabled>
+   <enabled>false</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
@@ -905,7 +905,7 @@ the requested settings for a module instance. -->
    <type>boolean</type>
    <value>false</value>
    <derived>false</derived>
-   <enabled>true</enabled>
+   <enabled>false</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
@@ -913,7 +913,7 @@ the requested settings for a module instance. -->
    <type>java.lang.String</type>
    <value>-6dB</value>
    <derived>false</derived>
-   <enabled>true</enabled>
+   <enabled>false</enabled>
    <visible>false</visible>
    <valid>true</valid>
   </parameter>
@@ -921,7 +921,7 @@ the requested settings for a module instance. -->
    <type>java.lang.String</type>
    <value>Left Justified</value>
    <derived>false</derived>
-   <enabled>true</enabled>
+   <enabled>false</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
@@ -929,7 +929,7 @@ the requested settings for a module instance. -->
    <type>int</type>
    <value>16</value>
    <derived>false</derived>
-   <enabled>true</enabled>
+   <enabled>false</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
@@ -937,7 +937,7 @@ the requested settings for a module instance. -->
    <type>java.lang.String</type>
    <value>32 kHz</value>
    <derived>false</derived>
-   <enabled>true</enabled>
+   <enabled>false</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
@@ -945,15 +945,15 @@ the requested settings for a module instance. -->
    <type>java.lang.String</type>
    <value>250fs/256fs</value>
    <derived>true</derived>
-   <enabled>true</enabled>
+   <enabled>false</enabled>
    <visible>false</visible>
    <valid>true</valid>
   </parameter>
   <parameter name="sr_register">
    <type>int</type>
-   <value>6</value>
+   <value>0</value>
    <derived>true</derived>
-   <enabled>true</enabled>
+   <enabled>false</enabled>
    <visible>false</visible>
    <valid>true</valid>
   </parameter>
@@ -961,7 +961,7 @@ the requested settings for a module instance. -->
    <type>java.lang.String</type>
    <value>NTSC</value>
    <derived>false</derived>
-   <enabled>true</enabled>
+   <enabled>false</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
@@ -51833,7 +51833,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1518390131</value>
+   <value>1518801540</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -51853,7 +51853,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1518390131</value>
+   <value>1518801540</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -51869,7 +51869,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1518390131</value>
+   <value>1518801540</value>
    <derived>true</derived>
    <enabled>false</enabled>
    <visible>false</visible>
@@ -61451,5 +61451,5 @@ parameters are a RESULT of the module parameters. -->
   <version>17.0</version>
  </plugin>
  <reportVersion>17.0 602</reportVersion>
- <uniqueIdentifier>00000000000000E000000161871ADD4E</uniqueIdentifier>
+ <uniqueIdentifier>00000000000000E0000001619FA078B3</uniqueIdentifier>
 </EnsembleReport>

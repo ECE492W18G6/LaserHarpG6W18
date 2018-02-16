@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.arm.debugger.launcher2">
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data" value="3166817"/>
-<mapEntry key="*Fetching Data Model" value="132807"/>
-<mapEntry key="*list global low level symbols" value="3688127"/>
+<mapEntry key="*Fetching Data" value="23924486"/>
+<mapEntry key="*Fetching Data Model" value="143169"/>
+<mapEntry key="*list global low level symbols" value="6996331"/>
 <mapEntry key="*loading memory from target" value="14492798"/>
-<mapEntry key="*loading values from target" value="2746567"/>
+<mapEntry key="*loading values from target" value="2221732"/>
 <mapEntry key="*updating registers" value="302360538"/>
-<mapEntry key="*updating variables" value="650157"/>
-<mapEntry key="AddEventObserver" value="216003"/>
+<mapEntry key="*updating variables" value="730531"/>
+<mapEntry key="AddEventObserver" value="229553"/>
 <mapEntry key="Evaluate" value="774281"/>
-<mapEntry key="Retrieving globals list" value="1990528"/>
-<mapEntry key="areCachesAvailable" value="462092"/>
-<mapEntry key="break" value="13131165"/>
-<mapEntry key="continue" value="20543127"/>
+<mapEntry key="Retrieving globals list" value="7404801"/>
+<mapEntry key="areCachesAvailable" value="430990"/>
+<mapEntry key="break" value="7174106"/>
+<mapEntry key="continue" value="14858530"/>
 <mapEntry key="disassemble" value="80653710"/>
 <mapEntry key="evaluate address" value="539617"/>
-<mapEntry key="file" value="30934815"/>
+<mapEntry key="file" value="24937370"/>
 <mapEntry key="get byte order" value="427478"/>
-<mapEntry key="get capabilities" value="247372"/>
-<mapEntry key="get execution addresss" value="230181"/>
-<mapEntry key="get source lines" value="227567"/>
-<mapEntry key="getValidEncodings" value="375969"/>
-<mapEntry key="initialize command help" value="21423823"/>
-<mapEntry key="interrupt" value="36732573"/>
-<mapEntry key="list breakpoints" value="176973"/>
-<mapEntry key="list instruction sets" value="97593"/>
-<mapEntry key="list signals" value="29626722"/>
-<mapEntry key="list watchpoints" value="187509"/>
-<mapEntry key="loadfile" value="446189245"/>
+<mapEntry key="get capabilities" value="89455"/>
+<mapEntry key="get execution addresss" value="358939"/>
+<mapEntry key="get source lines" value="415009"/>
+<mapEntry key="getValidEncodings" value="356226"/>
+<mapEntry key="initialize command help" value="21154121"/>
+<mapEntry key="interrupt" value="31549573"/>
+<mapEntry key="list breakpoints" value="229606"/>
+<mapEntry key="list instruction sets" value="119836"/>
+<mapEntry key="list signals" value="3176460"/>
+<mapEntry key="list watchpoints" value="267213"/>
+<mapEntry key="loadfile" value="495476909"/>
 <mapEntry key="next" value="81961610"/>
-<mapEntry key="remove" value="19205351"/>
-<mapEntry key="set CWD" value="612813"/>
-<mapEntry key="set breakpoint properties" value="21662639"/>
-<mapEntry key="set debug-from" value="1359767"/>
-<mapEntry key="source altera_target_check.py" value="224261235"/>
-<mapEntry key="source preloader.ds" value="3329892330"/>
-<mapEntry key="start" value="50760344"/>
-<mapEntry key="step" value="64285586"/>
-<mapEntry key="toggleBreakpoint" value="15933031"/>
-<mapEntry key="waitForTargetToStop" value="415092151"/>
+<mapEntry key="remove" value="8306270"/>
+<mapEntry key="set CWD" value="4079893"/>
+<mapEntry key="set breakpoint properties" value="15723490"/>
+<mapEntry key="set debug-from" value="650616"/>
+<mapEntry key="source altera_target_check.py" value="222731679"/>
+<mapEntry key="source preloader.ds" value="3488849712"/>
+<mapEntry key="start" value="54644043"/>
+<mapEntry key="step" value="50920475"/>
+<mapEntry key="toggleBreakpoint" value="21294010"/>
+<mapEntry key="waitForTargetToStop" value="346939283"/>
 </mapAttribute>
 <intAttribute key="DEBUG_TAB..RESOURCES.COUNT" value="0"/>
 <intAttribute key="FILES.CONNECT_TO_GDB_SERVER.RESOURCES.COUNT" value="0"/>
@@ -118,19 +118,19 @@
 <booleanAttribute key="TCP_KILL_ON_EXIT" value="false"/>
 <listAttribute key="TREE_NODE_PROPERTIES:debugger.view.VariableTreeView">
 <listEntry value="NODE CACHE VERSION 1"/>
-<listEntry value="LOCALS:Locals:VALUE:C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AppTaskStart::lbuffer"/>
-<listEntry value="1"/>
-<listEntry value="element formatter"/>
-<listEntry value="Character"/>
 <listEntry value="LOCALS:Locals:VALUE:C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AppTaskStart::$0::audio_ptr"/>
 <listEntry value="1"/>
 <listEntry value="element formatter"/>
 <listEntry value="Signed Decimal"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AppTaskStart::lbuffer"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Character"/>
 </listAttribute>
 <booleanAttribute key="VFS_ENABLED" value="true"/>
 <stringAttribute key="VFS_LOCAL_DIR" value="${workspace_loc}"/>
 <stringAttribute key="VFS_REMOTE_MOUNT" value="/writeable"/>
-<stringAttribute key="breakpoints" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;breakpoints&gt;&#10;&#9;&lt;breakpoint ignorecount=&quot;0&quot; threadenabled=&quot;no&quot; list_all_threads=&quot;no&quot; core_list=&quot;{}&quot; continue=&quot;no&quot; verboseBreakpoints=&quot;yes&quot; kind=&quot;SOURCEPOSITION&quot;&gt;&#10;&#9;&#9;&lt;master_location index=&quot;0&quot; enabled=&quot;true&quot; version=&quot;2&quot; debugFile=&quot;C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/HWLIBS/audio.c&quot; hostFile=&quot;C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.c&quot; line=&quot;278&quot;/&gt;&#10;&#9;&#9;&lt;location index=&quot;0&quot; enabled=&quot;true&quot; version=&quot;2&quot; address=&quot;S:0x01006858&quot; debugFile=&quot;C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/HWLIBS/audio.c&quot; hostFile=&quot;C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS\audio.c&quot; line=&quot;279&quot;/&gt;&#10;&#9;&lt;/breakpoint&gt;&#10;&lt;/breakpoints&gt;&#10;"/>
+<stringAttribute key="breakpoints" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;breakpoints&gt;&#10;&lt;/breakpoints&gt;&#10;"/>
 <listAttribute key="com.arm.debug.views.common.AddressTracker.debugger.view.DisassemblyView.addresses">
 <listEntry value="&lt;Next Instruction&gt;"/>
 </listAttribute>
@@ -169,7 +169,7 @@
 <stringAttribute key="config_file" value="CDB://Altera_DEV5XS1.rvc"/>
 <booleanAttribute key="connectOnly" value="false"/>
 <stringAttribute key="connection_type" value="USB-Blaster"/>
-<stringAttribute key="debugger.view.DataView.os:DataView" value="rO0ABXNyACtjb20uYXJtLmRlYnVnLnZpZXdzLmRhdGEuRGF0YVZpZXdQcm9wZXJ0aWVzAAAAAAAAAAECAAB4cgAlY29tLmFybS5kZWJ1Zy52aWV3cy5kYXRhLlByb3BlcnR5VHJlZQAAAAAAAAABAwABTAAFbURhdGF0ABNMamF2YS91dGlsL0hhc2hNYXA7eHB3BAAAAAJ0ABJkYXRhYmFzZVByb3BlcnRpZXNzcQB+AAF3BAAAAAF0AAZ1Y29zaWlzcgArY29tLmFybS5kZWJ1Zy52aWV3cy5kYXRhLkRhdGFiYXNlUHJvcGVydGllcwAAAAAAAAABAgAAeHEAfgABdwQAAAADdAAGdGFibGVzc3EAfgABdwQAAAABdAAGcXVldWVzc3IAKGNvbS5hcm0uZGVidWcudmlld3MuZGF0YS5UYWJsZVByb3BlcnRpZXMAAAAAAAAAAQIAAHhxAH4AAXcEAAAABHQAAmlkcQB+AAt0ABBjb2x1bW5BdXRvUmVzaXplc3EAfgABdwQAAAALdAABMHQABHRydWV0AAExcQB+ABJ0AAEycQB+ABJ0AAEzcQB+ABJ0AAItMXEAfgASdAABNHEAfgASdAABNXEAfgASdAABNnEAfgASdAABN3EAfgASdAABOHEAfgASdAABOXEAfgASeHQADGNvbHVtbldpZHRoc3NxAH4AAXcEAAAAC3QAATB0AAI3NXQAATF0AAI1M3QAATJ0AAI1NnQAATN0AAI0NXQAAi0xdAACMjR0AAE0dAACNDV0AAE1dAACNDF0AAE2dAACMzB0AAE3dAACNDF0AAE4dAACNDF0AAE5dAACNTZ4dAAGY29uZmlndAEQT3V0bGluZUNvbmZpZzEJMTEJLTEJZmFsc2UJdHJ1ZQkyNAktMQl0cnVlCTAJdHJ1ZQl0cnVlCTc1CS0xCXRydWUJMQl0cnVlCXRydWUJNTMJLTEJdHJ1ZQkyCXRydWUJdHJ1ZQk1NgktMQl0cnVlCTMJdHJ1ZQl0cnVlCTQ1CS0xCXRydWUJNAl0cnVlCXRydWUJNDUJLTEJdHJ1ZQk1CXRydWUJdHJ1ZQk0MQktMQl0cnVlCTYJdHJ1ZQl0cnVlCTMwCS0xCXRydWUJNwl0cnVlCXRydWUJNDEJLTEJdHJ1ZQk4CXRydWUJdHJ1ZQk0MQktMQl0cnVlCTkJdHJ1ZQl0cnVlCTU2CS0xCXRydWV4eHQAAmlkcQB+AAZ0AAxjdXJyZW50VGFibGV0AAZxdWV1ZXN4eHQAD2N1cnJlbnREYXRhYmFzZXQABnVjb3NpaXg="/>
+<stringAttribute key="debugger.view.DataView.os:DataView" value="rO0ABXNyACtjb20uYXJtLmRlYnVnLnZpZXdzLmRhdGEuRGF0YVZpZXdQcm9wZXJ0aWVzAAAAAAAAAAECAAB4cgAlY29tLmFybS5kZWJ1Zy52aWV3cy5kYXRhLlByb3BlcnR5VHJlZQAAAAAAAAABAwABTAAFbURhdGF0ABNMamF2YS91dGlsL0hhc2hNYXA7eHB3BAAAAAJ0ABJkYXRhYmFzZVByb3BlcnRpZXNzcQB+AAF3BAAAAAF0AAZ1Y29zaWlzcgArY29tLmFybS5kZWJ1Zy52aWV3cy5kYXRhLkRhdGFiYXNlUHJvcGVydGllcwAAAAAAAAABAgAAeHEAfgABdwQAAAADdAAGdGFibGVzc3EAfgABdwQAAAACdAAGcXVldWVzc3IAKGNvbS5hcm0uZGVidWcudmlld3MuZGF0YS5UYWJsZVByb3BlcnRpZXMAAAAAAAAAAQIAAHhxAH4AAXcEAAAABHQAAmlkcQB+AAt0ABBjb2x1bW5BdXRvUmVzaXplc3EAfgABdwQAAAALdAABMHQABHRydWV0AAExcQB+ABJ0AAEycQB+ABJ0AAEzcQB+ABJ0AAItMXEAfgASdAABNHEAfgASdAABNXEAfgASdAABNnEAfgASdAABN3EAfgASdAABOHEAfgASdAABOXEAfgASeHQADGNvbHVtbldpZHRoc3NxAH4AAXcEAAAAC3QAATB0AAI3NXQAATF0AAI1M3QAATJ0AAI1NnQAATN0AAI0NXQAAi0xdAACMjR0AAE0dAACNDV0AAE1dAACNDF0AAE2dAACMzB0AAE3dAACNDF0AAE4dAACNDF0AAE5dAACNTZ4dAAGY29uZmlndAEQT3V0bGluZUNvbmZpZzEJMTEJLTEJZmFsc2UJdHJ1ZQkyNAktMQl0cnVlCTAJdHJ1ZQl0cnVlCTc1CS0xCXRydWUJMQl0cnVlCXRydWUJNTMJLTEJdHJ1ZQkyCXRydWUJdHJ1ZQk1NgktMQl0cnVlCTMJdHJ1ZQl0cnVlCTQ1CS0xCXRydWUJNAl0cnVlCXRydWUJNDUJLTEJdHJ1ZQk1CXRydWUJdHJ1ZQk0MQktMQl0cnVlCTYJdHJ1ZQl0cnVlCTMwCS0xCXRydWUJNwl0cnVlCXRydWUJNDEJLTEJdHJ1ZQk4CXRydWUJdHJ1ZQk0MQktMQl0cnVlCTkJdHJ1ZQl0cnVlCTU2CS0xCXRydWV4dAAHbXV0ZXhlc3NxAH4ADHcEAAAABHQAAmlkcQB+ADd0ABBjb2x1bW5BdXRvUmVzaXplc3EAfgABdwQAAAAHdAABMHQABHRydWV0AAExcQB+AD10AAEycQB+AD10AAEzcQB+AD10AAItMXEAfgA9dAABNHEAfgA9dAABNXEAfgA9eHQADGNvbHVtbldpZHRoc3NxAH4AAXcEAAAAB3QAATB0AAI3NXQAATF0AAI1M3QAATJ0AAI1NnQAATN0AAI1OHQAAi0xdAACMjR0AAE0dAACNTR0AAE1dAACOTR4dAAGY29uZmlndACzT3V0bGluZUNvbmZpZzEJNwktMQlmYWxzZQl0cnVlCTI0CS0xCXRydWUJMAl0cnVlCXRydWUJNzUJLTEJdHJ1ZQkxCXRydWUJdHJ1ZQk1MwktMQl0cnVlCTIJdHJ1ZQl0cnVlCTU2CS0xCXRydWUJMwl0cnVlCXRydWUJNTgJLTEJdHJ1ZQk0CXRydWUJdHJ1ZQk1NAktMQl0cnVlCTUJdHJ1ZQl0cnVlCTk0CS0xCXRydWV4eHQAAmlkcQB+AAZ0AAxjdXJyZW50VGFibGV0AAdtdXRleGVzeHh0AA9jdXJyZW50RGF0YWJhc2V0AAZ1Y29zaWl4"/>
 <listAttribute key="debugger.view.DisassemblyView:current">
 <listEntry value="&lt;Next Instruction&gt;"/>
 <listEntry value="100"/>

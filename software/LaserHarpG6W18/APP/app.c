@@ -168,63 +168,16 @@ int main ()
 * Notes       : (1) The ticker MUST be initialised AFTER multitasking has started.
 *********************************************************************************************************
 */
-
-void audio_isr(CPU_INT32U cpu_id) {
-	if (is_audio_read_interrupt_pending()) {
-		INT32U lbuffer[AUDIO_BUFFER_SIZE];
-		INT32U rbuffer[AUDIO_BUFFER_SIZE];
-
-		INT32U lws = read_audio_data(lbuffer, AUDIO_BUFFER_SIZE, LEFT_CHANNEL);
-		INT32U rws = read_audio_data(rbuffer, AUDIO_BUFFER_SIZE, RIGHT_CHANNEL);
-
-		INT32U lw = write_audio_data(lbuffer, lws, LEFT_CHANNEL);
-		INT32U rw = write_audio_data(rbuffer, rws, RIGHT_CHANNEL);
-
-		printf("%d %d\n", lbuffer[0], rbuffer[0]);
-
-	}
-	else if (is_audio_write_interrupt_pending()) {
-		INT32U lbuffer[AUDIO_BUFFER_SIZE];
-		INT32U rbuffer[AUDIO_BUFFER_SIZE];
-
-		INT32U lws = read_audio_data(lbuffer, AUDIO_BUFFER_SIZE, LEFT_CHANNEL);
-		INT32U rws = read_audio_data(rbuffer, AUDIO_BUFFER_SIZE, RIGHT_CHANNEL);
-
-		INT32U lw = write_audio_data(lbuffer, AUDIO_BUFFER_SIZE, LEFT_CHANNEL);
-		INT32U rw = write_audio_data(rbuffer, AUDIO_BUFFER_SIZE, RIGHT_CHANNEL);
-
-
-
-		printf("%d %d\n", lws, rws);
-		printf("*%d %d\n", lw, rw);
-	}
-
-	// need to acknowledge interrupt in audio core?
-}
-
-
 static  void  AppTaskStart (void *p_arg)
 {
 
     BSP_OS_TmrTickInit(OS_TICKS_PER_SEC);                       /* Configure and enable OS tick interrupt.              */
 
-    // enable interrupt
-   	//Install handler and set prio
-    BSP_IntVectSet   (72u,   // 72 is source for irq 0 via lwhpsfpga bus
-    		                         2,	    // prio
-    								 DEF_BIT_00,	    // cpu target list
-    								 audio_isr  // ISR
-    								 );
-    // Enable INT at GIC level
-    BSP_IntSrcEn(72u);
-
-    //enable_audio_read_interrupt();
-    //enable_audio_write_interrupt();
-
-    INT8U* lbuffer = (INT8U*) malloc(44100 * sizeof(INT8U));
+    INT32S* lbuffer = (INT32S*) malloc(44100 * sizeof(INT32S));
     INT32U rbuffer[AUDIO_BUFFER_SIZE];
     INT32U lws = 0;
     INT32U rws = 0;
+
     // Configure audio device
     // See WM8731 datasheet Register Map
     write_audio_cfg_register(0x0, 0x17);
@@ -238,40 +191,20 @@ static  void  AppTaskStart (void *p_arg)
     write_audio_cfg_register(0x8, 0x18);
     write_audio_cfg_register(0x9, 0x01);
 
+//    unsigned int fifospace;
+//	volatile int * audio_ptr = AUDIO_BASE; // audio port
+	int i;
+	for(i = 0; i < 44100; i++) {
+		lbuffer[i] = (INT32S) 2000 * sin(660 * 2 * M_PI * i / 44100);
+	}
+	i = 0;
+
     for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
 
-        unsigned int fifospace;
-        volatile int * audio_ptr = AUDIO_BASE; // audio port
-        int i;
-//        for(i = 0; i < 44100; i++) {
-//        	double inter =
-//        	lbuffer[i] = (INT8U) inter;
-//        }
-        	i = 0;
-        	while (1)
-        	{
-                BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
-//                printf("%p %p %p\n", audio_ptr+1, audio_ptr+2, audio_ptr+3);
-        		fifospace = *(audio_ptr+1); // read the audio port fifospace register
-        		if (		// Available sample right
-        			(fifospace & 0x00FF0000) > 0 &&		// Available write space right
-        			(fifospace & 0xFF000000) > 0)		// Available write space left
-        		{
-        			int sample = (int) 2000 * sin(660 * 2 * M_PI * i / 44100);
-        			i++;
-        			if(i >= 44100) {
-        				i = 0;
-        			}
-        			// read right channel only
-        			*(audio_ptr + 2) = sample;		// Write to both channels
-        			*(audio_ptr + 3) = sample;
-        		}
-        		else {
-//        			*(audio_ptr) = 0xC;
-//        			*(audio_ptr) = 0x0;
-        		}
-        	}
+        write_audio_data(lbuffer, 44100);
+
+
         /*if (1)
         {
         	lws = read_audio_data(lbuffer, AUDIO_BUFFER_SIZE, LEFT_CHANNEL);
@@ -282,7 +215,7 @@ static  void  AppTaskStart (void *p_arg)
         	INT32U lw = write_audio_data(lbuffer, AUDIO_BUFFER_SIZE, LEFT_CHANNEL);
         	INT32U rw = write_audio_data(rbuffer, AUDIO_BUFFER_SIZE, RIGHT_CHANNEL);
 
-        	clear_adudio_FIFO();
+        	//clear_adudio_FIFO();
 
     		printf("%d %d\n", lws, rws);
     		printf("*%d %d\n", lw, rw);
@@ -303,10 +236,7 @@ static  void  AppTaskStart (void *p_arg)
 				BSP_LED_Off();
 
 				alt_write_word(LEDR_BASE, 0x3ff);
-	        }
+	        }*/
 
-
-    }*/
     }
-
 }

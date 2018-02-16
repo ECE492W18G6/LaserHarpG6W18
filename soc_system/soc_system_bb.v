@@ -83,10 +83,10 @@ module soc_system (
 	memory_mem_odt,
 	memory_mem_dm,
 	memory_oct_rzqin,
+	pll_0_outclk0_clk,
 	red_leds_external_connection_export,
 	reset_reset_n,
-	switches_external_connection_export,
-	pll_0_outclk0_clk);	
+	switches_external_connection_export);	
 
 	input		audio_0_external_interface_ADCDAT;
 	input		audio_0_external_interface_ADCLRCK;
@@ -171,8 +171,8 @@ module soc_system (
 	output		memory_mem_odt;
 	output	[3:0]	memory_mem_dm;
 	input		memory_oct_rzqin;
+	output		pll_0_outclk0_clk;
 	output	[9:0]	red_leds_external_connection_export;
 	input		reset_reset_n;
 	input	[9:0]	switches_external_connection_export;
-	output		pll_0_outclk0_clk;
 endmodule
