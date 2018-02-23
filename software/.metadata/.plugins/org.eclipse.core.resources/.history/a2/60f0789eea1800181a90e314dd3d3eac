@@ -76,6 +76,8 @@
 #define TASK_STACK_SIZE 4096
 #define LEDR_ADD 0x00000000
 #define LEDR_BASE FPGA_TO_HPS_LW_ADDR(LEDR_ADD)
+#define SYNTH_ADD 0x00000a00
+#define SYNTH_BASE FPGA_TO_HPS_LW_ADDR(SYNTH_ADD)
 
 #define AUDIO_BUFFER_SIZE 128
 #define M_PI 3.14159265358979323846
@@ -242,7 +244,10 @@ static  void  AppTaskStart (void *p_arg)
 */
 static  void  AudioTaskStart (void *p_arg)
 {
-    INT32S* lbuffer = (INT32S*) malloc(44100 * sizeof(INT32S));
+    INT32S* lbuffer = (INT32S*) malloc(32000 * sizeof(INT32S));
+    INT32S* rbuffer = (INT32S*) malloc(32000 * sizeof(INT32S));
+    INT32S* buffer = (INT32S*) malloc(32000 * sizeof(INT32S));
+
 //    INT32U rbuffer[AUDIO_BUFFER_SIZE];
 
     // Configure audio device
@@ -259,14 +264,17 @@ static  void  AudioTaskStart (void *p_arg)
     write_audio_cfg_register(0x9, 0x01);
 
 	int i;
-	for(i = 0; i < 44100; i++) {
-		lbuffer[i] = (INT32S) 2000 * sin(441 * 2 * M_PI * i / 44100);
+	for(i = 0; i < 32000; i++) {
+		lbuffer[i] = (INT32S) 10000 * sin(441 * 2 * M_PI * i / 32000);
+		rbuffer[i] = (INT32S) 10000 * sin(525 * 2 * M_PI * i / 32000);
+		buffer[i] = lbuffer[i] + rbuffer[i];
 	}
 
     for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
-
-        write_audio_data(lbuffer, 44100);
+//        alt_write_word(SYNTH_BASE, 441);
+//        INT32S* data = alt_read_word(SYNTH_BASE);
+        write_audio_data(buffer, 32000);
 
     }
 

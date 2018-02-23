@@ -91,6 +91,9 @@ CPU_STK AppTaskStartStk[TASK_STACK_SIZE];
 CPU_STK AudioTaskStartStk[TASK_STACK_SIZE];
 CPU_STK LCDTaskStartStk[TASK_STACK_SIZE];
 
+INT32S lbuffer[32000];
+INT32S rbuffer[32000];
+INT32S buffer[32000];
 
 /*
 *********************************************************************************************************
@@ -244,7 +247,8 @@ static  void  AppTaskStart (void *p_arg)
 */
 static  void  AudioTaskStart (void *p_arg)
 {
-    INT32S* lbuffer = (INT32S*) malloc(44100 * sizeof(INT32S));
+
+
 //    INT32U rbuffer[AUDIO_BUFFER_SIZE];
 
     // Configure audio device
@@ -261,15 +265,18 @@ static  void  AudioTaskStart (void *p_arg)
     write_audio_cfg_register(0x9, 0x01);
 
 	int i;
-//	for(i = 0; i < 32000; i++) {
-//		lbuffer[i] = (INT32S) 30000 * sin(441 * 2 * M_PI * i / 32000);
-//	}
+	for(i = 0; i < 32000; i++) {
+		lbuffer[i] = (INT32S) 10000 * sin(440 * 2 * M_PI * i / 32000);
+		rbuffer[i] = (INT32S) 10000 * sin(262 * 2 * M_PI * i / 32000);
+		buffer[i] = lbuffer[i] + rbuffer[i];
+		//printf("l: %d, r: %d, b: %d\n", lbuffer[i], rbuffer[i], buffer[i]);
+	}
 
     for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
-        alt_write_word(SYNTH_BASE, 441);
-        INT32S* data = alt_read_word(SYNTH_BASE);
-        write_audio_data(data, 32000);
+//        alt_write_word(SYNTH_BASE, 441);
+//        INT32S* data = alt_read_word(SYNTH_BASE);
+        write_audio_data(buffer, 32000);
 
     }
 
