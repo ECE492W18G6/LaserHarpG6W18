@@ -9,14 +9,6 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
-   element SampleRateClk_0
-   {
-      datum _sortIndex
-      {
-         value = "6";
-         type = "int";
-      }
-   }
    element Synthesizer_0
    {
       datum _sortIndex
@@ -25,7 +17,7 @@
          type = "int";
       }
    }
-   element Synthesizer_0.phase_increments_voice0
+   element Synthesizer_0.avalon_slave_0
    {
       datum _lockedAddress
       {
@@ -34,7 +26,7 @@
       }
       datum baseAddress
       {
-         value = "3840";
+         value = "2560";
          type = "String";
       }
    }
@@ -42,7 +34,7 @@
    {
       datum _sortIndex
       {
-         value = "7";
+         value = "6";
          type = "int";
       }
    }
@@ -63,7 +55,7 @@
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "7";
          type = "int";
       }
    }
@@ -84,7 +76,7 @@
    {
       datum _sortIndex
       {
-         value = "13";
+         value = "12";
          type = "int";
       }
    }
@@ -105,7 +97,7 @@
    {
       datum _sortIndex
       {
-         value = "14";
+         value = "13";
          type = "int";
       }
    }
@@ -126,7 +118,7 @@
    {
       datum _sortIndex
       {
-         value = "15";
+         value = "14";
          type = "int";
       }
    }
@@ -147,7 +139,7 @@
    {
       datum _sortIndex
       {
-         value = "16";
+         value = "15";
          type = "int";
       }
    }
@@ -168,7 +160,7 @@
    {
       datum _sortIndex
       {
-         value = "12";
+         value = "11";
          type = "int";
       }
    }
@@ -226,7 +218,7 @@
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "8";
          type = "int";
       }
    }
@@ -234,7 +226,7 @@
    {
       datum _sortIndex
       {
-         value = "10";
+         value = "9";
          type = "int";
       }
    }
@@ -270,11 +262,131 @@
          type = "String";
       }
    }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
    element switches
    {
       datum _sortIndex
       {
-         value = "11";
+         value = "10";
          type = "int";
       }
    }
@@ -408,8 +520,7 @@
    internal="switches.external_connection"
    type="conduit"
    dir="end" />
- <module name="SampleRateClk_0" kind="SampleRateClk" version="1.0" enabled="0" />
- <module name="Synthesizer_0" kind="Synthesizer" version="1.0" enabled="0" />
+ <module name="Synthesizer_0" kind="Synthesizer" version="1.0" enabled="1" />
  <module
    name="audio_0"
    kind="altera_up_avalon_audio"
@@ -1358,27 +1469,18 @@
    kind="avalon"
    version="17.0"
    start="hps_0.h2f_lw_axi_master"
+   end="Synthesizer_0.avalon_slave_0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0a00" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="17.0"
+   start="hps_0.h2f_lw_axi_master"
    end="sysid_qsys_0.control_slave">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0100" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.0"
-   start="hps_0.h2f_lw_axi_master"
-   end="Synthesizer_0.phase_increments_voice0">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0f00" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.0"
-   start="hps_0.h2f_lw_axi_master"
-   end="red_leds.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1444,6 +1546,15 @@
   <parameter name="baseAddress" value="0x4000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
+ <connection
+   kind="avalon"
+   version="17.0"
+   start="hps_0.h2f_lw_axi_master"
+   end="red_leds.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
  <connection kind="clock" version="17.0" start="clk_0.clk" end="sysid_qsys_0.clk" />
  <connection
    kind="clock"
@@ -1451,7 +1562,6 @@
    start="clk_0.clk"
    end="character_lcd_0.clk" />
  <connection kind="clock" version="17.0" start="clk_0.clk" end="timer_0.clk" />
- <connection kind="clock" version="17.0" start="clk_0.clk" end="red_leds.clk" />
  <connection kind="clock" version="17.0" start="clk_0.clk" end="switches.clk" />
  <connection kind="clock" version="17.0" start="clk_0.clk" end="button_0.clk" />
  <connection kind="clock" version="17.0" start="clk_0.clk" end="button_1.clk" />
@@ -1463,6 +1573,7 @@
    version="17.0"
    start="clk_0.clk"
    end="audio_and_video_config_0.clk" />
+ <connection kind="clock" version="17.0" start="clk_0.clk" end="red_leds.clk" />
  <connection
    kind="clock"
    version="17.0"
@@ -1472,7 +1583,7 @@
    kind="clock"
    version="17.0"
    start="clk_0.clk"
-   end="SampleRateClk_0.clock_sink" />
+   end="Synthesizer_0.clock" />
  <connection
    kind="clock"
    version="17.0"
@@ -1532,11 +1643,6 @@
    kind="reset"
    version="17.0"
    start="clk_0.clk_reset"
-   end="red_leds.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="clk_0.clk_reset"
    end="sysid_qsys_0.reset" />
  <connection
    kind="reset"
@@ -1573,11 +1679,6 @@
    version="17.0"
    start="clk_0.clk_reset"
    end="timer_0.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="clk_0.clk_reset"
-   end="Synthesizer_0.reset" />
  <connection kind="reset" version="17.0" start="clk_0.clk_reset" end="pll_0.reset" />
  <connection
    kind="reset"
@@ -1593,12 +1694,17 @@
    kind="reset"
    version="17.0"
    start="clk_0.clk_reset"
-   end="onchip_memory2_0.reset1" />
+   end="Synthesizer_0.reset" />
  <connection
    kind="reset"
    version="17.0"
-   start="hps_0.h2f_reset"
+   start="clk_0.clk_reset"
    end="red_leds.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
+   start="clk_0.clk_reset"
+   end="onchip_memory2_0.reset1" />
  <connection
    kind="reset"
    version="17.0"
@@ -1639,11 +1745,6 @@
    version="17.0"
    start="hps_0.h2f_reset"
    end="timer_0.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="hps_0.h2f_reset"
-   end="Synthesizer_0.reset" />
  <connection kind="reset" version="17.0" start="hps_0.h2f_reset" end="pll_0.reset" />
  <connection
    kind="reset"
@@ -1655,6 +1756,16 @@
    version="17.0"
    start="hps_0.h2f_reset"
    end="audio_and_video_config_0.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
+   start="hps_0.h2f_reset"
+   end="Synthesizer_0.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
+   start="hps_0.h2f_reset"
+   end="red_leds.reset" />
  <connection
    kind="reset"
    version="17.0"

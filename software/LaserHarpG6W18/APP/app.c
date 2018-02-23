@@ -76,6 +76,8 @@
 #define TASK_STACK_SIZE 4096
 #define LEDR_ADD 0x00000000
 #define LEDR_BASE FPGA_TO_HPS_LW_ADDR(LEDR_ADD)
+#define SYNTH_ADD 0x00000a00
+#define SYNTH_BASE FPGA_TO_HPS_LW_ADDR(SYNTH_ADD)
 
 #define AUDIO_BUFFER_SIZE 128
 #define M_PI 3.14159265358979323846
@@ -259,14 +261,15 @@ static  void  AudioTaskStart (void *p_arg)
     write_audio_cfg_register(0x9, 0x01);
 
 	int i;
-	for(i = 0; i < 32000; i++) {
-		lbuffer[i] = (INT32S) 30000 * sin(441 * 2 * M_PI * i / 32000);
-	}
+//	for(i = 0; i < 32000; i++) {
+//		lbuffer[i] = (INT32S) 30000 * sin(441 * 2 * M_PI * i / 32000);
+//	}
 
     for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
-
-        write_audio_data(lbuffer, 32000);
+        alt_write_word(SYNTH_BASE, 441);
+        INT32S* data = alt_read_word(SYNTH_BASE);
+        write_audio_data(data, 32000);
 
     }
 

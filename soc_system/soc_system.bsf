@@ -735,7 +735,7 @@ agreement for further details.
 		(text "reset_n" (rect 293 1395 628 2800)(font "Arial" (color 0 0 0)))
 		(text "switches_external_connection" (rect 115 1411 398 2835)(font "Arial" (color 128 0 0)(font_size 9)))
 		(text "export" (rect 293 1435 622 2880)(font "Arial" (color 0 0 0)))
-		(text " system " (rect 749 1456 1546 2922)(font "Arial" ))
+		(text " soc_system " (rect 728 1456 1528 2922)(font "Arial" ))
 		(line (pt 288 32)(pt 496 32)(line_width 1))
 		(line (pt 496 32)(pt 496 1456)(line_width 1))
 		(line (pt 288 1456)(pt 496 1456)(line_width 1))
