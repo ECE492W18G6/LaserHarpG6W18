@@ -107,7 +107,7 @@ signal lut_data_reg1 : std_logic_vector(31 downto 0);
 
 begin
 
-dds : process(clk, reset)
+dds : process(clk, reset, write)
 
 begin
 
@@ -122,7 +122,7 @@ begin
 --		phase_acc8 <= x"00000000"; -- reset accumulator.
 
 	elsif (rising_edge(clk)) then 
-		--if (write = '1') then
+		if (write = '1') then
 			-- at every falling edge, we are adding/changing the phase to the accumulator.
 			phase_acc1 <= unsigned(phase_acc1) + unsigned(phase_reg1);
 --			phase_acc2 <= unsigned(phase_acc2) + unsigned(phase_reg2);
@@ -132,7 +132,7 @@ begin
 --			phase_acc6 <= unsigned(phase_acc6) + unsigned(phase_reg6);
 --			phase_acc7 <= unsigned(phase_acc7) + unsigned(phase_reg7);
 --			phase_acc8 <= unsigned(phase_acc8) + unsigned(phase_reg8);
-		--end if;
+		end if;
 	end if;
 
 end process dds;
@@ -186,21 +186,21 @@ lut: component sin_lut  port map (
 -- Hide the latency of the LUT --
 ---------------------------------
 
-delay_regs: process(clk, write)
-begin
-  if (rising_edge(clk)) then
-		if (write = '1') then
-			lut_data_reg1 <= lut_data1;
---			lut_data_reg2 <= lut_data2;
---			lut_data_reg3 <= lut_data3;
---			lut_data_reg4 <= lut_data4;
---			lut_data_reg5 <= lut_data5;
---			lut_data_reg6 <= lut_data6;
---			lut_data_reg7 <= lut_data7;
---			lut_data_reg8 <= lut_data8;
-		end if;
-	end if;
-end process delay_regs;
+--delay_regs: process(clk, write)
+--begin
+--  if (rising_edge(clk)) then
+--		if (write = '1') then
+--			lut_data_reg1 <= lut_data1;
+----			lut_data_reg2 <= lut_data2;
+----			lut_data_reg3 <= lut_data3;
+----			lut_data_reg4 <= lut_data4;
+----			lut_data_reg5 <= lut_data5;
+----			lut_data_reg6 <= lut_data6;
+----			lut_data_reg7 <= lut_data7;
+----			lut_data_reg8 <= lut_data8;
+--		end if;
+--	end if;
+--end process delay_regs;
 
 
 end full_dds;

@@ -78,7 +78,6 @@
 #define LEDR_BASE FPGA_TO_HPS_LW_ADDR(LEDR_ADD)
 #define SYNTH_ADD 0x00000a00
 #define SYNTH_BASE FPGA_TO_HPS_LW_ADDR(SYNTH_ADD)
-#define SYNTH_OFFSET 20
 
 #define AUDIO_BUFFER_SIZE 128
 #define M_PI 3.14159265358979323846
@@ -264,7 +263,7 @@ static  void  AudioTaskStart (void *p_arg)
 
     for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
-        alt_write_word(SYNTH_BASE, 200);
+        alt_write_word(SYNTH_BASE, 57);
 		buffer[0] = alt_read_word(SYNTH_BASE);
         write_audio_data(buffer, 1);
 
