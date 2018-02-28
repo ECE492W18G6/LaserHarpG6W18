@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Wed Feb 28 14:01:29 2018
+Analysis & Synthesis Status : Successful - Wed Feb 28 15:40:52 2018
 Quartus Prime Version : 17.0.2 Build 602 07/19/2017 SJ Standard Edition
 Revision Name : LaserHarpG6W18
 Top-level Entity Name : LaserHarpG6W18
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 2474
+Total registers : 2472
 Total pins : 165
 Total virtual pins : 0
 Total block memory bits : 57,344

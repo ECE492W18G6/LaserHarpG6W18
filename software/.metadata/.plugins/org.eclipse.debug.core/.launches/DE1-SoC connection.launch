@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.arm.debugger.launcher2">
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data" value="3399540"/>
-<mapEntry key="*Fetching Data Model" value="182072"/>
-<mapEntry key="*list global low level symbols" value="3983791"/>
-<mapEntry key="*loading memory from target" value="16448560"/>
+<mapEntry key="*Fetching Data" value="39462292"/>
+<mapEntry key="*Fetching Data Model" value="121628"/>
+<mapEntry key="*list global low level symbols" value="2571146"/>
+<mapEntry key="*loading memory from target" value="12929476"/>
 <mapEntry key="*loading values from target" value="1375142"/>
 <mapEntry key="*updating registers" value="302360538"/>
 <mapEntry key="*updating variables" value="697256"/>
-<mapEntry key="AddEventObserver" value="328103"/>
-<mapEntry key="Evaluate" value="1042143"/>
+<mapEntry key="AddEventObserver" value="335959"/>
+<mapEntry key="Evaluate" value="4258834"/>
 <mapEntry key="Retrieving globals list" value="4266092"/>
-<mapEntry key="areCachesAvailable" value="346059"/>
-<mapEntry key="break" value="15708326"/>
-<mapEntry key="continue" value="15439683"/>
-<mapEntry key="disassemble" value="82632200"/>
+<mapEntry key="areCachesAvailable" value="405944"/>
+<mapEntry key="break" value="14898552"/>
+<mapEntry key="continue" value="18935359"/>
+<mapEntry key="disassemble" value="44713940"/>
 <mapEntry key="evaluate address" value="539617"/>
-<mapEntry key="file" value="13672580"/>
-<mapEntry key="finish" value="30521970"/>
-<mapEntry key="get byte order" value="571092"/>
-<mapEntry key="get capabilities" value="209220"/>
-<mapEntry key="get execution addresss" value="283652"/>
-<mapEntry key="get source lines" value="337423"/>
-<mapEntry key="getValidEncodings" value="339765"/>
-<mapEntry key="initialize command help" value="22220062"/>
-<mapEntry key="interrupt" value="14461910"/>
-<mapEntry key="list breakpoints" value="307898"/>
-<mapEntry key="list instruction sets" value="165550"/>
-<mapEntry key="list signals" value="21501966"/>
-<mapEntry key="list watchpoints" value="477935"/>
-<mapEntry key="loadfile" value="500073490"/>
-<mapEntry key="next" value="49428235"/>
-<mapEntry key="remove" value="14602708"/>
-<mapEntry key="set CWD" value="537237"/>
-<mapEntry key="set breakpoint properties" value="22177474"/>
-<mapEntry key="set debug-from" value="526281"/>
-<mapEntry key="source altera_target_check.py" value="208136652"/>
-<mapEntry key="source preloader.ds" value="3460741724"/>
-<mapEntry key="start" value="52284420"/>
-<mapEntry key="step" value="34375832"/>
-<mapEntry key="toggleBreakpoint" value="26963647"/>
-<mapEntry key="waitForTargetToStop" value="285765374"/>
+<mapEntry key="file" value="43223588"/>
+<mapEntry key="finish" value="23574260"/>
+<mapEntry key="get byte order" value="396441"/>
+<mapEntry key="get capabilities" value="95672"/>
+<mapEntry key="get execution addresss" value="382416"/>
+<mapEntry key="get source lines" value="379416"/>
+<mapEntry key="getValidEncodings" value="334122"/>
+<mapEntry key="initialize command help" value="21624717"/>
+<mapEntry key="interrupt" value="26947121"/>
+<mapEntry key="list breakpoints" value="174729"/>
+<mapEntry key="list instruction sets" value="87273"/>
+<mapEntry key="list signals" value="2771635"/>
+<mapEntry key="list watchpoints" value="184424"/>
+<mapEntry key="loadfile" value="352591827"/>
+<mapEntry key="next" value="49575886"/>
+<mapEntry key="remove" value="10965241"/>
+<mapEntry key="set CWD" value="465390"/>
+<mapEntry key="set breakpoint properties" value="23573816"/>
+<mapEntry key="set debug-from" value="331617"/>
+<mapEntry key="source altera_target_check.py" value="231263991"/>
+<mapEntry key="source preloader.ds" value="3456856910"/>
+<mapEntry key="start" value="53100535"/>
+<mapEntry key="step" value="44089019"/>
+<mapEntry key="toggleBreakpoint" value="22884707"/>
+<mapEntry key="waitForTargetToStop" value="247778576"/>
 </mapAttribute>
 <intAttribute key="DEBUG_TAB..RESOURCES.COUNT" value="0"/>
 <intAttribute key="FILES.CONNECT_TO_GDB_SERVER.RESOURCES.COUNT" value="0"/>

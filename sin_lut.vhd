@@ -13,7 +13,7 @@ port (
 	en       : in  std_logic;
 	
 	--Address inputs
-	address_reg1 : in std_logic_vector(31 downto 0); 
+	address_reg1 : in std_logic_vector(11 downto 0); 
 --	address_reg2 : in std_logic_vector(11 downto 0);
 --	address_reg3 : in std_logic_vector(11 downto 0);
 --	address_reg4 : in std_logic_vector(11 downto 0);
@@ -23,7 +23,7 @@ port (
 --	address_reg8 : in std_logic_vector(11 downto 0);
 	
 	--Sine outputs
-	sin_out1  : out std_logic_vector(31 downto 0)
+	sin_out1  : out std_logic_vector(11 downto 0)
 --	sin_out2  : out std_logic_vector(11 downto 0);
 --	sin_out3  : out std_logic_vector(11 downto 0);
 --	sin_out4  : out std_logic_vector(11 downto 0);
@@ -565,7 +565,7 @@ rom_select: process (clk, en)
 begin
   if (rising_edge(clk)) then
     if (en = '1') then
-   	sin_out1 <= (SIN_ROM(conv_integer(address_reg1)) & x"00111");
+   	sin_out1 <= SIN_ROM(conv_integer(address_reg1));
 --	sin_out2 <= SIN_ROM(conv_integer(address_reg2));
 --	sin_out3 <= SIN_ROM(conv_integer(address_reg3));
 --	sin_out4 <= SIN_ROM(conv_integer(address_reg4));

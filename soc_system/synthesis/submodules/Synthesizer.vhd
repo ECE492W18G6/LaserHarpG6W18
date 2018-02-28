@@ -56,7 +56,7 @@ component sin_lut is
 
 	-- take in the values from the phase accumulator.
 	-- All of the address inputs.
-	address_reg1 : in std_logic_vector(31 downto 0); 
+	address_reg1 : in std_logic_vector(11 downto 0); 
 --	address_reg2 : in std_logic_vector(11 downto 0);
 --	address_reg3 : in std_logic_vector(11 downto 0);
 --	address_reg4 : in std_logic_vector(11 downto 0);
@@ -66,7 +66,7 @@ component sin_lut is
 --	address_reg8 : in std_logic_vector(11 downto 0);
 
 	-- All of the sine outputs.
-	sin_out1  : out std_logic_vector(31 downto 0)
+	sin_out1  : out std_logic_vector(11 downto 0)
 --	sin_out2  : out std_logic_vector(11 downto 0);
 --	sin_out3  : out std_logic_vector(11 downto 0);
 --	sin_out4  : out std_logic_vector(11 downto 0);
@@ -107,7 +107,7 @@ signal lut_data_reg1 : std_logic_vector(31 downto 0);
 
 begin
 
-dds : process(clk, reset, write)
+dds : process(clk, reset)
 
 begin
 
@@ -122,7 +122,7 @@ begin
 --		phase_acc8 <= x"00000000"; -- reset accumulator.
 
 	elsif (rising_edge(clk)) then 
-		if (write = '1') then
+		--if (write = '1') then
 			-- at every falling edge, we are adding/changing the phase to the accumulator.
 			phase_acc1 <= unsigned(phase_acc1) + unsigned(phase_reg1);
 --			phase_acc2 <= unsigned(phase_acc2) + unsigned(phase_reg2);
@@ -132,7 +132,7 @@ begin
 --			phase_acc6 <= unsigned(phase_acc6) + unsigned(phase_reg6);
 --			phase_acc7 <= unsigned(phase_acc7) + unsigned(phase_reg7);
 --			phase_acc8 <= unsigned(phase_acc8) + unsigned(phase_reg8);
-		end if;
+		--end if;
 	end if;
 
 end process dds;
@@ -162,7 +162,7 @@ lut: component sin_lut  port map (
 		clk       => clk,
 		en        => write,
 	 
-    	address_reg1      => lut_data1,
+    	address_reg1      => lut_data1(11 downto 0),
 --	address_reg2      => lut_data2,
 --	address_reg3      => lut_data3,
 --	address_reg4      => lut_data4,
@@ -171,7 +171,7 @@ lut: component sin_lut  port map (
 --	address_reg7      => lut_data7,
 --	address_reg8      => lut_data8,
 	
-	sin_out1 	=> data_out1
+	sin_out1 	=> data_out1(11 downto 0)
 --	sin_out2 	=> data_out2,
 --	sin_out3 	=> data_out3,
 --	sin_out4 	=> data_out4,

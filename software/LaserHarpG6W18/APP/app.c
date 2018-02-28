@@ -221,13 +221,13 @@ static  void  AppTaskStart (void *p_arg)
 
 		BSP_LED_On();
 
-//		alt_write_word(LEDR_BASE, 0x00);
+		alt_write_word(LEDR_BASE, 0x00);
 
 		OSTimeDlyHMSM(0, 0, 0, 500);
 
 		BSP_LED_Off();
 
-//		alt_write_word(LEDR_BASE, 0x3ff);
+		alt_write_word(LEDR_BASE, 0x3ff);
     }
 }
 
@@ -248,10 +248,6 @@ static  void  AppTaskStart (void *p_arg)
 */
 static  void  AudioTaskStart (void *p_arg)
 {
-
-
-//    INT32U rbuffer[AUDIO_BUFFER_SIZE];
-
     // Configure audio device
     // See WM8731 datasheet Register Map
     write_audio_cfg_register(0x0, 0x17);
@@ -265,26 +261,12 @@ static  void  AudioTaskStart (void *p_arg)
     write_audio_cfg_register(0x8, 0x18);
     write_audio_cfg_register(0x9, 0x01);
 
-	int i;
-	for(i = 0; i < 32000; i++) {
-		lbuffer[i] = (INT32S) 10000 * sin(441 * 2 * M_PI * i / 32000);// + (INT32S) 10000 * sin(523 * 2 * M_PI * i / 32000) + (INT32S) 10000 * sin(660 * 2 * M_PI * i / 32000);
-		//printf("l: %d, r: %d, b: %d\n", lbuffer[i], rbuffer[i], buffer[i]);
-	}
 
     for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
-//        INT32S read1 = alt_read_word(SYNTH_BASE);
-//        alt_write_word(SYNTH_BASE, -1);
-//        INT32S read2 = alt_read_word(SYNTH_BASE);
-//        printf("read1: %zu\nread2: %zu\n\n",read1,read2);
-		for(i = 0; i < 32000; i++) {
-			alt_write_word(SYNTH_BASE, 20);
-//			INT32S value = alt_read_word(SYNTH_BASE);
-//			printf("value: %d\n", value);
-			buffer[i] = alt_read_word(SYNTH_BASE) >> SYNTH_OFFSET;
-//			printf("buffer[i]: %d    SHOULD BE: %d\n", buffer[i], lbuffer[i]);
-		}
-        write_audio_data(buffer, 32000);
+        alt_write_word(SYNTH_BASE, 200);
+		buffer[0] = alt_read_word(SYNTH_BASE);
+        write_audio_data(buffer, 1);
 
     }
 

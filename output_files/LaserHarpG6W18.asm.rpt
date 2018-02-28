@@ -1,5 +1,5 @@
 Assembler report for LaserHarpG6W18
-Wed Feb 28 14:03:20 2018
+Wed Feb 28 15:42:45 2018
 Quartus Prime Version 17.0.2 Build 602 07/19/2017 SJ Standard Edition
 
 
@@ -38,7 +38,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed Feb 28 14:03:20 2018 ;
+; Assembler Status      ; Successful - Wed Feb 28 15:42:45 2018 ;
 ; Revision Name         ; LaserHarpG6W18                        ;
 ; Top-level Entity Name ; LaserHarpG6W18                        ;
 ; Family                ; Cyclone V                             ;
@@ -67,8 +67,8 @@ agreement for further details.
 +----------------+------------------------------------------------------------------------------------------+
 ; Option         ; Setting                                                                                  ;
 +----------------+------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x01147FA5                                                                               ;
-; Checksum       ; 0x01147FA5                                                                               ;
+; JTAG usercode  ; 0x01142555                                                                               ;
+; Checksum       ; 0x01142555                                                                               ;
 +----------------+------------------------------------------------------------------------------------------+
 
 
@@ -78,15 +78,15 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 17.0.2 Build 602 07/19/2017 SJ Standard Edition
-    Info: Processing started: Wed Feb 28 14:03:09 2018
+    Info: Processing started: Wed Feb 28 15:42:33 2018
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off LaserHarpG6W18 -c LaserHarpG6W18
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info (11878): Hard Processor Subsystem configuration has not changed and a Preloader software update is not required
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 759 megabytes
-    Info: Processing ended: Wed Feb 28 14:03:20 2018
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:11
+    Info: Peak virtual memory: 760 megabytes
+    Info: Processing ended: Wed Feb 28 15:42:45 2018
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:12
 
 
