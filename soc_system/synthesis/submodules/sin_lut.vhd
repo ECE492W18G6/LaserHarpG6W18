@@ -561,10 +561,10 @@ X"fe7", X"fea", X"fed", X"ff0", X"ff3", X"ff7", X"ffa", X"ffd"
 begin
 
 
-rom_select: process (clk)
+rom_select: process (clk, en)
 begin
-  if clk'event and clk = '1' then
-    if en = '1' then
+  if (rising_edge(clk)) then
+    if (en = '1') then
    	sin_out1 <= (SIN_ROM(conv_integer(address_reg1)) & x"00111");
 --	sin_out2 <= SIN_ROM(conv_integer(address_reg2));
 --	sin_out3 <= SIN_ROM(conv_integer(address_reg3));

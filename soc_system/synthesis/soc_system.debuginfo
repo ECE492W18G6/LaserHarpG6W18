@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="soc_system" kind="system" version="17.0" fabric="QSYS">
  <!-- Format version 17.0 602 (Future versions may contain additional information.) -->
- <!-- 2018.02.23.15:10:12 -->
+ <!-- 2018.02.28.13:58:02 -->
  <!-- A collection of modules and connections -->
  <parameter name="clockCrossingAdapter">
   <type>com.altera.sopcmodel.ensemble.EClockAdapter</type>
@@ -53,7 +53,7 @@
  </parameter>
  <parameter name="generationId">
   <type>int</type>
-  <value>1519423769</value>
+  <value>1519851438</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>true</visible>
@@ -613,7 +613,7 @@ parameters are a RESULT of the module parameters. -->
     <role>read</role>
    </port>
    <port>
-    <name>en</name>
+    <name>write</name>
     <direction>Input</direction>
     <width>1</width>
     <role>write</role>
@@ -6398,6 +6398,12 @@ parameters are a RESULT of the module parameters. -->
    </clockDomainMember>
    <clockDomainMember>
     <isBridge>false</isBridge>
+    <moduleName>red_leds</moduleName>
+    <slaveName>clk</slaveName>
+    <name>red_leds.clk</name>
+   </clockDomainMember>
+   <clockDomainMember>
+    <isBridge>false</isBridge>
     <moduleName>audio_0</moduleName>
     <slaveName>clk</slaveName>
     <name>audio_0.clk</name>
@@ -6407,12 +6413,6 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>audio_and_video_config_0</moduleName>
     <slaveName>clk</slaveName>
     <name>audio_and_video_config_0.clk</name>
-   </clockDomainMember>
-   <clockDomainMember>
-    <isBridge>false</isBridge>
-    <moduleName>red_leds</moduleName>
-    <slaveName>clk</slaveName>
-    <name>red_leds.clk</name>
    </clockDomainMember>
    <clockDomainMember>
     <isBridge>false</isBridge>
@@ -52306,7 +52306,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1519423769</value>
+   <value>1519851438</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -52326,7 +52326,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1519423769</value>
+   <value>1519851438</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -52342,7 +52342,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1519423769</value>
+   <value>1519851438</value>
    <derived>true</derived>
    <enabled>false</enabled>
    <visible>false</visible>
@@ -56822,7 +56822,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="IRQ_MAP">
    <type>java.lang.String</type>
-   <value>0:9,1:2,2:3,3:4,4:5,5:6</value>
+   <value>0:0,1:2,2:3,3:4,4:5,5:6</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -59108,6 +59108,33 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
+   name="clk_0.clk/red_leds.clk"
+   kind="clock"
+   version="17.0"
+   start="clk_0.clk"
+   end="red_leds.clk">
+  <parameter name="deviceFamily">
+   <type>java.lang.String</type>
+   <value>UNKNOWN</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="generateLegacySim">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <startModule>clk_0</startModule>
+  <startConnectionPoint>clk</startConnectionPoint>
+  <endModule>red_leds</endModule>
+  <endConnectionPoint>clk</endConnectionPoint>
+ </connection>
+ <connection
    name="clk_0.clk/audio_0.clk"
    kind="clock"
    version="17.0"
@@ -59159,33 +59186,6 @@ parameters are a RESULT of the module parameters. -->
   <startModule>clk_0</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>audio_and_video_config_0</endModule>
-  <endConnectionPoint>clk</endConnectionPoint>
- </connection>
- <connection
-   name="clk_0.clk/red_leds.clk"
-   kind="clock"
-   version="17.0"
-   start="clk_0.clk"
-   end="red_leds.clk">
-  <parameter name="deviceFamily">
-   <type>java.lang.String</type>
-   <value>UNKNOWN</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="generateLegacySim">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <startModule>clk_0</startModule>
-  <startConnectionPoint>clk</startConnectionPoint>
-  <endModule>red_leds</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
@@ -61028,5 +61028,5 @@ parameters are a RESULT of the module parameters. -->
   <version>17.0</version>
  </plugin>
  <reportVersion>17.0 602</reportVersion>
- <uniqueIdentifier>00000000000000E000000161C4B6E218</uniqueIdentifier>
+ <uniqueIdentifier>00000000000000E000000161DE34988B</uniqueIdentifier>
 </EnsembleReport>

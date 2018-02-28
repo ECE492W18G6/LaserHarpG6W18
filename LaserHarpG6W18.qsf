@@ -1567,8 +1567,8 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[34]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1_34
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[35]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1_35
-set_global_assignment -name VHDL_FILE sin_lut.vhd
 set_global_assignment -name VHDL_FILE Synthesizer.vhd
+set_global_assignment -name VHDL_FILE sin_lut.vhd
 set_global_assignment -name VHDL_FILE toplevel.vhd
 set_global_assignment -name TCL_SCRIPT_FILE ../Presets_Pins/pin_assignment_DE1_SoC.tcl
 set_global_assignment -name QIP_FILE soc_system/synthesis/soc_system.qip

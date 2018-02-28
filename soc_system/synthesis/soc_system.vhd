@@ -106,7 +106,7 @@ architecture rtl of soc_system is
 			phase_reg1 : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
 			data_out1  : out std_logic_vector(31 downto 0);                    -- readdata
 			read       : in  std_logic                     := 'X';             -- read
-			en         : in  std_logic                     := 'X'              -- write
+			write      : in  std_logic                     := 'X'              -- write
 		);
 	end component synthesizer;
 
@@ -650,7 +650,7 @@ architecture rtl of soc_system is
 	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_writedata                  : std_logic_vector(7 downto 0);  -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_writedata -> character_lcd_0:writedata
 	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_readdata                       : std_logic_vector(31 downto 0); -- Synthesizer_0:data_out1 -> mm_interconnect_0:Synthesizer_0_avalon_slave_0_readdata
 	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_read                           : std_logic;                     -- mm_interconnect_0:Synthesizer_0_avalon_slave_0_read -> Synthesizer_0:read
-	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_write                          : std_logic;                     -- mm_interconnect_0:Synthesizer_0_avalon_slave_0_write -> Synthesizer_0:en
+	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_write                          : std_logic;                     -- mm_interconnect_0:Synthesizer_0_avalon_slave_0_write -> Synthesizer_0:write
 	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_writedata                      : std_logic_vector(31 downto 0); -- mm_interconnect_0:Synthesizer_0_avalon_slave_0_writedata -> Synthesizer_0:phase_reg1
 	signal mm_interconnect_0_sysid_qsys_0_control_slave_readdata                         : std_logic_vector(31 downto 0); -- sysid_qsys_0:readdata -> mm_interconnect_0:sysid_qsys_0_control_slave_readdata
 	signal mm_interconnect_0_sysid_qsys_0_control_slave_address                          : std_logic_vector(0 downto 0);  -- mm_interconnect_0:sysid_qsys_0_control_slave_address -> sysid_qsys_0:address
@@ -715,7 +715,7 @@ begin
 			phase_reg1 => mm_interconnect_0_synthesizer_0_avalon_slave_0_writedata, -- avalon_slave_0.writedata
 			data_out1  => mm_interconnect_0_synthesizer_0_avalon_slave_0_readdata,  --               .readdata
 			read       => mm_interconnect_0_synthesizer_0_avalon_slave_0_read,      --               .read
-			en         => mm_interconnect_0_synthesizer_0_avalon_slave_0_write      --               .write
+			write      => mm_interconnect_0_synthesizer_0_avalon_slave_0_write      --               .write
 		);
 
 	audio_0 : component soc_system_audio_0

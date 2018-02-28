@@ -7,17 +7,17 @@ USE ieee.std_logic_1164.all;
 USE ieee.std_logic_arith.all;
 USE ieee.math_real.all;
 
-entity synthesizer is 
+entity Synthesizer is 
 
 	port(
-	clk : in std_logic;
-	reset : in std_logic;
-	en		: in std_logic;
-	read	: in std_logic;
+	clk 			: in std_logic:= '0'; 
+	reset 		: in std_logic:= '0'; 
+	write		: in std_logic:= '0'; 
+	read		: in std_logic:= '0'; 
 	--ad_converter : in std_logic;
 
 	
-	phase_reg1 : in std_logic_vector(31 downto 0);
+	phase_reg1 : in std_logic_vector(31 downto 0) := (others => '0'); 
 --	phase_reg2 : in std_logic_vector(31 downto 0);
 --	phase_reg3 : in std_logic_vector(31 downto 0);
 --	phase_reg4 : in std_logic_vector(31 downto 0);
@@ -37,10 +37,16 @@ entity synthesizer is
 --	data_out8 : out std_logic_vector(11 downto 0) 
 	);
 
-end synthesizer;
+end Synthesizer;
 
 
-architecture full_dds of synthesizer is
+
+
+
+
+
+
+architecture full_dds of Synthesizer is
 
 component sin_lut is 
 
@@ -81,7 +87,6 @@ signal phase_acc1 : std_logic_vector(31 downto 0);
 --signal phase_acc7 : std_logic_vector(31 downto 0);
 --signal phase_acc8 : std_logic_vector(31 downto 0);
 
-
 signal lut_data1 : std_logic_vector(31 downto 0);
 --signal lut_data2 : std_logic_vector(11 downto 0);
 --signal lut_data3 : std_logic_vector(11 downto 0);
@@ -100,15 +105,13 @@ signal lut_data_reg1 : std_logic_vector(31 downto 0);
 --signal lut_data_reg7 : std_logic_vector(11 downto 0);
 --signal lut_data_reg8 : std_logic_vector(11 downto 0);
 
+begin
 
+dds : process(clk, reset, write)
 
 begin
 
-dds : process(clk, reset)
-
-begin
-
-	if (reset = '0') then
+	if (reset = '1') then
 		phase_acc1 <= x"00000000"; -- reset accumulator.
 --		phase_acc2 <= x"00000000"; -- reset accumulator.
 --		phase_acc3 <= x"00000000"; -- reset accumulator.
@@ -119,7 +122,7 @@ begin
 --		phase_acc8 <= x"00000000"; -- reset accumulator.
 
 	elsif (rising_edge(clk)) then 
-		if (en = '1') then
+		if (write = '1') then
 			-- at every falling edge, we are adding/changing the phase to the accumulator.
 			phase_acc1 <= unsigned(phase_acc1) + unsigned(phase_reg1);
 --			phase_acc2 <= unsigned(phase_acc2) + unsigned(phase_reg2);
@@ -155,12 +158,9 @@ lut_data1 <= phase_acc1(31 downto 0);
 -- Phase resolution is 2Pi/4096 = 0.088 degrees                     --
 ----------------------------------------------------------------------
 
-lut: component sin_lut
-
-  port map
-  (
-    	clk       => clk,
-		en        => en,
+lut: component sin_lut  port map (
+		clk       => clk,
+		en        => write,
 	 
     	address_reg1      => lut_data1,
 --	address_reg2      => lut_data2,
@@ -186,10 +186,10 @@ lut: component sin_lut
 -- Hide the latency of the LUT --
 ---------------------------------
 
-delay_regs: process(clk)
+delay_regs: process(clk, write)
 begin
   if (rising_edge(clk)) then
-		if (en = '1') then
+		if (write = '1') then
 			lut_data_reg1 <= lut_data1;
 --			lut_data_reg2 <= lut_data2;
 --			lut_data_reg3 <= lut_data3;

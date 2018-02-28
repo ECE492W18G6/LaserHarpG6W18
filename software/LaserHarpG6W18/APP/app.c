@@ -220,13 +220,13 @@ static  void  AppTaskStart (void *p_arg)
 
 		BSP_LED_On();
 
-		alt_write_word(LEDR_BASE, 0x00);
+//		alt_write_word(LEDR_BASE, 0x00);
 
 		OSTimeDlyHMSM(0, 0, 0, 500);
 
 		BSP_LED_Off();
 
-		alt_write_word(LEDR_BASE, 0x3ff);
+//		alt_write_word(LEDR_BASE, 0x3ff);
     }
 }
 
@@ -266,16 +266,17 @@ static  void  AudioTaskStart (void *p_arg)
 
 	int i;
 	for(i = 0; i < 32000; i++) {
-		lbuffer[i] = (INT32S) 10000 * sin(440 * 2 * M_PI * i / 32000);
-		rbuffer[i] = (INT32S) 10000 * sin(262 * 2 * M_PI * i / 32000);
-		buffer[i] = lbuffer[i] + rbuffer[i];
+		buffer[i] = (INT32S) 10000 * sin(440 * 2 * M_PI * i / 32000) + (INT32S) 10000 * sin(523 * 2 * M_PI * i / 32000) + (INT32S) 10000 * sin(660 * 2 * M_PI * i / 32000);
 		//printf("l: %d, r: %d, b: %d\n", lbuffer[i], rbuffer[i], buffer[i]);
 	}
 
     for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
 //        alt_write_word(SYNTH_BASE, 441);
-//        INT32S* data = alt_read_word(SYNTH_BASE);
+//		for(i = 0; i < 32000; i++) {
+//			buffer[i] = alt_read_word(SYNTH_BASE);
+//			//printf("l: %d, r: %d, b: %d\n", lbuffer[i], rbuffer[i], buffer[i]);
+//		}
         write_audio_data(buffer, 32000);
 
     }
@@ -300,9 +301,9 @@ static  void  AudioTaskStart (void *p_arg)
 static  void  LCDTaskStart (void *p_arg)
 {
 
-	InitLCD();
-	HomeLCD();
-	PrintStringLCD("Hello World\n");
+//	InitLCD();
+//	HomeLCD();
+//	PrintStringLCD("Hello World\n");
 
 	for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */

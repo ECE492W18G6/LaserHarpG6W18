@@ -22,7 +22,7 @@
 // Parameters
 //   NUM_RCVRS        : 6
 //   SENDER_IRW_WIDTH : 32
-//   IRQ_MAP          : 0:9,1:2,2:3,3:4,4:5,5:6
+//   IRQ_MAP          : 0:0,1:2,2:3,3:4,4:5,5:6
 //
 // -------------------------------------------------------
 
@@ -56,7 +56,7 @@ module soc_system_irq_mapper
     always @* begin
 	sender_irq = 0;
 
-        sender_irq[9] = receiver0_irq;
+        sender_irq[0] = receiver0_irq;
         sender_irq[2] = receiver1_irq;
         sender_irq[3] = receiver2_irq;
         sender_irq[4] = receiver3_irq;
