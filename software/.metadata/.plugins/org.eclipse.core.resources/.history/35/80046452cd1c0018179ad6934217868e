@@ -78,7 +78,6 @@
 #define LEDR_BASE FPGA_TO_HPS_LW_ADDR(LEDR_ADD)
 #define SYNTH_ADD 0x00000a00
 #define SYNTH_BASE FPGA_TO_HPS_LW_ADDR(SYNTH_ADD)
-#define SYNTH_OFFSET 20
 
 #define AUDIO_BUFFER_SIZE 128
 #define M_PI 3.14159265358979323846
@@ -267,23 +266,21 @@ static  void  AudioTaskStart (void *p_arg)
 
 	int i;
 	for(i = 0; i < 32000; i++) {
-		lbuffer[i] = (INT32S) 10000 * sin(441 * 2 * M_PI * i / 32000);// + (INT32S) 10000 * sin(523 * 2 * M_PI * i / 32000) + (INT32S) 10000 * sin(660 * 2 * M_PI * i / 32000);
+		buffer[i] = (INT32S) 10000 * sin(440 * 2 * M_PI * i / 32000) + (INT32S) 10000 * sin(523 * 2 * M_PI * i / 32000) + (INT32S) 10000 * sin(660 * 2 * M_PI * i / 32000);
 		//printf("l: %d, r: %d, b: %d\n", lbuffer[i], rbuffer[i], buffer[i]);
 	}
 
     for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
-//        INT32S read1 = alt_read_word(SYNTH_BASE);
-//        alt_write_word(SYNTH_BASE, -1);
-//        INT32S read2 = alt_read_word(SYNTH_BASE);
-//        printf("read1: %zu\nread2: %zu\n\n",read1,read2);
-		for(i = 0; i < 32000; i++) {
-			alt_write_word(SYNTH_BASE, 20);
-//			INT32S value = alt_read_word(SYNTH_BASE);
-//			printf("value: %d\n", value);
-			buffer[i] = alt_read_word(SYNTH_BASE) >> SYNTH_OFFSET;
-//			printf("buffer[i]: %d    SHOULD BE: %d\n", buffer[i], lbuffer[i]);
-		}
+//        alt_write_word(SYNTH_BASE, 441);
+        INT32S read1 = alt_read_word(SYNTH_BASE);
+        alt_write_word(SYNTH_BASE, 441);
+        INT32S read2 = alt_read_word(SYNTH_BASE);
+        printf("read1: %zu\nread2: %zu\n\n",read1,read2);
+//		for(i = 0; i < 32000; i++) {
+//			buffer[i] = alt_read_word(SYNTH_BASE);
+//			//printf("l: %d, r: %d, b: %d\n", lbuffer[i], rbuffer[i], buffer[i]);
+//		}
         write_audio_data(buffer, 32000);
 
     }

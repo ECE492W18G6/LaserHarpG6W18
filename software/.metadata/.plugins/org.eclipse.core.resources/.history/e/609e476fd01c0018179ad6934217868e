@@ -278,7 +278,7 @@ static  void  AudioTaskStart (void *p_arg)
 //        INT32S read2 = alt_read_word(SYNTH_BASE);
 //        printf("read1: %zu\nread2: %zu\n\n",read1,read2);
 		for(i = 0; i < 32000; i++) {
-			alt_write_word(SYNTH_BASE, 20);
+			alt_write_word(SYNTH_BASE, 200);
 //			INT32S value = alt_read_word(SYNTH_BASE);
 //			printf("value: %d\n", value);
 			buffer[i] = alt_read_word(SYNTH_BASE) >> SYNTH_OFFSET;

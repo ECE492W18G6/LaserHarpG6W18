@@ -273,16 +273,14 @@ static  void  AudioTaskStart (void *p_arg)
 
     for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
+        alt_write_word(SYNTH_BASE, 441);
 //        INT32S read1 = alt_read_word(SYNTH_BASE);
 //        alt_write_word(SYNTH_BASE, -1);
 //        INT32S read2 = alt_read_word(SYNTH_BASE);
 //        printf("read1: %zu\nread2: %zu\n\n",read1,read2);
 		for(i = 0; i < 32000; i++) {
-			alt_write_word(SYNTH_BASE, 20);
-//			INT32S value = alt_read_word(SYNTH_BASE);
-//			printf("value: %d\n", value);
 			buffer[i] = alt_read_word(SYNTH_BASE) >> SYNTH_OFFSET;
-//			printf("buffer[i]: %d    SHOULD BE: %d\n", buffer[i], lbuffer[i]);
+			printf("buffer[i]: %d    SHOULD BE: %d\n", buffer[i], lbuffer[i]);
 		}
         write_audio_data(buffer, 32000);
 
