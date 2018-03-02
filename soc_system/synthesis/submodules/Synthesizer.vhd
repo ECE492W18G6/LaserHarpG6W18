@@ -186,21 +186,21 @@ lut: component sin_lut  port map (
 -- Hide the latency of the LUT --
 ---------------------------------
 
---delay_regs: process(clk, write)
---begin
---  if (rising_edge(clk)) then
---		if (write = '1') then
---			lut_data_reg1 <= lut_data1;
-----			lut_data_reg2 <= lut_data2;
-----			lut_data_reg3 <= lut_data3;
-----			lut_data_reg4 <= lut_data4;
-----			lut_data_reg5 <= lut_data5;
-----			lut_data_reg6 <= lut_data6;
-----			lut_data_reg7 <= lut_data7;
-----			lut_data_reg8 <= lut_data8;
---		end if;
---	end if;
---end process delay_regs;
+delay_regs: process(clk, write)
+begin
+  if (rising_edge(clk)) then
+		if (write = '1') then
+			lut_data_reg1 <= lut_data1;
+--			lut_data_reg2 <= lut_data2;
+--			lut_data_reg3 <= lut_data3;
+--			lut_data_reg4 <= lut_data4;
+--			lut_data_reg5 <= lut_data5;
+--			lut_data_reg6 <= lut_data6;
+--			lut_data_reg7 <= lut_data7;
+--			lut_data_reg8 <= lut_data8;
+		end if;
+	end if;
+end process delay_regs;
 
 
 end full_dds;

@@ -76,8 +76,22 @@
 #define TASK_STACK_SIZE 4096
 #define LEDR_ADD 0x00000000
 #define LEDR_BASE FPGA_TO_HPS_LW_ADDR(LEDR_ADD)
-#define SYNTH_ADD 0x00000a00
-#define SYNTH_BASE FPGA_TO_HPS_LW_ADDR(SYNTH_ADD)
+#define SYNTH0_ADD 0x1000
+#define SYNTH0_BASE FPGA_TO_HPS_LW_ADDR(SYNTH0_ADD)
+#define SYNTH1_ADD 0x1100
+#define SYNTH1_BASE FPGA_TO_HPS_LW_ADDR(SYNTH1_ADD)
+#define SYNTH2_ADD 0x1200
+#define SYNTH2_BASE FPGA_TO_HPS_LW_ADDR(SYNTH2_ADD)
+#define SYNTH3_ADD 0x1300
+#define SYNTH3_BASE FPGA_TO_HPS_LW_ADDR(SYNTH3_ADD)
+#define SYNTH4_ADD 0x1400
+#define SYNTH4_BASE FPGA_TO_HPS_LW_ADDR(SYNTH4_ADD)
+#define SYNTH5_ADD 0x1500
+#define SYNTH5_BASE FPGA_TO_HPS_LW_ADDR(SYNTH5_ADD)
+#define SYNTH6_ADD 0x1600
+#define SYNTH6_BASE FPGA_TO_HPS_LW_ADDR(SYNTH6_ADD)
+#define SYNTH7_ADD 0x1700
+#define SYNTH7_BASE FPGA_TO_HPS_LW_ADDR(SYNTH7_ADD)
 
 #define AUDIO_BUFFER_SIZE 128
 #define M_PI 3.14159265358979323846
@@ -257,14 +271,16 @@ static  void  AudioTaskStart (void *p_arg)
     write_audio_cfg_register(0x5, 0x06);
     write_audio_cfg_register(0x6, 0x00);
     write_audio_cfg_register(0x7, 0x4D);
-    write_audio_cfg_register(0x8, 0x18);
+    write_audio_cfg_register(0x8, 0x20); // bits 5:2 config based on sampling rate. Use 0x18 for 32kHz and 0x20 for 44.1kHz
     write_audio_cfg_register(0x9, 0x01);
 
 
     for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
-        alt_write_word(SYNTH_BASE, 57);
-		buffer[0] = alt_read_word(SYNTH_BASE);
+        alt_write_word(SYNTH0_BASE, 40);
+        alt_write_word(SYNTH1_BASE, 47);
+        alt_write_word(SYNTH2_BASE, 60);
+		buffer[0] = alt_read_word(SYNTH0_BASE) + alt_read_word(SYNTH1_BASE) + alt_read_word(SYNTH2_BASE);
         write_audio_data(buffer, 1);
 
     }
