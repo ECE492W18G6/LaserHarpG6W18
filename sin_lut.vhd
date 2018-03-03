@@ -11,25 +11,11 @@ port (
 	clk      : in  std_logic;
 	en       : in  std_logic;
 	
-	--Address inputs
+	--Address input
 	address_reg1 : in std_logic_vector(11 downto 0); 
---	address_reg2 : in std_logic_vector(11 downto 0);
---	address_reg3 : in std_logic_vector(11 downto 0);
---	address_reg4 : in std_logic_vector(11 downto 0);
---	address_reg5 : in std_logic_vector(11 downto 0);
---	address_reg6 : in std_logic_vector(11 downto 0);
---	address_reg7 : in std_logic_vector(11 downto 0);
---	address_reg8 : in std_logic_vector(11 downto 0);
 	
-	--Sine outputs
+	--Sine output
 	sin_out1  : out std_logic_vector(31 downto 0)
---	sin_out2  : out std_logic_vector(11 downto 0);
---	sin_out3  : out std_logic_vector(11 downto 0);
---	sin_out4  : out std_logic_vector(11 downto 0);
---	sin_out5  : out std_logic_vector(11 downto 0);
---	sin_out6  : out std_logic_vector(11 downto 0);
---	sin_out7  : out std_logic_vector(11 downto 0);
---	sin_out8  : out std_logic_vector(11 downto 0)
 	);
 end entity;
 
@@ -556,31 +542,13 @@ X"fce", X"fd1", X"fd4", X"fd7", X"fda", X"fdd", X"fe1", X"fe4",
 X"fe7", X"fea", X"fed", X"ff0", X"ff3", X"ff7", X"ffa", X"ffd"
 );
 
--- signal temp : std_logic_vector(31 downto 0);
---signal shifted : signed(31 downto 0);
 begin
-
 
 rom_select: process (clk, en)
 begin
 	if (rising_edge(clk)) then
     if (en = '1') then
 		sin_out1 <= (SIN_ROM(conv_integer(address_reg1)) & x"00111");
-		
---		if (temp AND x"00000800") then
---			sin_out1 <= (temp OR x"fffff800");
---		else 
---			sin_out1 <= temp;
---		end if;
-
---   	sin_out1 <= SIN_ROM(conv_integer(address_reg1));
---	sin_out2 <= SIN_ROM(conv_integer(address_reg2));
---	sin_out3 <= SIN_ROM(conv_integer(address_reg3));
---	sin_out4 <= SIN_ROM(conv_integer(address_reg4));
---	sin_out5 <= SIN_ROM(conv_integer(address_reg5));
---	sin_out6 <= SIN_ROM(conv_integer(address_reg6));
---	sin_out7 <= SIN_ROM(conv_integer(address_reg7));
---	sin_out8 <= SIN_ROM(conv_integer(address_reg8));
     end if;
   end if;
 end process rom_select;

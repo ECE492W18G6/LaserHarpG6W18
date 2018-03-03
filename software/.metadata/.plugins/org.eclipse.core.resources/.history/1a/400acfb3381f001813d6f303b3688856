@@ -105,9 +105,7 @@ CPU_STK AppTaskStartStk[TASK_STACK_SIZE];
 CPU_STK AudioTaskStartStk[TASK_STACK_SIZE];
 CPU_STK LCDTaskStartStk[TASK_STACK_SIZE];
 
-INT32S lbuffer[32000];
-INT32S rbuffer[32000];
-INT32S buffer[32000];
+INT32S buffer[1];
 
 /*
 *********************************************************************************************************
@@ -275,11 +273,15 @@ static  void  AudioTaskStart (void *p_arg)
     write_audio_cfg_register(0x9, 0x01);
 
     for(;;) {
-        BSP_WatchDog_Reset();                       /* Reset the watchdog.                                  */
-        alt_write_word(SYNTH0_BASE, 440*1133);
-        alt_write_word(SYNTH1_BASE, 47);
-        alt_write_word(SYNTH2_BASE, 60);
-        buffer[0] = alt_read_word(SYNTH0_BASE); //+ alt_read_word(SYNTH1_BASE) + alt_read_word(SYNTH2_BASE);
+        BSP_WatchDog_Reset();				/* Reset the watchdog.   */
+
+        // the number 41 for the hardware synthesizer seems to play 440Hz
+        // therefore to play a specific frequency, like 523 (C#5)
+        alt_write_word(SYNTH0_BASE, 41);
+        alt_write_word(SYNTH1_BASE, 52);
+        INT32S temp1 = alt_read_word(SYNTH0_BASE);
+        INT32S temp2 = alt_read_word(SYNTH1_BASE);
+        buffer[0] =  (temp1 >> 20) + (temp2 >> 20);
         write_audio_data(buffer, 1);
 
     }

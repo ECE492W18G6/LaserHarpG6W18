@@ -8,15 +8,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "GPIO_0_10",
+					"strict" : false
+				},
+				{
 					"name" : "AUD_DACDAT",
 					"strict" : false
 				},
 				{
 					"name" : "GPIO_0_9",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_0_10",
 					"strict" : false
 				},
 				{

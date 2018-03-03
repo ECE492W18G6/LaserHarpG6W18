@@ -1,4 +1,4 @@
-16:03:06 **** Incremental Build of configuration Debug for project LaserHarpG6W18 ****
+16:20:09 **** Incremental Build of configuration Debug for project LaserHarpG6W18 ****
 make all 
 'Building file: ../APP/app.c'
 'Invoking: ARM C Compiler 5'
@@ -16,7 +16,7 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       588         48          0          0     481552       3766   app.o
+       592         48          0          4      49152       3670   app.o
         96          0          0          0          0        560   armv7a_tthelp.o
         92          4          0          0          0       1143   audio.o
         32          0          0          0          0        579   audio_cfg.o
@@ -44,7 +44,7 @@ Image component sizes
        496         76          0          0          0        776   startup.o
 
     ----------------------------------------------------------------------
-     29956        840        654        108   50874316     151429   Object Totals
+     29960        840        654        112   50441916     151333   Object Totals
          0          0         16          0   33599488          0   (incl. Generated)
          4          4          4          0          0          0   (incl. Padding)
 
@@ -93,20 +93,20 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     31362        920        654        108   50874316     147645   Grand Totals
-     31362        920        654        108   50874316     147645   ELF Image Totals
-     31362        920        654        108          0          0   ROM Totals
+     31366        920        654        112   50441916     147549   Grand Totals
+     31366        920        654        112   50441916     147549   ELF Image Totals
+     31366        920        654        112          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                32016 (  31.27kB)
-    Total RW  Size (RW Data + ZI Data)          50874424 (49682.05kB)
-    Total ROM Size (Code + RO Data + RW Data)      32124 (  31.37kB)
+    Total RO  Size (Code + RO Data)                32020 (  31.27kB)
+    Total RW  Size (RW Data + ZI Data)          50442028 (49259.79kB)
+    Total ROM Size (Code + RO Data + RW Data)      32132 (  31.38kB)
 
 ==============================================================================
 
 'Finished building target: LaserHarpG6W18.axf'
 ' '
 
-16:03:07 Build Finished (took 1s.127ms)
+16:20:10 Build Finished (took 1s.248ms)
 
