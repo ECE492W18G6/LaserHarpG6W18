@@ -8,11 +8,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "FPGA_I2C_SCLK",
+					"name" : "AUD_DACDAT",
 					"strict" : false
 				},
 				{
-					"name" : "AUD_DACDAT",
+					"name" : "GPIO_0_9",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0_10",
+					"strict" : false
+				},
+				{
+					"name" : "FPGA_I2C_SCLK",
 					"strict" : false
 				},
 				{
@@ -56,26 +64,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "GPIO_0_9",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_0_10",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_0[6]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_0[5]",
-					"strict" : false
-				},
-				{
-					"name" : "FPGA_I2C_SDAT",
-					"strict" : false
-				},
-				{
 					"name" : "GPIO_0[0]",
 					"strict" : false
 				},
@@ -96,7 +84,19 @@
 					"strict" : false
 				},
 				{
+					"name" : "GPIO_0[5]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0[6]",
+					"strict" : false
+				},
+				{
 					"name" : "GPIO_0[7]",
+					"strict" : false
+				},
+				{
+					"name" : "FPGA_I2C_SDAT",
 					"strict" : false
 				},
 				{

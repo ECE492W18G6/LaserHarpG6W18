@@ -3,8 +3,7 @@
 
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.std_logic_unsigned.all;
-
+use IEEE.STD_LOGIC_UNSIGNED.all;
 
 entity sin_lut is
 
@@ -23,7 +22,7 @@ port (
 --	address_reg8 : in std_logic_vector(11 downto 0);
 	
 	--Sine outputs
-	sin_out1  : out std_logic_vector(11 downto 0)
+	sin_out1  : out std_logic_vector(31 downto 0)
 --	sin_out2  : out std_logic_vector(11 downto 0);
 --	sin_out3  : out std_logic_vector(11 downto 0);
 --	sin_out4  : out std_logic_vector(11 downto 0);
@@ -557,15 +556,24 @@ X"fce", X"fd1", X"fd4", X"fd7", X"fda", X"fdd", X"fe1", X"fe4",
 X"fe7", X"fea", X"fed", X"ff0", X"ff3", X"ff7", X"ffa", X"ffd"
 );
 
-
+-- signal temp : std_logic_vector(31 downto 0);
+--signal shifted : signed(31 downto 0);
 begin
 
 
 rom_select: process (clk, en)
 begin
-  if (rising_edge(clk)) then
+	if (rising_edge(clk)) then
     if (en = '1') then
-   	sin_out1 <= SIN_ROM(conv_integer(address_reg1));
+		sin_out1 <= (SIN_ROM(conv_integer(address_reg1)) & x"00111");
+		
+--		if (temp AND x"00000800") then
+--			sin_out1 <= (temp OR x"fffff800");
+--		else 
+--			sin_out1 <= temp;
+--		end if;
+
+--   	sin_out1 <= SIN_ROM(conv_integer(address_reg1));
 --	sin_out2 <= SIN_ROM(conv_integer(address_reg2));
 --	sin_out3 <= SIN_ROM(conv_integer(address_reg3));
 --	sin_out4 <= SIN_ROM(conv_integer(address_reg4));

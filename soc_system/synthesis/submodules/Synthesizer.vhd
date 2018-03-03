@@ -6,7 +6,9 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.std_logic_arith.all;
 USE ieee.math_real.all;
-
+use ieee.VITAL_Primitives.all;
+use IEEE.STD_LOGIC_SIGNED.all; 
+use IEEE.STD_LOGIC_UNSIGNED.all;
 entity Synthesizer is 
 
 	port(
@@ -66,7 +68,7 @@ component sin_lut is
 --	address_reg8 : in std_logic_vector(11 downto 0);
 
 	-- All of the sine outputs.
-	sin_out1  : out std_logic_vector(11 downto 0)
+	sin_out1  : out std_logic_vector(31 downto 0)
 --	sin_out2  : out std_logic_vector(11 downto 0);
 --	sin_out3  : out std_logic_vector(11 downto 0);
 --	sin_out4  : out std_logic_vector(11 downto 0);
@@ -123,7 +125,7 @@ begin
 
 	elsif (rising_edge(clk)) then 
 		if (write = '1') then
-			-- at every falling edge, we are adding/changing the phase to the accumulator.
+			--at every falling edge, we are adding/changing the phase to the accumulator.
 			phase_acc1 <= unsigned(phase_acc1) + unsigned(phase_reg1);
 --			phase_acc2 <= unsigned(phase_acc2) + unsigned(phase_reg2);
 --			phase_acc3 <= unsigned(phase_acc3) + unsigned(phase_reg3);
@@ -171,7 +173,7 @@ lut: component sin_lut  port map (
 --	address_reg7      => lut_data7,
 --	address_reg8      => lut_data8,
 	
-	sin_out1 	=> data_out1(11 downto 0)
+	sin_out1 	=> data_out1
 --	sin_out2 	=> data_out2,
 --	sin_out3 	=> data_out3,
 --	sin_out4 	=> data_out4,
