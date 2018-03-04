@@ -12,10 +12,10 @@ port (
 	en       : in  std_logic;
 	
 	--Address input
-	address_reg1 : in std_logic_vector(11 downto 0); 
+	address_reg : in std_logic_vector(11 downto 0); 
 	
-	--Sine output
-	sin_out1  : out std_logic_vector(31 downto 0)
+	--Sine value output
+	sin_out  : out std_logic_vector(31 downto 0)
 	);
 end entity;
 
@@ -548,10 +548,9 @@ rom_select: process (clk, en)
 begin
 	if (rising_edge(clk)) then
     if (en = '1') then
-		sin_out1 <= (SIN_ROM(conv_integer(address_reg1)) & x"00111");
+		sin_out <= (SIN_ROM(conv_integer(address_reg)) & x"00000");
     end if;
   end if;
 end process rom_select;
-
 
 end rtl;

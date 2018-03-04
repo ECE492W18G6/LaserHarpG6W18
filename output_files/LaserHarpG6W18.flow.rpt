@@ -1,5 +1,5 @@
 Flow report for LaserHarpG6W18
-Sat Mar 03 16:19:48 2018
+Sun Mar 04 14:41:40 2018
 Quartus Prime Version 17.0.2 Build 602 07/19/2017 SJ Standard Edition
 
 
@@ -41,15 +41,15 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Sat Mar 03 16:19:13 2018           ;
+; Flow Status                     ; Successful - Sun Mar 04 14:41:03 2018           ;
 ; Quartus Prime Version           ; 17.0.2 Build 602 07/19/2017 SJ Standard Edition ;
 ; Revision Name                   ; LaserHarpG6W18                                  ;
 ; Top-level Entity Name           ; LaserHarpG6W18                                  ;
 ; Family                          ; Cyclone V                                       ;
 ; Device                          ; 5CSEMA5F31C6                                    ;
 ; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 2,715 / 32,070 ( 8 % )                          ;
-; Total registers                 ; 3725                                            ;
+; Logic utilization (in ALMs)     ; 2,694 / 32,070 ( 8 % )                          ;
+; Total registers                 ; 3708                                            ;
 ; Total pins                      ; 165 / 457 ( 36 % )                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 401,408 / 4,065,280 ( 10 % )                    ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/03/2018 16:13:57 ;
+; Start date & time ; 03/04/2018 14:35:38 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; LaserHarpG6W18      ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ agreement for further details.
 +---------------------------------------+--------------------------------------------------------------------------+---------------+--------------------------------+------------+
 ; Assignment Name                       ; Value                                                                    ; Default Value ; Entity Name                    ; Section Id ;
 +---------------------------------------+--------------------------------------------------------------------------+---------------+--------------------------------+------------+
-; COMPILER_SIGNATURE_ID                 ; 268883478210473.152011883300996                                          ; --            ; --                             ; --         ;
+; COMPILER_SIGNATURE_ID                 ; 268883478210473.152019933505460                                          ; --            ; --                             ; --         ;
 ; ECO_REGENERATE_REPORT                 ; On                                                                       ; Off           ; --                             ; --         ;
 ; HPS_ISW_FILE                          ; soc_system/synthesis/submodules/sequencer/alt_types.pre.h                ; --            ; soc_system_hps_0_hps_io_border ; --         ;
 ; HPS_ISW_FILE                          ; soc_system/synthesis/submodules/sequencer/emif.pre.xml                   ; --            ; soc_system_hps_0_hps_io_border ; --         ;
@@ -98,7 +98,7 @@ agreement for further details.
 ; MAX_CORE_JUNCTION_TEMP                ; 85                                                                       ; --            ; --                             ; --         ;
 ; MIN_CORE_JUNCTION_TEMP                ; 0                                                                        ; --            ; --                             ; --         ;
 ; MISC_FILE                             ; soc_system/synthesis/../soc_system.cmp                                   ; --            ; --                             ; --         ;
-; MISC_FILE                             ; soc_system/synthesis/../../C                                             ; --            ; --                             ; --         ;
+; MISC_FILE                             ; soc_system/synthesis/../../output_files/C                                ; --            ; --                             ; --         ;
 ; MISC_FILE                             ; soc_system/synthesis/soc_system_hps_0_hps.svd                            ; --            ; --                             ; --         ;
 ; MISC_FILE                             ; soc_system/synthesis/../../soc_system.qsys                               ; --            ; --                             ; --         ;
 ; MISC_FILE                             ; soc_system/synthesis/submodules/sequencer/alt_types.pre.h                ; --            ; --                             ; --         ;
@@ -122,7 +122,7 @@ agreement for further details.
 ; PROJECT_OUTPUT_DIRECTORY              ; output_files                                                             ; --            ; --                             ; --         ;
 ; SLD_FILE                              ; soc_system/synthesis/soc_system.regmap                                   ; --            ; --                             ; --         ;
 ; SLD_FILE                              ; soc_system/synthesis/soc_system.debuginfo                                ; --            ; --                             ; --         ;
-; SLD_INFO                              ; QSYS_NAME soc_system HAS_SOPCINFO 1 GENERATION_ID 1520118756             ; --            ; soc_system                     ; --         ;
+; SLD_INFO                              ; QSYS_NAME soc_system HAS_SOPCINFO 1 GENERATION_ID 1520199271             ; --            ; soc_system                     ; --         ;
 ; SOPCINFO_FILE                         ; soc_system/synthesis/../../soc_system.sopcinfo                           ; --            ; --                             ; --         ;
 ; SYNTHESIS_ONLY_QIP                    ; On                                                                       ; --            ; --                             ; --         ;
 ; USE_DLL_FREQUENCY_FOR_DQS_DELAY_CHAIN ; On                                                                       ; Off           ; --                             ; --         ;
@@ -134,11 +134,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:47     ; 2.1                     ; 1144 MB             ; 00:01:24                           ;
-; Fitter                    ; 00:01:42     ; 1.2                     ; 3415 MB             ; 00:03:44                           ;
-; Assembler                 ; 00:00:12     ; 1.0                     ; 800 MB              ; 00:00:12                           ;
-; TimeQuest Timing Analyzer ; 00:00:33     ; 1.4                     ; 1538 MB             ; 00:00:43                           ;
-; Total                     ; 00:03:14     ; --                      ; --                  ; 00:06:03                           ;
+; Analysis & Synthesis      ; 00:00:47     ; 2.1                     ; 1114 MB             ; 00:01:26                           ;
+; Fitter                    ; 00:01:48     ; 1.2                     ; 3409 MB             ; 00:04:03                           ;
+; Assembler                 ; 00:00:13     ; 1.0                     ; 796 MB              ; 00:00:12                           ;
+; TimeQuest Timing Analyzer ; 00:00:35     ; 1.4                     ; 1537 MB             ; 00:00:44                           ;
+; Total                     ; 00:03:23     ; --                      ; --                  ; 00:06:25                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
