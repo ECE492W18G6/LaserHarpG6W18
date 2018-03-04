@@ -1,4 +1,11 @@
 
+State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:red_leds_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
 State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:button_3_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
 Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
 state.ST_IDLE 0 0 0 0 
@@ -34,13 +41,6 @@ state.ST_COMP_TRANS 1 0 0 1
 state.ST_UNCOMP_TRANS 1 0 1 0 
 state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
 
-State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:red_leds_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
-Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
-state.ST_IDLE 0 0 0 0 
-state.ST_COMP_TRANS 1 0 0 1 
-state.ST_UNCOMP_TRANS 1 0 1 0 
-state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
-
 State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:sysid_qsys_0_control_slave_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
 Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
 state.ST_IDLE 0 0 0 0 
@@ -48,7 +48,56 @@ state.ST_COMP_TRANS 1 0 0 1
 state.ST_UNCOMP_TRANS 1 0 1 0 
 state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
 
-State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:character_lcd_0_avalon_lcd_slave_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:synthesizer_1_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:synthesizer_2_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:synthesizer_3_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:synthesizer_4_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:synthesizer_5_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:synthesizer_6_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:synthesizer_7_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:synthesizer_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
 Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
 state.ST_IDLE 0 0 0 0 
 state.ST_COMP_TRANS 1 0 0 1 
@@ -69,31 +118,6 @@ state.ST_COMP_TRANS 1 0 0 1
 state.ST_UNCOMP_TRANS 1 0 1 0 
 state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
 
-State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_character_lcd_0:character_lcd_0|s_lcd_controller
-Name s_lcd_controller.LCD_STATE_6_COMPLETE s_lcd_controller.LCD_STATE_5_TRANSFER s_lcd_controller.LCD_STATE_4_BEGIN_TRANSFER s_lcd_controller.LCD_STATE_3_CHECK_BUSY s_lcd_controller.LCD_STATE_2_START_CHECK_BUSY s_lcd_controller.LCD_STATE_1_INITIALIZE s_lcd_controller.LCD_STATE_0_IDLE 
-s_lcd_controller.LCD_STATE_0_IDLE 0 0 0 0 0 0 0 
-s_lcd_controller.LCD_STATE_1_INITIALIZE 0 0 0 0 0 1 1 
-s_lcd_controller.LCD_STATE_2_START_CHECK_BUSY 0 0 0 0 1 0 1 
-s_lcd_controller.LCD_STATE_3_CHECK_BUSY 0 0 0 1 0 0 1 
-s_lcd_controller.LCD_STATE_4_BEGIN_TRANSFER 0 0 1 0 0 0 1 
-s_lcd_controller.LCD_STATE_5_TRANSFER 0 1 0 0 0 0 1 
-s_lcd_controller.LCD_STATE_6_COMPLETE 1 0 0 0 0 0 1 
-
-State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_character_lcd_0:character_lcd_0|altera_up_character_lcd_initialization:Char_LCD_Init|s_lcd_initialize
-Name s_lcd_initialize.LCD_INIT_STATE_3_DONE s_lcd_initialize.LCD_INIT_STATE_2_CHECK_DONE s_lcd_initialize.LCD_INIT_STATE_1_SEND_COMMAND s_lcd_initialize.LCD_INIT_STATE_0_WAIT_POWER_UP 
-s_lcd_initialize.LCD_INIT_STATE_0_WAIT_POWER_UP 0 0 0 0 
-s_lcd_initialize.LCD_INIT_STATE_1_SEND_COMMAND 0 0 1 1 
-s_lcd_initialize.LCD_INIT_STATE_2_CHECK_DONE 0 1 0 1 
-s_lcd_initialize.LCD_INIT_STATE_3_DONE 1 0 0 1 
-
-State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_character_lcd_0:character_lcd_0|altera_up_character_lcd_communication:Char_LCD_Comm|s_lcd
-Name s_lcd.LCD_STATE_0_OPERATION s_lcd.LCD_STATE_3_END s_lcd.LCD_STATE_2_HOLD s_lcd.LCD_STATE_1_ENABLE s_lcd.LCD_STATE_4_IDLE 
-s_lcd.LCD_STATE_4_IDLE 0 0 0 0 0 
-s_lcd.LCD_STATE_1_ENABLE 0 0 0 1 1 
-s_lcd.LCD_STATE_2_HOLD 0 0 1 0 1 
-s_lcd.LCD_STATE_3_END 0 1 0 0 1 
-s_lcd.LCD_STATE_0_OPERATION 1 0 0 0 1 
-
 State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_audio_and_video_config_0:audio_and_video_config_0|s_serial_transfer
 Name s_serial_transfer.STATE_6_POST_READ s_serial_transfer.STATE_5_READ_TRANSFER s_serial_transfer.STATE_4_PRE_READ s_serial_transfer.STATE_3_POST_WRITE s_serial_transfer.STATE_2_WRITE_TRANSFER s_serial_transfer.STATE_1_PRE_WRITE s_serial_transfer.STATE_0_IDLE 
 s_serial_transfer.STATE_0_IDLE 0 0 0 0 0 0 0 
@@ -112,3 +136,35 @@ s_serial_protocol.STATE_2_RESTART_BIT 0 0 0 1 0 1
 s_serial_protocol.STATE_3_START_BIT 0 0 1 0 0 1 
 s_serial_protocol.STATE_4_TRANSFER 0 1 0 0 0 1 
 s_serial_protocol.STATE_5_STOP_BIT 1 0 0 0 0 1 
+
+State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_character_lcd_0:character_lcd_0|altera_up_character_lcd_initialization:Char_LCD_Init|s_lcd_initialize
+Name s_lcd_initialize.LCD_INIT_STATE_3_DONE s_lcd_initialize.LCD_INIT_STATE_2_CHECK_DONE s_lcd_initialize.LCD_INIT_STATE_1_SEND_COMMAND s_lcd_initialize.LCD_INIT_STATE_0_WAIT_POWER_UP 
+s_lcd_initialize.LCD_INIT_STATE_0_WAIT_POWER_UP 0 0 0 0 
+s_lcd_initialize.LCD_INIT_STATE_1_SEND_COMMAND 0 0 1 1 
+s_lcd_initialize.LCD_INIT_STATE_2_CHECK_DONE 0 1 0 1 
+s_lcd_initialize.LCD_INIT_STATE_3_DONE 1 0 0 1 
+
+State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:character_lcd_0_avalon_lcd_slave_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_character_lcd_0:character_lcd_0|s_lcd_controller
+Name s_lcd_controller.LCD_STATE_6_COMPLETE s_lcd_controller.LCD_STATE_5_TRANSFER s_lcd_controller.LCD_STATE_4_BEGIN_TRANSFER s_lcd_controller.LCD_STATE_3_CHECK_BUSY s_lcd_controller.LCD_STATE_2_START_CHECK_BUSY s_lcd_controller.LCD_STATE_1_INITIALIZE s_lcd_controller.LCD_STATE_0_IDLE 
+s_lcd_controller.LCD_STATE_0_IDLE 0 0 0 0 0 0 0 
+s_lcd_controller.LCD_STATE_1_INITIALIZE 0 0 0 0 0 1 1 
+s_lcd_controller.LCD_STATE_2_START_CHECK_BUSY 0 0 0 0 1 0 1 
+s_lcd_controller.LCD_STATE_3_CHECK_BUSY 0 0 0 1 0 0 1 
+s_lcd_controller.LCD_STATE_4_BEGIN_TRANSFER 0 0 1 0 0 0 1 
+s_lcd_controller.LCD_STATE_5_TRANSFER 0 1 0 0 0 0 1 
+s_lcd_controller.LCD_STATE_6_COMPLETE 1 0 0 0 0 0 1 
+
+State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_character_lcd_0:character_lcd_0|altera_up_character_lcd_communication:Char_LCD_Comm|s_lcd
+Name s_lcd.LCD_STATE_0_OPERATION s_lcd.LCD_STATE_3_END s_lcd.LCD_STATE_2_HOLD s_lcd.LCD_STATE_1_ENABLE s_lcd.LCD_STATE_4_IDLE 
+s_lcd.LCD_STATE_4_IDLE 0 0 0 0 0 
+s_lcd.LCD_STATE_1_ENABLE 0 0 0 1 1 
+s_lcd.LCD_STATE_2_HOLD 0 0 1 0 1 
+s_lcd.LCD_STATE_3_END 0 1 0 0 1 
+s_lcd.LCD_STATE_0_OPERATION 1 0 0 0 1 

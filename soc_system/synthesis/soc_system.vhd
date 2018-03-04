@@ -99,6 +99,17 @@ entity soc_system is
 end entity soc_system;
 
 architecture rtl of soc_system is
+	component synthesizer is
+		port (
+			clk        : in  std_logic                     := 'X';             -- clk
+			reset      : in  std_logic                     := 'X';             -- reset
+			phase_reg1 : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			data_out1  : out std_logic_vector(31 downto 0);                    -- readdata
+			read       : in  std_logic                     := 'X';             -- read
+			write      : in  std_logic                     := 'X'              -- write
+		);
+	end component synthesizer;
+
 	component soc_system_audio_0 is
 		port (
 			clk         : in  std_logic                     := 'X';             -- clk
@@ -418,6 +429,38 @@ architecture rtl of soc_system is
 			switches_s1_readdata                                                : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
 			switches_s1_writedata                                               : out std_logic_vector(31 downto 0);                    -- writedata
 			switches_s1_chipselect                                              : out std_logic;                                        -- chipselect
+			Synthesizer_0_avalon_slave_0_write                                  : out std_logic;                                        -- write
+			Synthesizer_0_avalon_slave_0_read                                   : out std_logic;                                        -- read
+			Synthesizer_0_avalon_slave_0_readdata                               : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			Synthesizer_0_avalon_slave_0_writedata                              : out std_logic_vector(31 downto 0);                    -- writedata
+			Synthesizer_1_avalon_slave_0_write                                  : out std_logic;                                        -- write
+			Synthesizer_1_avalon_slave_0_read                                   : out std_logic;                                        -- read
+			Synthesizer_1_avalon_slave_0_readdata                               : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			Synthesizer_1_avalon_slave_0_writedata                              : out std_logic_vector(31 downto 0);                    -- writedata
+			Synthesizer_2_avalon_slave_0_write                                  : out std_logic;                                        -- write
+			Synthesizer_2_avalon_slave_0_read                                   : out std_logic;                                        -- read
+			Synthesizer_2_avalon_slave_0_readdata                               : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			Synthesizer_2_avalon_slave_0_writedata                              : out std_logic_vector(31 downto 0);                    -- writedata
+			Synthesizer_3_avalon_slave_0_write                                  : out std_logic;                                        -- write
+			Synthesizer_3_avalon_slave_0_read                                   : out std_logic;                                        -- read
+			Synthesizer_3_avalon_slave_0_readdata                               : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			Synthesizer_3_avalon_slave_0_writedata                              : out std_logic_vector(31 downto 0);                    -- writedata
+			Synthesizer_4_avalon_slave_0_write                                  : out std_logic;                                        -- write
+			Synthesizer_4_avalon_slave_0_read                                   : out std_logic;                                        -- read
+			Synthesizer_4_avalon_slave_0_readdata                               : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			Synthesizer_4_avalon_slave_0_writedata                              : out std_logic_vector(31 downto 0);                    -- writedata
+			Synthesizer_5_avalon_slave_0_write                                  : out std_logic;                                        -- write
+			Synthesizer_5_avalon_slave_0_read                                   : out std_logic;                                        -- read
+			Synthesizer_5_avalon_slave_0_readdata                               : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			Synthesizer_5_avalon_slave_0_writedata                              : out std_logic_vector(31 downto 0);                    -- writedata
+			Synthesizer_6_avalon_slave_0_write                                  : out std_logic;                                        -- write
+			Synthesizer_6_avalon_slave_0_read                                   : out std_logic;                                        -- read
+			Synthesizer_6_avalon_slave_0_readdata                               : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			Synthesizer_6_avalon_slave_0_writedata                              : out std_logic_vector(31 downto 0);                    -- writedata
+			Synthesizer_7_avalon_slave_0_write                                  : out std_logic;                                        -- write
+			Synthesizer_7_avalon_slave_0_read                                   : out std_logic;                                        -- read
+			Synthesizer_7_avalon_slave_0_readdata                               : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			Synthesizer_7_avalon_slave_0_writedata                              : out std_logic_vector(31 downto 0);                    -- writedata
 			sysid_qsys_0_control_slave_address                                  : out std_logic_vector(0 downto 0);                     -- address
 			sysid_qsys_0_control_slave_readdata                                 : in  std_logic_vector(31 downto 0) := (others => 'X')  -- readdata
 		);
@@ -633,13 +676,40 @@ architecture rtl of soc_system is
 	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_read                       : std_logic;                     -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_read -> character_lcd_0:read
 	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_write                      : std_logic;                     -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_write -> character_lcd_0:write
 	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_writedata                  : std_logic_vector(7 downto 0);  -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_writedata -> character_lcd_0:writedata
+	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_readdata                       : std_logic_vector(31 downto 0); -- Synthesizer_0:data_out1 -> mm_interconnect_0:Synthesizer_0_avalon_slave_0_readdata
+	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_read                           : std_logic;                     -- mm_interconnect_0:Synthesizer_0_avalon_slave_0_read -> Synthesizer_0:read
+	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_write                          : std_logic;                     -- mm_interconnect_0:Synthesizer_0_avalon_slave_0_write -> Synthesizer_0:write
+	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_writedata                      : std_logic_vector(31 downto 0); -- mm_interconnect_0:Synthesizer_0_avalon_slave_0_writedata -> Synthesizer_0:phase_reg1
+	signal mm_interconnect_0_synthesizer_7_avalon_slave_0_readdata                       : std_logic_vector(31 downto 0); -- Synthesizer_7:data_out1 -> mm_interconnect_0:Synthesizer_7_avalon_slave_0_readdata
+	signal mm_interconnect_0_synthesizer_7_avalon_slave_0_read                           : std_logic;                     -- mm_interconnect_0:Synthesizer_7_avalon_slave_0_read -> Synthesizer_7:read
+	signal mm_interconnect_0_synthesizer_7_avalon_slave_0_write                          : std_logic;                     -- mm_interconnect_0:Synthesizer_7_avalon_slave_0_write -> Synthesizer_7:write
+	signal mm_interconnect_0_synthesizer_7_avalon_slave_0_writedata                      : std_logic_vector(31 downto 0); -- mm_interconnect_0:Synthesizer_7_avalon_slave_0_writedata -> Synthesizer_7:phase_reg1
+	signal mm_interconnect_0_synthesizer_6_avalon_slave_0_readdata                       : std_logic_vector(31 downto 0); -- Synthesizer_6:data_out1 -> mm_interconnect_0:Synthesizer_6_avalon_slave_0_readdata
+	signal mm_interconnect_0_synthesizer_6_avalon_slave_0_read                           : std_logic;                     -- mm_interconnect_0:Synthesizer_6_avalon_slave_0_read -> Synthesizer_6:read
+	signal mm_interconnect_0_synthesizer_6_avalon_slave_0_write                          : std_logic;                     -- mm_interconnect_0:Synthesizer_6_avalon_slave_0_write -> Synthesizer_6:write
+	signal mm_interconnect_0_synthesizer_6_avalon_slave_0_writedata                      : std_logic_vector(31 downto 0); -- mm_interconnect_0:Synthesizer_6_avalon_slave_0_writedata -> Synthesizer_6:phase_reg1
+	signal mm_interconnect_0_synthesizer_5_avalon_slave_0_readdata                       : std_logic_vector(31 downto 0); -- Synthesizer_5:data_out1 -> mm_interconnect_0:Synthesizer_5_avalon_slave_0_readdata
+	signal mm_interconnect_0_synthesizer_5_avalon_slave_0_read                           : std_logic;                     -- mm_interconnect_0:Synthesizer_5_avalon_slave_0_read -> Synthesizer_5:read
+	signal mm_interconnect_0_synthesizer_5_avalon_slave_0_write                          : std_logic;                     -- mm_interconnect_0:Synthesizer_5_avalon_slave_0_write -> Synthesizer_5:write
+	signal mm_interconnect_0_synthesizer_5_avalon_slave_0_writedata                      : std_logic_vector(31 downto 0); -- mm_interconnect_0:Synthesizer_5_avalon_slave_0_writedata -> Synthesizer_5:phase_reg1
+	signal mm_interconnect_0_synthesizer_4_avalon_slave_0_readdata                       : std_logic_vector(31 downto 0); -- Synthesizer_4:data_out1 -> mm_interconnect_0:Synthesizer_4_avalon_slave_0_readdata
+	signal mm_interconnect_0_synthesizer_4_avalon_slave_0_read                           : std_logic;                     -- mm_interconnect_0:Synthesizer_4_avalon_slave_0_read -> Synthesizer_4:read
+	signal mm_interconnect_0_synthesizer_4_avalon_slave_0_write                          : std_logic;                     -- mm_interconnect_0:Synthesizer_4_avalon_slave_0_write -> Synthesizer_4:write
+	signal mm_interconnect_0_synthesizer_4_avalon_slave_0_writedata                      : std_logic_vector(31 downto 0); -- mm_interconnect_0:Synthesizer_4_avalon_slave_0_writedata -> Synthesizer_4:phase_reg1
+	signal mm_interconnect_0_synthesizer_3_avalon_slave_0_readdata                       : std_logic_vector(31 downto 0); -- Synthesizer_3:data_out1 -> mm_interconnect_0:Synthesizer_3_avalon_slave_0_readdata
+	signal mm_interconnect_0_synthesizer_3_avalon_slave_0_read                           : std_logic;                     -- mm_interconnect_0:Synthesizer_3_avalon_slave_0_read -> Synthesizer_3:read
+	signal mm_interconnect_0_synthesizer_3_avalon_slave_0_write                          : std_logic;                     -- mm_interconnect_0:Synthesizer_3_avalon_slave_0_write -> Synthesizer_3:write
+	signal mm_interconnect_0_synthesizer_3_avalon_slave_0_writedata                      : std_logic_vector(31 downto 0); -- mm_interconnect_0:Synthesizer_3_avalon_slave_0_writedata -> Synthesizer_3:phase_reg1
+	signal mm_interconnect_0_synthesizer_2_avalon_slave_0_readdata                       : std_logic_vector(31 downto 0); -- Synthesizer_2:data_out1 -> mm_interconnect_0:Synthesizer_2_avalon_slave_0_readdata
+	signal mm_interconnect_0_synthesizer_2_avalon_slave_0_read                           : std_logic;                     -- mm_interconnect_0:Synthesizer_2_avalon_slave_0_read -> Synthesizer_2:read
+	signal mm_interconnect_0_synthesizer_2_avalon_slave_0_write                          : std_logic;                     -- mm_interconnect_0:Synthesizer_2_avalon_slave_0_write -> Synthesizer_2:write
+	signal mm_interconnect_0_synthesizer_2_avalon_slave_0_writedata                      : std_logic_vector(31 downto 0); -- mm_interconnect_0:Synthesizer_2_avalon_slave_0_writedata -> Synthesizer_2:phase_reg1
+	signal mm_interconnect_0_synthesizer_1_avalon_slave_0_readdata                       : std_logic_vector(31 downto 0); -- Synthesizer_1:data_out1 -> mm_interconnect_0:Synthesizer_1_avalon_slave_0_readdata
+	signal mm_interconnect_0_synthesizer_1_avalon_slave_0_read                           : std_logic;                     -- mm_interconnect_0:Synthesizer_1_avalon_slave_0_read -> Synthesizer_1:read
+	signal mm_interconnect_0_synthesizer_1_avalon_slave_0_write                          : std_logic;                     -- mm_interconnect_0:Synthesizer_1_avalon_slave_0_write -> Synthesizer_1:write
+	signal mm_interconnect_0_synthesizer_1_avalon_slave_0_writedata                      : std_logic_vector(31 downto 0); -- mm_interconnect_0:Synthesizer_1_avalon_slave_0_writedata -> Synthesizer_1:phase_reg1
 	signal mm_interconnect_0_sysid_qsys_0_control_slave_readdata                         : std_logic_vector(31 downto 0); -- sysid_qsys_0:readdata -> mm_interconnect_0:sysid_qsys_0_control_slave_readdata
 	signal mm_interconnect_0_sysid_qsys_0_control_slave_address                          : std_logic_vector(0 downto 0);  -- mm_interconnect_0:sysid_qsys_0_control_slave_address -> sysid_qsys_0:address
-	signal mm_interconnect_0_red_leds_s1_chipselect                                      : std_logic;                     -- mm_interconnect_0:red_leds_s1_chipselect -> red_leds:chipselect
-	signal mm_interconnect_0_red_leds_s1_readdata                                        : std_logic_vector(31 downto 0); -- red_leds:readdata -> mm_interconnect_0:red_leds_s1_readdata
-	signal mm_interconnect_0_red_leds_s1_address                                         : std_logic_vector(1 downto 0);  -- mm_interconnect_0:red_leds_s1_address -> red_leds:address
-	signal mm_interconnect_0_red_leds_s1_write                                           : std_logic;                     -- mm_interconnect_0:red_leds_s1_write -> mm_interconnect_0_red_leds_s1_write:in
-	signal mm_interconnect_0_red_leds_s1_writedata                                       : std_logic_vector(31 downto 0); -- mm_interconnect_0:red_leds_s1_writedata -> red_leds:writedata
 	signal mm_interconnect_0_switches_s1_chipselect                                      : std_logic;                     -- mm_interconnect_0:switches_s1_chipselect -> switches:chipselect
 	signal mm_interconnect_0_switches_s1_readdata                                        : std_logic_vector(31 downto 0); -- switches:readdata -> mm_interconnect_0:switches_s1_readdata
 	signal mm_interconnect_0_switches_s1_address                                         : std_logic_vector(1 downto 0);  -- mm_interconnect_0:switches_s1_address -> switches:address
@@ -665,6 +735,11 @@ architecture rtl of soc_system is
 	signal mm_interconnect_0_button_3_s1_address                                         : std_logic_vector(1 downto 0);  -- mm_interconnect_0:button_3_s1_address -> button_3:address
 	signal mm_interconnect_0_button_3_s1_write                                           : std_logic;                     -- mm_interconnect_0:button_3_s1_write -> mm_interconnect_0_button_3_s1_write:in
 	signal mm_interconnect_0_button_3_s1_writedata                                       : std_logic_vector(31 downto 0); -- mm_interconnect_0:button_3_s1_writedata -> button_3:writedata
+	signal mm_interconnect_0_red_leds_s1_chipselect                                      : std_logic;                     -- mm_interconnect_0:red_leds_s1_chipselect -> red_leds:chipselect
+	signal mm_interconnect_0_red_leds_s1_readdata                                        : std_logic_vector(31 downto 0); -- red_leds:readdata -> mm_interconnect_0:red_leds_s1_readdata
+	signal mm_interconnect_0_red_leds_s1_address                                         : std_logic_vector(1 downto 0);  -- mm_interconnect_0:red_leds_s1_address -> red_leds:address
+	signal mm_interconnect_0_red_leds_s1_write                                           : std_logic;                     -- mm_interconnect_0:red_leds_s1_write -> mm_interconnect_0_red_leds_s1_write:in
+	signal mm_interconnect_0_red_leds_s1_writedata                                       : std_logic_vector(31 downto 0); -- mm_interconnect_0:red_leds_s1_writedata -> red_leds:writedata
 	signal irq_mapper_receiver0_irq                                                      : std_logic;                     -- audio_0:irq -> irq_mapper:receiver0_irq
 	signal irq_mapper_receiver1_irq                                                      : std_logic;                     -- switches:irq -> irq_mapper:receiver1_irq
 	signal irq_mapper_receiver2_irq                                                      : std_logic;                     -- button_0:irq -> irq_mapper:receiver2_irq
@@ -673,21 +748,101 @@ architecture rtl of soc_system is
 	signal irq_mapper_receiver5_irq                                                      : std_logic;                     -- button_3:irq -> irq_mapper:receiver5_irq
 	signal hps_0_f2h_irq0_irq                                                            : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> hps_0:f2h_irq_p0
 	signal hps_0_f2h_irq1_irq                                                            : std_logic_vector(31 downto 0); -- irq_mapper_001:sender_irq -> hps_0:f2h_irq_p1
-	signal rst_controller_reset_out_reset                                                : std_logic;                     -- rst_controller:reset_out -> [audio_0:reset, audio_and_video_config_0:reset, character_lcd_0:reset, mm_interconnect_0:audio_0_reset_reset_bridge_in_reset_reset, rst_controller_reset_out_reset:in]
+	signal rst_controller_reset_out_reset                                                : std_logic;                     -- rst_controller:reset_out -> [Synthesizer_0:reset, Synthesizer_1:reset, Synthesizer_2:reset, Synthesizer_3:reset, Synthesizer_4:reset, Synthesizer_5:reset, Synthesizer_6:reset, Synthesizer_7:reset, audio_0:reset, audio_and_video_config_0:reset, character_lcd_0:reset, mm_interconnect_0:audio_0_reset_reset_bridge_in_reset_reset, rst_controller_reset_out_reset:in]
 	signal hps_0_h2f_reset_reset                                                         : std_logic;                     -- hps_0:h2f_rst_n -> hps_0_h2f_reset_reset:in
 	signal rst_controller_001_reset_out_reset                                            : std_logic;                     -- rst_controller_001:reset_out -> pll_0:rst
 	signal rst_controller_002_reset_out_reset                                            : std_logic;                     -- rst_controller_002:reset_out -> mm_interconnect_0:hps_0_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset_reset
 	signal reset_reset_n_ports_inv                                                       : std_logic;                     -- reset_reset_n:inv -> [rst_controller:reset_in0, rst_controller_001:reset_in0]
-	signal mm_interconnect_0_red_leds_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_red_leds_s1_write:inv -> red_leds:write_n
 	signal mm_interconnect_0_switches_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_switches_s1_write:inv -> switches:write_n
 	signal mm_interconnect_0_button_0_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_0_s1_write:inv -> button_0:write_n
 	signal mm_interconnect_0_button_1_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_1_s1_write:inv -> button_1:write_n
 	signal mm_interconnect_0_button_2_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_2_s1_write:inv -> button_2:write_n
 	signal mm_interconnect_0_button_3_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_3_s1_write:inv -> button_3:write_n
+	signal mm_interconnect_0_red_leds_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_red_leds_s1_write:inv -> red_leds:write_n
 	signal rst_controller_reset_out_reset_ports_inv                                      : std_logic;                     -- rst_controller_reset_out_reset:inv -> [button_0:reset_n, button_1:reset_n, button_2:reset_n, button_3:reset_n, red_leds:reset_n, switches:reset_n, sysid_qsys_0:reset_n]
 	signal hps_0_h2f_reset_reset_ports_inv                                               : std_logic;                     -- hps_0_h2f_reset_reset:inv -> [rst_controller:reset_in1, rst_controller_001:reset_in1, rst_controller_002:reset_in0]
 
 begin
+
+	synthesizer_0 : component synthesizer
+		port map (
+			clk        => clk_clk,                                                  --          clock.clk
+			reset      => rst_controller_reset_out_reset,                           --          reset.reset
+			phase_reg1 => mm_interconnect_0_synthesizer_0_avalon_slave_0_writedata, -- avalon_slave_0.writedata
+			data_out1  => mm_interconnect_0_synthesizer_0_avalon_slave_0_readdata,  --               .readdata
+			read       => mm_interconnect_0_synthesizer_0_avalon_slave_0_read,      --               .read
+			write      => mm_interconnect_0_synthesizer_0_avalon_slave_0_write      --               .write
+		);
+
+	synthesizer_1 : component synthesizer
+		port map (
+			clk        => clk_clk,                                                  --          clock.clk
+			reset      => rst_controller_reset_out_reset,                           --          reset.reset
+			phase_reg1 => mm_interconnect_0_synthesizer_1_avalon_slave_0_writedata, -- avalon_slave_0.writedata
+			data_out1  => mm_interconnect_0_synthesizer_1_avalon_slave_0_readdata,  --               .readdata
+			read       => mm_interconnect_0_synthesizer_1_avalon_slave_0_read,      --               .read
+			write      => mm_interconnect_0_synthesizer_1_avalon_slave_0_write      --               .write
+		);
+
+	synthesizer_2 : component synthesizer
+		port map (
+			clk        => clk_clk,                                                  --          clock.clk
+			reset      => rst_controller_reset_out_reset,                           --          reset.reset
+			phase_reg1 => mm_interconnect_0_synthesizer_2_avalon_slave_0_writedata, -- avalon_slave_0.writedata
+			data_out1  => mm_interconnect_0_synthesizer_2_avalon_slave_0_readdata,  --               .readdata
+			read       => mm_interconnect_0_synthesizer_2_avalon_slave_0_read,      --               .read
+			write      => mm_interconnect_0_synthesizer_2_avalon_slave_0_write      --               .write
+		);
+
+	synthesizer_3 : component synthesizer
+		port map (
+			clk        => clk_clk,                                                  --          clock.clk
+			reset      => rst_controller_reset_out_reset,                           --          reset.reset
+			phase_reg1 => mm_interconnect_0_synthesizer_3_avalon_slave_0_writedata, -- avalon_slave_0.writedata
+			data_out1  => mm_interconnect_0_synthesizer_3_avalon_slave_0_readdata,  --               .readdata
+			read       => mm_interconnect_0_synthesizer_3_avalon_slave_0_read,      --               .read
+			write      => mm_interconnect_0_synthesizer_3_avalon_slave_0_write      --               .write
+		);
+
+	synthesizer_4 : component synthesizer
+		port map (
+			clk        => clk_clk,                                                  --          clock.clk
+			reset      => rst_controller_reset_out_reset,                           --          reset.reset
+			phase_reg1 => mm_interconnect_0_synthesizer_4_avalon_slave_0_writedata, -- avalon_slave_0.writedata
+			data_out1  => mm_interconnect_0_synthesizer_4_avalon_slave_0_readdata,  --               .readdata
+			read       => mm_interconnect_0_synthesizer_4_avalon_slave_0_read,      --               .read
+			write      => mm_interconnect_0_synthesizer_4_avalon_slave_0_write      --               .write
+		);
+
+	synthesizer_5 : component synthesizer
+		port map (
+			clk        => clk_clk,                                                  --          clock.clk
+			reset      => rst_controller_reset_out_reset,                           --          reset.reset
+			phase_reg1 => mm_interconnect_0_synthesizer_5_avalon_slave_0_writedata, -- avalon_slave_0.writedata
+			data_out1  => mm_interconnect_0_synthesizer_5_avalon_slave_0_readdata,  --               .readdata
+			read       => mm_interconnect_0_synthesizer_5_avalon_slave_0_read,      --               .read
+			write      => mm_interconnect_0_synthesizer_5_avalon_slave_0_write      --               .write
+		);
+
+	synthesizer_6 : component synthesizer
+		port map (
+			clk        => clk_clk,                                                  --          clock.clk
+			reset      => rst_controller_reset_out_reset,                           --          reset.reset
+			phase_reg1 => mm_interconnect_0_synthesizer_6_avalon_slave_0_writedata, -- avalon_slave_0.writedata
+			data_out1  => mm_interconnect_0_synthesizer_6_avalon_slave_0_readdata,  --               .readdata
+			read       => mm_interconnect_0_synthesizer_6_avalon_slave_0_read,      --               .read
+			write      => mm_interconnect_0_synthesizer_6_avalon_slave_0_write      --               .write
+		);
+
+	synthesizer_7 : component synthesizer
+		port map (
+			clk        => clk_clk,                                                  --          clock.clk
+			reset      => rst_controller_reset_out_reset,                           --          reset.reset
+			phase_reg1 => mm_interconnect_0_synthesizer_7_avalon_slave_0_writedata, -- avalon_slave_0.writedata
+			data_out1  => mm_interconnect_0_synthesizer_7_avalon_slave_0_readdata,  --               .readdata
+			read       => mm_interconnect_0_synthesizer_7_avalon_slave_0_read,      --               .read
+			write      => mm_interconnect_0_synthesizer_7_avalon_slave_0_write      --               .write
+		);
 
 	audio_0 : component soc_system_audio_0
 		port map (
@@ -1038,6 +1193,38 @@ begin
 			switches_s1_readdata                                                => mm_interconnect_0_switches_s1_readdata,                                        --                                                              .readdata
 			switches_s1_writedata                                               => mm_interconnect_0_switches_s1_writedata,                                       --                                                              .writedata
 			switches_s1_chipselect                                              => mm_interconnect_0_switches_s1_chipselect,                                      --                                                              .chipselect
+			Synthesizer_0_avalon_slave_0_write                                  => mm_interconnect_0_synthesizer_0_avalon_slave_0_write,                          --                                  Synthesizer_0_avalon_slave_0.write
+			Synthesizer_0_avalon_slave_0_read                                   => mm_interconnect_0_synthesizer_0_avalon_slave_0_read,                           --                                                              .read
+			Synthesizer_0_avalon_slave_0_readdata                               => mm_interconnect_0_synthesizer_0_avalon_slave_0_readdata,                       --                                                              .readdata
+			Synthesizer_0_avalon_slave_0_writedata                              => mm_interconnect_0_synthesizer_0_avalon_slave_0_writedata,                      --                                                              .writedata
+			Synthesizer_1_avalon_slave_0_write                                  => mm_interconnect_0_synthesizer_1_avalon_slave_0_write,                          --                                  Synthesizer_1_avalon_slave_0.write
+			Synthesizer_1_avalon_slave_0_read                                   => mm_interconnect_0_synthesizer_1_avalon_slave_0_read,                           --                                                              .read
+			Synthesizer_1_avalon_slave_0_readdata                               => mm_interconnect_0_synthesizer_1_avalon_slave_0_readdata,                       --                                                              .readdata
+			Synthesizer_1_avalon_slave_0_writedata                              => mm_interconnect_0_synthesizer_1_avalon_slave_0_writedata,                      --                                                              .writedata
+			Synthesizer_2_avalon_slave_0_write                                  => mm_interconnect_0_synthesizer_2_avalon_slave_0_write,                          --                                  Synthesizer_2_avalon_slave_0.write
+			Synthesizer_2_avalon_slave_0_read                                   => mm_interconnect_0_synthesizer_2_avalon_slave_0_read,                           --                                                              .read
+			Synthesizer_2_avalon_slave_0_readdata                               => mm_interconnect_0_synthesizer_2_avalon_slave_0_readdata,                       --                                                              .readdata
+			Synthesizer_2_avalon_slave_0_writedata                              => mm_interconnect_0_synthesizer_2_avalon_slave_0_writedata,                      --                                                              .writedata
+			Synthesizer_3_avalon_slave_0_write                                  => mm_interconnect_0_synthesizer_3_avalon_slave_0_write,                          --                                  Synthesizer_3_avalon_slave_0.write
+			Synthesizer_3_avalon_slave_0_read                                   => mm_interconnect_0_synthesizer_3_avalon_slave_0_read,                           --                                                              .read
+			Synthesizer_3_avalon_slave_0_readdata                               => mm_interconnect_0_synthesizer_3_avalon_slave_0_readdata,                       --                                                              .readdata
+			Synthesizer_3_avalon_slave_0_writedata                              => mm_interconnect_0_synthesizer_3_avalon_slave_0_writedata,                      --                                                              .writedata
+			Synthesizer_4_avalon_slave_0_write                                  => mm_interconnect_0_synthesizer_4_avalon_slave_0_write,                          --                                  Synthesizer_4_avalon_slave_0.write
+			Synthesizer_4_avalon_slave_0_read                                   => mm_interconnect_0_synthesizer_4_avalon_slave_0_read,                           --                                                              .read
+			Synthesizer_4_avalon_slave_0_readdata                               => mm_interconnect_0_synthesizer_4_avalon_slave_0_readdata,                       --                                                              .readdata
+			Synthesizer_4_avalon_slave_0_writedata                              => mm_interconnect_0_synthesizer_4_avalon_slave_0_writedata,                      --                                                              .writedata
+			Synthesizer_5_avalon_slave_0_write                                  => mm_interconnect_0_synthesizer_5_avalon_slave_0_write,                          --                                  Synthesizer_5_avalon_slave_0.write
+			Synthesizer_5_avalon_slave_0_read                                   => mm_interconnect_0_synthesizer_5_avalon_slave_0_read,                           --                                                              .read
+			Synthesizer_5_avalon_slave_0_readdata                               => mm_interconnect_0_synthesizer_5_avalon_slave_0_readdata,                       --                                                              .readdata
+			Synthesizer_5_avalon_slave_0_writedata                              => mm_interconnect_0_synthesizer_5_avalon_slave_0_writedata,                      --                                                              .writedata
+			Synthesizer_6_avalon_slave_0_write                                  => mm_interconnect_0_synthesizer_6_avalon_slave_0_write,                          --                                  Synthesizer_6_avalon_slave_0.write
+			Synthesizer_6_avalon_slave_0_read                                   => mm_interconnect_0_synthesizer_6_avalon_slave_0_read,                           --                                                              .read
+			Synthesizer_6_avalon_slave_0_readdata                               => mm_interconnect_0_synthesizer_6_avalon_slave_0_readdata,                       --                                                              .readdata
+			Synthesizer_6_avalon_slave_0_writedata                              => mm_interconnect_0_synthesizer_6_avalon_slave_0_writedata,                      --                                                              .writedata
+			Synthesizer_7_avalon_slave_0_write                                  => mm_interconnect_0_synthesizer_7_avalon_slave_0_write,                          --                                  Synthesizer_7_avalon_slave_0.write
+			Synthesizer_7_avalon_slave_0_read                                   => mm_interconnect_0_synthesizer_7_avalon_slave_0_read,                           --                                                              .read
+			Synthesizer_7_avalon_slave_0_readdata                               => mm_interconnect_0_synthesizer_7_avalon_slave_0_readdata,                       --                                                              .readdata
+			Synthesizer_7_avalon_slave_0_writedata                              => mm_interconnect_0_synthesizer_7_avalon_slave_0_writedata,                      --                                                              .writedata
 			sysid_qsys_0_control_slave_address                                  => mm_interconnect_0_sysid_qsys_0_control_slave_address,                          --                                    sysid_qsys_0_control_slave.address
 			sysid_qsys_0_control_slave_readdata                                 => mm_interconnect_0_sysid_qsys_0_control_slave_readdata                          --                                                              .readdata
 		);
@@ -1259,8 +1446,6 @@ begin
 
 	reset_reset_n_ports_inv <= not reset_reset_n;
 
-	mm_interconnect_0_red_leds_s1_write_ports_inv <= not mm_interconnect_0_red_leds_s1_write;
-
 	mm_interconnect_0_switches_s1_write_ports_inv <= not mm_interconnect_0_switches_s1_write;
 
 	mm_interconnect_0_button_0_s1_write_ports_inv <= not mm_interconnect_0_button_0_s1_write;
@@ -1270,6 +1455,8 @@ begin
 	mm_interconnect_0_button_2_s1_write_ports_inv <= not mm_interconnect_0_button_2_s1_write;
 
 	mm_interconnect_0_button_3_s1_write_ports_inv <= not mm_interconnect_0_button_3_s1_write;
+
+	mm_interconnect_0_red_leds_s1_write_ports_inv <= not mm_interconnect_0_red_leds_s1_write;
 
 	rst_controller_reset_out_reset_ports_inv <= not rst_controller_reset_out_reset;
 

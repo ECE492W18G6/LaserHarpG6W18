@@ -844,7 +844,10 @@ module soc_system_fifo_0_map_avalonst_to_avalonmm (
 
 
 wire    [ 31: 0] avalonmm_data;
-  assign avalonmm_data[31 : 0] = avalonst_data[31 : 0];
+  assign avalonmm_data[7 : 0] = avalonst_data[31 : 24];
+  assign avalonmm_data[15 : 8] = avalonst_data[23 : 16];
+  assign avalonmm_data[23 : 16] = avalonst_data[15 : 8];
+  assign avalonmm_data[31 : 24] = avalonst_data[7 : 0];
 
 endmodule
 

@@ -76,6 +76,22 @@
 #define TASK_STACK_SIZE 4096
 #define LEDR_ADD 0x00000000
 #define LEDR_BASE FPGA_TO_HPS_LW_ADDR(LEDR_ADD)
+#define SYNTH0_ADD 0x1000
+#define SYNTH0_BASE FPGA_TO_HPS_LW_ADDR(SYNTH0_ADD)
+#define SYNTH1_ADD 0x1100
+#define SYNTH1_BASE FPGA_TO_HPS_LW_ADDR(SYNTH1_ADD)
+#define SYNTH2_ADD 0x1200
+#define SYNTH2_BASE FPGA_TO_HPS_LW_ADDR(SYNTH2_ADD)
+#define SYNTH3_ADD 0x1300
+#define SYNTH3_BASE FPGA_TO_HPS_LW_ADDR(SYNTH3_ADD)
+#define SYNTH4_ADD 0x1400
+#define SYNTH4_BASE FPGA_TO_HPS_LW_ADDR(SYNTH4_ADD)
+#define SYNTH5_ADD 0x1500
+#define SYNTH5_BASE FPGA_TO_HPS_LW_ADDR(SYNTH5_ADD)
+#define SYNTH6_ADD 0x1600
+#define SYNTH6_BASE FPGA_TO_HPS_LW_ADDR(SYNTH6_ADD)
+#define SYNTH7_ADD 0x1700
+#define SYNTH7_BASE FPGA_TO_HPS_LW_ADDR(SYNTH7_ADD)
 
 #define AUDIO_BUFFER_SIZE 128
 #define M_PI 3.14159265358979323846
@@ -89,6 +105,7 @@ CPU_STK AppTaskStartStk[TASK_STACK_SIZE];
 CPU_STK AudioTaskStartStk[TASK_STACK_SIZE];
 CPU_STK LCDTaskStartStk[TASK_STACK_SIZE];
 
+INT32S buffer[1];
 
 /*
 *********************************************************************************************************
@@ -242,9 +259,6 @@ static  void  AppTaskStart (void *p_arg)
 */
 static  void  AudioTaskStart (void *p_arg)
 {
-    INT32S* lbuffer = (INT32S*) malloc(44100 * sizeof(INT32S));
-//    INT32U rbuffer[AUDIO_BUFFER_SIZE];
-
     // Configure audio device
     // See WM8731 datasheet Register Map
     write_audio_cfg_register(0x0, 0x17);
@@ -255,21 +269,27 @@ static  void  AudioTaskStart (void *p_arg)
     write_audio_cfg_register(0x5, 0x06);
     write_audio_cfg_register(0x6, 0x00);
     write_audio_cfg_register(0x7, 0x4D);
-    write_audio_cfg_register(0x8, 0x18);
+    write_audio_cfg_register(0x8, 0x20); // bits 5:2 config based on sampling rate. Use 0x18 for 32kHz and 0x20 for 44.1kHz
     write_audio_cfg_register(0x9, 0x01);
 
-	int i;
-	for(i = 0; i < 32000; i++) {
-		lbuffer[i] = (INT32S) 30000 * sin(441 * 2 * M_PI * i / 32000);
-	}
-
     for(;;) {
-        BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
+        BSP_WatchDog_Reset();				/* Reset the watchdog.   */
 
-        write_audio_data(lbuffer, 32000);
+        // the number 41 for the hardware synthesizer seems to play 440Hz
+        // therefore to play a specific frequency, like 523 (C#5),you need
+        // to divide by 11
+        alt_write_word(SYNTH0_BASE, 41);
+        alt_write_word(SYNTH1_BASE, 52);
+        INT32S temp1 = alt_read_word(SYNTH0_BASE);
+        INT32S temp2 = alt_read_word(SYNTH1_BASE);
 
+        // the hardware synthesizer outputs 32 bits with the top
+        // 12 being the actual sine value, therfore we do an
+        // arithmetic shift of 20 so that we keep its sign and
+        // its the correct amplitude
+        buffer[0] =  (temp1 >> 20) + (temp2 >> 20);
+        write_audio_data(buffer, 1);
     }
-
 }
 
 /*
@@ -290,10 +310,9 @@ static  void  AudioTaskStart (void *p_arg)
 static  void  LCDTaskStart (void *p_arg)
 {
 
-	InitLCD();
-	HomeLCD();
-	PrintStringLCD("Hello World\n");
-
+//	InitLCD();
+//	HomeLCD();
+//	PrintStringLCD("Hello World\n");
 	for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
 

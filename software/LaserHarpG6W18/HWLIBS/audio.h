@@ -7,12 +7,14 @@
 *
 * Filename      : audio.h
 * Version       : V1.00
-* Programmer(s) : Michael Wong (mcwong2@ualberta.ca)
+* Programmer(s) : Michael Wong (mcwong2@ualberta.ca), Adam Narten (anarten@ualberta.ca)
 *
 *********************************************************************************************************
 * Note(s)       : This is a sparse driver for the Altera University IP "Audio" core,
-* 				  for use with the DE1-SoC.  This driver was written for ECE 492, and assumes that the
-* 				  core is acting as a slave to the Cyclone V's HPS, connected via the lightweight bridge.
+* 				  for use with the DE1-SoC.  This driver only provides functionality to write to the buffer
+* 				  and does not allow for any input reading.
+* 				  It assumes that the core is acting as a slave to the Cyclone V's HPS, connected via the
+* 				  lightweight bridge.
 *
 *********************************************************************************************************
 */

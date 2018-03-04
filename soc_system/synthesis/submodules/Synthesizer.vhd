@@ -1,83 +1,113 @@
-library IEEE;
-    use IEEE.std_logic_1164.all;
-    use IEEE.std_logic_textio.all;
-    use IEEE.std_logic_arith.all;
-    use IEEE.numeric_bit.all;
-    use IEEE.numeric_std.all;
-    use IEEE.std_logic_signed.all;
-    use IEEE.std_logic_unsigned.all;
-	
-use work.SynthesizerPackage.all;
+-- Original Authors : Simon Doherty, Eric Lunty, Kyle Brooks, Peter Roland
+-- Also combined that with the code from http://www.lancasterhunt.co.uk/direct-digital-synthesis-dds-for-idiots-like-me/
+-- Additional Authors : Randi Derbyshire, Adam Narten, Oliver Rarog, Celeste Chiasson
 
-entity Synthesizer is
-	port (
-	-- system signals
-	clk         : in  std_logic;
-	reset_n       : in  std_logic;
-  
-	-- Frequency control
-	--Bottom 16 bits are for first oscillator, next 16 are for second, next 16 are for third
-	phase_increments   		: in  PHASE_INCS;	
-	audio_output			: out std_logic_vector(15 downto 0);
-	audio_output_valid		: out std_logic
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_arith.all;
+USE ieee.math_real.all;
+use ieee.VITAL_Primitives.all;
+use IEEE.STD_LOGIC_SIGNED.all; 
+use IEEE.STD_LOGIC_UNSIGNED.all;
+entity Synthesizer is 
+
+	port(
+	clk 			: in std_logic:= '0'; 
+	reset 		: in std_logic:= '0'; 
+	write		: in std_logic:= '0'; 
+	read		: in std_logic:= '0'; 
+	--ad_converter : in std_logic;
+
+	-- frequnecy input
+	phase_reg1 : in std_logic_vector(31 downto 0) := (others => '0'); 
+
+	-- Sine waveform from laser
+	data_out1 : out std_logic_vector(31 downto 0)
 	);
+
 end Synthesizer;
 
-architecture synthesizer of Synthesizer is
 
-	signal target_lut_addresses 	: LUT_ADDRESSES;
-	signal audioData		: WAVE_ARRAY;
 
-	component AddressIncrementor is
+architecture full_dds of Synthesizer is
+
+component sin_lut is 
+
 	port (
-	  -- system signals
-	  clk         	: in  std_logic;
-	  reset_n       : in  std_logic;
-	  
-	  -- NCO frequency control
-	  phase_inc   	: in  std_logic_vector(15 downto 0);
+	clk : in std_logic;
+	en		: in std_logic;
 
-	  -- Output waveforms
-	  lut_address	: out std_logic_vector(11 downto 0)
-	  );
-	end component;
-	
-	component SinLut is
-		port (
-			clk      : in  std_logic;
-			
-			--Address input
-			address  : in LUT_ADDRESSES;
-			
-			--Sine output
-			audioData : out WAVE_ARRAY
-		);
-	end component;
+	-- take in the values from the phase accumulator.
+	-- All of the address inputs.
+	address_reg1 : in std_logic_vector(11 downto 0); 
 
-	begin
-	
-	anAddressIncrementor: AddressIncrementor
-		port map(
-			clk => clk,
-			reset_n => reset_n,
-			phase_inc => phase_increments(0)(15 downto 0),
-			lut_address => target_lut_addresses(0)
-		);
-		
-	aSinLut: SinLut
-		port map(
-			clk => clk,
-			address => target_lut_addresses,
-			audioData => audioData
-		);	
+	-- All of the sine outputs.
+	sin_out1  : out std_logic_vector(31 downto 0)
+	);
 
-	send_output: process(clk, reset_n)
-	begin
-		if rising_edge(clk) then
-			audio_output <= audioData(0);
+end component sin_lut;
+
+signal phase_acc1 : std_logic_vector(31 downto 0);
+
+signal lut_data1 : std_logic_vector(31 downto 0);
+
+signal lut_data_reg1 : std_logic_vector(31 downto 0);
+
+begin
+
+dds : process(clk, reset, write)
+
+begin
+
+	if (reset = '1') then
+		phase_acc1 <= x"00000000"; -- reset accumulator.
+
+	elsif (rising_edge(clk)) then 
+		if (write = '1') then
+			--at every falling edge, we are adding/changing the phase to the accumulator.
+			phase_acc1 <= unsigned(phase_acc1) + unsigned(phase_reg1);
 		end if;
-	end process send_output;
+	end if;
 
-	audio_output_valid <= '1';	
+end process dds;
 
-end synthesizer;
+---------------------------------------------------------------------
+-- use top 12-bits of phase accumulator to address the SIN LUT --
+---------------------------------------------------------------------
+
+lut_data1 <= phase_acc1(31 downto 0);
+
+
+----------------------------------------------------------------------
+-- SIN LUT is 4096 by 12-bit ROM                                    --
+-- 12-bit output allows sin amplitudes between 2047 and -2047       --
+-- (-2048 not used to keep the output signal perfectly symmetrical) --
+-- Phase resolution is 2Pi/4096 = 0.088 degrees                     --
+----------------------------------------------------------------------
+
+lut: component sin_lut  port map (
+		clk       => clk,
+		en        => write,
+	 
+    	address_reg1      => lut_data1(11 downto 0),
+	
+		sin_out1 	=> data_out1
+
+  );
+
+
+---------------------------------
+-- Hide the latency of the LUT --
+---------------------------------
+
+delay_regs: process(clk, write)
+begin
+  if (rising_edge(clk)) then
+		if (write = '1') then
+			lut_data_reg1 <= lut_data1;
+		end if;
+	end if;
+end process delay_regs;
+
+
+end full_dds;

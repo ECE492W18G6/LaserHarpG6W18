@@ -1,5 +1,5 @@
 Assembler report for LaserHarpG6W18
-Fri Feb 16 15:22:39 2018
+Sat Mar 03 16:19:13 2018
 Quartus Prime Version 17.0.2 Build 602 07/19/2017 SJ Standard Edition
 
 
@@ -10,7 +10,7 @@ Quartus Prime Version 17.0.2 Build 602 07/19/2017 SJ Standard Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/output_files/LaserHarpG6W18.sof
+  5. Assembler Device Options: C:/Users/rarog/ECE492/LaserHarpG6W18/output_files/LaserHarpG6W18.sof
   6. Assembler Messages
 
 
@@ -38,7 +38,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Feb 16 15:22:39 2018 ;
+; Assembler Status      ; Successful - Sat Mar 03 16:19:13 2018 ;
 ; Revision Name         ; LaserHarpG6W18                        ;
 ; Top-level Entity Name ; LaserHarpG6W18                        ;
 ; Family                ; Cyclone V                             ;
@@ -53,23 +53,23 @@ agreement for further details.
 +--------+---------+---------------+
 
 
-+---------------------------------------------------------------------------------+
-; Assembler Generated Files                                                       ;
-+---------------------------------------------------------------------------------+
-; File Name                                                                       ;
-+---------------------------------------------------------------------------------+
-; C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/output_files/LaserHarpG6W18.sof ;
-+---------------------------------------------------------------------------------+
++----------------------------------------------------------------------+
+; Assembler Generated Files                                            ;
++----------------------------------------------------------------------+
+; File Name                                                            ;
++----------------------------------------------------------------------+
+; C:/Users/rarog/ECE492/LaserHarpG6W18/output_files/LaserHarpG6W18.sof ;
++----------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/output_files/LaserHarpG6W18.sof ;
-+----------------+------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                  ;
-+----------------+------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x00FCCD34                                                                               ;
-; Checksum       ; 0x00FCCD34                                                                               ;
-+----------------+------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/rarog/ECE492/LaserHarpG6W18/output_files/LaserHarpG6W18.sof ;
++----------------+-------------------------------------------------------------------------------+
+; Option         ; Setting                                                                       ;
++----------------+-------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x01B231B2                                                                    ;
+; Checksum       ; 0x01B231B2                                                                    ;
++----------------+-------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -78,15 +78,15 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 17.0.2 Build 602 07/19/2017 SJ Standard Edition
-    Info: Processing started: Fri Feb 16 15:22:28 2018
+    Info: Processing started: Sat Mar 03 16:19:01 2018
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off LaserHarpG6W18 -c LaserHarpG6W18
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info (11878): Hard Processor Subsystem configuration has not changed and a Preloader software update is not required
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 761 megabytes
-    Info: Processing ended: Fri Feb 16 15:22:40 2018
+    Info: Peak virtual memory: 800 megabytes
+    Info: Processing ended: Sat Mar 03 16:19:13 2018
     Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:10
+    Info: Total CPU time (on all processors): 00:00:12
 
 
