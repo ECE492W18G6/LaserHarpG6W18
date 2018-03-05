@@ -1,10 +1,14 @@
--- Structure for creating a modelsim testbench was referenced from NANDLAND
--- https://www.nandland.com/vhdl/tutorials/tutorial-modelsim-simulation-walkthrough.html
-
--- Original Author: Adam Narten
-
--- This file is to test the synthesizer by testing the sine lookup table to make sure it is outputting 
--- the correct sine wave values from the LUT.
+--------------------------------------------------------------------------------------------------------------------------
+-- Original Authors : Adam Narten											--
+-- Date created:  March 4, 2018												--
+--															--
+-- Structure for creating a modelsim testbench was referenced from NANDLAND						--
+-- https://www.nandland.com/vhdl/tutorials/tutorial-modelsim-simulation-walkthrough.html				--
+--															--
+-- This program takes a frequency of 1 and steps it through a phase accumulator in the synthesizer.		 	--
+-- It makes sure the correct sine wave values are getting ouputted from the lookup table.				--
+-- 															--
+--------------------------------------------------------------------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
