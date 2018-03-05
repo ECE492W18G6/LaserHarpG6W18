@@ -1,8 +1,6 @@
 /* Original Authors: Nancy Minderman (nancy.minderman@ualberta.ca), Brendan Bruner (bbruner@ualberta.ca)
  * Date created: December 2017
  *
- * Additional Authors: Adan Narten, Oliver Rarog, Randi Derbyshire, Celeste Chiasson
- * Date edited: January 2018
  * 
  */
 
