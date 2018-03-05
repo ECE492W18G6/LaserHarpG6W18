@@ -30,6 +30,10 @@
 * Modifications	: Nancy Minderman nancy.minderman@ualberta.ca, Brendan Bruner bbruner@ualberta.ca
 * 				  Changes to this project include scatter file changes and BSP changes for port from
 * 				  Cyclone V dev kit board to DE1-SoC
+*
+* Additional Authors: Adam Narten, Oliver Rarog, Celeste Chiasson, Randi Derbyshire 
+* Edited on: January 2018
+*
 *********************************************************************************************************
 * Note(s)       : none.
 *********************************************************************************************************
