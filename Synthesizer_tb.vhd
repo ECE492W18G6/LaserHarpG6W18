@@ -1,3 +1,11 @@
+-- Structure for creating a modelsim testbench was referenced from NANDLAND
+-- https://www.nandland.com/vhdl/tutorials/tutorial-modelsim-simulation-walkthrough.html
+
+-- Original Author: Adam Narten
+
+-- This file is to test the synthesizer by testing the sine lookup table to make sure it is outputting 
+-- the correct sine wave values from the LUT.
+
 library ieee;
 use ieee.std_logic_1164.all;
  
