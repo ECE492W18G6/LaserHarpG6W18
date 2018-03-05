@@ -4,6 +4,10 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "GPIO_0_8",
+					"strict" : false
+				},
+				{
 					"name" : "FPGA_I2C_SCLK",
 					"strict" : false
 				},
@@ -49,10 +53,6 @@
 				},
 				{
 					"name" : "LEDR[9]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_0_8",
 					"strict" : false
 				},
 				{
