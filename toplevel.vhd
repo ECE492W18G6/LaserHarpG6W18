@@ -1,3 +1,7 @@
+-- Original Author: Nancy Minderman
+-- This program was taken and edited from the ECE 492 Lab 1 Tutorial 1 in 2018.
+-- Additional Authors: Adam Narten, Oliver Rarog, Randi Derbyshire, Celeste Chiasson
+
 -- A library clause declares a name as a library.  It 
 -- does not create the library; it simply forward declares 
 -- it. 
