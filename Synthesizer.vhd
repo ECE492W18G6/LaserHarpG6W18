@@ -1,6 +1,15 @@
--- Original Authors : Simon Doherty, Eric Lunty, Kyle Brooks, Peter Roland
--- Also combined that with the code from http://www.lancasterhunt.co.uk/direct-digital-synthesis-dds-for-idiots-like-me/
--- Additional Authors : Randi Derbyshire, Adam Narten, Oliver Rarog, Celeste Chiasson
+--------------------------------------------------------------------------------------------------------------------------
+-- Original Authors : Simon Doherty, Eric Lunty, Kyle Brooks, Peter Roland						--
+-- Date created: N/A 													--
+-- Date edited: February 5, 2018											--
+-- Also combined that with the code from http://www.lancasterhunt.co.uk/direct-digital-synthesis-dds-for-idiots-like-me/--
+-- Additional Authors : Randi Derbyshire, Adam Narten, Oliver Rarog, Celeste Chiasson					--
+--															--
+-- This program takes a frequency and steps it through a phase accumulator. The phase accumulator sums the current 	--
+-- phase with the clock. This will step through the sine lookup table and create the respective sine wave for that	--
+-- original frequency called.												--
+--															--
+--------------------------------------------------------------------------------------------------------------------------
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
@@ -13,6 +22,7 @@ use IEEE.STD_LOGIC_UNSIGNED.all;
 entity Synthesizer is 
 
 	port(
+	-- system signals
 	clk 			: in std_logic:= '0'; 
 	reset 		: in std_logic:= '0'; 
 	write		: in std_logic:= '0'; 
@@ -47,6 +57,13 @@ signal lut_data_reg : std_logic_vector(31 downto 0);
 
 begin
 
+--------------------------------------------------------------------------
+-- Phase accumulator increments by 'phase_reg' every clock cycle        --
+-- Output frequency determined by formula: Phase_inc = (Fout/Fclk)*2^32 --
+-- E.g. Fout = 36MHz, Fclk = 100MHz,  Phase_inc = 36*2^32/100           --
+-- Frequency resolution is 100MHz/2^32 = 0.00233Hz                      --
+--------------------------------------------------------------------------
+	
 dds : process(clk, reset, write)
 
 begin
