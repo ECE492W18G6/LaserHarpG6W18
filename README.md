@@ -1,4 +1,4 @@
-# LaserHarp
+# Polyphonic LaserHarp
 
 ## Original Source Code
 - **Synthesizer_tb.vhd** - Testbench file for the VHDL Synthesizer; *Tested and passed*
