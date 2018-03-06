@@ -9,7 +9,7 @@
 *
 * Filename      : audio.h
 * Version       : V1.00
-* Programmer(s) : Michael Wong (mcwong2@ualberta.ca), Adam Narten (anarten@ualberta.ca)
+* Programmer(s) : Michael Wong (mcwong2@ualberta.ca), Adam Narten (anarten@ualberta.ca), Oliver Rarog (rarog@ualberta.ca)
 *
 *********************************************************************************************************
 * Note(s)       : This is a sparse driver for the Altera University IP "Audio" core,
