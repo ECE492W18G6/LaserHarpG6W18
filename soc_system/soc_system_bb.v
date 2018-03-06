@@ -86,7 +86,8 @@ module soc_system (
 	pll_0_outclk0_clk,
 	red_leds_external_connection_export,
 	reset_reset_n,
-	switches_external_connection_export);	
+	switches_external_connection_export,
+	photodiode_0_conduit_end_export);	
 
 	input		audio_0_external_interface_ADCDAT;
 	input		audio_0_external_interface_ADCLRCK;
@@ -175,4 +176,5 @@ module soc_system (
 	output	[9:0]	red_leds_external_connection_export;
 	input		reset_reset_n;
 	input	[9:0]	switches_external_connection_export;
+	input		photodiode_0_conduit_end_export;
 endmodule

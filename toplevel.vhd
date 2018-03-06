@@ -152,7 +152,10 @@ entity LaserHarpG6W18 is
 			AUD_BCLK					: in std_logic := 'X';
 			AUD_DACDAT				: out std_logic;
 			AUD_DACLRCK				: in std_logic := 'X';
-			AUD_XCK					: out std_logic	
+			AUD_XCK					: out std_logic;	
+			
+		-- Photodiode pins
+			GPIO_0_28				: in std_logic
 	);
 end LaserHarpG6W18;
 
@@ -250,7 +253,8 @@ architecture rtl of LaserHarpG6W18 is
             red_leds_external_connection_export              : out   std_logic_vector(9 downto 0);                     -- export
             reset_reset_n                                    : in    std_logic                     := 'X';             -- reset_n
             switches_external_connection_export              : in    std_logic_vector(9 downto 0)  := (others => 'X'); -- export
-            pll_0_outclk0_clk                                : out   std_logic                                         -- clk
+            pll_0_outclk0_clk                                : out   std_logic;                             -- clk
+				photodiode_0_conduit_end_export						 : in 	std_logic
         );
     end component soc_system;
 
@@ -353,7 +357,8 @@ begin
 						button_1_external_connection_export => KEY_N(1),
 						button_2_external_connection_export => KEY_N(2),
 						button_3_external_connection_export => KEY_N(3),
-						red_leds_external_connection_export => LEDR 
+						red_leds_external_connection_export => LEDR,
+						photodiode_0_conduit_end_export => GPIO_0_28
         );
 
 

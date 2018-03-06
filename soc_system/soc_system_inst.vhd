@@ -86,7 +86,8 @@
 			pll_0_outclk0_clk                                : out   std_logic;                                        -- clk
 			red_leds_external_connection_export              : out   std_logic_vector(9 downto 0);                     -- export
 			reset_reset_n                                    : in    std_logic                     := 'X';             -- reset_n
-			switches_external_connection_export              : in    std_logic_vector(9 downto 0)  := (others => 'X')  -- export
+			switches_external_connection_export              : in    std_logic_vector(9 downto 0)  := (others => 'X'); -- export
+			photodiode_0_conduit_end_export                  : in    std_logic                     := 'X'              -- export
 		);
 	end component soc_system;
 
@@ -178,6 +179,7 @@
 			pll_0_outclk0_clk                                => CONNECTED_TO_pll_0_outclk0_clk,                                --                               pll_0_outclk0.clk
 			red_leds_external_connection_export              => CONNECTED_TO_red_leds_external_connection_export,              --                red_leds_external_connection.export
 			reset_reset_n                                    => CONNECTED_TO_reset_reset_n,                                    --                                       reset.reset_n
-			switches_external_connection_export              => CONNECTED_TO_switches_external_connection_export               --                switches_external_connection.export
+			switches_external_connection_export              => CONNECTED_TO_switches_external_connection_export,              --                switches_external_connection.export
+			photodiode_0_conduit_end_export                  => CONNECTED_TO_photodiode_0_conduit_end_export                   --                    photodiode_0_conduit_end.export
 		);
 

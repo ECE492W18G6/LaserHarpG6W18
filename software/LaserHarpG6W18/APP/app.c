@@ -92,6 +92,8 @@
 #define SYNTH6_BASE FPGA_TO_HPS_LW_ADDR(SYNTH6_ADD)
 #define SYNTH7_ADD 0x1700
 #define SYNTH7_BASE FPGA_TO_HPS_LW_ADDR(SYNTH7_ADD)
+#define PHOTODIODE_ADD 0x2000
+#define PHOTODIODE_BASE FPGA_TO_HPS_LW_ADDR(PHOTODIODE_ADD)
 
 #define AUDIO_BUFFER_SIZE 128
 #define M_PI 3.14159265358979323846
@@ -279,16 +281,22 @@ static  void  AudioTaskStart (void *p_arg)
         // therefore to play a specific frequency, like 523 (C#5),you need
         // to divide by 11
         alt_write_word(SYNTH0_BASE, 41);
-        alt_write_word(SYNTH1_BASE, 52);
-        INT32S temp1 = alt_read_word(SYNTH0_BASE);
-        INT32S temp2 = alt_read_word(SYNTH1_BASE);
+		alt_write_word(SYNTH1_BASE, 52);
+		INT32S temp1 = alt_read_word(SYNTH0_BASE);
+		INT32S temp2 = alt_read_word(SYNTH1_BASE);
 
-        // the hardware synthesizer outputs 32 bits with the top
-        // 12 being the actual sine value, therfore we do an
-        // arithmetic shift of 20 so that we keep its sign and
-        // its the correct amplitude
-        buffer[0] =  (temp1 >> 20) + (temp2 >> 20);
-        write_audio_data(buffer, 1);
+		// the hardware synthesizer outputs 32 bits with the top
+		// 12 being the actual sine value, therfore we do an
+		// arithmetic shift of 20 so that we keep its sign and
+		// its the correct amplitude
+		buffer[0] =  (temp1 >> 20) + (temp2 >> 20);
+
+        if (alt_read_word(PHOTODIODE_BASE) == 0) {
+            OSTimeDlyHMSM(0,0,0,1);
+        } else {
+        	write_audio_data(buffer, 1);
+        }
+
     }
 }
 
@@ -309,7 +317,7 @@ static  void  AudioTaskStart (void *p_arg)
 */
 static  void  LCDTaskStart (void *p_arg)
 {
-
+// Currently commented out before preliminary testing
 //	InitLCD();
 //	HomeLCD();
 //	PrintStringLCD("Hello World\n");

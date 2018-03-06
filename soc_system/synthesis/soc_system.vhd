@@ -91,6 +91,7 @@ entity soc_system is
 		memory_mem_odt                                   : out   std_logic;                                        --                                            .mem_odt
 		memory_mem_dm                                    : out   std_logic_vector(3 downto 0);                     --                                            .mem_dm
 		memory_oct_rzqin                                 : in    std_logic                     := '0';             --                                            .oct_rzqin
+		photodiode_0_conduit_end_export                  : in    std_logic                     := '0';             --                    photodiode_0_conduit_end.export
 		pll_0_outclk0_clk                                : out   std_logic;                                        --                               pll_0_outclk0.clk
 		red_leds_external_connection_export              : out   std_logic_vector(9 downto 0);                     --                red_leds_external_connection.export
 		reset_reset_n                                    : in    std_logic                     := '0';             --                                       reset.reset_n
@@ -293,6 +294,16 @@ architecture rtl of soc_system is
 		);
 	end component soc_system_hps_0;
 
+	component photodiode is
+		port (
+			avalon_slave_readdata : out std_logic_vector(7 downto 0);        -- readdata
+			avalon_slave_read_n   : in  std_logic                    := 'X'; -- read_n
+			conduit_end           : in  std_logic                    := 'X'; -- export
+			reset_n               : in  std_logic                    := 'X'; -- reset_n
+			clk                   : in  std_logic                    := 'X'  -- clk
+		);
+	end component photodiode;
+
 	component soc_system_pll_0 is
 		port (
 			refclk   : in  std_logic := 'X'; -- clk
@@ -419,6 +430,8 @@ architecture rtl of soc_system is
 			character_lcd_0_avalon_lcd_slave_writedata                          : out std_logic_vector(7 downto 0);                     -- writedata
 			character_lcd_0_avalon_lcd_slave_waitrequest                        : in  std_logic                     := 'X';             -- waitrequest
 			character_lcd_0_avalon_lcd_slave_chipselect                         : out std_logic;                                        -- chipselect
+			photodiode_0_avalon_slave_read                                      : out std_logic;                                        -- read
+			photodiode_0_avalon_slave_readdata                                  : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- readdata
 			red_leds_s1_address                                                 : out std_logic_vector(1 downto 0);                     -- address
 			red_leds_s1_write                                                   : out std_logic;                                        -- write
 			red_leds_s1_readdata                                                : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
@@ -676,6 +689,8 @@ architecture rtl of soc_system is
 	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_read                       : std_logic;                     -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_read -> character_lcd_0:read
 	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_write                      : std_logic;                     -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_write -> character_lcd_0:write
 	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_writedata                  : std_logic_vector(7 downto 0);  -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_writedata -> character_lcd_0:writedata
+	signal mm_interconnect_0_photodiode_0_avalon_slave_readdata                          : std_logic_vector(7 downto 0);  -- photodiode_0:avalon_slave_readdata -> mm_interconnect_0:photodiode_0_avalon_slave_readdata
+	signal mm_interconnect_0_photodiode_0_avalon_slave_read                              : std_logic;                     -- mm_interconnect_0:photodiode_0_avalon_slave_read -> mm_interconnect_0_photodiode_0_avalon_slave_read:in
 	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_readdata                       : std_logic_vector(31 downto 0); -- Synthesizer_0:data_out -> mm_interconnect_0:Synthesizer_0_avalon_slave_0_readdata
 	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_read                           : std_logic;                     -- mm_interconnect_0:Synthesizer_0_avalon_slave_0_read -> Synthesizer_0:read
 	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_write                          : std_logic;                     -- mm_interconnect_0:Synthesizer_0_avalon_slave_0_write -> Synthesizer_0:write
@@ -753,13 +768,14 @@ architecture rtl of soc_system is
 	signal rst_controller_001_reset_out_reset                                            : std_logic;                     -- rst_controller_001:reset_out -> pll_0:rst
 	signal rst_controller_002_reset_out_reset                                            : std_logic;                     -- rst_controller_002:reset_out -> mm_interconnect_0:hps_0_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset_reset
 	signal reset_reset_n_ports_inv                                                       : std_logic;                     -- reset_reset_n:inv -> [rst_controller:reset_in0, rst_controller_001:reset_in0]
+	signal mm_interconnect_0_photodiode_0_avalon_slave_read_ports_inv                    : std_logic;                     -- mm_interconnect_0_photodiode_0_avalon_slave_read:inv -> photodiode_0:avalon_slave_read_n
 	signal mm_interconnect_0_switches_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_switches_s1_write:inv -> switches:write_n
 	signal mm_interconnect_0_button_0_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_0_s1_write:inv -> button_0:write_n
 	signal mm_interconnect_0_button_1_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_1_s1_write:inv -> button_1:write_n
 	signal mm_interconnect_0_button_2_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_2_s1_write:inv -> button_2:write_n
 	signal mm_interconnect_0_button_3_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_3_s1_write:inv -> button_3:write_n
 	signal mm_interconnect_0_red_leds_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_red_leds_s1_write:inv -> red_leds:write_n
-	signal rst_controller_reset_out_reset_ports_inv                                      : std_logic;                     -- rst_controller_reset_out_reset:inv -> [button_0:reset_n, button_1:reset_n, button_2:reset_n, button_3:reset_n, red_leds:reset_n, switches:reset_n, sysid_qsys_0:reset_n]
+	signal rst_controller_reset_out_reset_ports_inv                                      : std_logic;                     -- rst_controller_reset_out_reset:inv -> [button_0:reset_n, button_1:reset_n, button_2:reset_n, button_3:reset_n, photodiode_0:reset_n, red_leds:reset_n, switches:reset_n, sysid_qsys_0:reset_n]
 	signal hps_0_h2f_reset_reset_ports_inv                                               : std_logic;                     -- hps_0_h2f_reset_reset:inv -> [rst_controller:reset_in1, rst_controller_001:reset_in1, rst_controller_002:reset_in0]
 
 begin
@@ -1061,6 +1077,15 @@ begin
 			f2h_irq_p1               => hps_0_f2h_irq1_irq               --          f2h_irq1.irq
 		);
 
+	photodiode_0 : component photodiode
+		port map (
+			avalon_slave_readdata => mm_interconnect_0_photodiode_0_avalon_slave_readdata,       -- avalon_slave.readdata
+			avalon_slave_read_n   => mm_interconnect_0_photodiode_0_avalon_slave_read_ports_inv, --             .read_n
+			conduit_end           => photodiode_0_conduit_end_export,                            --  conduit_end.export
+			reset_n               => rst_controller_reset_out_reset_ports_inv,                   --        reset.reset_n
+			clk                   => clk_clk                                                     --        clock.clk
+		);
+
 	pll_0 : component soc_system_pll_0
 		port map (
 			refclk   => clk_clk,                            --  refclk.clk
@@ -1183,6 +1208,8 @@ begin
 			character_lcd_0_avalon_lcd_slave_writedata                          => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_writedata,                  --                                                              .writedata
 			character_lcd_0_avalon_lcd_slave_waitrequest                        => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_waitrequest,                --                                                              .waitrequest
 			character_lcd_0_avalon_lcd_slave_chipselect                         => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_chipselect,                 --                                                              .chipselect
+			photodiode_0_avalon_slave_read                                      => mm_interconnect_0_photodiode_0_avalon_slave_read,                              --                                     photodiode_0_avalon_slave.read
+			photodiode_0_avalon_slave_readdata                                  => mm_interconnect_0_photodiode_0_avalon_slave_readdata,                          --                                                              .readdata
 			red_leds_s1_address                                                 => mm_interconnect_0_red_leds_s1_address,                                         --                                                   red_leds_s1.address
 			red_leds_s1_write                                                   => mm_interconnect_0_red_leds_s1_write,                                           --                                                              .write
 			red_leds_s1_readdata                                                => mm_interconnect_0_red_leds_s1_readdata,                                        --                                                              .readdata
@@ -1445,6 +1472,8 @@ begin
 		);
 
 	reset_reset_n_ports_inv <= not reset_reset_n;
+
+	mm_interconnect_0_photodiode_0_avalon_slave_read_ports_inv <= not mm_interconnect_0_photodiode_0_avalon_slave_read;
 
 	mm_interconnect_0_switches_s1_write_ports_inv <= not mm_interconnect_0_switches_s1_write;
 

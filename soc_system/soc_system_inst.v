@@ -85,6 +85,7 @@
 		.pll_0_outclk0_clk                                (<connected-to-pll_0_outclk0_clk>),                                //                               pll_0_outclk0.clk
 		.red_leds_external_connection_export              (<connected-to-red_leds_external_connection_export>),              //                red_leds_external_connection.export
 		.reset_reset_n                                    (<connected-to-reset_reset_n>),                                    //                                       reset.reset_n
-		.switches_external_connection_export              (<connected-to-switches_external_connection_export>)               //                switches_external_connection.export
+		.switches_external_connection_export              (<connected-to-switches_external_connection_export>),              //                switches_external_connection.export
+		.photodiode_0_conduit_end_export                  (<connected-to-photodiode_0_conduit_end_export>)                   //                    photodiode_0_conduit_end.export
 	);
 
