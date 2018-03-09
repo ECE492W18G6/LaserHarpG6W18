@@ -1,5 +1,13 @@
--- Original Author : Simon Doherty, Eric Lunty, Kyle Brooks, Peter Roland
--- Additional Authors : Randi Derbyshire, Adam Narten, Oliver Rarog, Celeste Chiasson
+--------------------------------------------------------------------------------------------------------------------------
+-- Original Authors : Simon Doherty, Eric Lunty, Kyle Brooks, Peter Roland						--
+-- Date created: N/A 													--
+--															--
+-- Additional Authors : Randi Derbyshire, Adam Narten, Oliver Rarog, Celeste Chiasson					--
+-- Date edited: February 5, 2018											--
+--															--
+-- This program takes a value from the synthesizer.vhd file and runs it through the 12-bit ROM to find the 	 	--
+-- respective sine wave value. 												--
+--------------------------------------------------------------------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;

@@ -139,10 +139,10 @@ entity LaserHarpG6W18 is
 		
 		
 		-- LCD Display
-			GPIO_0					: inout std_logic_vector(7 downto 0);
-			GPIO_0_8					: out std_logic;
-			GPIO_0_9					: out std_logic;
-			GPIO_0_10				: out std_logic;
+--			GPIO_0					: inout std_logic_vector(7 downto 0);
+--			GPIO_0_8					: out std_logic;
+--			GPIO_0_9					: out std_logic;
+--			GPIO_0_10				: out std_logic;
 			
 			
 		-- Switches
@@ -167,7 +167,14 @@ entity LaserHarpG6W18 is
 			AUD_XCK					: out std_logic;	
 			
 		-- Photodiode pins
-			GPIO_0_28				: in std_logic
+			GPIO_0_28				: in std_logic := 'X';
+			GPIO_0_29				: in std_logic := 'X';
+			GPIO_0_30				: in std_logic := 'X';
+			GPIO_0_31				: in std_logic := 'X';
+			GPIO_0_32				: in std_logic := 'X';
+			GPIO_0_33				: in std_logic := 'X';
+			GPIO_0_34				: in std_logic := 'X';
+			GPIO_0_35				: in std_logic := 'X'
 	);
 end LaserHarpG6W18;
 
@@ -190,12 +197,12 @@ architecture rtl of LaserHarpG6W18 is
             button_1_external_connection_export              : in    std_logic                     := 'X';             -- export
             button_2_external_connection_export              : in    std_logic                     := 'X';             -- export
             button_3_external_connection_export              : in    std_logic                     := 'X';             -- export
-            character_lcd_0_external_interface_DATA          : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- DATA
-            character_lcd_0_external_interface_ON            : out   std_logic;                                        -- ON
-            character_lcd_0_external_interface_BLON          : out   std_logic;                                        -- BLON
-            character_lcd_0_external_interface_EN            : out   std_logic;                                        -- EN
-            character_lcd_0_external_interface_RS            : out   std_logic;                                        -- RS
-            character_lcd_0_external_interface_RW            : out   std_logic;                                        -- RW
+--            character_lcd_0_external_interface_DATA          : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- DATA
+--            character_lcd_0_external_interface_ON            : out   std_logic;                                        -- ON
+--            character_lcd_0_external_interface_BLON          : out   std_logic;                                        -- BLON
+--            character_lcd_0_external_interface_EN            : out   std_logic;                                        -- EN
+--            character_lcd_0_external_interface_RS            : out   std_logic;                                        -- RS
+--            character_lcd_0_external_interface_RW            : out   std_logic;                                        -- RW
             clk_clk                                          : in    std_logic                     := 'X';             -- clk
             hps_io_hps_io_emac1_inst_TX_CLK                  : out   std_logic;                                        -- hps_io_emac1_inst_TX_CLK
             hps_io_hps_io_emac1_inst_TXD0                    : out   std_logic;                                        -- hps_io_emac1_inst_TXD0
@@ -266,7 +273,14 @@ architecture rtl of LaserHarpG6W18 is
             reset_reset_n                                    : in    std_logic                     := 'X';             -- reset_n
             switches_external_connection_export              : in    std_logic_vector(9 downto 0)  := (others => 'X'); -- export
             pll_0_outclk0_clk                                : out   std_logic;                             -- clk
-				photodiode_0_conduit_end_export						 : in 	std_logic
+				photodiode_0_conduit_end_export0                 : in    std_logic                     := 'X';             -- export0
+            photodiode_0_conduit_end_export1                 : in    std_logic                     := 'X';             -- export1
+            photodiode_0_conduit_end_export2                 : in    std_logic                     := 'X';             -- export2
+            photodiode_0_conduit_end_export3                 : in    std_logic                     := 'X';             -- export3
+            photodiode_0_conduit_end_export4                 : in    std_logic                     := 'X';             -- export4
+            photodiode_0_conduit_end_export5                 : in    std_logic                     := 'X';             -- export5
+            photodiode_0_conduit_end_export6                 : in    std_logic                     := 'X';             -- export6
+            photodiode_0_conduit_end_export7                 : in    std_logic                     := 'X'              -- export7
         );
     end component soc_system;
 
@@ -352,10 +366,10 @@ begin
 						hps_io_hps_io_gpio_inst_GPIO53 		=> HPS_LED,
 						hps_io_hps_io_gpio_inst_GPIO54 		=> HPS_KEY_N,
 						hps_io_hps_io_gpio_inst_GPIO61 		=> HPS_GSENSOR_INT,
-						character_lcd_0_external_interface_DATA => GPIO_0,
-						character_lcd_0_external_interface_EN   => GPIO_0_9,
-						character_lcd_0_external_interface_RS   => GPIO_0_8,
-						character_lcd_0_external_interface_RW   => GPIO_0_10,	
+--						character_lcd_0_external_interface_DATA => GPIO_0,
+--						character_lcd_0_external_interface_EN   => GPIO_0_9,
+--						character_lcd_0_external_interface_RS   => GPIO_0_8,
+--						character_lcd_0_external_interface_RW   => GPIO_0_10,	
 						switches_external_connection_export	=> SW,
 						audio_and_video_config_0_external_interface_SDAT => FPGA_I2C_SDAT, -- audio_and_video_config_0_external_interface.SDAT
 						audio_and_video_config_0_external_interface_SCLK => FPGA_I2C_SCLK, --                                            .SCLK
@@ -370,7 +384,14 @@ begin
 						button_2_external_connection_export => KEY_N(2),
 						button_3_external_connection_export => KEY_N(3),
 						red_leds_external_connection_export => LEDR,
-						photodiode_0_conduit_end_export => GPIO_0_28
+						photodiode_0_conduit_end_export0 => GPIO_0_28,
+						photodiode_0_conduit_end_export1 => GPIO_0_29,
+						photodiode_0_conduit_end_export2 => GPIO_0_30,
+						photodiode_0_conduit_end_export3 => GPIO_0_31,
+						photodiode_0_conduit_end_export4 => GPIO_0_32,
+						photodiode_0_conduit_end_export5 => GPIO_0_33,
+						photodiode_0_conduit_end_export6 => GPIO_0_34,
+						photodiode_0_conduit_end_export7 => GPIO_0_35
         );
 
 
