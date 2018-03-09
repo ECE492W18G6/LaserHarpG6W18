@@ -1,0 +1,5 @@
+#include "options.h"
+
+void change_scale() {
+	SCALE = (SCALE + 1) % NUM_SCALES
+}

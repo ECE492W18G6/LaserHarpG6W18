@@ -1,0 +1,107 @@
+#include "options.h"
+#include "lcd.h"
+
+void change_scale() {
+	SCALE = (SCALE + 1) % NUM_SCALES;
+}
+
+void change_instrument() {
+	INSTRUMENT = (INSTRUMENT + 1) % NUM_INSTRUMENTS;
+}
+
+void change_octave() {
+	OCTAVE = OCTAVE + 1;
+	if (OCTAVE > MAX_OCTAVE) {
+		OCTAVE = MIN_OCTAVE;
+	}
+}
+
+void change_key() {
+	KEY = (KEY + 1) % NUM_KEYS;
+}
+
+void set_reverb() {
+	REVERB = REVERB_ON;
+}
+
+void remove_reverb() {
+	REVERB = REVERB_OFF;
+}
+
+void set_sustain() {
+	SUSTAIN = SUSTAIN_ON;
+}
+
+void remove_sustain() {
+	SUSTAIN = SUSTAIN_OFF;
+}
+
+void update_LCD_string() {
+	char scale[12];
+	char instrument[8];
+	char octave[8];
+	char key[2];
+
+	switch (SCALE) {
+		case MAJOR:
+			sprintf(scale, "Major Scale");
+			break;
+		case MINOR:
+			sprintf(scale, "Minor Scale");
+			break;
+		case BLUES:
+			sprintf(scale, "Blues Scale");
+			break;
+		case DORIAN:
+			sprintf(scale, "Dorian Scale");
+			break;
+		default:
+			sprintf(scale, "Major Scale");
+	}
+	switch (INSTRUMENT) {
+		case HARP:
+			sprintf(instrument, "Harp");
+			break;
+		case PIANO:
+			sprintf(instrument, "Piano");
+			break;
+		case CLARINET:
+			sprintf(instrument, "Clarinet");
+			break;
+		case VIOLIN:
+			sprintf(instrument, "Violin");
+			break;
+		default:
+			sprintf(instrument, "Harp");
+	}
+	switch (OCTAVE) {
+		case OCTAVE_2:
+			sprintf(octave, "Octave 2");
+			break;
+		case OCTAVE_3:
+			sprintf(octave, "Octave 3");
+			break;
+		case OCTAVE_4:
+			sprintf(octave, "Octave 4");
+			break;
+		case OCTAVE_5:
+			sprintf(octave, "Octave 5");
+			break;
+		case OCTAVE_6:
+			sprintf(octave, "Octave 6");
+			break;
+		default:
+			sprintf(octave, "Octave 2");
+	}
+	switch (KEY) {
+		default:
+			sprintf(key, "C ");
+	}
+
+	MoveCursorLCD(0);
+	PrintStringLCD(key);
+	PrintStringLCD(scale);
+	MoveCursorLCD(20);
+	PrintStringLCD(instrument);
+	PrintStringLCD(octave);
+}

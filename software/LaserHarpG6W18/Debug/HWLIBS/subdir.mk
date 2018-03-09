@@ -10,8 +10,8 @@ C_SRCS += \
 ../HWLIBS/alt_fpga_manager.c \
 ../HWLIBS/audio.c \
 ../HWLIBS/audio_cfg.c \
-../HWLIBS/interrupt.c \
-../HWLIBS/lcd.c 
+../HWLIBS/lcd.c \
+../HWLIBS/options.c 
 
 C_DEPS += \
 ./HWLIBS/alt_16550_uart.d \
@@ -20,8 +20,8 @@ C_DEPS += \
 ./HWLIBS/alt_fpga_manager.d \
 ./HWLIBS/audio.d \
 ./HWLIBS/audio_cfg.d \
-./HWLIBS/interrupt.d \
-./HWLIBS/lcd.d 
+./HWLIBS/lcd.d \
+./HWLIBS/options.d 
 
 OBJS += \
 ./HWLIBS/alt_16550_uart.o \
@@ -30,8 +30,8 @@ OBJS += \
 ./HWLIBS/alt_fpga_manager.o \
 ./HWLIBS/audio.o \
 ./HWLIBS/audio_cfg.o \
-./HWLIBS/interrupt.o \
-./HWLIBS/lcd.o 
+./HWLIBS/lcd.o \
+./HWLIBS/options.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes

@@ -66,6 +66,7 @@
 #include "audio_cfg.h"
 #include "audio.h"
 #include "lcd.h"
+#include "options.h"
 
 // Compute absolute address of any slave component attached to lightweight bridge
 // base is address of component in QSYS window
@@ -74,7 +75,7 @@
 
 #define FPGA_TO_HPS_LW_ADDR(base)  ((void *) (((char *)  (ALT_LWFPGASLVS_ADDR))+ (base)))
 
-#define APP_TASK_PRIO 5
+#define BUTTON_TASK_PRIO 5
 #define AUDIO_TASK_PRIO 7
 #define LCD_TASK_PRIO 6
 
@@ -123,9 +124,9 @@
 *********************************************************************************************************
 */
 
-CPU_STK AppTaskStartStk[TASK_STACK_SIZE];
-CPU_STK AudioTaskStartStk[TASK_STACK_SIZE];
-CPU_STK LCDTaskStartStk[TASK_STACK_SIZE];
+CPU_STK ButtonTaskStk[TASK_STACK_SIZE];
+CPU_STK AudioTaskStk[TASK_STACK_SIZE];
+CPU_STK LCDTaskStk[TASK_STACK_SIZE];
 
 INT32S SYNTH_VALUES[NUM_STRINGS];
 INT32S POLY_BUFFER[NUM_STRINGS];
@@ -136,9 +137,9 @@ INT32S POLY_BUFFER[NUM_STRINGS];
 *********************************************************************************************************
 */
 
-static  void  AppTaskStart              (void        *p_arg);
-static  void  AudioTaskStart            (void        *p_arg);
-static  void  LCDTaskStart              (void        *p_arg);
+static  void  ButtonTask             (void        *p_arg);
+static  void  AudioTask           	 (void        *p_arg);
+static  void  LCDTask	             (void        *p_arg);
 
 /*
 *********************************************************************************************************
@@ -174,12 +175,12 @@ int main ()
 
     OSInit();
 
-    os_err = OSTaskCreateExt((void (*)(void *)) AppTaskStart,   /* Create the start task.                               */
+    os_err = OSTaskCreateExt((void (*)(void *)) ButtonTask,   /* Create the start task.                               */
                              (void          * ) 0,
-                             (OS_STK        * )&AppTaskStartStk[TASK_STACK_SIZE - 1],
-                             (INT8U           ) APP_TASK_PRIO,
-                             (INT16U          ) APP_TASK_PRIO,  // reuse prio for ID
-                             (OS_STK        * )&AppTaskStartStk[0],
+                             (OS_STK        * )&ButtonTaskStk[TASK_STACK_SIZE - 1],
+                             (INT8U           ) BUTTON_TASK_PRIO,
+                             (INT16U          ) BUTTON_TASK_PRIO,  // reuse prio for ID
+                             (OS_STK        * )&ButtonTaskStk[0],
                              (INT32U          ) TASK_STACK_SIZE,
                              (void          * )0,
                              (INT16U          )(OS_TASK_OPT_STK_CLR | OS_TASK_OPT_STK_CHK));
@@ -188,12 +189,12 @@ int main ()
         ; /* Handle error. */
     }
 
-    os_err = OSTaskCreateExt((void (*)(void *)) AudioTaskStart,   /* Create the audio task.                               */
+    os_err = OSTaskCreateExt((void (*)(void *)) AudioTask,   /* Create the audio task.                               */
 							 (void          * ) 0,
-							 (OS_STK        * )&AudioTaskStartStk[TASK_STACK_SIZE - 1],
+							 (OS_STK        * )&AudioTaskStk[TASK_STACK_SIZE - 1],
 							 (INT8U           ) AUDIO_TASK_PRIO,
 							 (INT16U          ) AUDIO_TASK_PRIO,  // reuse prio for ID
-							 (OS_STK        * )&AudioTaskStartStk[0],
+							 (OS_STK        * )&AudioTaskStk[0],
 							 (INT32U          ) TASK_STACK_SIZE,
 							 (void          * )0,
 							 (INT16U          )(OS_TASK_OPT_STK_CLR | OS_TASK_OPT_STK_CHK));
@@ -202,12 +203,12 @@ int main ()
 		; /* Handle error. */
 	}
 
-	os_err = OSTaskCreateExt((void (*)(void *)) LCDTaskStart,   /* Create the start task.                               */
+	os_err = OSTaskCreateExt((void (*)(void *)) LCDTask,   /* Create the start task.                               */
 							 (void          * ) 0,
-							 (OS_STK        * )&LCDTaskStartStk[TASK_STACK_SIZE - 1],
+							 (OS_STK        * )&LCDTaskStk[TASK_STACK_SIZE - 1],
 							 (INT8U           ) LCD_TASK_PRIO,
 							 (INT16U          ) LCD_TASK_PRIO,  // reuse prio for ID
-							 (OS_STK        * )&LCDTaskStartStk[0],
+							 (OS_STK        * )&LCDTaskStk[0],
 							 (INT32U          ) TASK_STACK_SIZE,
 							 (void          * )0,
 							 (INT16U          )(OS_TASK_OPT_STK_CLR | OS_TASK_OPT_STK_CHK));
@@ -235,10 +236,10 @@ int main ()
 *
 * Created by  : main().
 *
-* Notes       : (1) The ticker MUST be initialised AFTER multitasking has started.
+* Notes       : (1) The ticker MUST be initialized AFTER multitasking has started.
 *********************************************************************************************************
 */
-static  void  AppTaskStart (void *p_arg)
+static  void  ButtonTask (void *p_arg)
 {
 
     BSP_OS_TmrTickInit(OS_TICKS_PER_SEC);                       /* Configure and enable OS tick interrupt.              */
@@ -275,10 +276,10 @@ static  void  AppTaskStart (void *p_arg)
 *
 * Created by  : main().
 *
-* Notes       : (1) The ticker MUST be initialised AFTER multitasking has started.
+* Notes       : (1) The ticker MUST be initialized AFTER multitasking has started.
 *********************************************************************************************************
 */
-static  void  AudioTaskStart (void *p_arg)
+static  void  AudioTask (void *p_arg)
 {
     // Configure audio device
     // See WM8731 datasheet Register Map
@@ -365,26 +366,27 @@ static  void  AudioTaskStart (void *p_arg)
 *
 * Created by  : main().
 *
-* Notes       : (1) The ticker MUST be initialised AFTER multitasking has started.
+* Notes       : (1) The ticker MUST be initialized AFTER multitasking has started.
 *********************************************************************************************************
 */
-static  void  LCDTaskStart (void *p_arg)
+static  void  LCDTask (void *p_arg)
 {
 	InitLCD();
 
 	for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
 
-        MoveCursorLCD(0);
-    	PrintStringLCD("Key / Scale");
-    	MoveCursorLCD(20);
-    	PrintStringLCD("Switches: ");
+        update_LCD_string();
+//        MoveCursorLCD(0);
+//    	PrintStringLCD("Key / Scale");
+//    	MoveCursorLCD(20);
+//    	PrintStringLCD("Switches: ");
 		int result = alt_read_word(SWITCH_BASE);
 		char buffer[32];
 		sprintf(buffer, "%x\n", result);
-		MoveCursorLCD(30);
-		PrintStringLCD("       ");
-		MoveCursorLCD(30);
+		MoveCursorLCD(36);
+//		PrintStringLCD("       ");
+//		MoveCursorLCD(30);
 		PrintStringLCD(buffer);
 		OSTimeDlyHMSM(0, 0, 0, 50);
 	}
