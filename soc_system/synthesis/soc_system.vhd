@@ -19,12 +19,6 @@ entity soc_system is
 		button_1_external_connection_export              : in    std_logic                     := '0';             --                button_1_external_connection.export
 		button_2_external_connection_export              : in    std_logic                     := '0';             --                button_2_external_connection.export
 		button_3_external_connection_export              : in    std_logic                     := '0';             --                button_3_external_connection.export
-		character_lcd_0_external_interface_DATA          : inout std_logic_vector(7 downto 0)  := (others => '0'); --          character_lcd_0_external_interface.DATA
-		character_lcd_0_external_interface_ON            : out   std_logic;                                        --                                            .ON
-		character_lcd_0_external_interface_BLON          : out   std_logic;                                        --                                            .BLON
-		character_lcd_0_external_interface_EN            : out   std_logic;                                        --                                            .EN
-		character_lcd_0_external_interface_RS            : out   std_logic;                                        --                                            .RS
-		character_lcd_0_external_interface_RW            : out   std_logic;                                        --                                            .RW
 		clk_clk                                          : in    std_logic                     := '0';             --                                         clk.clk
 		hps_io_hps_io_emac1_inst_TX_CLK                  : out   std_logic;                                        --                                      hps_io.hps_io_emac1_inst_TX_CLK
 		hps_io_hps_io_emac1_inst_TXD0                    : out   std_logic;                                        --                                            .hps_io_emac1_inst_TXD0
@@ -91,6 +85,14 @@ entity soc_system is
 		memory_mem_odt                                   : out   std_logic;                                        --                                            .mem_odt
 		memory_mem_dm                                    : out   std_logic_vector(3 downto 0);                     --                                            .mem_dm
 		memory_oct_rzqin                                 : in    std_logic                     := '0';             --                                            .oct_rzqin
+		photodiode_0_conduit_end_export0                 : in    std_logic                     := '0';             --                    photodiode_0_conduit_end.export0
+		photodiode_0_conduit_end_export1                 : in    std_logic                     := '0';             --                                            .export1
+		photodiode_0_conduit_end_export2                 : in    std_logic                     := '0';             --                                            .export2
+		photodiode_0_conduit_end_export3                 : in    std_logic                     := '0';             --                                            .export3
+		photodiode_0_conduit_end_export4                 : in    std_logic                     := '0';             --                                            .export4
+		photodiode_0_conduit_end_export5                 : in    std_logic                     := '0';             --                                            .export5
+		photodiode_0_conduit_end_export6                 : in    std_logic                     := '0';             --                                            .export6
+		photodiode_0_conduit_end_export7                 : in    std_logic                     := '0';             --                                            .export7
 		pll_0_outclk0_clk                                : out   std_logic;                                        --                               pll_0_outclk0.clk
 		red_leds_external_connection_export              : out   std_logic_vector(9 downto 0);                     --                red_leds_external_connection.export
 		reset_reset_n                                    : in    std_logic                     := '0';             --                                       reset.reset_n
@@ -158,26 +160,6 @@ architecture rtl of soc_system is
 			irq        : out std_logic                                         -- irq
 		);
 	end component soc_system_button_0;
-
-	component soc_system_character_lcd_0 is
-		port (
-			clk         : in    std_logic                    := 'X';             -- clk
-			reset       : in    std_logic                    := 'X';             -- reset
-			address     : in    std_logic                    := 'X';             -- address
-			chipselect  : in    std_logic                    := 'X';             -- chipselect
-			read        : in    std_logic                    := 'X';             -- read
-			write       : in    std_logic                    := 'X';             -- write
-			writedata   : in    std_logic_vector(7 downto 0) := (others => 'X'); -- writedata
-			readdata    : out   std_logic_vector(7 downto 0);                    -- readdata
-			waitrequest : out   std_logic;                                       -- waitrequest
-			LCD_DATA    : inout std_logic_vector(7 downto 0) := (others => 'X'); -- export
-			LCD_ON      : out   std_logic;                                       -- export
-			LCD_BLON    : out   std_logic;                                       -- export
-			LCD_EN      : out   std_logic;                                       -- export
-			LCD_RS      : out   std_logic;                                       -- export
-			LCD_RW      : out   std_logic                                        -- export
-		);
-	end component soc_system_character_lcd_0;
 
 	component soc_system_hps_0 is
 		generic (
@@ -292,6 +274,23 @@ architecture rtl of soc_system is
 			f2h_irq_p1               : in    std_logic_vector(31 downto 0) := (others => 'X')  -- irq
 		);
 	end component soc_system_hps_0;
+
+	component photodiode is
+		port (
+			avalon_slave_readdata : out std_logic_vector(7 downto 0);        -- readdata
+			avalon_slave_read_n   : in  std_logic                    := 'X'; -- read_n
+			conduit_end_0         : in  std_logic                    := 'X'; -- export0
+			conduit_end_1         : in  std_logic                    := 'X'; -- export1
+			conduit_end_2         : in  std_logic                    := 'X'; -- export2
+			conduit_end_3         : in  std_logic                    := 'X'; -- export3
+			conduit_end_4         : in  std_logic                    := 'X'; -- export4
+			conduit_end_5         : in  std_logic                    := 'X'; -- export5
+			conduit_end_6         : in  std_logic                    := 'X'; -- export6
+			conduit_end_7         : in  std_logic                    := 'X'; -- export7
+			clk                   : in  std_logic                    := 'X'; -- clk
+			reset_n               : in  std_logic                    := 'X'  -- reset_n
+		);
+	end component photodiode;
 
 	component soc_system_pll_0 is
 		port (
@@ -412,13 +411,8 @@ architecture rtl of soc_system is
 			button_3_s1_readdata                                                : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
 			button_3_s1_writedata                                               : out std_logic_vector(31 downto 0);                    -- writedata
 			button_3_s1_chipselect                                              : out std_logic;                                        -- chipselect
-			character_lcd_0_avalon_lcd_slave_address                            : out std_logic_vector(0 downto 0);                     -- address
-			character_lcd_0_avalon_lcd_slave_write                              : out std_logic;                                        -- write
-			character_lcd_0_avalon_lcd_slave_read                               : out std_logic;                                        -- read
-			character_lcd_0_avalon_lcd_slave_readdata                           : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- readdata
-			character_lcd_0_avalon_lcd_slave_writedata                          : out std_logic_vector(7 downto 0);                     -- writedata
-			character_lcd_0_avalon_lcd_slave_waitrequest                        : in  std_logic                     := 'X';             -- waitrequest
-			character_lcd_0_avalon_lcd_slave_chipselect                         : out std_logic;                                        -- chipselect
+			photodiode_0_avalon_slave_read                                      : out std_logic;                                        -- read
+			photodiode_0_avalon_slave_readdata                                  : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- readdata
 			red_leds_s1_address                                                 : out std_logic_vector(1 downto 0);                     -- address
 			red_leds_s1_write                                                   : out std_logic;                                        -- write
 			red_leds_s1_readdata                                                : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
@@ -669,13 +663,8 @@ architecture rtl of soc_system is
 	signal mm_interconnect_0_audio_and_video_config_0_avalon_av_config_slave_byteenable  : std_logic_vector(3 downto 0);  -- mm_interconnect_0:audio_and_video_config_0_avalon_av_config_slave_byteenable -> audio_and_video_config_0:byteenable
 	signal mm_interconnect_0_audio_and_video_config_0_avalon_av_config_slave_write       : std_logic;                     -- mm_interconnect_0:audio_and_video_config_0_avalon_av_config_slave_write -> audio_and_video_config_0:write
 	signal mm_interconnect_0_audio_and_video_config_0_avalon_av_config_slave_writedata   : std_logic_vector(31 downto 0); -- mm_interconnect_0:audio_and_video_config_0_avalon_av_config_slave_writedata -> audio_and_video_config_0:writedata
-	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_chipselect                 : std_logic;                     -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_chipselect -> character_lcd_0:chipselect
-	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_readdata                   : std_logic_vector(7 downto 0);  -- character_lcd_0:readdata -> mm_interconnect_0:character_lcd_0_avalon_lcd_slave_readdata
-	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_waitrequest                : std_logic;                     -- character_lcd_0:waitrequest -> mm_interconnect_0:character_lcd_0_avalon_lcd_slave_waitrequest
-	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_address                    : std_logic_vector(0 downto 0);  -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_address -> character_lcd_0:address
-	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_read                       : std_logic;                     -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_read -> character_lcd_0:read
-	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_write                      : std_logic;                     -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_write -> character_lcd_0:write
-	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_writedata                  : std_logic_vector(7 downto 0);  -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_writedata -> character_lcd_0:writedata
+	signal mm_interconnect_0_photodiode_0_avalon_slave_readdata                          : std_logic_vector(7 downto 0);  -- photodiode_0:avalon_slave_readdata -> mm_interconnect_0:photodiode_0_avalon_slave_readdata
+	signal mm_interconnect_0_photodiode_0_avalon_slave_read                              : std_logic;                     -- mm_interconnect_0:photodiode_0_avalon_slave_read -> mm_interconnect_0_photodiode_0_avalon_slave_read:in
 	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_readdata                       : std_logic_vector(31 downto 0); -- Synthesizer_0:data_out -> mm_interconnect_0:Synthesizer_0_avalon_slave_0_readdata
 	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_read                           : std_logic;                     -- mm_interconnect_0:Synthesizer_0_avalon_slave_0_read -> Synthesizer_0:read
 	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_write                          : std_logic;                     -- mm_interconnect_0:Synthesizer_0_avalon_slave_0_write -> Synthesizer_0:write
@@ -748,18 +737,19 @@ architecture rtl of soc_system is
 	signal irq_mapper_receiver5_irq                                                      : std_logic;                     -- button_3:irq -> irq_mapper:receiver5_irq
 	signal hps_0_f2h_irq0_irq                                                            : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> hps_0:f2h_irq_p0
 	signal hps_0_f2h_irq1_irq                                                            : std_logic_vector(31 downto 0); -- irq_mapper_001:sender_irq -> hps_0:f2h_irq_p1
-	signal rst_controller_reset_out_reset                                                : std_logic;                     -- rst_controller:reset_out -> [Synthesizer_0:reset, Synthesizer_1:reset, Synthesizer_2:reset, Synthesizer_3:reset, Synthesizer_4:reset, Synthesizer_5:reset, Synthesizer_6:reset, Synthesizer_7:reset, audio_0:reset, audio_and_video_config_0:reset, character_lcd_0:reset, mm_interconnect_0:audio_0_reset_reset_bridge_in_reset_reset, rst_controller_reset_out_reset:in]
+	signal rst_controller_reset_out_reset                                                : std_logic;                     -- rst_controller:reset_out -> [Synthesizer_0:reset, Synthesizer_1:reset, Synthesizer_2:reset, Synthesizer_3:reset, Synthesizer_4:reset, Synthesizer_5:reset, Synthesizer_6:reset, Synthesizer_7:reset, audio_0:reset, audio_and_video_config_0:reset, mm_interconnect_0:audio_0_reset_reset_bridge_in_reset_reset, rst_controller_reset_out_reset:in]
 	signal hps_0_h2f_reset_reset                                                         : std_logic;                     -- hps_0:h2f_rst_n -> hps_0_h2f_reset_reset:in
 	signal rst_controller_001_reset_out_reset                                            : std_logic;                     -- rst_controller_001:reset_out -> pll_0:rst
 	signal rst_controller_002_reset_out_reset                                            : std_logic;                     -- rst_controller_002:reset_out -> mm_interconnect_0:hps_0_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset_reset
 	signal reset_reset_n_ports_inv                                                       : std_logic;                     -- reset_reset_n:inv -> [rst_controller:reset_in0, rst_controller_001:reset_in0]
+	signal mm_interconnect_0_photodiode_0_avalon_slave_read_ports_inv                    : std_logic;                     -- mm_interconnect_0_photodiode_0_avalon_slave_read:inv -> photodiode_0:avalon_slave_read_n
 	signal mm_interconnect_0_switches_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_switches_s1_write:inv -> switches:write_n
 	signal mm_interconnect_0_button_0_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_0_s1_write:inv -> button_0:write_n
 	signal mm_interconnect_0_button_1_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_1_s1_write:inv -> button_1:write_n
 	signal mm_interconnect_0_button_2_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_2_s1_write:inv -> button_2:write_n
 	signal mm_interconnect_0_button_3_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_3_s1_write:inv -> button_3:write_n
 	signal mm_interconnect_0_red_leds_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_red_leds_s1_write:inv -> red_leds:write_n
-	signal rst_controller_reset_out_reset_ports_inv                                      : std_logic;                     -- rst_controller_reset_out_reset:inv -> [button_0:reset_n, button_1:reset_n, button_2:reset_n, button_3:reset_n, red_leds:reset_n, switches:reset_n, sysid_qsys_0:reset_n]
+	signal rst_controller_reset_out_reset_ports_inv                                      : std_logic;                     -- rst_controller_reset_out_reset:inv -> [button_0:reset_n, button_1:reset_n, button_2:reset_n, button_3:reset_n, photodiode_0:reset_n, red_leds:reset_n, switches:reset_n, sysid_qsys_0:reset_n]
 	signal hps_0_h2f_reset_reset_ports_inv                                               : std_logic;                     -- hps_0_h2f_reset_reset:inv -> [rst_controller:reset_in1, rst_controller_001:reset_in1, rst_controller_002:reset_in0]
 
 begin
@@ -929,25 +919,6 @@ begin
 			irq        => irq_mapper_receiver5_irq                       --                 irq.irq
 		);
 
-	character_lcd_0 : component soc_system_character_lcd_0
-		port map (
-			clk         => clk_clk,                                                        --                clk.clk
-			reset       => rst_controller_reset_out_reset,                                 --              reset.reset
-			address     => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_address(0),  --   avalon_lcd_slave.address
-			chipselect  => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_chipselect,  --                   .chipselect
-			read        => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_read,        --                   .read
-			write       => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_write,       --                   .write
-			writedata   => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_writedata,   --                   .writedata
-			readdata    => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_readdata,    --                   .readdata
-			waitrequest => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_waitrequest, --                   .waitrequest
-			LCD_DATA    => character_lcd_0_external_interface_DATA,                        -- external_interface.export
-			LCD_ON      => character_lcd_0_external_interface_ON,                          --                   .export
-			LCD_BLON    => character_lcd_0_external_interface_BLON,                        --                   .export
-			LCD_EN      => character_lcd_0_external_interface_EN,                          --                   .export
-			LCD_RS      => character_lcd_0_external_interface_RS,                          --                   .export
-			LCD_RW      => character_lcd_0_external_interface_RW                           --                   .export
-		);
-
 	hps_0 : component soc_system_hps_0
 		generic map (
 			F2S_Width => 0,
@@ -1059,6 +1030,22 @@ begin
 			h2f_lw_RREADY            => hps_0_h2f_lw_axi_master_rready,  --                  .rready
 			f2h_irq_p0               => hps_0_f2h_irq0_irq,              --          f2h_irq0.irq
 			f2h_irq_p1               => hps_0_f2h_irq1_irq               --          f2h_irq1.irq
+		);
+
+	photodiode_0 : component photodiode
+		port map (
+			avalon_slave_readdata => mm_interconnect_0_photodiode_0_avalon_slave_readdata,       -- avalon_slave.readdata
+			avalon_slave_read_n   => mm_interconnect_0_photodiode_0_avalon_slave_read_ports_inv, --             .read_n
+			conduit_end_0         => photodiode_0_conduit_end_export0,                           --  conduit_end.export0
+			conduit_end_1         => photodiode_0_conduit_end_export1,                           --             .export1
+			conduit_end_2         => photodiode_0_conduit_end_export2,                           --             .export2
+			conduit_end_3         => photodiode_0_conduit_end_export3,                           --             .export3
+			conduit_end_4         => photodiode_0_conduit_end_export4,                           --             .export4
+			conduit_end_5         => photodiode_0_conduit_end_export5,                           --             .export5
+			conduit_end_6         => photodiode_0_conduit_end_export6,                           --             .export6
+			conduit_end_7         => photodiode_0_conduit_end_export7,                           --             .export7
+			clk                   => clk_clk,                                                    --        clock.clk
+			reset_n               => rst_controller_reset_out_reset_ports_inv                    --        reset.reset_n
 		);
 
 	pll_0 : component soc_system_pll_0
@@ -1176,13 +1163,8 @@ begin
 			button_3_s1_readdata                                                => mm_interconnect_0_button_3_s1_readdata,                                        --                                                              .readdata
 			button_3_s1_writedata                                               => mm_interconnect_0_button_3_s1_writedata,                                       --                                                              .writedata
 			button_3_s1_chipselect                                              => mm_interconnect_0_button_3_s1_chipselect,                                      --                                                              .chipselect
-			character_lcd_0_avalon_lcd_slave_address                            => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_address,                    --                              character_lcd_0_avalon_lcd_slave.address
-			character_lcd_0_avalon_lcd_slave_write                              => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_write,                      --                                                              .write
-			character_lcd_0_avalon_lcd_slave_read                               => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_read,                       --                                                              .read
-			character_lcd_0_avalon_lcd_slave_readdata                           => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_readdata,                   --                                                              .readdata
-			character_lcd_0_avalon_lcd_slave_writedata                          => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_writedata,                  --                                                              .writedata
-			character_lcd_0_avalon_lcd_slave_waitrequest                        => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_waitrequest,                --                                                              .waitrequest
-			character_lcd_0_avalon_lcd_slave_chipselect                         => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_chipselect,                 --                                                              .chipselect
+			photodiode_0_avalon_slave_read                                      => mm_interconnect_0_photodiode_0_avalon_slave_read,                              --                                     photodiode_0_avalon_slave.read
+			photodiode_0_avalon_slave_readdata                                  => mm_interconnect_0_photodiode_0_avalon_slave_readdata,                          --                                                              .readdata
 			red_leds_s1_address                                                 => mm_interconnect_0_red_leds_s1_address,                                         --                                                   red_leds_s1.address
 			red_leds_s1_write                                                   => mm_interconnect_0_red_leds_s1_write,                                           --                                                              .write
 			red_leds_s1_readdata                                                => mm_interconnect_0_red_leds_s1_readdata,                                        --                                                              .readdata
@@ -1445,6 +1427,8 @@ begin
 		);
 
 	reset_reset_n_ports_inv <= not reset_reset_n;
+
+	mm_interconnect_0_photodiode_0_avalon_slave_read_ports_inv <= not mm_interconnect_0_photodiode_0_avalon_slave_read;
 
 	mm_interconnect_0_switches_s1_write_ports_inv <= not mm_interconnect_0_switches_s1_write;
 

@@ -11,12 +11,6 @@ module soc_system (
 	button_1_external_connection_export,
 	button_2_external_connection_export,
 	button_3_external_connection_export,
-	character_lcd_0_external_interface_DATA,
-	character_lcd_0_external_interface_ON,
-	character_lcd_0_external_interface_BLON,
-	character_lcd_0_external_interface_EN,
-	character_lcd_0_external_interface_RS,
-	character_lcd_0_external_interface_RW,
 	clk_clk,
 	hps_io_hps_io_emac1_inst_TX_CLK,
 	hps_io_hps_io_emac1_inst_TXD0,
@@ -86,7 +80,15 @@ module soc_system (
 	pll_0_outclk0_clk,
 	red_leds_external_connection_export,
 	reset_reset_n,
-	switches_external_connection_export);	
+	switches_external_connection_export,
+	photodiode_0_conduit_end_export0,
+	photodiode_0_conduit_end_export1,
+	photodiode_0_conduit_end_export2,
+	photodiode_0_conduit_end_export3,
+	photodiode_0_conduit_end_export4,
+	photodiode_0_conduit_end_export5,
+	photodiode_0_conduit_end_export6,
+	photodiode_0_conduit_end_export7);	
 
 	input		audio_0_external_interface_ADCDAT;
 	input		audio_0_external_interface_ADCLRCK;
@@ -99,12 +101,6 @@ module soc_system (
 	input		button_1_external_connection_export;
 	input		button_2_external_connection_export;
 	input		button_3_external_connection_export;
-	inout	[7:0]	character_lcd_0_external_interface_DATA;
-	output		character_lcd_0_external_interface_ON;
-	output		character_lcd_0_external_interface_BLON;
-	output		character_lcd_0_external_interface_EN;
-	output		character_lcd_0_external_interface_RS;
-	output		character_lcd_0_external_interface_RW;
 	input		clk_clk;
 	output		hps_io_hps_io_emac1_inst_TX_CLK;
 	output		hps_io_hps_io_emac1_inst_TXD0;
@@ -175,4 +171,12 @@ module soc_system (
 	output	[9:0]	red_leds_external_connection_export;
 	input		reset_reset_n;
 	input	[9:0]	switches_external_connection_export;
+	input		photodiode_0_conduit_end_export0;
+	input		photodiode_0_conduit_end_export1;
+	input		photodiode_0_conduit_end_export2;
+	input		photodiode_0_conduit_end_export3;
+	input		photodiode_0_conduit_end_export4;
+	input		photodiode_0_conduit_end_export5;
+	input		photodiode_0_conduit_end_export6;
+	input		photodiode_0_conduit_end_export7;
 endmodule

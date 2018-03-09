@@ -65,6 +65,7 @@
 
 #include "audio_cfg.h"
 #include "audio.h"
+#include "lcd.h"
 
 // Compute absolute address of any slave component attached to lightweight bridge
 // base is address of component in QSYS window
@@ -96,6 +97,18 @@
 #define SYNTH6_BASE FPGA_TO_HPS_LW_ADDR(SYNTH6_ADD)
 #define SYNTH7_ADD 0x1700
 #define SYNTH7_BASE FPGA_TO_HPS_LW_ADDR(SYNTH7_ADD)
+#define PHOTODIODE_ADD 0x2000
+#define PHOTODIODE_BASE FPGA_TO_HPS_LW_ADDR(PHOTODIODE_ADD)
+
+#define SYNTH_OFFSET 20
+#define DIODE_0_MASK 1
+#define DIODE_1_MASK 2
+#define DIODE_2_MASK 4
+#define DIODE_3_MASK 8
+#define DIODE_4_MASK 16
+#define DIODE_5_MASK 32
+#define DIODE_6_MASK 64
+#define DIODE_7_MASK 128
 
 #define AUDIO_BUFFER_SIZE 128
 #define M_PI 3.14159265358979323846
@@ -109,7 +122,8 @@ CPU_STK AppTaskStartStk[TASK_STACK_SIZE];
 CPU_STK AudioTaskStartStk[TASK_STACK_SIZE];
 CPU_STK LCDTaskStartStk[TASK_STACK_SIZE];
 
-INT32S buffer[1];
+INT32S SYNTH_VALUES[8];
+INT32S POLY_BUFFER[8];
 
 /*
 *********************************************************************************************************
@@ -282,17 +296,57 @@ static  void  AudioTaskStart (void *p_arg)
         // the number 41 for the hardware synthesizer seems to play 440Hz
         // therefore to play a specific frequency, like 523 (C#5),you need
         // to divide by 11
-        alt_write_word(SYNTH0_BASE, 41);
-        alt_write_word(SYNTH1_BASE, 52);
-        INT32S temp1 = alt_read_word(SYNTH0_BASE);
-        INT32S temp2 = alt_read_word(SYNTH1_BASE);
+        alt_write_word(SYNTH0_BASE, 24.33);
+		alt_write_word(SYNTH1_BASE, 27.31);
+		alt_write_word(SYNTH2_BASE, 30.65);
+		alt_write_word(SYNTH3_BASE, 32.42);
+		alt_write_word(SYNTH4_BASE, 36.41);
+		alt_write_word(SYNTH5_BASE, 40.87);
+		alt_write_word(SYNTH6_BASE, 45.88);
+		alt_write_word(SYNTH7_BASE, 48.58);
 
-        // the hardware synthesizer outputs 32 bits with the top
-        // 12 being the actual sine value, therfore we do an
-        // arithmetic shift of 20 so that we keep its sign and
-        // its the correct amplitude
-        buffer[0] =  (temp1 >> 20) + (temp2 >> 20);
-        write_audio_data(buffer, 1);
+		// the hardware synthesizer outputs 32 bits with the top
+		// 12 being the actual sine value, therefore we do an
+		// arithmetic shift of 20 so that we keep its sign and
+		// its the correct amplitude
+		SYNTH_VALUES[0] = (alt_read_word(SYNTH0_BASE) >> SYNTH_OFFSET);
+		SYNTH_VALUES[1] = (alt_read_word(SYNTH1_BASE) >> SYNTH_OFFSET);
+		SYNTH_VALUES[2] = (alt_read_word(SYNTH2_BASE) >> SYNTH_OFFSET);
+		SYNTH_VALUES[3] = (alt_read_word(SYNTH3_BASE) >> SYNTH_OFFSET);
+		SYNTH_VALUES[4] = (alt_read_word(SYNTH4_BASE) >> SYNTH_OFFSET);
+		SYNTH_VALUES[5] = (alt_read_word(SYNTH5_BASE) >> SYNTH_OFFSET);
+		SYNTH_VALUES[6] = (alt_read_word(SYNTH6_BASE) >> SYNTH_OFFSET);
+		SYNTH_VALUES[7] = (alt_read_word(SYNTH7_BASE) >> SYNTH_OFFSET);
+		POLY_BUFFER[0] = 0;
+
+		INT8U photodiodes = (INT8U) alt_read_byte(PHOTODIODE_BASE);
+
+        if ((photodiodes & DIODE_0_MASK) != 0) {
+        	POLY_BUFFER[0] += SYNTH_VALUES[0];
+        }
+        if ((photodiodes & DIODE_1_MASK) != 0) {
+        	POLY_BUFFER[0] += SYNTH_VALUES[1];
+		}
+        if ((photodiodes & DIODE_2_MASK) != 0) {
+        	POLY_BUFFER[0] += SYNTH_VALUES[2];
+		}
+        if ((photodiodes & DIODE_3_MASK) != 0) {
+        	POLY_BUFFER[0] += SYNTH_VALUES[3];
+		}
+        if ((photodiodes & DIODE_4_MASK) != 0) {
+        	POLY_BUFFER[0] += SYNTH_VALUES[4];
+		}
+        if ((photodiodes & DIODE_5_MASK) != 0) {
+        	POLY_BUFFER[0] += SYNTH_VALUES[5];
+		}
+        if ((photodiodes & DIODE_6_MASK) != 0) {
+        	POLY_BUFFER[0] += SYNTH_VALUES[6];
+		}
+        if ((photodiodes & DIODE_7_MASK) != 0) {
+        	POLY_BUFFER[0] += SYNTH_VALUES[7];
+		}
+        write_audio_data(POLY_BUFFER, 1);
+
     }
 }
 
@@ -313,7 +367,7 @@ static  void  AudioTaskStart (void *p_arg)
 */
 static  void  LCDTaskStart (void *p_arg)
 {
-
+// Currently commented out before preliminary testing
 //	InitLCD();
 //	HomeLCD();
 //	PrintStringLCD("Hello World\n");
