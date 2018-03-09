@@ -1,5 +1,8 @@
-/* Original Authors: Nancy Minderman (nancy.minderman@ualberta.ca), Brendan Bruner (bbruner@ualberta.ca)
- * Date created: December 2017
+/* Nancy Minderman
+ * nancy.minderman@ualberta.ca
+ *
+ * Brendan Bruner bbruner@ualberta.ca
+ * December 2017
  */
 
 #include <os.h>

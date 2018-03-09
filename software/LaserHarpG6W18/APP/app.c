@@ -368,9 +368,9 @@ static  void  AudioTaskStart (void *p_arg)
 static  void  LCDTaskStart (void *p_arg)
 {
 // Currently commented out before preliminary testing
-//	InitLCD();
-//	HomeLCD();
-//	PrintStringLCD("Hello World\n");
+	InitLCD();
+	HomeLCD();
+	PrintStringLCD("Hello World\n");
 	for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
 

@@ -139,10 +139,10 @@ entity LaserHarpG6W18 is
 		
 		
 		-- LCD Display
---			GPIO_0					: inout std_logic_vector(7 downto 0);
---			GPIO_0_8					: out std_logic;
---			GPIO_0_9					: out std_logic;
---			GPIO_0_10				: out std_logic;
+			GPIO_0					: inout std_logic_vector(7 downto 0);
+			GPIO_0_8					: out std_logic;
+			GPIO_0_9					: out std_logic;
+			GPIO_0_10				: out std_logic;
 			
 			
 		-- Switches
@@ -197,12 +197,10 @@ architecture rtl of LaserHarpG6W18 is
             button_1_external_connection_export              : in    std_logic                     := 'X';             -- export
             button_2_external_connection_export              : in    std_logic                     := 'X';             -- export
             button_3_external_connection_export              : in    std_logic                     := 'X';             -- export
---            character_lcd_0_external_interface_DATA          : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- DATA
---            character_lcd_0_external_interface_ON            : out   std_logic;                                        -- ON
---            character_lcd_0_external_interface_BLON          : out   std_logic;                                        -- BLON
---            character_lcd_0_external_interface_EN            : out   std_logic;                                        -- EN
---            character_lcd_0_external_interface_RS            : out   std_logic;                                        -- RS
---            character_lcd_0_external_interface_RW            : out   std_logic;                                        -- RW
+            character_lcd_0_external_interface_DATA          : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- DATA
+            character_lcd_0_external_interface_EN            : out   std_logic;                                        -- EN
+            character_lcd_0_external_interface_RS            : out   std_logic;                                        -- RS
+            character_lcd_0_external_interface_RW            : out   std_logic;                                        -- RW
             clk_clk                                          : in    std_logic                     := 'X';             -- clk
             hps_io_hps_io_emac1_inst_TX_CLK                  : out   std_logic;                                        -- hps_io_emac1_inst_TX_CLK
             hps_io_hps_io_emac1_inst_TXD0                    : out   std_logic;                                        -- hps_io_emac1_inst_TXD0
@@ -366,10 +364,10 @@ begin
 						hps_io_hps_io_gpio_inst_GPIO53 		=> HPS_LED,
 						hps_io_hps_io_gpio_inst_GPIO54 		=> HPS_KEY_N,
 						hps_io_hps_io_gpio_inst_GPIO61 		=> HPS_GSENSOR_INT,
---						character_lcd_0_external_interface_DATA => GPIO_0,
---						character_lcd_0_external_interface_EN   => GPIO_0_9,
---						character_lcd_0_external_interface_RS   => GPIO_0_8,
---						character_lcd_0_external_interface_RW   => GPIO_0_10,	
+						character_lcd_0_external_interface_DATA => GPIO_0,
+						character_lcd_0_external_interface_EN   => GPIO_0_9,
+						character_lcd_0_external_interface_RS   => GPIO_0_8,
+						character_lcd_0_external_interface_RW   => GPIO_0_10,	
 						switches_external_connection_export	=> SW,
 						audio_and_video_config_0_external_interface_SDAT => FPGA_I2C_SDAT, -- audio_and_video_config_0_external_interface.SDAT
 						audio_and_video_config_0_external_interface_SCLK => FPGA_I2C_SCLK, --                                            .SCLK
