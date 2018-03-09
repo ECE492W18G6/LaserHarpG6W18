@@ -9,6 +9,27 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
+   element PianoEnvelope_0
+   {
+      datum _sortIndex
+      {
+         value = "21";
+         type = "int";
+      }
+   }
+   element PianoEnvelope_0.avalon_slave
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "6144";
+         type = "String";
+      }
+   }
    element Synthesizer_0
    {
       datum _sortIndex
@@ -21,7 +42,7 @@
    {
       datum _lockedAddress
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
       datum baseAddress
@@ -40,6 +61,11 @@
    }
    element Synthesizer_1.avalon_slave_0
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "4352";
@@ -56,6 +82,11 @@
    }
    element Synthesizer_2.avalon_slave_0
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "4608";
@@ -72,6 +103,11 @@
    }
    element Synthesizer_3.avalon_slave_0
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "4864";
@@ -88,6 +124,11 @@
    }
    element Synthesizer_4.avalon_slave_0
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "5120";
@@ -104,6 +145,11 @@
    }
    element Synthesizer_5.avalon_slave_0
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "5376";
@@ -120,6 +166,11 @@
    }
    element Synthesizer_6.avalon_slave_0
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "5632";
@@ -136,6 +187,11 @@
    }
    element Synthesizer_7.avalon_slave_0
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "5888";
@@ -294,6 +350,11 @@
    }
    element photodiode_0.avalon_slave
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "8192";
@@ -322,6 +383,14 @@
       {
          value = "1";
          type = "boolean";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
       }
    }
    element soc_system
@@ -625,6 +694,7 @@
    internal="switches.external_connection"
    type="conduit"
    dir="end" />
+ <module name="PianoEnvelope_0" kind="PianoEnvelope" version="1.0" enabled="1" />
  <module name="Synthesizer_0" kind="Synthesizer" version="1.0" enabled="1" />
  <module name="Synthesizer_1" kind="Synthesizer" version="1.0" enabled="1" />
  <module name="Synthesizer_2" kind="Synthesizer" version="1.0" enabled="1" />
@@ -1529,6 +1599,15 @@
    kind="avalon"
    version="17.0"
    start="hps_0.h2f_lw_axi_master"
+   end="PianoEnvelope_0.avalon_slave">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x1800" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="17.0"
+   start="hps_0.h2f_lw_axi_master"
    end="Synthesizer_0.avalon_slave_0">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x1000" />
@@ -1722,6 +1801,11 @@
    kind="clock"
    version="17.0"
    start="clk_0.clk"
+   end="PianoEnvelope_0.clock" />
+ <connection
+   kind="clock"
+   version="17.0"
+   start="clk_0.clk"
    end="hps_0.h2f_lw_axi_clock" />
  <connection kind="clock" version="17.0" start="clk_0.clk" end="pll_0.refclk" />
  <connection
@@ -1860,6 +1944,11 @@
  <connection
    kind="reset"
    version="17.0"
+   start="clk_0.clk_reset"
+   end="PianoEnvelope_0.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
    start="hps_0.h2f_reset"
    end="sysid_qsys_0.reset" />
  <connection
@@ -1948,6 +2037,11 @@
    version="17.0"
    start="hps_0.h2f_reset"
    end="photodiode_0.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
+   start="hps_0.h2f_reset"
+   end="PianoEnvelope_0.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />

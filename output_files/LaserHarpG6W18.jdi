@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="664092f037d1b32d1a57"/>
+    <hash md5_digest_80b="a91bb2bfb3b7d5dc06d2"/>
   </project>
   <file_info>
     <file device="5CSEMA5F31C6" path="LaserHarpG6W18.sof" usercode="0xFFFFFFFF"/>
@@ -8,7 +8,7 @@
   <sld_infos>
     <sld_info hpath="soc_system:u0" name="u0">
       <assignment_values>
-        <assignment_value text="QSYS_NAME soc_system HAS_SOPCINFO 1 GENERATION_ID 1520541989"/>
+        <assignment_value text="QSYS_NAME soc_system HAS_SOPCINFO 1 GENERATION_ID 1520635226"/>
       </assignment_values>
       <parameters/>
     </sld_info>

@@ -99,6 +99,8 @@
 #define SYNTH7_BASE FPGA_TO_HPS_LW_ADDR(SYNTH7_ADD)
 #define PHOTODIODE_ADD 0x2000
 #define PHOTODIODE_BASE FPGA_TO_HPS_LW_ADDR(PHOTODIODE_ADD)
+#define PIANO_ENVELOPE 0x0001800
+#define PIANO_ENVELOPE_BASE FPGA_TO_HPS_LW_ADDR(PIANO_ENVELOPE)
 
 #define SYNTH_OFFSET 20
 #define DIODE_0_MASK 1
@@ -150,7 +152,6 @@ static  void  LCDTaskStart              (void        *p_arg);
 *                   initialisation.
 *********************************************************************************************************
 */
-
 int main ()
 {
     INT8U os_err;
@@ -290,6 +291,9 @@ static  void  AudioTaskStart (void *p_arg)
     write_audio_cfg_register(0x8, 0x20); // bits 5:2 config based on sampling rate. Use 0x18 for 32kHz and 0x20 for 44.1kHz
     write_audio_cfg_register(0x9, 0x01);
 
+    int extend = 0;
+    float envelope;
+
     for(;;) {
         BSP_WatchDog_Reset();				/* Reset the watchdog.   */
 
@@ -301,7 +305,7 @@ static  void  AudioTaskStart (void *p_arg)
 		alt_write_word(SYNTH2_BASE, 30.65);
 		alt_write_word(SYNTH3_BASE, 32.42);
 		alt_write_word(SYNTH4_BASE, 36.41);
-		alt_write_word(SYNTH5_BASE, 40.87);
+		alt_write_word(SYNTH5_BASE, 41);
 		alt_write_word(SYNTH6_BASE, 45.88);
 		alt_write_word(SYNTH7_BASE, 48.58);
 
@@ -319,10 +323,19 @@ static  void  AudioTaskStart (void *p_arg)
 		SYNTH_VALUES[7] = (alt_read_word(SYNTH7_BASE) >> SYNTH_OFFSET);
 		POLY_BUFFER[0] = 0;
 
+
+
 		INT8U photodiodes = (INT8U) alt_read_byte(PHOTODIODE_BASE);
 
+		if((extend % 16) == 0) {
+			alt_write_word(PIANO_ENVELOPE_BASE, 1);
+			INT32S transport_bits = alt_read_word(PIANO_ENVELOPE_BASE);
+				envelope = *((float*)&transport_bits);
+		}
+		extend++;
+
         if ((photodiodes & DIODE_0_MASK) != 0) {
-        	POLY_BUFFER[0] += SYNTH_VALUES[0];
+        	POLY_BUFFER[0] += (INT32S) (SYNTH_VALUES[0] * envelope);
         }
         if ((photodiodes & DIODE_1_MASK) != 0) {
         	POLY_BUFFER[0] += SYNTH_VALUES[1];
