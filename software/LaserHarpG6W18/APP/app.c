@@ -244,31 +244,22 @@ static  void  AppTaskStart (void *p_arg)
     BSP_OS_TmrTickInit(OS_TICKS_PER_SEC);                       /* Configure and enable OS tick interrupt.              */
 
     long PBreleases;
-	int i;
 
 	alt_write_word(BUTTON_BASE, 0); //clear out any changes so far
-	int state = 0;
-    for(;;) {
+
+	for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
 
         PBreleases = alt_read_word(BUTTON_BASE);
 		// Display the state of the change register on red LEDs
-        if (state) {
-        	alt_write_word(LEDR_BASE, 0x00);
-        } else {
-        	alt_write_word(LEDR_BASE, 0x3ff);
-        }
+        alt_write_word(LEDR_BASE, PBreleases);
 		if (PBreleases != 0xf)
 		{
 			// Delay, so that we can observe the change on the LEDs
-			OSTimeDlyHMSM(0,0,0,1);
-			if (state) {
-				state = 0;
-			} else {
-				state = 1;
-			}
+			OSTimeDlyHMSM(0,0,0,100);
 			alt_write_word(BUTTON_BASE, 0); //reset the changes for next round
 		}
+		OSTimeDlyHMSM(0,0,0,50);
     }
 }
 
@@ -380,16 +371,17 @@ static  void  AudioTaskStart (void *p_arg)
 static  void  LCDTaskStart (void *p_arg)
 {
 	InitLCD();
-	HomeLCD();
-	PrintStringLCD("Key / Scale");
-	MoveCursorLCD(20);
-	PrintStringLCD("Switches: ");
+
 	for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
 
+        MoveCursorLCD(0);
+    	PrintStringLCD("Key / Scale");
+    	MoveCursorLCD(20);
+    	PrintStringLCD("Switches: ");
 		int result = alt_read_word(SWITCH_BASE);
 		char buffer[32];
-		sprintf(buffer, "%x", result);
+		sprintf(buffer, "%x\n", result);
 		MoveCursorLCD(30);
 		PrintStringLCD("       ");
 		MoveCursorLCD(30);

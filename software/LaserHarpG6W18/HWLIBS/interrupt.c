@@ -10,7 +10,7 @@
 #include "lib_def.h"
 #include "os_cpu.h"
 #include "interrupt.h"
-
+/*
 void InitHPSTimerInterrupt(void) {
 	// This version will use the oscl_clk based timers on the HPS core
 	// Process
@@ -109,3 +109,4 @@ void FPGA_TimerISR_Handler(CPU_INT32U cpu_id) {
 		// Clear interrupt
 		QSYS_TIMER_REG_STATUS = 1;
 }
+*/
