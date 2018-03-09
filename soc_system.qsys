@@ -184,7 +184,7 @@
          type = "String";
       }
    }
-   element button_0
+   element buttons
    {
       datum _sortIndex
       {
@@ -192,7 +192,7 @@
          type = "int";
       }
    }
-   element button_0.s1
+   element buttons.s1
    {
       datum _lockedAddress
       {
@@ -202,69 +202,6 @@
       datum baseAddress
       {
          value = "1536";
-         type = "String";
-      }
-   }
-   element button_1
-   {
-      datum _sortIndex
-      {
-         value = "18";
-         type = "int";
-      }
-   }
-   element button_1.s1
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "1792";
-         type = "String";
-      }
-   }
-   element button_2
-   {
-      datum _sortIndex
-      {
-         value = "19";
-         type = "int";
-      }
-   }
-   element button_2.s1
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "2048";
-         type = "String";
-      }
-   }
-   element button_3
-   {
-      datum _sortIndex
-      {
-         value = "20";
-         type = "int";
-      }
-   }
-   element button_3.s1
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "2304";
          type = "String";
       }
    }
@@ -304,7 +241,7 @@
    {
       datum _sortIndex
       {
-         value = "21";
+         value = "18";
          type = "int";
       }
    }
@@ -598,23 +535,8 @@
    type="conduit"
    dir="end" />
  <interface
-   name="button_0_external_connection"
-   internal="button_0.external_connection"
-   type="conduit"
-   dir="end" />
- <interface
-   name="button_1_external_connection"
-   internal="button_1.external_connection"
-   type="conduit"
-   dir="end" />
- <interface
-   name="button_2_external_connection"
-   internal="button_2.external_connection"
-   type="conduit"
-   dir="end" />
- <interface
-   name="button_3_external_connection"
-   internal="button_3.external_connection"
+   name="buttons_external_connection"
+   internal="buttons.external_connection"
    type="conduit"
    dir="end" />
  <interface
@@ -688,7 +610,7 @@
   <parameter name="sampling_rate" value="32 kHz" />
   <parameter name="video_format" value="NTSC" />
  </module>
- <module name="button_0" kind="altera_avalon_pio" version="17.0" enabled="1">
+ <module name="buttons" kind="altera_avalon_pio" version="17.0" enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="true" />
@@ -700,49 +622,7 @@
   <parameter name="resetValue" value="0" />
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="1" />
- </module>
- <module name="button_1" kind="altera_avalon_pio" version="17.0" enabled="1">
-  <parameter name="bitClearingEdgeCapReg" value="false" />
-  <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="true" />
-  <parameter name="clockRate" value="50000000" />
-  <parameter name="direction" value="Input" />
-  <parameter name="edgeType" value="FALLING" />
-  <parameter name="generateIRQ" value="true" />
-  <parameter name="irqType" value="LEVEL" />
-  <parameter name="resetValue" value="0" />
-  <parameter name="simDoTestBenchWiring" value="false" />
-  <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="1" />
- </module>
- <module name="button_2" kind="altera_avalon_pio" version="17.0" enabled="1">
-  <parameter name="bitClearingEdgeCapReg" value="false" />
-  <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="true" />
-  <parameter name="clockRate" value="50000000" />
-  <parameter name="direction" value="Input" />
-  <parameter name="edgeType" value="FALLING" />
-  <parameter name="generateIRQ" value="true" />
-  <parameter name="irqType" value="LEVEL" />
-  <parameter name="resetValue" value="0" />
-  <parameter name="simDoTestBenchWiring" value="false" />
-  <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="1" />
- </module>
- <module name="button_3" kind="altera_avalon_pio" version="17.0" enabled="1">
-  <parameter name="bitClearingEdgeCapReg" value="false" />
-  <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="true" />
-  <parameter name="clockRate" value="50000000" />
-  <parameter name="direction" value="Input" />
-  <parameter name="edgeType" value="FALLING" />
-  <parameter name="generateIRQ" value="true" />
-  <parameter name="irqType" value="LEVEL" />
-  <parameter name="resetValue" value="0" />
-  <parameter name="simDoTestBenchWiring" value="false" />
-  <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="1" />
+  <parameter name="width" value="4" />
  </module>
  <module
    name="character_lcd_0"
@@ -1658,36 +1538,9 @@
    kind="avalon"
    version="17.0"
    start="hps_0.h2f_lw_axi_master"
-   end="button_0.s1">
+   end="buttons.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0600" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.0"
-   start="hps_0.h2f_lw_axi_master"
-   end="button_1.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0700" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.0"
-   start="hps_0.h2f_lw_axi_master"
-   end="button_2.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0800" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.0"
-   start="hps_0.h2f_lw_axi_master"
-   end="button_3.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0900" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1701,10 +1554,7 @@
  </connection>
  <connection kind="clock" version="17.0" start="clk_0.clk" end="sysid_qsys_0.clk" />
  <connection kind="clock" version="17.0" start="clk_0.clk" end="switches.clk" />
- <connection kind="clock" version="17.0" start="clk_0.clk" end="button_0.clk" />
- <connection kind="clock" version="17.0" start="clk_0.clk" end="button_1.clk" />
- <connection kind="clock" version="17.0" start="clk_0.clk" end="button_2.clk" />
- <connection kind="clock" version="17.0" start="clk_0.clk" end="button_3.clk" />
+ <connection kind="clock" version="17.0" start="clk_0.clk" end="buttons.clk" />
  <connection kind="clock" version="17.0" start="clk_0.clk" end="red_leds.clk" />
  <connection kind="clock" version="17.0" start="clk_0.clk" end="audio_0.clk" />
  <connection
@@ -1786,29 +1636,8 @@
    kind="interrupt"
    version="17.0"
    start="hps_0.f2h_irq0"
-   end="button_0.irq">
+   end="buttons.irq">
   <parameter name="irqNumber" value="3" />
- </connection>
- <connection
-   kind="interrupt"
-   version="17.0"
-   start="hps_0.f2h_irq0"
-   end="button_1.irq">
-  <parameter name="irqNumber" value="4" />
- </connection>
- <connection
-   kind="interrupt"
-   version="17.0"
-   start="hps_0.f2h_irq0"
-   end="button_2.irq">
-  <parameter name="irqNumber" value="5" />
- </connection>
- <connection
-   kind="interrupt"
-   version="17.0"
-   start="hps_0.f2h_irq0"
-   end="button_3.irq">
-  <parameter name="irqNumber" value="6" />
  </connection>
  <connection
    kind="reset"
@@ -1824,22 +1653,7 @@
    kind="reset"
    version="17.0"
    start="clk_0.clk_reset"
-   end="button_0.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="clk_0.clk_reset"
-   end="button_1.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="clk_0.clk_reset"
-   end="button_2.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="clk_0.clk_reset"
-   end="button_3.reset" />
+   end="buttons.reset" />
  <connection
    kind="reset"
    version="17.0"
@@ -1920,22 +1734,7 @@
    kind="reset"
    version="17.0"
    start="hps_0.h2f_reset"
-   end="button_0.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="hps_0.h2f_reset"
-   end="button_1.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="hps_0.h2f_reset"
-   end="button_2.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="hps_0.h2f_reset"
-   end="button_3.reset" />
+   end="buttons.reset" />
  <connection
    kind="reset"
    version="17.0"

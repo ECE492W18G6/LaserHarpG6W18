@@ -10,6 +10,7 @@ C_SRCS += \
 ../HWLIBS/alt_fpga_manager.c \
 ../HWLIBS/audio.c \
 ../HWLIBS/audio_cfg.c \
+../HWLIBS/interrupt.c \
 ../HWLIBS/lcd.c 
 
 C_DEPS += \
@@ -19,6 +20,7 @@ C_DEPS += \
 ./HWLIBS/alt_fpga_manager.d \
 ./HWLIBS/audio.d \
 ./HWLIBS/audio_cfg.d \
+./HWLIBS/interrupt.d \
 ./HWLIBS/lcd.d 
 
 OBJS += \
@@ -28,6 +30,7 @@ OBJS += \
 ./HWLIBS/alt_fpga_manager.o \
 ./HWLIBS/audio.o \
 ./HWLIBS/audio_cfg.o \
+./HWLIBS/interrupt.o \
 ./HWLIBS/lcd.o 
 
 

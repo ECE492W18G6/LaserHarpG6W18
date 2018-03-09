@@ -1,0 +1,9 @@
+HWLIBS/interrupt.o: ../HWLIBS/interrupt.c
+HWLIBS/interrupt.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av/socal/hps.h
+HWLIBS/interrupt.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av/socal/socal.h
+HWLIBS/interrupt.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/uC-LIBS/lib_def.h
+HWLIBS/interrupt.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/uC-CPU/cpu_def.h
+HWLIBS/interrupt.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/uC-CPU/ARM-Cortex-A/cpu.h
+HWLIBS/interrupt.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/APP/cpu_cfg.h
+HWLIBS/interrupt.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/uCOS-II/Ports/os_cpu.h
+HWLIBS/interrupt.o: ../HWLIBS/interrupt.h

@@ -81,6 +81,10 @@
 #define TASK_STACK_SIZE 4096
 #define LEDR_ADD 0x00000000
 #define LEDR_BASE FPGA_TO_HPS_LW_ADDR(LEDR_ADD)
+#define SWITCH_ADD 0x300
+#define SWITCH_BASE FPGA_TO_HPS_LW_ADDR(SWITCH_ADD)
+#define BUTTON_ADD 0x600
+#define BUTTON_BASE FPGA_TO_HPS_LW_ADDR(BUTTON_ADD)
 #define SYNTH0_ADD 0x1000
 #define SYNTH0_BASE FPGA_TO_HPS_LW_ADDR(SYNTH0_ADD)
 #define SYNTH1_ADD 0x1100
@@ -110,6 +114,7 @@
 #define DIODE_6_MASK 64
 #define DIODE_7_MASK 128
 
+#define NUM_STRINGS 8
 #define AUDIO_BUFFER_SIZE 128
 #define M_PI 3.14159265358979323846
 /*
@@ -122,8 +127,8 @@ CPU_STK AppTaskStartStk[TASK_STACK_SIZE];
 CPU_STK AudioTaskStartStk[TASK_STACK_SIZE];
 CPU_STK LCDTaskStartStk[TASK_STACK_SIZE];
 
-INT32S SYNTH_VALUES[8];
-INT32S POLY_BUFFER[8];
+INT32S SYNTH_VALUES[NUM_STRINGS];
+INT32S POLY_BUFFER[NUM_STRINGS];
 
 /*
 *********************************************************************************************************
@@ -134,7 +139,6 @@ INT32S POLY_BUFFER[8];
 static  void  AppTaskStart              (void        *p_arg);
 static  void  AudioTaskStart            (void        *p_arg);
 static  void  LCDTaskStart              (void        *p_arg);
-
 
 /*
 *********************************************************************************************************
@@ -147,7 +151,7 @@ static  void  LCDTaskStart              (void        *p_arg);
 * Returns     : none.
 *
 * Note(s)     : (1) It is assumed that your code will call main() once you have performed all necessary
-*                   initialisation.
+*                   initialization.
 *********************************************************************************************************
 */
 
@@ -162,16 +166,13 @@ int main ()
     BSP_L2C310Config();                                         /* Configure the L2 cache controller.                   */
     BSP_CachesEn();                                             /* Enable L1 I&D caches + L2 unified cache.             */
 
-
     CPU_Init();
 
     Mem_Init();
 
     BSP_Init();
 
-
     OSInit();
-
 
     os_err = OSTaskCreateExt((void (*)(void *)) AppTaskStart,   /* Create the start task.                               */
                              (void          * ) 0,
@@ -242,21 +243,32 @@ static  void  AppTaskStart (void *p_arg)
 
     BSP_OS_TmrTickInit(OS_TICKS_PER_SEC);                       /* Configure and enable OS tick interrupt.              */
 
+    long PBreleases;
+	int i;
 
+	alt_write_word(BUTTON_BASE, 0); //clear out any changes so far
+	int state = 0;
     for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
 
-		OSTimeDlyHMSM(0, 0, 0, 500);
-
-		BSP_LED_On();
-
-		alt_write_word(LEDR_BASE, 0x00);
-
-		OSTimeDlyHMSM(0, 0, 0, 500);
-
-		BSP_LED_Off();
-
-		alt_write_word(LEDR_BASE, 0x3ff);
+        PBreleases = alt_read_word(BUTTON_BASE);
+		// Display the state of the change register on red LEDs
+        if (state) {
+        	alt_write_word(LEDR_BASE, 0x00);
+        } else {
+        	alt_write_word(LEDR_BASE, 0x3ff);
+        }
+		if (PBreleases != 0xf)
+		{
+			// Delay, so that we can observe the change on the LEDs
+			OSTimeDlyHMSM(0,0,0,1);
+			if (state) {
+				state = 0;
+			} else {
+				state = 1;
+			}
+			alt_write_word(BUTTON_BASE, 0); //reset the changes for next round
+		}
     }
 }
 
@@ -367,15 +379,21 @@ static  void  AudioTaskStart (void *p_arg)
 */
 static  void  LCDTaskStart (void *p_arg)
 {
-// Currently commented out before preliminary testing
 	InitLCD();
 	HomeLCD();
-	PrintStringLCD("Hello World\n");
+	PrintStringLCD("Key / Scale");
+	MoveCursorLCD(20);
+	PrintStringLCD("Switches: ");
 	for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
 
-        OSTimeDlyHMSM(0,1,0,0);
+		int result = alt_read_word(SWITCH_BASE);
+		char buffer[32];
+		sprintf(buffer, "%x", result);
+		MoveCursorLCD(30);
+		PrintStringLCD("       ");
+		MoveCursorLCD(30);
+		PrintStringLCD(buffer);
+		OSTimeDlyHMSM(0, 0, 0, 50);
 	}
 }
-
-

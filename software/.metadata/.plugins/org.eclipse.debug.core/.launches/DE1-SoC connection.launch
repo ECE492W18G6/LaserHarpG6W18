@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.arm.debugger.launcher2">
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data" value="56873106"/>
-<mapEntry key="*Fetching Data Model" value="1765607"/>
-<mapEntry key="*list global low level symbols" value="1913430"/>
-<mapEntry key="*loading memory from target" value="12628142"/>
-<mapEntry key="*loading values from target" value="1559382"/>
-<mapEntry key="*updating variables" value="725955"/>
-<mapEntry key="AddEventObserver" value="863851"/>
-<mapEntry key="Evaluate" value="8524740"/>
-<mapEntry key="Retrieving globals list" value="7973642"/>
-<mapEntry key="areCachesAvailable" value="675809"/>
-<mapEntry key="break" value="30938405"/>
-<mapEntry key="continue" value="25572356"/>
+<mapEntry key="*Fetching Data" value="41882022"/>
+<mapEntry key="*Fetching Data Model" value="316525"/>
+<mapEntry key="*list global low level symbols" value="6049006"/>
+<mapEntry key="*loading memory from target" value="10726964"/>
+<mapEntry key="*loading values from target" value="7675740"/>
+<mapEntry key="*updating variables" value="496519"/>
+<mapEntry key="AddEventObserver" value="363876"/>
+<mapEntry key="Evaluate" value="1017451"/>
+<mapEntry key="Retrieving globals list" value="2352300"/>
+<mapEntry key="areCachesAvailable" value="434268"/>
+<mapEntry key="break" value="2493030"/>
+<mapEntry key="continue" value="24073387"/>
 <mapEntry key="core" value="8392234"/>
-<mapEntry key="disassemble" value="43976734"/>
+<mapEntry key="disassemble" value="37397464"/>
 <mapEntry key="evaluate address" value="378266"/>
-<mapEntry key="file" value="74282777"/>
+<mapEntry key="file" value="16299087"/>
 <mapEntry key="finish" value="29005403"/>
-<mapEntry key="get byte order" value="423579"/>
-<mapEntry key="get capabilities" value="267127"/>
-<mapEntry key="get execution addresss" value="382472"/>
-<mapEntry key="get source lines" value="1062884"/>
-<mapEntry key="getValidEncodings" value="763710"/>
-<mapEntry key="initialize command help" value="31823427"/>
-<mapEntry key="interrupt" value="49394720"/>
-<mapEntry key="list breakpoints" value="3320373"/>
-<mapEntry key="list instruction sets" value="894409"/>
-<mapEntry key="list signals" value="26813412"/>
-<mapEntry key="list watchpoints" value="3611852"/>
-<mapEntry key="loadfile" value="274272786"/>
-<mapEntry key="next" value="57117938"/>
-<mapEntry key="remove" value="20601996"/>
-<mapEntry key="set CWD" value="2800117"/>
-<mapEntry key="set breakpoint properties" value="24906348"/>
-<mapEntry key="set debug-from" value="1472700"/>
-<mapEntry key="source altera_target_check.py" value="258330436"/>
-<mapEntry key="source preloader.ds" value="2186817176"/>
-<mapEntry key="start" value="59227614"/>
+<mapEntry key="get byte order" value="324436"/>
+<mapEntry key="get capabilities" value="527215"/>
+<mapEntry key="get execution addresss" value="220829"/>
+<mapEntry key="get source lines" value="262679"/>
+<mapEntry key="getValidEncodings" value="394404"/>
+<mapEntry key="initialize command help" value="23206502"/>
+<mapEntry key="interrupt" value="29562867"/>
+<mapEntry key="list breakpoints" value="259217"/>
+<mapEntry key="list instruction sets" value="206687"/>
+<mapEntry key="list signals" value="15762679"/>
+<mapEntry key="list watchpoints" value="556877"/>
+<mapEntry key="loadfile" value="559866544"/>
+<mapEntry key="next" value="64937852"/>
+<mapEntry key="remove" value="15654632"/>
+<mapEntry key="set CWD" value="989128"/>
+<mapEntry key="set breakpoint properties" value="2278150"/>
+<mapEntry key="set debug-from" value="939673"/>
+<mapEntry key="source altera_target_check.py" value="327110349"/>
+<mapEntry key="source preloader.ds" value="2286735951"/>
+<mapEntry key="start" value="68089461"/>
 <mapEntry key="step" value="36157207"/>
-<mapEntry key="toggleBreakpoint" value="19802657"/>
-<mapEntry key="waitForTargetToStop" value="250732361"/>
+<mapEntry key="toggleBreakpoint" value="19769579"/>
+<mapEntry key="waitForTargetToStop" value="419925757"/>
 <mapEntry key="write expression" value="42402046"/>
 </mapAttribute>
 <intAttribute key="DEBUG_TAB..RESOURCES.COUNT" value="0"/>
@@ -148,7 +148,7 @@
 <booleanAttribute key="VFS_ENABLED" value="true"/>
 <stringAttribute key="VFS_LOCAL_DIR" value="${workspace_loc}"/>
 <stringAttribute key="VFS_REMOTE_MOUNT" value="/writeable"/>
-<stringAttribute key="breakpoints" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;breakpoints&gt;&#10;&lt;/breakpoints&gt;&#10;"/>
+<stringAttribute key="breakpoints" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;breakpoints&gt;&#10;&#9;&lt;breakpoint ignorecount=&quot;0&quot; threadenabled=&quot;no&quot; list_all_threads=&quot;no&quot; core_list=&quot;{}&quot; continue=&quot;no&quot; verboseBreakpoints=&quot;yes&quot; kind=&quot;SOURCEPOSITION&quot;&gt;&#10;&#9;&#9;&lt;master_location index=&quot;0&quot; enabled=&quot;true&quot; version=&quot;2&quot; debugFile=&quot;C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c&quot; hostFile=&quot;C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP\app.c&quot; line=&quot;437&quot;/&gt;&#10;&#9;&#9;&lt;location index=&quot;0&quot; enabled=&quot;true&quot; version=&quot;2&quot; debugFile=&quot;C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c&quot; hostFile=&quot;C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP\app.c&quot; line=&quot;437&quot;/&gt;&#10;&#9;&lt;/breakpoint&gt;&#10;&lt;/breakpoints&gt;&#10;"/>
 <listAttribute key="com.arm.debug.views.common.AddressTracker.debugger.view.DisassemblyView.addresses">
 <listEntry value="&lt;Next Instruction&gt;"/>
 </listAttribute>
@@ -157,6 +157,8 @@
 </listAttribute>
 <listAttribute key="com.arm.debug.views.common.AddressTracker.debugger.view.MemoryView.addresses">
 <listEntry value=""/>
+<listEntry value="0xff200600"/>
+<listEntry value="0xff200300"/>
 <listEntry value="0xff202000"/>
 <listEntry value="0xff201000"/>
 <listEntry value="0xFF201000"/>
@@ -168,6 +170,8 @@
 </listAttribute>
 <listAttribute key="com.arm.debug.views.common.AddressTracker.debugger.view.MemoryView.ranges">
 <listEntry value=""/>
+<listEntry value="1024"/>
+<listEntry value="1024"/>
 <listEntry value="1024"/>
 <listEntry value="1024"/>
 <listEntry value="1024"/>
@@ -200,7 +204,7 @@
 <stringAttribute key="debugger.view.NewRegisterView:DebugOutlineColumnState" value="OutlineConfig1&#9;8&#9;0&#9;true&#9;true&#9;49&#9;-1&#9;true&#9;1&#9;false&#9;true&#9;90&#9;-1&#9;true&#9;2&#9;true&#9;true&#9;46&#9;-1&#9;true&#9;3&#9;false&#9;true&#9;43&#9;-1&#9;true&#9;4&#9;false&#9;true&#9;50&#9;-1&#9;true&#9;5&#9;true&#9;true&#9;37&#9;-1&#9;true&#9;6&#9;false&#9;true&#9;62&#9;-1&#9;true&#9;7&#9;true&#9;true&#9;53&#9;-1&#9;true"/>
 <stringAttribute key="debugger.view.NewRegisterView:_selectedRegisterSet" value="All registers"/>
 <mapAttribute key="debugger.view.NewRegisterView_registerSets"/>
-<stringAttribute key="debugger.view.VariableTreeView:DebugOutlineColumnState" value="OutlineConfig1&#9;8&#9;0&#9;true&#9;false&#9;150&#9;-1&#9;true&#9;1&#9;false&#9;true&#9;90&#9;-1&#9;true&#9;2&#9;true&#9;false&#9;110&#9;-1&#9;true&#9;3&#9;true&#9;false&#9;119&#9;-1&#9;true&#9;4&#9;true&#9;true&#9;50&#9;-1&#9;true&#9;5&#9;true&#9;true&#9;37&#9;-1&#9;true&#9;6&#9;true&#9;true&#9;62&#9;-1&#9;true&#9;7&#9;true&#9;true&#9;53&#9;-1&#9;true"/>
+<stringAttribute key="debugger.view.VariableTreeView:DebugOutlineColumnState" value="OutlineConfig1&#9;8&#9;0&#9;true&#9;false&#9;150&#9;-1&#9;true&#9;1&#9;false&#9;true&#9;90&#9;-1&#9;true&#9;2&#9;true&#9;false&#9;122&#9;-1&#9;true&#9;3&#9;true&#9;false&#9;119&#9;-1&#9;true&#9;4&#9;true&#9;true&#9;50&#9;-1&#9;true&#9;5&#9;true&#9;true&#9;37&#9;-1&#9;true&#9;6&#9;true&#9;true&#9;62&#9;-1&#9;true&#9;7&#9;true&#9;true&#9;53&#9;-1&#9;true"/>
 <listAttribute key="debugger.view.VariableTreeView:USER_ADDED_FILE_STATICS"/>
 <listAttribute key="debugger.view.VariableTreeView:USER_ADDED_GLOBALS"/>
 <booleanAttribute key="debugger.view.register.DrawAsHex" value="false"/>

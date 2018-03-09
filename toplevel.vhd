@@ -193,11 +193,8 @@ architecture rtl of LaserHarpG6W18 is
             audio_0_external_interface_DACLRCK               : in    std_logic                     := 'X';             -- DACLRCK
             audio_and_video_config_0_external_interface_SDAT : inout std_logic                     := 'X';             -- SDAT
             audio_and_video_config_0_external_interface_SCLK : out   std_logic;                                        -- SCLK
-            button_0_external_connection_export              : in    std_logic                     := 'X';             -- export
-            button_1_external_connection_export              : in    std_logic                     := 'X';             -- export
-            button_2_external_connection_export              : in    std_logic                     := 'X';             -- export
-            button_3_external_connection_export              : in    std_logic                     := 'X';             -- export
-            character_lcd_0_external_interface_DATA          : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- DATA
+            buttons_external_connection_export               : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- export            
+				character_lcd_0_external_interface_DATA          : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- DATA
             character_lcd_0_external_interface_EN            : out   std_logic;                                        -- EN
             character_lcd_0_external_interface_RS            : out   std_logic;                                        -- RS
             character_lcd_0_external_interface_RW            : out   std_logic;                                        -- RW
@@ -298,7 +295,7 @@ begin
 	  u0 : component soc_system
         port map (
 						clk_clk 										=> CLOCK_50,
-						reset_reset_n 								=> KEY_N(0),
+						reset_reset_n 								=> KEY_N(2),
 						memory_mem_a 								=> HPS_DDR3_ADDR,
 						memory_mem_ba 								=> HPS_DDR3_BA,
 						memory_mem_ck 								=> HPS_DDR3_CK_P,
@@ -377,10 +374,7 @@ begin
 						audio_0_external_interface_DACDAT                => AUD_DACDAT,                --                                            .DACDAT
 						audio_0_external_interface_DACLRCK               => AUD_DACLRCK,                --                                            .DACLRCK
 						pll_0_outclk0_clk				=> AUD_XCK,
-						button_0_external_connection_export => KEY_N(0),
-						button_1_external_connection_export => KEY_N(1),
-						button_2_external_connection_export => KEY_N(2),
-						button_3_external_connection_export => KEY_N(3),
+						buttons_external_connection_export => KEY_N,
 						red_leds_external_connection_export => LEDR,
 						photodiode_0_conduit_end_export0 => GPIO_0_28,
 						photodiode_0_conduit_end_export1 => GPIO_0_29,

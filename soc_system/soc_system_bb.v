@@ -7,10 +7,12 @@ module soc_system (
 	audio_0_external_interface_DACLRCK,
 	audio_and_video_config_0_external_interface_SDAT,
 	audio_and_video_config_0_external_interface_SCLK,
-	button_0_external_connection_export,
-	button_1_external_connection_export,
-	button_2_external_connection_export,
-	button_3_external_connection_export,
+	character_lcd_0_external_interface_DATA,
+	character_lcd_0_external_interface_ON,
+	character_lcd_0_external_interface_BLON,
+	character_lcd_0_external_interface_EN,
+	character_lcd_0_external_interface_RS,
+	character_lcd_0_external_interface_RW,
 	clk_clk,
 	hps_io_hps_io_emac1_inst_TX_CLK,
 	hps_io_hps_io_emac1_inst_TXD0,
@@ -89,12 +91,7 @@ module soc_system (
 	red_leds_external_connection_export,
 	reset_reset_n,
 	switches_external_connection_export,
-	character_lcd_0_external_interface_DATA,
-	character_lcd_0_external_interface_ON,
-	character_lcd_0_external_interface_BLON,
-	character_lcd_0_external_interface_EN,
-	character_lcd_0_external_interface_RS,
-	character_lcd_0_external_interface_RW);	
+	buttons_external_connection_export);	
 
 	input		audio_0_external_interface_ADCDAT;
 	input		audio_0_external_interface_ADCLRCK;
@@ -103,10 +100,12 @@ module soc_system (
 	input		audio_0_external_interface_DACLRCK;
 	inout		audio_and_video_config_0_external_interface_SDAT;
 	output		audio_and_video_config_0_external_interface_SCLK;
-	input		button_0_external_connection_export;
-	input		button_1_external_connection_export;
-	input		button_2_external_connection_export;
-	input		button_3_external_connection_export;
+	inout	[7:0]	character_lcd_0_external_interface_DATA;
+	output		character_lcd_0_external_interface_ON;
+	output		character_lcd_0_external_interface_BLON;
+	output		character_lcd_0_external_interface_EN;
+	output		character_lcd_0_external_interface_RS;
+	output		character_lcd_0_external_interface_RW;
 	input		clk_clk;
 	output		hps_io_hps_io_emac1_inst_TX_CLK;
 	output		hps_io_hps_io_emac1_inst_TXD0;
@@ -185,10 +184,5 @@ module soc_system (
 	output	[9:0]	red_leds_external_connection_export;
 	input		reset_reset_n;
 	input	[9:0]	switches_external_connection_export;
-	inout	[7:0]	character_lcd_0_external_interface_DATA;
-	output		character_lcd_0_external_interface_ON;
-	output		character_lcd_0_external_interface_BLON;
-	output		character_lcd_0_external_interface_EN;
-	output		character_lcd_0_external_interface_RS;
-	output		character_lcd_0_external_interface_RW;
+	input	[3:0]	buttons_external_connection_export;
 endmodule
