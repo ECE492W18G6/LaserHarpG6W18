@@ -2,8 +2,8 @@ Info: Starting: Create block symbol file (.bsf)
 Info: qsys-generate C:\Users\rarog\ECE492\LaserHarpG6W18\soc_system.qsys --block-symbol-file --output-directory=C:\Users\rarog\ECE492\LaserHarpG6W18\soc_system --family="Cyclone V" --part=5CSEMA5F31C6
 Progress: Loading LaserHarpG6W18/soc_system.qsys
 Progress: Reading input file
-Progress: Adding PianoEnvelope_0 [PianoEnvelope 1.0]
-Progress: Parameterizing module PianoEnvelope_0
+Progress: Adding EnvelopeController_0 [EnvelopeController 1.0]
+Progress: Parameterizing module EnvelopeController_0
 Progress: Adding Synthesizer_0 [Synthesizer 1.0]
 Progress: Parameterizing module Synthesizer_0
 Progress: Adding Synthesizer_1 [Synthesizer 1.0]
@@ -68,8 +68,8 @@ Info: Starting: Create HDL design files for synthesis
 Info: qsys-generate C:\Users\rarog\ECE492\LaserHarpG6W18\soc_system.qsys --synthesis=VHDL --output-directory=C:\Users\rarog\ECE492\LaserHarpG6W18\soc_system\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
 Progress: Loading LaserHarpG6W18/soc_system.qsys
 Progress: Reading input file
-Progress: Adding PianoEnvelope_0 [PianoEnvelope 1.0]
-Progress: Parameterizing module PianoEnvelope_0
+Progress: Adding EnvelopeController_0 [EnvelopeController 1.0]
+Progress: Parameterizing module EnvelopeController_0
 Progress: Adding Synthesizer_0 [Synthesizer 1.0]
 Progress: Parameterizing module Synthesizer_0
 Progress: Adding Synthesizer_1 [Synthesizer 1.0]
@@ -132,14 +132,14 @@ Warning: hps_0.f2h_irq0: Cannot connect clock for irq_mapper.sender
 Warning: hps_0.f2h_irq0: Cannot connect reset for irq_mapper.sender
 Warning: hps_0.f2h_irq1: Cannot connect clock for irq_mapper_001.sender
 Warning: hps_0.f2h_irq1: Cannot connect reset for irq_mapper_001.sender
-Info: PianoEnvelope_0: "soc_system" instantiated PianoEnvelope "PianoEnvelope_0"
+Info: EnvelopeController_0: "soc_system" instantiated EnvelopeController "EnvelopeController_0"
 Info: Synthesizer_0: "soc_system" instantiated Synthesizer "Synthesizer_0"
 Info: audio_0: Starting Generation of Audio Controller
 Info: audio_0: "soc_system" instantiated altera_up_avalon_audio "audio_0"
 Info: audio_and_video_config_0: Starting Generation of Audio and Video Config
 Info: audio_and_video_config_0: "soc_system" instantiated altera_up_avalon_audio_and_video_config "audio_and_video_config_0"
 Info: button_0: Starting RTL generation for module 'soc_system_button_0'
-Info: button_0:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_button_0 --dir=C:/Users/rarog/AppData/Local/Temp/alt7599_1177486416128031626.dir/0285_button_0_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/rarog/AppData/Local/Temp/alt7599_1177486416128031626.dir/0285_button_0_gen//soc_system_button_0_component_configuration.pl  --do_build_sim=0  ]
+Info: button_0:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_button_0 --dir=C:/Users/rarog/AppData/Local/Temp/alt7602_6605317436791597832.dir/0099_button_0_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/rarog/AppData/Local/Temp/alt7602_6605317436791597832.dir/0099_button_0_gen//soc_system_button_0_component_configuration.pl  --do_build_sim=0  ]
 Info: button_0: Done RTL generation for module 'soc_system_button_0'
 Info: button_0: "soc_system" instantiated altera_avalon_pio "button_0"
 Info: hps_0: "Running  for module: hps_0"
@@ -149,11 +149,11 @@ Info: hps_0: "soc_system" instantiated altera_hps "hps_0"
 Info: photodiode_0: "soc_system" instantiated photodiode "photodiode_0"
 Info: pll_0: "soc_system" instantiated altera_pll "pll_0"
 Info: red_leds: Starting RTL generation for module 'soc_system_red_leds'
-Info: red_leds:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_red_leds --dir=C:/Users/rarog/AppData/Local/Temp/alt7599_1177486416128031626.dir/0288_red_leds_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/rarog/AppData/Local/Temp/alt7599_1177486416128031626.dir/0288_red_leds_gen//soc_system_red_leds_component_configuration.pl  --do_build_sim=0  ]
+Info: red_leds:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_red_leds --dir=C:/Users/rarog/AppData/Local/Temp/alt7602_6605317436791597832.dir/0102_red_leds_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/rarog/AppData/Local/Temp/alt7602_6605317436791597832.dir/0102_red_leds_gen//soc_system_red_leds_component_configuration.pl  --do_build_sim=0  ]
 Info: red_leds: Done RTL generation for module 'soc_system_red_leds'
 Info: red_leds: "soc_system" instantiated altera_avalon_pio "red_leds"
 Info: switches: Starting RTL generation for module 'soc_system_switches'
-Info: switches:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_switches --dir=C:/Users/rarog/AppData/Local/Temp/alt7599_1177486416128031626.dir/0289_switches_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/rarog/AppData/Local/Temp/alt7599_1177486416128031626.dir/0289_switches_gen//soc_system_switches_component_configuration.pl  --do_build_sim=0  ]
+Info: switches:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_switches --dir=C:/Users/rarog/AppData/Local/Temp/alt7602_6605317436791597832.dir/0103_switches_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/rarog/AppData/Local/Temp/alt7602_6605317436791597832.dir/0103_switches_gen//soc_system_switches_component_configuration.pl  --do_build_sim=0  ]
 Info: switches: Done RTL generation for module 'soc_system_switches'
 Info: switches: "soc_system" instantiated altera_avalon_pio "switches"
 Info: sysid_qsys_0: "soc_system" instantiated altera_avalon_sysid_qsys "sysid_qsys_0"
@@ -207,6 +207,6 @@ Info: avalon_st_adapter_002: "mm_interconnect_0" instantiated altera_avalon_st_a
 Info: border: "hps_io" instantiated altera_interface_generator "border"
 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
 Info: error_adapter_0: "avalon_st_adapter_002" instantiated error_adapter "error_adapter_0"
-Info: soc_system: Done "soc_system" with 37 modules, 118 files
+Info: soc_system: Done "soc_system" with 37 modules, 119 files
 Info: qsys-generate succeeded.
 Info: Finished: Create HDL design files for synthesis

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="soc_system" kind="soc_system" version="1.0" fabric="QSYS">
  <!-- Format version 17.0 602 (Future versions may contain additional information.) -->
- <!-- 2018.03.09.15:40:27 -->
+ <!-- 2018.03.12.16:39:11 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1520635226</value>
+  <value>1520894350</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -96,10 +96,10 @@
   <valid>true</valid>
  </parameter>
  <module
-   name="PianoEnvelope_0"
-   kind="PianoEnvelope"
+   name="EnvelopeController_0"
+   kind="EnvelopeController"
    version="1.0"
-   path="PianoEnvelope_0">
+   path="EnvelopeController_0">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
   <parameter name="deviceFamily">
@@ -453,16 +453,16 @@ parameters are a RESULT of the module parameters. -->
    <type>avalon</type>
    <isStart>false</isStart>
    <port>
-    <name>read</name>
-    <direction>Input</direction>
-    <width>1</width>
-    <role>read</role>
-   </port>
-   <port>
     <name>data_out</name>
     <direction>Output</direction>
     <width>32</width>
     <role>readdata</role>
+   </port>
+   <port>
+    <name>read</name>
+    <direction>Input</direction>
+    <width>1</width>
+    <role>read</role>
    </port>
    <port>
     <name>write</name>
@@ -471,7 +471,7 @@ parameters are a RESULT of the module parameters. -->
     <role>write</role>
    </port>
    <port>
-    <name>en</name>
+    <name>data_in</name>
     <direction>Input</direction>
     <width>32</width>
     <role>writedata</role>
@@ -9586,9 +9586,9 @@ parameters are a RESULT of the module parameters. -->
    </clockDomainMember>
    <clockDomainMember>
     <isBridge>false</isBridge>
-    <moduleName>PianoEnvelope_0</moduleName>
+    <moduleName>EnvelopeController_0</moduleName>
     <slaveName>clock</slaveName>
-    <name>PianoEnvelope_0.clock</name>
+    <name>EnvelopeController_0.clock</name>
    </clockDomainMember>
    <clockDomainMember>
     <isBridge>false</isBridge>
@@ -25281,9 +25281,9 @@ parameters are a RESULT of the module parameters. -->
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
-    <moduleName>PianoEnvelope_0</moduleName>
+    <moduleName>EnvelopeController_0</moduleName>
     <slaveName>avalon_slave</slaveName>
-    <name>PianoEnvelope_0.avalon_slave</name>
+    <name>EnvelopeController_0.avalon_slave</name>
     <baseAddress>6144</baseAddress>
     <span>4</span>
    </memoryBlock>
@@ -51461,9 +51461,9 @@ parameters are a RESULT of the module parameters. -->
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
-    <moduleName>PianoEnvelope_0</moduleName>
+    <moduleName>EnvelopeController_0</moduleName>
     <slaveName>avalon_slave</slaveName>
-    <name>PianoEnvelope_0.avalon_slave</name>
+    <name>EnvelopeController_0.avalon_slave</name>
     <baseAddress>6144</baseAddress>
     <span>4</span>
    </memoryBlock>
@@ -52732,9 +52732,9 @@ parameters are a RESULT of the module parameters. -->
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
-    <moduleName>PianoEnvelope_0</moduleName>
+    <moduleName>EnvelopeController_0</moduleName>
     <slaveName>avalon_slave</slaveName>
-    <name>PianoEnvelope_0.avalon_slave</name>
+    <name>EnvelopeController_0.avalon_slave</name>
     <baseAddress>4280293376</baseAddress>
     <span>4</span>
    </memoryBlock>
@@ -53699,9 +53699,9 @@ parameters are a RESULT of the module parameters. -->
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
-    <moduleName>PianoEnvelope_0</moduleName>
+    <moduleName>EnvelopeController_0</moduleName>
     <slaveName>avalon_slave</slaveName>
-    <name>PianoEnvelope_0.avalon_slave</name>
+    <name>EnvelopeController_0.avalon_slave</name>
     <baseAddress>4280293376</baseAddress>
     <span>4</span>
    </memoryBlock>
@@ -87633,7 +87633,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1520635226</value>
+   <value>1520894350</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -87653,7 +87653,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1520635226</value>
+   <value>1520894350</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -87669,7 +87669,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1520635226</value>
+   <value>1520894350</value>
    <derived>true</derived>
    <enabled>false</enabled>
    <visible>false</visible>
@@ -96264,11 +96264,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>avalon_slave</endConnectionPoint>
  </connection>
  <connection
-   name="hps_0_bridges.h2f_lw/PianoEnvelope_0.avalon_slave"
+   name="hps_0_bridges.h2f_lw/EnvelopeController_0.avalon_slave"
    kind="avalon"
    version="17.0"
    start="hps_0_bridges.h2f_lw"
-   end="PianoEnvelope_0.avalon_slave">
+   end="EnvelopeController_0.avalon_slave">
   <parameter name="arbitrationPriority">
    <type>int</type>
    <value>1</value>
@@ -96311,7 +96311,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>hps_0_bridges</startModule>
   <startConnectionPoint>h2f_lw</startConnectionPoint>
-  <endModule>PianoEnvelope_0</endModule>
+  <endModule>EnvelopeController_0</endModule>
   <endConnectionPoint>avalon_slave</endConnectionPoint>
  </connection>
  <connection
@@ -97566,11 +97566,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>clock</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/PianoEnvelope_0.clock"
+   name="clk_0.clk/EnvelopeController_0.clock"
    kind="clock"
    version="17.0"
    start="clk_0.clk"
-   end="PianoEnvelope_0.clock">
+   end="EnvelopeController_0.clock">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -97589,7 +97589,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>clk_0</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
-  <endModule>PianoEnvelope_0</endModule>
+  <endModule>EnvelopeController_0</endModule>
   <endConnectionPoint>clock</endConnectionPoint>
  </connection>
  <connection
@@ -98370,11 +98370,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/PianoEnvelope_0.reset"
+   name="clk_0.clk_reset/EnvelopeController_0.reset"
    kind="reset"
    version="17.0"
    start="clk_0.clk_reset"
-   end="PianoEnvelope_0.reset">
+   end="EnvelopeController_0.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -98393,7 +98393,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>clk_0</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
-  <endModule>PianoEnvelope_0</endModule>
+  <endModule>EnvelopeController_0</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
@@ -98910,11 +98910,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="hps_0_bridges.h2f_reset/PianoEnvelope_0.reset"
+   name="hps_0_bridges.h2f_reset/EnvelopeController_0.reset"
    kind="reset"
    version="17.0"
    start="hps_0_bridges.h2f_reset"
-   end="PianoEnvelope_0.reset">
+   end="EnvelopeController_0.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -98933,15 +98933,15 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>hps_0_bridges</startModule>
   <startConnectionPoint>h2f_reset</startConnectionPoint>
-  <endModule>PianoEnvelope_0</endModule>
+  <endModule>EnvelopeController_0</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <plugin>
   <instanceCount>1</instanceCount>
-  <name>PianoEnvelope</name>
+  <name>EnvelopeController</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>PianoEnvelope</displayName>
+  <displayName>EnvelopeController</displayName>
   <version>1.0</version>
  </plugin>
  <plugin>

@@ -7,12 +7,12 @@ entity PianoEnvelope_lut is
 	port(
 	-- system signals
 	clk 		: in std_logic:= '0'; 
-	reset 	: in std_logic:= '0'; 
+	reset 		: in std_logic:= '0'; 
 	en			: in std_logic:= '0';  
 	
 	-- Current value of the envelope
 	index		: in std_logic_vector(11 downto 0);
-	data_out : out std_logic_vector(31 downto 0)
+	data_out 	: out std_logic_vector(31 downto 0)
 	);
 	
 end PianoEnvelope_lut;
@@ -543,7 +543,11 @@ begin
 rom_select: process (clk, en, reset)
 begin
 	if (rising_edge(clk)) then
-		data_out <= ENVELOPE_ROM(conv_integer(index));
+		if(en = '1') then
+			data_out <= ENVELOPE_ROM(conv_integer(index));
+		else
+			data_out <= x"00000000";
+		end if;
 	end if;
 end process rom_select;
 
