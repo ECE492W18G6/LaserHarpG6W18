@@ -257,7 +257,16 @@ static  void  ButtonTask (void *p_arg)
 		if (PBreleases != 0xf)
 		{
 			// Delay, so that we can observe the change on the LEDs
-			OSTimeDlyHMSM(0,0,0,100);
+			OSTimeDlyHMSM(0,0,0,200);
+			if ( PBreleases == 7) {
+				change_octave();
+			}
+			if ( PBreleases == 11) {
+				change_scale();
+			}
+			if ( PBreleases == 13) {
+				change_key();
+			}
 			alt_write_word(BUTTON_BASE, 0); //reset the changes for next round
 		}
 		OSTimeDlyHMSM(0,0,0,50);
@@ -300,14 +309,14 @@ static  void  AudioTask (void *p_arg)
         // the number 41 for the hardware synthesizer seems to play 440Hz
         // therefore to play a specific frequency, like 523 (C#5),you need
         // to divide by 11
-        alt_write_word(SYNTH0_BASE, 24.33);
-		alt_write_word(SYNTH1_BASE, 27.31);
-		alt_write_word(SYNTH2_BASE, 30.65);
-		alt_write_word(SYNTH3_BASE, 32.42);
-		alt_write_word(SYNTH4_BASE, 36.41);
-		alt_write_word(SYNTH5_BASE, 40.87);
-		alt_write_word(SYNTH6_BASE, 45.88);
-		alt_write_word(SYNTH7_BASE, 48.58);
+        alt_write_word(SYNTH0_BASE, 5.77*(pow(2,get_octave()-2)));
+		alt_write_word(SYNTH1_BASE, 6.47*(pow(2,get_octave()-2)));
+		alt_write_word(SYNTH2_BASE, 7.27*(pow(2,get_octave()-2)));
+		alt_write_word(SYNTH3_BASE, 7.70*(pow(2,get_octave()-2)));
+		alt_write_word(SYNTH4_BASE, 8.64*(pow(2,get_octave()-2)));
+		alt_write_word(SYNTH5_BASE, 9.70*(pow(2,get_octave()-2)));
+		alt_write_word(SYNTH6_BASE, 10.89*(pow(2,get_octave()-2)));
+		alt_write_word(SYNTH7_BASE, 11.54*(pow(2,get_octave()-2)));
 
 		// the hardware synthesizer outputs 32 bits with the top
 		// 12 being the actual sine value, therefore we do an
@@ -385,8 +394,8 @@ static  void  LCDTask (void *p_arg)
 		char buffer[32];
 		sprintf(buffer, "%x\n", result);
 		MoveCursorLCD(36);
-//		PrintStringLCD("       ");
-//		MoveCursorLCD(30);
+		PrintStringLCD("    ");
+		MoveCursorLCD(36);
 		PrintStringLCD(buffer);
 		OSTimeDlyHMSM(0, 0, 0, 50);
 	}

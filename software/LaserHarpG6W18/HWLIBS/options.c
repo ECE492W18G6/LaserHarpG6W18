@@ -18,20 +18,24 @@
 #include  <hwlib.h>
 #include <math.h>
 
-int SCALE;
-int INSTRUMENT;
-int OCTAVE;
-int KEY;
+int SCALE = 0;
+int INSTRUMENT = 0;
+int OCTAVE = 2;
+int KEY = 0;
 int REVERB;
 int SUSTAIN;
 
-char scale[12];
+char scale[20];
 char instrument[10];
 char octave[10];
 char key[2];
 
 void change_scale() {
 	SCALE = (SCALE + 1) % NUM_SCALES;
+}
+
+int get_octave() {
+	return OCTAVE;
 }
 
 void change_instrument() {
@@ -69,19 +73,19 @@ void update_LCD_string() {
 
 	switch (SCALE) {
 		case MAJOR:
-			sprintf(scale, "Major Scale");
+			sprintf(scale, "Major Scale  ");
 			break;
 		case MINOR:
-			sprintf(scale, "Minor Scale");
+			sprintf(scale, "Minor Scale  ");
 			break;
 		case BLUES:
-			sprintf(scale, "Blues Scale");
+			sprintf(scale, "Blues Scale  ");
 			break;
 		case DORIAN:
-			sprintf(scale, "Dorian Scale");
+			sprintf(scale, "Dorian Scale ");
 			break;
 		default:
-			sprintf(scale, "Major Scale");
+			sprintf(scale, "Major Scale  ");
 	}
 	switch (INSTRUMENT) {
 		case HARP:
@@ -119,6 +123,42 @@ void update_LCD_string() {
 			sprintf(octave, "Octave 2 ");
 	}
 	switch (KEY) {
+		case C:
+			sprintf(key, "C ");
+			break;
+		case C_SHARP:
+			sprintf(key, "C# ");
+			break;
+		case D:
+			sprintf(key, "D ");
+			break;
+		case D_SHARP:
+			sprintf(key, "D# ");
+			break;
+		case E:
+			sprintf(key, "E ");
+			break;
+		case F:
+			sprintf(key, "F ");
+			break;
+		case F_SHARP:
+			sprintf(key, "F# ");
+			break;
+		case G:
+			sprintf(key, "G ");
+			break;
+		case G_SHARP:
+			sprintf(key, "G# ");
+			break;
+		case A:
+			sprintf(key, "A ");
+			break;
+		case A_SHARP:
+			sprintf(key, "A# ");
+			break;
+		case B:
+			sprintf(key, "B ");
+			break;
 		default:
 			sprintf(key, "C ");
 	}

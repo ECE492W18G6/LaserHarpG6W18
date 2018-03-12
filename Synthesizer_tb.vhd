@@ -30,8 +30,8 @@ architecture behave of Synthesizer_tb is
 	reset 		: in std_logic; 
 	write		: in std_logic; 
 	read		: in std_logic; 
-	phase_reg1 : in std_logic_vector(31 downto 0); 
-	data_out1 : out std_logic_vector(31 downto 0));
+	phase_reg : in std_logic_vector(31 downto 0); 
+	data_out : out std_logic_vector(31 downto 0));
   end component Synthesizer;
    
 begin
@@ -42,8 +42,8 @@ begin
 	reset	=> reset_SIG,
 	write	=> write_SIG,
 	read	=> read_SIG,
-	phase_reg1	=> frequency,
-	data_out1	=> data
+	phase_reg	=> frequency,
+	data_out	=> data
 	);
  
   process is

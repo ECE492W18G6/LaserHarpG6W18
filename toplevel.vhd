@@ -295,7 +295,7 @@ begin
 	  u0 : component soc_system
         port map (
 						clk_clk 										=> CLOCK_50,
-						reset_reset_n 								=> KEY_N(2),
+						reset_reset_n 								=> KEY_N(0),
 						memory_mem_a 								=> HPS_DDR3_ADDR,
 						memory_mem_ba 								=> HPS_DDR3_BA,
 						memory_mem_ck 								=> HPS_DDR3_CK_P,

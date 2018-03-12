@@ -55,5 +55,6 @@ void remove_reverb(void);
 void set_sustain(void);
 void remove_sustain(void);
 void update_LCD_string(void);
+int get_octave(void);
 
 #endif /* OPTIONS_H_ */

@@ -1,3 +1,15 @@
+--------------------------------------------------------------------------------------------------------------------------
+-- Original Authors : Adam Narten											--
+-- Date created:  March 4, 2018												--
+--															--
+-- Structure for creating a modelsim testbench was referenced from NANDLAND						--
+-- https://www.nandland.com/vhdl/tutorials/tutorial-modelsim-simulation-walkthrough.html				--
+--															--
+-- This program takes a frequency of 1 and steps it through a phase accumulator in the synthesizer.		 	--
+-- It makes sure the correct sine wave values are getting ouputted from the lookup table.				--
+-- 															--
+--------------------------------------------------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
  
@@ -18,8 +30,8 @@ architecture behave of Synthesizer_tb is
 	reset 		: in std_logic; 
 	write		: in std_logic; 
 	read		: in std_logic; 
-	phase_reg1 : in std_logic_vector(31 downto 0); 
-	data_out1 : out std_logic_vector(31 downto 0));
+	phase_reg : in std_logic_vector(31 downto 0); 
+	data_out1: out std_logic_vector(31 downto 0));
   end component Synthesizer;
    
 begin
@@ -30,8 +42,8 @@ begin
 	reset	=> reset_SIG,
 	write	=> write_SIG,
 	read	=> read_SIG,
-	phase_reg1	=> frequency,
-	data_out1	=> data
+	phase_reg	=> frequency,
+	data_out	=> data
 	);
  
   process is
@@ -46,7 +58,7 @@ begin
 	frequency <= x"00000001";
 	write_SIG <= '1';
 	-- toggle clock
-	for I in 0 to 5 loop
+	for I in 0 to 6 loop
 		clk_SIG <= '1'; -- transition on rising edge
 		wait for 10 ns;
 		clk_SIG <= '0';
@@ -54,7 +66,7 @@ begin
 	end loop;
 	frequency <= x"00000008"; -- change frequency and continue
 	-- toggle clock
-	for I in 0 to 5 loop
+	for I in 0 to 6 loop
 		clk_SIG <= '1'; -- transition on rising edge
 		wait for 10 ns;
 		clk_SIG <= '0';
