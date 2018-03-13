@@ -1,3 +1,27 @@
+--------------------------------------------------------------------------------------------------------------------------------
+-- Original Authors : Oliver Rarog					                                                                          --
+-- Date created: March 11, 2018 													                                          --
+-- Date edited: March 13, 2018											                                                      --
+-- Additional Authors : Celeste Chiasson					                                                                  --
+--															                                                                  --
+-- This component is a controller for a sound envelope lookup tables. It can keep track of the envelope of up to 8            --
+-- inputs. For the use of the laser harp, this means that it can keep track of where each of the 8 diodes is in their         --
+-- envelope. In order to control the envelope controller, refer to the register map below.                                    --
+--                                                                                                                            --
+-- -------------------------------------------------------------------------------------------------------------------------- --
+-- | Bits   |                                              Results of the options                                           | --
+-- -------------------------------------------------------------------------------------------------------------------------- --
+-- | 0 - 2  | The number of the diode you want to get the envelope value for. i.e: 000 => diode 0, 010 => diode 2 etc.      | --					
+-- |   3    | If this is '1', then the currently selected diode will reset its position in the envelope LUT to 0            | --
+-- | 4 - 5  | Selects which instruments LUT you want to step through, 00 => Harp, 01 => Piano, 10 => Clarinet, 11 => Violin | -- 
+--  ------------------------------------------------------------------------------------------------------------------------- --
+-- This component works by keeping a counter signal for each diode, when the user writes their options, the counters are      --
+-- muxed together with bits 0 - 2, to select which counter should go through to the LUT. The counter is used as an index      --
+-- for its position in the envelope LUT. The output of the LUT is then connected to the data_out signal so that the envelope  --
+-- value can be read. Each diode can be tracked individually and when the end of the LUT is reached, the output is 0 until    --
+-- that diode is reset.                                                                                                       --
+--------------------------------------------------------------------------------------------------------------------------------
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.std_logic_arith.all;
@@ -7,7 +31,6 @@ use IEEE.STD_LOGIC_SIGNED.all;
 use IEEE.STD_LOGIC_UNSIGNED.all;
 
 entity EnvelopeController is 
-
 	port(
 	-- system signals
 	clk 			: in std_logic:= '0'; 
@@ -34,6 +57,7 @@ component PianoEnvelope_lut is
 end component PianoEnvelope_lut;
 
 component Mux8X1 is
+	generic map (N   => 12)
 	port (
 		sel			:	in std_logic_vector(2 downto 0);
 		data_in0		: 	in std_logic_vector(11 downto 0); 
@@ -95,6 +119,8 @@ mux: component Mux8X1 port map (
 	data_out	=> counterOut
 );
 
+-- This process takes the instrument selection bits 
+-- and enables the LUT of the corresponding instrument
 enableInstrument : process(clk, write, data_in)
 begin
 	if(rising_edge(clk)) then
@@ -123,11 +149,65 @@ begin
 	end if;
 end process enableInstrument;
 
-resetCounter : process(clk, write, data_in)
+
+counterControl : process(clk, write, data_in)
 begin
 	if (rising_edge(clk)) then
 		if(write = '1') then
 			case data_in(3 downto 0) is
+				-- the first 8 cases are when the reset is not enabled
+				-- therefore, we increment the counter, unless its at the
+				-- end in which case we stay at the end of the LUT
+				when "0000" => 
+					if(diode1End = '1') then
+						counterDiode1 <= X"FFF";
+					else
+						counterDiode1 <= counterDiode1 + 1;
+					end if;
+				when "0001" => 
+					if(diode1End = '1') then
+						counterDiode2 <= X"FFF";
+					else
+						counterDiode2 <= counterDiode1 + 1;
+					end if;
+				when "0010" => 
+					if(diode1End = '1') then
+						counterDiode3 <= X"FFF";
+					else
+						counterDiode3 <= counterDiode1 + 1;
+					end if;
+				when "0011" =>
+					if(diode1End = '1') then
+						counterDiode4 <= X"FFF";
+					else
+						counterDiode4 <= counterDiode1 + 1;
+					end if;
+				when "0100" => 
+					if(diode1End = '1') then
+						counterDiode5 <= X"FFF";
+					else
+						counterDiode5 <= counterDiode1 + 1;
+					end if;
+				when "0101" => 
+					if(diode1End = '1') then
+						counterDiode6 <= X"FFF";
+					else
+						counterDiode6 <= counterDiode1 + 1;
+					end if;
+				when "0110" => 
+					if(diode1End = '1') then
+						counterDiode7 <= X"FFF";
+					else
+						counterDiode7 <= counterDiode1 + 1;
+					end if;
+				when "0111" => 
+					if(diode1End = '1') then
+						counterDiode8 <= X"FFF";
+					else
+						counterDiode8 <= counterDiode1 + 1;
+					end if;
+				-- These next 8 cases are when the reset is enabled
+				-- therefore we reset the counter and flags for the diode
 				when "1000" => counterDiode1 <= x"000"; diode1End <= '0';
 				when "1001" => counterDiode2 <= x"000"; diode2End <= '0';
 				when "1010" => counterDiode3 <= x"000"; diode3End <= '0';
@@ -137,62 +217,13 @@ begin
 				when "1110" => counterDiode7 <= x"000"; diode7End <= '0';
 				when "1111" => counterDiode8 <= x"000"; diode8End <= '0';
 				when others => 
-			end case;
-		end if;
-	end if;
-end process resetCounter;
-
-selectDiode : process(clk, write, data_in)
-begin
-	if (rising_edge(clk)) then
-		if(write = '1') then
-			case data_in(2 downto 0) is
-				when "000" => counterDiode1 <= counterDiode1 + 1;
-				when "001" => counterDiode2 <= counterDiode2 + 1;
-				when "010" => counterDiode3 <= counterDiode3 + 1;
-				when "011" => counterDiode4 <= counterDiode4 + 1;
-				when "100" => counterDiode5 <= counterDiode5 + 1;
-				when "101" => counterDiode6 <= counterDiode6 + 1;
-				when "110" => counterDiode7 <= counterDiode7 + 1;
-				when "111" => counterDiode8 <= counterDiode8 + 1;
-				when others => 
  			end case;
 		end if;
 	end if;
-end process selectDiode;
+end process counterControl;
 
-endEnvelope : process(clk, write, data_in)
-begin
-	if (rising_edge(clk)) then
-		if(write = '1') then
-			if(diode1End = '1') then
-				data_out <= X"00000000";
-			end if;
-			if(diode2End = '1') then
-					data_out <= X"00000000";
-			end if;
-			if(diode3End = '1') then
-					data_out <= X"00000000";
-			end if;
-			if(diode4End = '1') then
-					data_out <= X"00000000";
-			end if;
-			if(diode5End = '1') then
-					data_out <= X"00000000";
-			end if;
-			if(diode6End = '1') then
-					data_out <= X"00000000";
-			end if;
-			if(diode7End = '1') then
-					data_out <= X"00000000";
-			end if;
-			if(diode8End = '1') then
-					data_out <= X"00000000";
-			end if;
-		end if;
-	end if;
-end process endEnvelope;
-
+-- This process checks if each counter is at the end of the LUT
+-- if it is, then raise a flag so we don't keep stepping through
 endFlag : process(clk, write, data_in)
 begin
 	if (rising_edge(clk)) then
@@ -221,7 +252,7 @@ begin
 			if(counterDiode8 > 4094) then
 					diode8End <= '1';
 			end if;
-end if;
+		end if;
 	end if;
 end process endFlag;
 
