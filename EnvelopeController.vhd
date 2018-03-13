@@ -72,6 +72,18 @@ component Mux8X1 is
 	);
 end component Mux8X1;
 
+component Mux4X1 is
+	generic map (N   => 32)
+	port (
+		sel			:	in std_logic_vector(1 downto 0);
+		data_in0		: 	in std_logic_vector(31 downto 0); 
+		data_in1		: 	in std_logic_vector(31 downto 0); 
+		data_in2		: 	in std_logic_vector(31 downto 0); 
+		data_in3		: 	in std_logic_vector(31 downto 0); 
+		data_out		:	out std_logic_vector(31 downto 0)
+	);
+end component Mux8X1;
+
 signal counterDiode1 	: std_logic_vector(11 downto 0);
 signal counterDiode2 	: std_logic_vector(11 downto 0);
 signal counterDiode3 	: std_logic_vector(11 downto 0);
@@ -91,22 +103,22 @@ signal diode6End			: std_logic;
 signal diode7End			: std_logic;
 signal diode8End			: std_logic;
 
-signal enableHarp			: std_logic;
-signal enablePiano	 	: std_logic;
-signal enableClarinet	: std_logic;
-signal enableViolin		: std_logic;
+signal harpLUT_out			: std_logic_vector(31 downto 0);
+signal pianoLUT_out			: std_logic_vector(31 downto 0);
+signal clarinetLUT_out		: std_logic_vector(31 downto 0);
+signal violinLUT_out		: std_logic_vector(31 downto 0);
 
 begin
 
-lut: component PianoEnvelope_lut  port map (
+PianoLUT: component PianoEnvelope_lut  port map (
 		clk      	=> clk,
-		en       	=> enablePiano,
+		en       	=> write,
 		reset 		=> reset,
-		index			=> counterOut,
-		data_out 	=> data_out
+		index		=> counterOut,
+		data_out 	=> pianoLUT_out
 );
 
-mux: component Mux8X1 port map (
+mux8X1: component Mux8X1 port map (
 	sel		=> data_in(2 downto 0),
 	data_in0	=> counterDiode1,
 	data_in1	=> counterDiode2,
@@ -119,35 +131,14 @@ mux: component Mux8X1 port map (
 	data_out	=> counterOut
 );
 
--- This process takes the instrument selection bits 
--- and enables the LUT of the corresponding instrument
-enableInstrument : process(clk, write, data_in)
-begin
-	if(rising_edge(clk)) then
-		case data_in(5 downto 4) is
-			when "00" => 
-				enableHarp 		<= '1';
-				enablePiano 	<= '0';
-				enableClarinet <= '0';
-				enableViolin 	<= '0';
-			when "01" => 
-				enableHarp 		<= '0';
-				enablePiano 	<= '1';
-				enableClarinet <= '0';
-				enableViolin 	<= '0';
-			when "10" => 
-				enableHarp 		<= '0';
-				enablePiano 	<= '0';
-				enableClarinet <= '1';
-				enableViolin 	<= '0';
-			when "11" => 
-				enableHarp 		<= '0';
-				enablePiano 	<= '0';
-				enableClarinet <= '0';
-				enableViolin 	<= '1';
-		end case;
-	end if;
-end process enableInstrument;
+mux4X1: component Mux4X1 port map (
+	sel		=> data_in(5 downto 4),
+	data_in0	=> harpLUT_out,
+	data_in1	=> pianoLUT_out,
+	data_in2	=> clarinetLUT_out,
+	data_in3	=> violinLUT_out,
+	data_out	=> data_out
+);
 
 
 counterControl : process(clk, write, data_in)
