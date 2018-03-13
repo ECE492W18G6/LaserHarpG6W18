@@ -99,7 +99,7 @@
 #define SYNTH7_BASE FPGA_TO_HPS_LW_ADDR(SYNTH7_ADD)
 #define PHOTODIODE_ADD 0x2000
 #define PHOTODIODE_BASE FPGA_TO_HPS_LW_ADDR(PHOTODIODE_ADD)
-#define ENVELOPE_ADD 0x0001800
+#define ENVELOPE_ADD 0x1800
 #define ENVELOPE_BASE FPGA_TO_HPS_LW_ADDR(ENVELOPE_ADD)
 
 #define SYNTH_OFFSET 20
@@ -118,7 +118,6 @@
 #define ViolinInstrument 3
 
 #define AUDIO_BUFFER_SIZE 128
-#define M_PI 3.14159265358979323846
 /*
 *********************************************************************************************************
 *                                       LOCAL GLOBAL VARIABLES
@@ -295,123 +294,32 @@ static  void  AudioTaskStart (void *p_arg)
     write_audio_cfg_register(0x7, 0x4D);
     write_audio_cfg_register(0x8, 0x20); // bits 5:2 config based on sampling rate. Use 0x18 for 32kHz and 0x20 for 44.1kHz
     write_audio_cfg_register(0x9, 0x01);
-
+	
+	// TODO: these three lines should be determined programatically later
+	float currentFreqs[8] = {24.33, 27.31, 30.65, 32.42, 36.41, 41, 45.88, 48.58};
+	int SYNTH0_BASE[8] = {SYNTH0_BASE, SYNTH1_BASE, SYNTH2_BASE, SYNTH3_BASE, SYNTH4_BASE, SYNTH5_BASE, SYNTH6_BASE, SYNTH7_BASE};
+	int DIODE_MASK[8] = {DIODE_0_MASK, DIODE_1_MASK, DIODE_2_MASK, DIODE_3_MASK, DIODE_4_MASK, DIODE_5_MASK, DIODE_6_MASK, DIODE_7_MASK};
+	
     for(;;) {
         BSP_WatchDog_Reset();				/* Reset the watchdog.   */
-
-        // the number 41 for the hardware synthesizer seems to play 440Hz
-        // therefore to play a specific frequency, like 523 (C#5),you need
-        // to divide by 11
-        alt_write_word(SYNTH0_BASE, 24.33);
-		alt_write_word(SYNTH1_BASE, 27.31);
-		alt_write_word(SYNTH2_BASE, 30.65);
-		alt_write_word(SYNTH3_BASE, 32.42);
-		alt_write_word(SYNTH4_BASE, 36.41);
-		alt_write_word(SYNTH5_BASE, 41);
-		alt_write_word(SYNTH6_BASE, 45.88);
-		alt_write_word(SYNTH7_BASE, 48.58);
 
 		// the hardware synthesizer outputs 32 bits with the top
 		// 12 being the actual sine value, therefore we do an
 		// arithmetic shift of 20 so that we keep its sign and
 		// its the correct amplitude
-		SYNTH_VALUES[0] = (alt_read_word(SYNTH0_BASE) >> SYNTH_OFFSET);
-		SYNTH_VALUES[1] = (alt_read_word(SYNTH1_BASE) >> SYNTH_OFFSET);
-		SYNTH_VALUES[2] = (alt_read_word(SYNTH2_BASE) >> SYNTH_OFFSET);
-		SYNTH_VALUES[3] = (alt_read_word(SYNTH3_BASE) >> SYNTH_OFFSET);
-		SYNTH_VALUES[4] = (alt_read_word(SYNTH4_BASE) >> SYNTH_OFFSET);
-		SYNTH_VALUES[5] = (alt_read_word(SYNTH5_BASE) >> SYNTH_OFFSET);
-		SYNTH_VALUES[6] = (alt_read_word(SYNTH6_BASE) >> SYNTH_OFFSET);
-		SYNTH_VALUES[7] = (alt_read_word(SYNTH7_BASE) >> SYNTH_OFFSET);
 		POLY_BUFFER[0] = 0;
 
 		INT8U photodiodes = (INT8U) alt_read_byte(PHOTODIODE_BASE);
 		
-		int envelopeOptions;
-		int Instrument = 1;
-		INT32S transport_bits;
-		float envelope;
-		if ((photodiodes & DIODE_0_MASK) != 0) {
-			envelopeOptions = EnvelopeOptions(0, 0, Instrument);
-			alt_write_word(ENVELOPE_BASE, envelopeOptions);
-			transport_bits = alt_read_word(ENVELOPE_BASE);
-			envelope = *((float*)&transport_bits);
-        	POLY_BUFFER[0] += (INT32S) (SYNTH_VALUES[0] * envelope);
-        } else {
-			envelopeOptions = EnvelopeOptions(0, 1, Instrument);
-			alt_write_word(ENVELOPE_BASE, envelopeOptions);
+		// TODO: This should be determined by the button options
+		int instrument = 1;
+		
+		int i;
+		for(i = 0; i < 8; i++) {
+			writeFreqToSynthesizer(SYNTH0_BASE[i], currentFreqs[i]);
+			int enable = (photodiodes & DIODE_MASK[i]);
+			POLY_BUFFER[0] += (INT32S) (readFromSythesizer(SYNTH_BASE[i], enable) * readFromEnvelope(ENVELOPE_BASE, i, ~enable, instrument));
 		}
-        if ((photodiodes & DIODE_1_MASK) != 0) {
-			envelopeOptions = EnvelopeOptions(1, 0, Instrument);
-			alt_write_word(ENVELOPE_BASE, envelopeOptions);
-			transport_bits = alt_read_word(ENVELOPE_BASE);
-			envelope = *((float*)&transport_bits);
-			POLY_BUFFER[0] += (INT32S) (SYNTH_VALUES[1] * envelope);
-		} else {
-			envelopeOptions = EnvelopeOptions(1, 1, Instrument);
-			alt_write_word(ENVELOPE_BASE, envelopeOptions);
-		} 
-        if ((photodiodes & DIODE_2_MASK) != 0) {
-			envelopeOptions = EnvelopeOptions(2, 0, Instrument);
-			alt_write_word(ENVELOPE_BASE, envelopeOptions);
-			transport_bits = alt_read_word(ENVELOPE_BASE);
-			envelope = *((float*)&transport_bits);
-			POLY_BUFFER[0] += (INT32S) (SYNTH_VALUES[2] * envelope);
-		} else {
-			envelopeOptions = EnvelopeOptions(2, 1, Instrument);
-			alt_write_word(ENVELOPE_BASE, envelopeOptions);
-		} 
-        if ((photodiodes & DIODE_3_MASK) != 0) {
-			envelopeOptions = EnvelopeOptions(3, 0, Instrument);
-			alt_write_word(ENVELOPE_BASE, envelopeOptions);
-			transport_bits = alt_read_word(ENVELOPE_BASE);
-			envelope = *((float*)&transport_bits);
-			POLY_BUFFER[0] += (INT32S) (SYNTH_VALUES[3] * envelope);
-		} else {
-			envelopeOptions = EnvelopeOptions(3, 1, Instrument);
-			alt_write_word(ENVELOPE_BASE, envelopeOptions);
-		} 
-        if ((photodiodes & DIODE_4_MASK) != 0) {
-			envelopeOptions = EnvelopeOptions(4, 0, Instrument);
-			alt_write_word(ENVELOPE_BASE, envelopeOptions);
-			transport_bits = alt_read_word(ENVELOPE_BASE);
-			envelope = *((float*)&transport_bits);
-			POLY_BUFFER[0] += (INT32S) (SYNTH_VALUES[4] * envelope);
-		} else {
-			envelopeOptions = EnvelopeOptions(4, 1, Instrument);
-			alt_write_word(ENVELOPE_BASE, envelopeOptions);
-		} 
-        if ((photodiodes & DIODE_5_MASK) != 0) {
-			envelopeOptions = EnvelopeOptions(5, 0, Instrument);
-			alt_write_word(ENVELOPE_BASE, envelopeOptions);
-			transport_bits = alt_read_word(ENVELOPE_BASE);
-			envelope = *((float*)&transport_bits);
-			POLY_BUFFER[0] += (INT32S) (SYNTH_VALUES[5] * envelope);
-		} else {
-			envelopeOptions = EnvelopeOptions(5, 1, Instrument);
-			alt_write_word(ENVELOPE_BASE, envelopeOptions);
-		} 
-        if ((photodiodes & DIODE_6_MASK) != 0) {
-			envelopeOptions = EnvelopeOptions(6, 0, Instrument);
-			alt_write_word(ENVELOPE_BASE, envelopeOptions);
-			transport_bits = alt_read_word(ENVELOPE_BASE);
-			envelope = *((float*)&transport_bits);
-			POLY_BUFFER[0] += (INT32S) (SYNTH_VALUES[6] * envelope);
-		} else {
-			envelopeOptions = EnvelopeOptions(6, 1, Instrument);
-			alt_write_word(ENVELOPE_BASE, envelopeOptions);
-		} 
-        if ((photodiodes & DIODE_7_MASK) != 0) {
-			envelopeOptions = EnvelopeOptions(7, 0, Instrument);
-			alt_write_word(ENVELOPE_BASE, envelopeOptions);
-			transport_bits = alt_read_word(ENVELOPE_BASE);
-			envelope = *((float*)&transport_bits);
-			POLY_BUFFER[0] += (INT32S) (SYNTH_VALUES[7] * envelope);
-		} else {
-			envelopeOptions = EnvelopeOptions(7, 1, Instrument);
-			alt_write_word(ENVELOPE_BASE, envelopeOptions);
-		}
-
         write_audio_data(POLY_BUFFER, 1);
 
     }
@@ -444,5 +352,4 @@ static  void  LCDTaskStart (void *p_arg)
         OSTimeDlyHMSM(0,1,0,0);
 	}
 }
-
 
