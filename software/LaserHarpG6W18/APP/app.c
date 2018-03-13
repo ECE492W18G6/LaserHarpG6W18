@@ -313,12 +313,21 @@ static  void  AudioTaskStart (void *p_arg)
 		
 		// TODO: This should be determined by the button options
 		int instrument = 1;
+		int extend[8] = {0, 0, 0, 0, 0, 0, 0};
+		int extendConstant = 16;
 		
 		int i;
 		for(i = 0; i < 8; i++) {
 			writeFreqToSynthesizer(SYNTH0_BASE[i], currentFreqs[i]);
 			int enable = (photodiodes & DIODE_MASK[i]);
-			POLY_BUFFER[0] += (INT32S) (readFromSythesizer(SYNTH_BASE[i], enable) * readFromEnvelope(ENVELOPE_BASE, i, ~enable, instrument));
+			float envelope;
+			
+			// sound envelope is short, this allows us to extend/shorten it as we want
+			if ((extend[i] % extendConstant) == 0) {
+				envelope = readFromEnvelope(ENVELOPE_BASE, i, ~enable, instrument)
+			} if(enable) {extend[i] ++;}
+			
+			POLY_BUFFER[0] += (INT32S) (readFromSythesizer(SYNTH_BASE[i], enable) * envelope);
 		}
         write_audio_data(POLY_BUFFER, 1);
 
