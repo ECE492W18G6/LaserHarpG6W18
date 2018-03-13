@@ -1,3 +1,15 @@
+----------------------------------------------------------------------------------------------------------
+-- Original Authors : Oliver Rarog					                                                    --
+-- Date created: March 7, 2018											                                --
+--														 	                                            --
+-- This component is adapted from the sin_lut component also included in this project, see that         --
+-- component for its original and aditional authors.                                 					--
+--			                                                                                            --
+-- This component takes as an input an index in the range of 0 - 4095 and returns the value at that     --
+-- index inside this piano envelope LUT. In order for the output to not be 0, you must enable           --
+-- en to '1'.                                                                                       	--
+----------------------------------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use IEEE.STD_LOGIC_UNSIGNED.all;
