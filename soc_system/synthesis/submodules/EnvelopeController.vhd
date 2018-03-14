@@ -1,20 +1,39 @@
+--------------------------------------------------------------------------------------------------------------------------------
+-- Original Authors : Oliver Rarog					                                                                          --
+-- Date created: March 11, 2018 													                                          --
+-- Date edited: March 13, 2018											                                                      --
+-- Additional Authors : Celeste Chiasson					                                                                  --
+--															                                                                  --
+-- This component is a controller for a sound envelope lookup tables. It can keep track of the envelope of up to 8            --
+-- inputs. For the use of the laser harp, this means that it can keep track of where each of the 8 diodes is in their         --
+-- envelope. In order to control the envelope controller, refer to the register map below.                                    --
+--                                                                                                                            --
+-- -------------------------------------------------------------------------------------------------------------------------- --
+-- | Bits   |                                              Results of the options                                           | --
+-- -------------------------------------------------------------------------------------------------------------------------- --
+-- | 0 - 2  | The number of the diode you want to get the envelope value for. i.e: 000 => diode 0, 010 => diode 2 etc.      | --					
+-- |   3    | If this is '1', then the currently selected diode will reset its position in the envelope LUT to 0            | --
+-- | 4 - 5  | Selects which instruments LUT you want to step through, 00 => Harp, 01 => Piano, 10 => Clarinet, 11 => Violin | -- 
+--  ------------------------------------------------------------------------------------------------------------------------- --
+-- This component works by keeping a counter signal for each diode, when the user writes their options, the counters are      --
+-- muxed together with bits 0 - 2, to select which counter should go through to the LUT. The counter is used as an index      --
+-- for its position in the envelope LUT. The output of the LUT is then connected to the data_out signal so that the envelope  --
+-- value can be read. Each diode can be tracked individually and when the end of the LUT is reached, the output is 0 until    --
+-- that diode is reset.                                                                                                       --
+--------------------------------------------------------------------------------------------------------------------------------
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
-USE ieee.std_logic_arith.all;
-USE ieee.math_real.all;
-use ieee.VITAL_Primitives.all;
-use IEEE.STD_LOGIC_SIGNED.all; 
 use IEEE.STD_LOGIC_UNSIGNED.all;
 
 entity EnvelopeController is 
-
 	port(
 	-- system signals
 	clk 			: in std_logic:= '0'; 
-	reset 			: in std_logic:= '0'; 
+	reset 		: in std_logic:= '0'; 
 	read			: in std_logic:= '0'; 
 	write			: in std_logic:= '0';
-	data_in			: in std_logic_vector(31 downto 0);
+	data_in		: in std_logic_vector(31 downto 0);
 	data_out	 	: out std_logic_vector(31 downto 0)
 	);
 	
@@ -34,7 +53,9 @@ component PianoEnvelope_lut is
 end component PianoEnvelope_lut;
 
 component Mux8X1 is
+	generic (N : Integer := 12);
 	port (
+		clk 			: in std_logic:= '0'; 
 		sel			:	in std_logic_vector(2 downto 0);
 		data_in0		: 	in std_logic_vector(11 downto 0); 
 		data_in1		: 	in std_logic_vector(11 downto 0); 
@@ -48,41 +69,46 @@ component Mux8X1 is
 	);
 end component Mux8X1;
 
-signal counterDiode1 	: std_logic_vector(11 downto 0);
-signal counterDiode2 	: std_logic_vector(11 downto 0);
-signal counterDiode3 	: std_logic_vector(11 downto 0);
-signal counterDiode4 	: std_logic_vector(11 downto 0);
-signal counterDiode5 	: std_logic_vector(11 downto 0);
-signal counterDiode6 	: std_logic_vector(11 downto 0);
-signal counterDiode7 	: std_logic_vector(11 downto 0);
-signal counterDiode8		: std_logic_vector(11 downto 0);
-signal counterOut			: std_logic_vector(11 downto 0);
+component Mux4X1 is
+	generic (N : Integer := 32);
+	port (
+		clk 			: in std_logic:= '0'; 
+		sel			:	in std_logic_vector(1 downto 0);
+		data_in0		: 	in std_logic_vector(31 downto 0); 
+		data_in1		: 	in std_logic_vector(31 downto 0); 
+		data_in2		: 	in std_logic_vector(31 downto 0); 
+		data_in3		: 	in std_logic_vector(31 downto 0); 
+		data_out		:	out std_logic_vector(31 downto 0)
+	);
+end component Mux4X1;
 
-signal diode1End			: std_logic;
-signal diode2End			: std_logic;
-signal diode3End			: std_logic;
-signal diode4End			: std_logic;
-signal diode5End			: std_logic;
-signal diode6End			: std_logic;
-signal diode7End			: std_logic;
-signal diode8End			: std_logic;
+signal counterDiode1 	: std_logic_vector(11 downto 0) := X"000";
+signal counterDiode2 	: std_logic_vector(11 downto 0) := X"000";
+signal counterDiode3 	: std_logic_vector(11 downto 0) := X"000";
+signal counterDiode4 	: std_logic_vector(11 downto 0) := X"000";
+signal counterDiode5 	: std_logic_vector(11 downto 0) := X"000";
+signal counterDiode6 	: std_logic_vector(11 downto 0) := X"000";
+signal counterDiode7 	: std_logic_vector(11 downto 0) := X"000";
+signal counterDiode8		: std_logic_vector(11 downto 0) := X"000";
+signal counterOut			: std_logic_vector(11 downto 0) := X"000";
 
-signal enableHarp			: std_logic;
-signal enablePiano	 	: std_logic;
-signal enableClarinet	: std_logic;
-signal enableViolin		: std_logic;
+signal harpLUT_out		: std_logic_vector(31 downto 0) := X"00000000";
+signal pianoLUT_out		: std_logic_vector(31 downto 0) := X"00000000";
+signal clarinetLUT_out	: std_logic_vector(31 downto 0) := X"00000000";
+signal violinLUT_out		: std_logic_vector(31 downto 0) := X"00000000";
 
 begin
 
-lut: component PianoEnvelope_lut  port map (
+PianoLUT: component PianoEnvelope_lut  port map (
 		clk      	=> clk,
-		en       	=> enablePiano,
+		en       	=> write,
 		reset 		=> reset,
 		index			=> counterOut,
-		data_out 	=> data_out
+		data_out 	=> pianoLUT_out
 );
 
-mux: component Mux8X1 port map (
+mux8: component Mux8X1 port map (
+	clk		=> clk,
 	sel		=> data_in(2 downto 0),
 	data_in0	=> counterDiode1,
 	data_in1	=> counterDiode2,
@@ -95,134 +121,88 @@ mux: component Mux8X1 port map (
 	data_out	=> counterOut
 );
 
-enableInstrument : process(clk, write, data_in)
-begin
-	if(rising_edge(clk)) then
-		case data_in(5 downto 4) is
-			when "00" => 
-				enableHarp 		<= '1';
-				enablePiano 	<= '0';
-				enableClarinet <= '0';
-				enableViolin 	<= '0';
-			when "01" => 
-				enableHarp 		<= '0';
-				enablePiano 	<= '1';
-				enableClarinet <= '0';
-				enableViolin 	<= '0';
-			when "10" => 
-				enableHarp 		<= '0';
-				enablePiano 	<= '0';
-				enableClarinet <= '1';
-				enableViolin 	<= '0';
-			when "11" => 
-				enableHarp 		<= '0';
-				enablePiano 	<= '0';
-				enableClarinet <= '0';
-				enableViolin 	<= '1';
-		end case;
-	end if;
-end process enableInstrument;
+mux4: component Mux4X1 port map (
+	clk		=> clk,
+	sel		=> data_in(5 downto 4),
+	data_in0	=> harpLUT_out,
+	data_in1	=> pianoLUT_out,
+	data_in2	=> clarinetLUT_out,
+	data_in3	=> violinLUT_out,
+	data_out	=> data_out
+);
 
-resetCounter : process(clk, write, data_in)
+
+counterControl : process(clk, write, data_in)
 begin
 	if (rising_edge(clk)) then
 		if(write = '1') then
 			case data_in(3 downto 0) is
-				when "1000" => counterDiode1 <= x"000"; diode1End <= '0';
-				when "1001" => counterDiode2 <= x"000"; diode2End <= '0';
-				when "1010" => counterDiode3 <= x"000"; diode3End <= '0';
-				when "1011" => counterDiode4 <= x"000"; diode4End <= '0';
-				when "1100" => counterDiode5 <= x"000"; diode5End <= '0';
-				when "1101" => counterDiode6 <= x"000"; diode6End <= '0';
-				when "1110" => counterDiode7 <= x"000"; diode7End <= '0';
-				when "1111" => counterDiode8 <= x"000"; diode8End <= '0';
-				when others => 
-			end case;
-		end if;
-	end if;
-end process resetCounter;
-
-selectDiode : process(clk, write, data_in)
-begin
-	if (rising_edge(clk)) then
-		if(write = '1') then
-			case data_in(2 downto 0) is
-				when "000" => counterDiode1 <= counterDiode1 + 1;
-				when "001" => counterDiode2 <= counterDiode2 + 1;
-				when "010" => counterDiode3 <= counterDiode3 + 1;
-				when "011" => counterDiode4 <= counterDiode4 + 1;
-				when "100" => counterDiode5 <= counterDiode5 + 1;
-				when "101" => counterDiode6 <= counterDiode6 + 1;
-				when "110" => counterDiode7 <= counterDiode7 + 1;
-				when "111" => counterDiode8 <= counterDiode8 + 1;
+				-- the first 8 cases are when the reset is not enabled
+				-- therefore, we increment the counter, unless its at the
+				-- end in which case we stay at the end of the LUT
+				when "0000" => 
+					if(counterDiode1 = 4095) then
+						counterDiode1 <= X"FFF";
+					else
+						counterDiode1 <= counterDiode1 + 1;
+					end if;
+				when "0001" => 
+					if(counterDiode2 = 4095) then
+						counterDiode2 <= X"FFF";
+					else
+						counterDiode2 <= counterDiode2 + 1;
+					end if;
+				when "0010" => 
+					if(counterDiode3 = 4095) then
+						counterDiode3 <= X"FFF";
+					else
+						counterDiode3 <= counterDiode3 + 1;
+					end if;
+				when "0011" =>
+					if(counterDiode4 = 4095) then
+						counterDiode4 <= X"FFF";
+					else
+						counterDiode4 <= counterDiode4 + 1;
+					end if;
+				when "0100" => 
+					if(counterDiode5 = 4095) then
+						counterDiode5 <= X"FFF";
+					else
+						counterDiode5 <= counterDiode5 + 1;
+					end if;
+				when "0101" => 
+					if(counterDiode6 = 4095) then
+						counterDiode6 <= X"FFF";
+					else
+						counterDiode6 <= counterDiode6 + 1;
+					end if;
+				when "0110" => 
+					if(counterDiode7 = 4095) then
+						counterDiode7 <= X"FFF";
+					else
+						counterDiode7 <= counterDiode7 + 1;
+					end if;
+				when "0111" => 
+					if(counterDiode8 = 4095) then
+						counterDiode8 <= X"FFF";
+					else
+						counterDiode8 <= counterDiode8 + 1;
+					end if;
+				-- These next 8 cases are when the reset is enabled
+				-- therefore we reset the counter and flags for the diode
+				when "1000" => counterDiode1 <= x"000";
+				when "1001" => counterDiode2 <= x"000";
+				when "1010" => counterDiode3 <= x"000";
+				when "1011" => counterDiode4 <= x"000";
+				when "1100" => counterDiode5 <= x"000";
+				when "1101" => counterDiode6 <= x"000";
+				when "1110" => counterDiode7 <= x"000";
+				when "1111" => counterDiode8 <= x"000";
 				when others => 
  			end case;
 		end if;
 	end if;
-end process selectDiode;
+end process counterControl;
 
-endEnvelope : process(clk, write, data_in)
-begin
-	if (rising_edge(clk)) then
-		if(write = '1') then
-			if(diode1End = '1') then
-				data_out <= X"00000000";
-			end if;
-			if(diode2End = '1') then
-					data_out <= X"00000000";
-			end if;
-			if(diode3End = '1') then
-					data_out <= X"00000000";
-			end if;
-			if(diode4End = '1') then
-					data_out <= X"00000000";
-			end if;
-			if(diode5End = '1') then
-					data_out <= X"00000000";
-			end if;
-			if(diode6End = '1') then
-					data_out <= X"00000000";
-			end if;
-			if(diode7End = '1') then
-					data_out <= X"00000000";
-			end if;
-			if(diode8End = '1') then
-					data_out <= X"00000000";
-			end if;
-		end if;
-	end if;
-end process endEnvelope;
-
-endFlag : process(clk, write, data_in)
-begin
-	if (rising_edge(clk)) then
-		if(write = '1') then
-			if(counterDiode1 > 4094) then
-				diode1End <= '1';
-			end if;
-			if(counterDiode2 > 4094) then
-					diode2End <= '1';
-			end if;
-			if(counterDiode3 > 4094) then
-					diode3End <= '1';
-			end if;
-			if(counterDiode4 > 4094) then
-					diode4End <= '1';
-			end if;
-			if(counterDiode5 > 4094) then
-					diode5End <= '1';
-			end if;
-			if(counterDiode6 > 4094) then
-					diode6End <= '1';
-			end if;
-			if(counterDiode7 > 4094) then
-					diode7End <= '1';
-			end if;
-			if(counterDiode8 > 4094) then
-					diode8End <= '1';
-			end if;
-end if;
-	end if;
-end process endFlag;
 
 end rtl;

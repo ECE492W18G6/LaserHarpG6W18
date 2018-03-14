@@ -14,28 +14,31 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.std_logic_arith.all;
 
-entity Mux8X1 is
+entity Mux4X1 is
 	generic (N : Integer := 32);
 	port(
-		sel			:	in std_logic_vector(1 downto 0);
+		clk 			: in std_logic:= '0'; 	
+		sel		:	in std_logic_vector(1 downto 0);
 		data_in0	: 	in std_logic_vector(N-1 downto 0); 
 		data_in1	: 	in std_logic_vector(N-1 downto 0); 
 		data_in2	: 	in std_logic_vector(N-1 downto 0); 
 		data_in3	: 	in std_logic_vector(N-1 downto 0); 
 		data_out	:	out std_logic_vector(N-1 downto 0)
 	);
-END Mux8X1;
+END Mux4X1;
 
-architecture behaviour of Mux8X1 is
+architecture behaviour of Mux4X1 is
 begin
-process (sel)
+process (sel, clk)
 begin
+if(rising_edge(clk)) then
   case sel is
 	when "00" => data_out <= data_in0;
 	when "01" => data_out <= data_in1;
 	when "10" => data_out <= data_in2;
 	when "11" => data_out <= data_in3;
-	when others => data_out <= x"000";
+	when others =>
   end case;
+end if;
 end process;
 end behaviour;

@@ -1,13 +1,29 @@
-16:16:57 **** Incremental Build of configuration Debug for project LaserHarpG6W18 ****
+13:51:03 **** Incremental Build of configuration Debug for project LaserHarpG6W18 ****
 make all 
-'Building file: ../HWLIBS/options.c'
+'Building file: ../APP/app.c'
 'Invoking: ARM C Compiler 5'
-armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="HWLIBS" -c -o "HWLIBS/options.o" "../HWLIBS/options.c"
-'Finished building: ../HWLIBS/options.c'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="APP" -c -o "APP/app.o" "../APP/app.c"
+"../APP/app.c", line 323: Warning:  #223-D: function "writeFreqToSynthesizer" declared implicitly
+  			writeFreqToSynthesizer(SYNTH0_BASE, 24.33);
+  			^
+"../APP/app.c", line 329: Warning:  #223-D: function "readFromEnvelope" declared implicitly
+  				envelope = readFromEnvelope(ENVELOPE_BASE, i, (enable <= 0), instrument);
+  				           ^
+"../APP/app.c", line 337: Warning:  #223-D: function "readFromSythesizer" declared implicitly
+  			POLY_BUFFER[0] += (INT32S) (readFromSythesizer(SYNTH0_BASE, enable) * envelope);
+  			                            ^
+"../APP/app.c", line 299: Warning:  #177-D: variable "currentFreqs" was declared but never referenced
+  	float currentFreqs[8] = {24.33, 27.31, 30.65, 32.42, 36.41, 41, 45.88, 48.58};
+  	      ^
+"../APP/app.c", line 300: Warning:  #177-D: variable "SYNTH_BASE" was declared but never referenced
+  	char *SYNTH_BASE[8] = {SYNTH0_BASE, SYNTH1_BASE, SYNTH2_BASE, SYNTH3_BASE, SYNTH4_BASE, SYNTH5_BASE, SYNTH6_BASE, SYNTH7_BASE};
+  	      ^
+../APP/app.c: 5 warnings, 0 errors
+'Finished building: ../APP/app.c'
 ' '
 'Building target: LaserHarpG6W18.axf'
 'Invoking: ARM Linker 5'
-armlink --cpu=Cortex-A9 --entry=Start --scatter=""C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/BSP/ARM_COMPILER/scatter.scat"" --info=sizes -o "LaserHarpG6W18.axf"  ./uCOS-II/Source/os_core.o ./uCOS-II/Source/os_dbg_r.o ./uCOS-II/Source/os_flag.o ./uCOS-II/Source/os_mbox.o ./uCOS-II/Source/os_mem.o ./uCOS-II/Source/os_mutex.o ./uCOS-II/Source/os_q.o ./uCOS-II/Source/os_sem.o ./uCOS-II/Source/os_task.o ./uCOS-II/Source/os_time.o ./uCOS-II/Source/os_tmr.o  ./uCOS-II/Ports/os_cpu_a_vfp-d32.o ./uCOS-II/Ports/os_cpu_c.o  ./uC-LIBS/lib_ascii.o ./uC-LIBS/lib_math.o ./uC-LIBS/lib_mem.o ./uC-LIBS/lib_str.o  ./uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2.o ./uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2_a.o  ./uC-CPU/ARM-Cortex-A/cpu_a.o  ./uC-CPU/cpu_core.o  ./HWLIBS/alt_16550_uart.o ./HWLIBS/alt_bridge_manager.o ./HWLIBS/alt_clock_manager.o ./HWLIBS/alt_fpga_manager.o ./HWLIBS/audio.o ./HWLIBS/audio_cfg.o ./HWLIBS/lcd.o ./HWLIBS/options.o  ./BSP/OS/bsp_os.o  ./BSP/ARM_Compiler/armv7a_tthelp.o ./BSP/ARM_Compiler/bsp_cache.o ./BSP/ARM_Compiler/startup.o  ./BSP/bsp.o ./BSP/bsp_int.o ./BSP/cpu_bsp.o  ./APP/app.o   
+armlink --cpu=Cortex-A9 --entry=Start --scatter=""C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/BSP/ARM_COMPILER/scatter.scat"" --info=sizes -o "LaserHarpG6W18.axf"  ./uCOS-II/Source/os_core.o ./uCOS-II/Source/os_dbg_r.o ./uCOS-II/Source/os_flag.o ./uCOS-II/Source/os_mbox.o ./uCOS-II/Source/os_mem.o ./uCOS-II/Source/os_mutex.o ./uCOS-II/Source/os_q.o ./uCOS-II/Source/os_sem.o ./uCOS-II/Source/os_task.o ./uCOS-II/Source/os_time.o ./uCOS-II/Source/os_tmr.o  ./uCOS-II/Ports/os_cpu_a_vfp-d32.o ./uCOS-II/Ports/os_cpu_c.o  ./uC-LIBS/lib_ascii.o ./uC-LIBS/lib_math.o ./uC-LIBS/lib_mem.o ./uC-LIBS/lib_str.o  ./uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2.o ./uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2_a.o  ./uC-CPU/ARM-Cortex-A/cpu_a.o  ./uC-CPU/cpu_core.o  ./HWLIBS/alt_16550_uart.o ./HWLIBS/alt_bridge_manager.o ./HWLIBS/alt_clock_manager.o ./HWLIBS/alt_fpga_manager.o ./HWLIBS/audio.o ./HWLIBS/audio_cfg.o ./HWLIBS/lcd.o ./HWLIBS/options.o ./HWLIBS/synthesizer.o  ./BSP/OS/bsp_os.o  ./BSP/ARM_Compiler/armv7a_tthelp.o ./BSP/ARM_Compiler/bsp_cache.o ./BSP/ARM_Compiler/startup.o  ./BSP/bsp.o ./BSP/bsp_int.o ./BSP/cpu_bsp.o  ./APP/app.o   
 
 ==============================================================================
 
@@ -16,7 +32,7 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1772         56          0          0      49216       4600   app.o
+       864         76         96          0      49216       4592   app.o
         96          0          0          0          0        560   armv7a_tthelp.o
         92          4          0          0          0       1143   audio.o
         32          0          0          0          0        579   audio_cfg.o
@@ -45,9 +61,10 @@ Image component sizes
       3992         48          0          0          0       9016   os_task.o
        796         28          0          0          0       1970   os_time.o
        496         76          0          0          0        776   startup.o
+       120          0          0          0          0       1525   synthesizer.o
 
     ----------------------------------------------------------------------
-     35416       1340        652        148   50442012     163347   Object Totals
+     34628       1360        748        148   50442012     164864   Object Totals
          0          0         16          0   33599488          0   (incl. Generated)
          8          8          2          5          0          0   (incl. Padding)
 
@@ -107,6 +124,7 @@ Image component sizes
          8          4          0          0          0         68   rt_errno_addr_intlibspace.o
          8          4          0          0          0         68   rt_heap_descriptor_intlibspace.o
         80          0          0          0          0        172   rt_neon_memclr_w.o
+       124          0          0          0          0        192   rt_noneon_memcpy_w_ca9.o
          2          0          0          0          0          0   rtexit.o
         10          0          0          0          0          0   rtexit2.o
         44          0          0          0          0         68   rtudiv10.o
@@ -121,18 +139,18 @@ Image component sizes
         10          0          0          0          0        116   fpinit.o
 
     ----------------------------------------------------------------------
-      4748        296         12         16        348       4192   Library Totals
+      4872        296         12         16        348       4384   Library Totals
         16          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-      4722        296         12         16        348       4076   c_2.l
+      4846        296         12         16        348       4268   c_2.l
         10          0          0          0          0        116   fz_2v.l
 
     ----------------------------------------------------------------------
-      4748        296         12         16        348       4192   Library Totals
+      4872        296         12         16        348       4384   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -141,20 +159,20 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     40164       1636        664        164   50442360     160455   Grand Totals
-     40164       1636        664        164   50442360     160455   ELF Image Totals
-     40164       1636        664        164          0          0   ROM Totals
+     39500       1656        760        164   50442360     161816   Grand Totals
+     39500       1656        760        164   50442360     161816   ELF Image Totals
+     39500       1656        760        164          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                40828 (  39.87kB)
+    Total RO  Size (Code + RO Data)                40260 (  39.32kB)
     Total RW  Size (RW Data + ZI Data)          50442524 (49260.28kB)
-    Total ROM Size (Code + RO Data + RW Data)      40992 (  40.03kB)
+    Total ROM Size (Code + RO Data + RW Data)      40424 (  39.48kB)
 
 ==============================================================================
 
 'Finished building target: LaserHarpG6W18.axf'
 ' '
 
-16:16:59 Build Finished (took 1s.638ms)
+13:51:04 Build Finished (took 1s.551ms)
 

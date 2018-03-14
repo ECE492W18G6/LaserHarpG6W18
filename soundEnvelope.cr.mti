@@ -1,0 +1,132 @@
+C:/Users/rarog/ECE492/LaserHarpG6W18/PianoEnvelope_lut.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/rarog/ECE492/LaserHarpG6W18/PianoEnvelope_lut.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity PianoEnvelope_lut
+-- Compiling architecture rtl of PianoEnvelope_lut
+
+} {} {}} C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd {0 {vcom -work work -2002 -explicit -stats=none C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package MATH_REAL
+-- Loading package VITAL_Timing
+-- Loading package VITAL_Primitives
+-- Loading package STD_LOGIC_SIGNED
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity EnvelopeController
+-- Compiling architecture rtl of EnvelopeController
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(148): Operator "=" is ambiguous.
+   Feasible operators are:
+      (explicit) STD_LOGIC_SIGNED."="[STD_LOGIC_VECTOR, INTEGER return BOOLEAN] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_signed.vhd(181)
+      (explicit) STD_LOGIC_UNSIGNED."="[STD_LOGIC_VECTOR, INTEGER return BOOLEAN] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_unsigned.vhd(171)
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(148): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(151): Operator "+" is ambiguous.
+   Feasible operators are:
+      (explicit) STD_LOGIC_SIGNED."+"[STD_LOGIC_VECTOR, INTEGER return STD_LOGIC_VECTOR] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_signed.vhd(42)
+      (explicit) STD_LOGIC_UNSIGNED."+"[STD_LOGIC_VECTOR, INTEGER return STD_LOGIC_VECTOR] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_unsigned.vhd(43)
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(151): Type error resolving infix expression "+" as type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(154): Operator "=" is ambiguous.
+   Feasible operators are:
+      (explicit) STD_LOGIC_SIGNED."="[STD_LOGIC_VECTOR, INTEGER return BOOLEAN] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_signed.vhd(181)
+      (explicit) STD_LOGIC_UNSIGNED."="[STD_LOGIC_VECTOR, INTEGER return BOOLEAN] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_unsigned.vhd(171)
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(154): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(157): Operator "+" is ambiguous.
+   Feasible operators are:
+      (explicit) STD_LOGIC_SIGNED."+"[STD_LOGIC_VECTOR, INTEGER return STD_LOGIC_VECTOR] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_signed.vhd(42)
+      (explicit) STD_LOGIC_UNSIGNED."+"[STD_LOGIC_VECTOR, INTEGER return STD_LOGIC_VECTOR] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_unsigned.vhd(43)
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(157): Type error resolving infix expression "+" as type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(160): Operator "=" is ambiguous.
+   Feasible operators are:
+      (explicit) STD_LOGIC_SIGNED."="[STD_LOGIC_VECTOR, INTEGER return BOOLEAN] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_signed.vhd(181)
+      (explicit) STD_LOGIC_UNSIGNED."="[STD_LOGIC_VECTOR, INTEGER return BOOLEAN] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_unsigned.vhd(171)
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(160): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(163): Operator "+" is ambiguous.
+   Feasible operators are:
+      (explicit) STD_LOGIC_SIGNED."+"[STD_LOGIC_VECTOR, INTEGER return STD_LOGIC_VECTOR] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_signed.vhd(42)
+      (explicit) STD_LOGIC_UNSIGNED."+"[STD_LOGIC_VECTOR, INTEGER return STD_LOGIC_VECTOR] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_unsigned.vhd(43)
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(163): Type error resolving infix expression "+" as type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(166): Operator "=" is ambiguous.
+   Feasible operators are:
+      (explicit) STD_LOGIC_SIGNED."="[STD_LOGIC_VECTOR, INTEGER return BOOLEAN] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_signed.vhd(181)
+      (explicit) STD_LOGIC_UNSIGNED."="[STD_LOGIC_VECTOR, INTEGER return BOOLEAN] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_unsigned.vhd(171)
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(166): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(169): Operator "+" is ambiguous.
+   Feasible operators are:
+      (explicit) STD_LOGIC_SIGNED."+"[STD_LOGIC_VECTOR, INTEGER return STD_LOGIC_VECTOR] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_signed.vhd(42)
+      (explicit) STD_LOGIC_UNSIGNED."+"[STD_LOGIC_VECTOR, INTEGER return STD_LOGIC_VECTOR] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_unsigned.vhd(43)
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(169): Type error resolving infix expression "+" as type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(172): Operator "=" is ambiguous.
+   Feasible operators are:
+      (explicit) STD_LOGIC_SIGNED."="[STD_LOGIC_VECTOR, INTEGER return BOOLEAN] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_signed.vhd(181)
+      (explicit) STD_LOGIC_UNSIGNED."="[STD_LOGIC_VECTOR, INTEGER return BOOLEAN] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_unsigned.vhd(171)
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(172): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(175): Operator "+" is ambiguous.
+   Feasible operators are:
+      (explicit) STD_LOGIC_SIGNED."+"[STD_LOGIC_VECTOR, INTEGER return STD_LOGIC_VECTOR] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_signed.vhd(42)
+      (explicit) STD_LOGIC_UNSIGNED."+"[STD_LOGIC_VECTOR, INTEGER return STD_LOGIC_VECTOR] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_unsigned.vhd(43)
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(175): Type error resolving infix expression "+" as type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(178): Operator "=" is ambiguous.
+   Feasible operators are:
+      (explicit) STD_LOGIC_SIGNED."="[STD_LOGIC_VECTOR, INTEGER return BOOLEAN] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_signed.vhd(181)
+      (explicit) STD_LOGIC_UNSIGNED."="[STD_LOGIC_VECTOR, INTEGER return BOOLEAN] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_unsigned.vhd(171)
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(178): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(181): Operator "+" is ambiguous.
+   Feasible operators are:
+      (explicit) STD_LOGIC_SIGNED."+"[STD_LOGIC_VECTOR, INTEGER return STD_LOGIC_VECTOR] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_signed.vhd(42)
+      (explicit) STD_LOGIC_UNSIGNED."+"[STD_LOGIC_VECTOR, INTEGER return STD_LOGIC_VECTOR] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_unsigned.vhd(43)
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(181): Type error resolving infix expression "+" as type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(184): Operator "=" is ambiguous.
+   Feasible operators are:
+      (explicit) STD_LOGIC_SIGNED."="[STD_LOGIC_VECTOR, INTEGER return BOOLEAN] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_signed.vhd(181)
+      (explicit) STD_LOGIC_UNSIGNED."="[STD_LOGIC_VECTOR, INTEGER return BOOLEAN] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_unsigned.vhd(171)
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(184): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(187): Operator "+" is ambiguous.
+   Feasible operators are:
+      (explicit) STD_LOGIC_SIGNED."+"[STD_LOGIC_VECTOR, INTEGER return STD_LOGIC_VECTOR] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_signed.vhd(42)
+      (explicit) STD_LOGIC_UNSIGNED."+"[STD_LOGIC_VECTOR, INTEGER return STD_LOGIC_VECTOR] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_unsigned.vhd(43)
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(187): Type error resolving infix expression "+" as type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(190): Operator "=" is ambiguous.
+   Feasible operators are:
+      (explicit) STD_LOGIC_SIGNED."="[STD_LOGIC_VECTOR, INTEGER return BOOLEAN] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_signed.vhd(181)
+      (explicit) STD_LOGIC_UNSIGNED."="[STD_LOGIC_VECTOR, INTEGER return BOOLEAN] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_unsigned.vhd(171)
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(190): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(193): Operator "+" is ambiguous.
+   Feasible operators are:
+      (explicit) STD_LOGIC_SIGNED."+"[STD_LOGIC_VECTOR, INTEGER return STD_LOGIC_VECTOR] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_signed.vhd(42)
+      (explicit) STD_LOGIC_UNSIGNED."+"[STD_LOGIC_VECTOR, INTEGER return STD_LOGIC_VECTOR] at $MODEL_TECH/../vhdl_src/synopsys/mti_std_logic_unsigned.vhd(43)
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(193): Type error resolving infix expression "+" as type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+** Error: C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd(212): VHDL Compiler exiting
+
+} {14.0 15.0 18.0 20.0 23.0 25.0 28.0 30.0 33.0 35.0 38.0 40.0 43.0 45.0 48.0 50.0 53.0 55.0 58.0 60.0 63.0 65.0 68.0 70.0 73.0 75.0 78.0 80.0 83.0 85.0 88.0 90.0 93.0 95.0} {}} C:/Users/rarog/ECE492/LaserHarpG6W18/Mux8X1.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/rarog/ECE492/LaserHarpG6W18/Mux8X1.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Compiling entity Mux8X1
+-- Compiling architecture behaviour of Mux8X1
+
+} {} {}} C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController_tb.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity EnvelopeController_tb
+-- Compiling architecture behave of EnvelopeController_tb
+
+} {} {}} C:/Users/rarog/ECE492/LaserHarpG6W18/Mux4X1.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/rarog/ECE492/LaserHarpG6W18/Mux4X1.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Compiling entity Mux4X1
+-- Compiling architecture behaviour of Mux4X1
+
+} {} {}}

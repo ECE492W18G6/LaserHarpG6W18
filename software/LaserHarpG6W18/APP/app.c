@@ -294,12 +294,17 @@ static  void  AudioTaskStart (void *p_arg)
     write_audio_cfg_register(0x7, 0x4D);
     write_audio_cfg_register(0x8, 0x20); // bits 5:2 config based on sampling rate. Use 0x18 for 32kHz and 0x20 for 44.1kHz
     write_audio_cfg_register(0x9, 0x01);
-	
+
 	// TODO: these three lines should be determined programatically later
 	float currentFreqs[8] = {24.33, 27.31, 30.65, 32.42, 36.41, 41, 45.88, 48.58};
-	int SYNTH0_BASE[8] = {SYNTH0_BASE, SYNTH1_BASE, SYNTH2_BASE, SYNTH3_BASE, SYNTH4_BASE, SYNTH5_BASE, SYNTH6_BASE, SYNTH7_BASE};
+	char *SYNTH_BASE[8] = {SYNTH0_BASE, SYNTH1_BASE, SYNTH2_BASE, SYNTH3_BASE, SYNTH4_BASE, SYNTH5_BASE, SYNTH6_BASE, SYNTH7_BASE};
 	int DIODE_MASK[8] = {DIODE_0_MASK, DIODE_1_MASK, DIODE_2_MASK, DIODE_3_MASK, DIODE_4_MASK, DIODE_5_MASK, DIODE_6_MASK, DIODE_7_MASK};
-	
+
+	// TODO: This should be determined by the button options
+	int instrument = 1;
+	int extend[8] = {0, 0, 0, 0, 0, 0, 0};
+	int extendConstant = 16;
+
     for(;;) {
         BSP_WatchDog_Reset();				/* Reset the watchdog.   */
 
@@ -310,24 +315,26 @@ static  void  AudioTaskStart (void *p_arg)
 		POLY_BUFFER[0] = 0;
 
 		INT8U photodiodes = (INT8U) alt_read_byte(PHOTODIODE_BASE);
-		
-		// TODO: This should be determined by the button options
-		int instrument = 1;
-		int extend[8] = {0, 0, 0, 0, 0, 0, 0};
-		int extendConstant = 16;
-		
+
+
+
 		int i;
 		for(i = 0; i < 8; i++) {
-			writeFreqToSynthesizer(SYNTH0_BASE[i], currentFreqs[i]);
+			writeFreqToSynthesizer(SYNTH0_BASE, 24.33);
 			int enable = (photodiodes & DIODE_MASK[i]);
 			float envelope;
-			
+
 			// sound envelope is short, this allows us to extend/shorten it as we want
 			if ((extend[i] % extendConstant) == 0) {
-				envelope = readFromEnvelope(ENVELOPE_BASE, i, ~enable, instrument)
-			} if(enable) {extend[i] ++;}
-			
-			POLY_BUFFER[0] += (INT32S) (readFromSythesizer(SYNTH_BASE[i], enable) * envelope);
+				envelope = readFromEnvelope(ENVELOPE_BASE, i, (enable <= 0), instrument);
+			}
+			if(enable) {
+				extend[i] ++;
+			} else {
+				extend[i] = 0;
+			}
+
+			POLY_BUFFER[0] += (INT32S) (readFromSythesizer(SYNTH0_BASE, enable) * envelope);
 		}
         write_audio_data(POLY_BUFFER, 1);
 
@@ -361,4 +368,3 @@ static  void  LCDTaskStart (void *p_arg)
         OSTimeDlyHMSM(0,1,0,0);
 	}
 }
-

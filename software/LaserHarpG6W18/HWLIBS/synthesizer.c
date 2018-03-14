@@ -20,22 +20,21 @@
 #include <math.h>
 
 
-void writeFreqToSynthesizer(int diode, float frequnecy) {
-	alt_write_word(diode, frequency);
+void writeFreqToSynthesizer(void *diode, float frequnecy) {
+	alt_write_word(diode, frequnecy);
 }
 
-INT32S readFromSythesizer(int diode, int enabled) {
+INT32S readFromSythesizer(void *diode, int enabled) {
 	if(enabled) {
 		return (alt_read_word(diode) >> SYNTH_OFFSET);
 	}
 	return 0;
 }
 
-float readFromEnvelope(int envelopeLocation, int diode, int reset, int instrument) {
+float readFromEnvelope(void *envelopeLocation, int diode, int reset, int instrument) {
 	int envelopeOptions = EnvelopeOptions(diode, reset, instrument);
 	alt_write_word(envelopeLocation, envelopeOptions);
 	INT32S transport_bits = alt_read_word(envelopeLocation);
-	envelope = *((float*)&transport_bits);
+	float envelope = *((float*)&transport_bits);
 	return envelope;
 }
-

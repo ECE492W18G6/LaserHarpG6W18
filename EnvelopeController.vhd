@@ -24,20 +24,16 @@
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
-USE ieee.std_logic_arith.all;
-USE ieee.math_real.all;
-use ieee.VITAL_Primitives.all;
-use IEEE.STD_LOGIC_SIGNED.all; 
 use IEEE.STD_LOGIC_UNSIGNED.all;
 
 entity EnvelopeController is 
 	port(
 	-- system signals
 	clk 			: in std_logic:= '0'; 
-	reset 			: in std_logic:= '0'; 
+	reset 		: in std_logic:= '0'; 
 	read			: in std_logic:= '0'; 
 	write			: in std_logic:= '0';
-	data_in			: in std_logic_vector(31 downto 0);
+	data_in		: in std_logic_vector(31 downto 0);
 	data_out	 	: out std_logic_vector(31 downto 0)
 	);
 	
@@ -57,8 +53,9 @@ component PianoEnvelope_lut is
 end component PianoEnvelope_lut;
 
 component Mux8X1 is
-	generic map (N   => 12)
+	generic (N : Integer := 12);
 	port (
+		clk 			: in std_logic:= '0'; 
 		sel			:	in std_logic_vector(2 downto 0);
 		data_in0		: 	in std_logic_vector(11 downto 0); 
 		data_in1		: 	in std_logic_vector(11 downto 0); 
@@ -73,8 +70,9 @@ component Mux8X1 is
 end component Mux8X1;
 
 component Mux4X1 is
-	generic map (N   => 32)
+	generic (N : Integer := 32);
 	port (
+		clk 			: in std_logic:= '0'; 
 		sel			:	in std_logic_vector(1 downto 0);
 		data_in0		: 	in std_logic_vector(31 downto 0); 
 		data_in1		: 	in std_logic_vector(31 downto 0); 
@@ -82,31 +80,22 @@ component Mux4X1 is
 		data_in3		: 	in std_logic_vector(31 downto 0); 
 		data_out		:	out std_logic_vector(31 downto 0)
 	);
-end component Mux8X1;
+end component Mux4X1;
 
-signal counterDiode1 	: std_logic_vector(11 downto 0);
-signal counterDiode2 	: std_logic_vector(11 downto 0);
-signal counterDiode3 	: std_logic_vector(11 downto 0);
-signal counterDiode4 	: std_logic_vector(11 downto 0);
-signal counterDiode5 	: std_logic_vector(11 downto 0);
-signal counterDiode6 	: std_logic_vector(11 downto 0);
-signal counterDiode7 	: std_logic_vector(11 downto 0);
-signal counterDiode8		: std_logic_vector(11 downto 0);
-signal counterOut			: std_logic_vector(11 downto 0);
+signal counterDiode1 	: std_logic_vector(11 downto 0) := X"000";
+signal counterDiode2 	: std_logic_vector(11 downto 0) := X"000";
+signal counterDiode3 	: std_logic_vector(11 downto 0) := X"000";
+signal counterDiode4 	: std_logic_vector(11 downto 0) := X"000";
+signal counterDiode5 	: std_logic_vector(11 downto 0) := X"000";
+signal counterDiode6 	: std_logic_vector(11 downto 0) := X"000";
+signal counterDiode7 	: std_logic_vector(11 downto 0) := X"000";
+signal counterDiode8		: std_logic_vector(11 downto 0) := X"000";
+signal counterOut			: std_logic_vector(11 downto 0) := X"000";
 
-signal diode1End			: std_logic;
-signal diode2End			: std_logic;
-signal diode3End			: std_logic;
-signal diode4End			: std_logic;
-signal diode5End			: std_logic;
-signal diode6End			: std_logic;
-signal diode7End			: std_logic;
-signal diode8End			: std_logic;
-
-signal harpLUT_out			: std_logic_vector(31 downto 0);
-signal pianoLUT_out			: std_logic_vector(31 downto 0);
-signal clarinetLUT_out		: std_logic_vector(31 downto 0);
-signal violinLUT_out		: std_logic_vector(31 downto 0);
+signal harpLUT_out		: std_logic_vector(31 downto 0) := X"00000000";
+signal pianoLUT_out		: std_logic_vector(31 downto 0) := X"00000000";
+signal clarinetLUT_out	: std_logic_vector(31 downto 0) := X"00000000";
+signal violinLUT_out		: std_logic_vector(31 downto 0) := X"00000000";
 
 begin
 
@@ -114,11 +103,12 @@ PianoLUT: component PianoEnvelope_lut  port map (
 		clk      	=> clk,
 		en       	=> write,
 		reset 		=> reset,
-		index		=> counterOut,
+		index			=> counterOut,
 		data_out 	=> pianoLUT_out
 );
 
-mux8X1: component Mux8X1 port map (
+mux8: component Mux8X1 port map (
+	clk		=> clk,
 	sel		=> data_in(2 downto 0),
 	data_in0	=> counterDiode1,
 	data_in1	=> counterDiode2,
@@ -131,7 +121,8 @@ mux8X1: component Mux8X1 port map (
 	data_out	=> counterOut
 );
 
-mux4X1: component Mux4X1 port map (
+mux4: component Mux4X1 port map (
+	clk		=> clk,
 	sel		=> data_in(5 downto 4),
 	data_in0	=> harpLUT_out,
 	data_in1	=> pianoLUT_out,
@@ -150,101 +141,68 @@ begin
 				-- therefore, we increment the counter, unless its at the
 				-- end in which case we stay at the end of the LUT
 				when "0000" => 
-					if(diode1End = '1') then
+					if(counterDiode1 = 4095) then
 						counterDiode1 <= X"FFF";
 					else
 						counterDiode1 <= counterDiode1 + 1;
 					end if;
 				when "0001" => 
-					if(diode1End = '1') then
+					if(counterDiode2 = 4095) then
 						counterDiode2 <= X"FFF";
 					else
-						counterDiode2 <= counterDiode1 + 1;
+						counterDiode2 <= counterDiode2 + 1;
 					end if;
 				when "0010" => 
-					if(diode1End = '1') then
+					if(counterDiode3 = 4095) then
 						counterDiode3 <= X"FFF";
 					else
-						counterDiode3 <= counterDiode1 + 1;
+						counterDiode3 <= counterDiode3 + 1;
 					end if;
 				when "0011" =>
-					if(diode1End = '1') then
+					if(counterDiode4 = 4095) then
 						counterDiode4 <= X"FFF";
 					else
-						counterDiode4 <= counterDiode1 + 1;
+						counterDiode4 <= counterDiode4 + 1;
 					end if;
 				when "0100" => 
-					if(diode1End = '1') then
+					if(counterDiode5 = 4095) then
 						counterDiode5 <= X"FFF";
 					else
-						counterDiode5 <= counterDiode1 + 1;
+						counterDiode5 <= counterDiode5 + 1;
 					end if;
 				when "0101" => 
-					if(diode1End = '1') then
+					if(counterDiode6 = 4095) then
 						counterDiode6 <= X"FFF";
 					else
-						counterDiode6 <= counterDiode1 + 1;
+						counterDiode6 <= counterDiode6 + 1;
 					end if;
 				when "0110" => 
-					if(diode1End = '1') then
+					if(counterDiode7 = 4095) then
 						counterDiode7 <= X"FFF";
 					else
-						counterDiode7 <= counterDiode1 + 1;
+						counterDiode7 <= counterDiode7 + 1;
 					end if;
 				when "0111" => 
-					if(diode1End = '1') then
+					if(counterDiode8 = 4095) then
 						counterDiode8 <= X"FFF";
 					else
-						counterDiode8 <= counterDiode1 + 1;
+						counterDiode8 <= counterDiode8 + 1;
 					end if;
 				-- These next 8 cases are when the reset is enabled
 				-- therefore we reset the counter and flags for the diode
-				when "1000" => counterDiode1 <= x"000"; diode1End <= '0';
-				when "1001" => counterDiode2 <= x"000"; diode2End <= '0';
-				when "1010" => counterDiode3 <= x"000"; diode3End <= '0';
-				when "1011" => counterDiode4 <= x"000"; diode4End <= '0';
-				when "1100" => counterDiode5 <= x"000"; diode5End <= '0';
-				when "1101" => counterDiode6 <= x"000"; diode6End <= '0';
-				when "1110" => counterDiode7 <= x"000"; diode7End <= '0';
-				when "1111" => counterDiode8 <= x"000"; diode8End <= '0';
+				when "1000" => counterDiode1 <= x"000";
+				when "1001" => counterDiode2 <= x"000";
+				when "1010" => counterDiode3 <= x"000";
+				when "1011" => counterDiode4 <= x"000";
+				when "1100" => counterDiode5 <= x"000";
+				when "1101" => counterDiode6 <= x"000";
+				when "1110" => counterDiode7 <= x"000";
+				when "1111" => counterDiode8 <= x"000";
 				when others => 
  			end case;
 		end if;
 	end if;
 end process counterControl;
 
--- This process checks if each counter is at the end of the LUT
--- if it is, then raise a flag so we don't keep stepping through
-endFlag : process(clk, write, data_in)
-begin
-	if (rising_edge(clk)) then
-		if(write = '1') then
-			if(counterDiode1 > 4094) then
-				diode1End <= '1';
-			end if;
-			if(counterDiode2 > 4094) then
-					diode2End <= '1';
-			end if;
-			if(counterDiode3 > 4094) then
-					diode3End <= '1';
-			end if;
-			if(counterDiode4 > 4094) then
-					diode4End <= '1';
-			end if;
-			if(counterDiode5 > 4094) then
-					diode5End <= '1';
-			end if;
-			if(counterDiode6 > 4094) then
-					diode6End <= '1';
-			end if;
-			if(counterDiode7 > 4094) then
-					diode7End <= '1';
-			end if;
-			if(counterDiode8 > 4094) then
-					diode8End <= '1';
-			end if;
-		end if;
-	end if;
-end process endFlag;
 
 end rtl;

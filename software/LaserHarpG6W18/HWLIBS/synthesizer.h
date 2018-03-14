@@ -2,9 +2,12 @@
 #define SYNTHESIZER_H_
 
 #define SYNTH_OFFSET 20
+#include <hps.h>
+#include <os_cpu.h>
+#include <socal.h>
 
-void writeFreqToSynthesizer(int diode, float frequnecy);
-INT32S readFromSythesizer(int diode, int enabled);
-float readFromEnvelope(int envelopeLocation, int diode, int reset, int instrument);
+void writeFreqToSynthesizer(void *diode, float frequnecy);
+INT32S readFromSythesizer(void *diode, int enabled);
+float readFromEnvelope(void *envelopeLocation, int diode, int reset, int instrument);
 
-#endif 
+#endif

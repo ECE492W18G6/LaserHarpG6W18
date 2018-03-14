@@ -1,0 +1,373 @@
+/*
+*********************************************************************************************************
+*                                            EXAMPLE CODE
+*
+*                          (c) Copyright 2009-2014; Micrium, Inc.; Weston, FL
+*
+*               All rights reserved.  Protected by international copyright laws.
+*
+*               Please feel free to use any application code labeled as 'EXAMPLE CODE' in
+*               your application products.  Example code may be used as is, in whole or in
+*               part, or may be used as a reference only.
+*
+*               Please help us continue to provide the Embedded community with the finest
+*               software available.  Your honesty is greatly appreciated.
+*
+*               You can contact us at www.micrium.com.
+*********************************************************************************************************
+*/
+
+/*
+*********************************************************************************************************
+*
+*                                          APPLICATION CODE
+*
+*                                            CYCLONE V SOC
+*
+* Filename      : app.c
+* Version       : V1.00
+* Programmer(s) : JBL
+* Modifications	: Nancy Minderman nancy.minderman@ualberta.ca, Brendan Bruner bbruner@ualberta.ca
+* 				  Changes to this project include scatter file changes and BSP changes for port from
+* 				  Cyclone V dev kit board to DE1-SoC
+*
+* Additional Authors: Adam Narten, Oliver Rarog, Celeste Chiasson, Randi Derbyshire 
+* Edited on: January 2018
+*
+*********************************************************************************************************
+* Note(s)       : none.
+*********************************************************************************************************
+*/
+
+
+/*
+*********************************************************************************************************
+*                                            INCLUDE FILES
+*********************************************************************************************************
+*/
+
+#include  <app_cfg.h>
+#include  <lib_mem.h>
+
+#include  <bsp.h>
+#include  <bsp_int.h>
+#include  <bsp_os.h>
+#include  <cpu_cache.h>
+
+#include  <cpu.h>
+#include  <cpu_core.h>
+
+#include  <os.h>
+#include  <hps.h>
+#include  <socal.h>
+#include  <hwlib.h>
+#include <math.h>
+
+#include "audio_cfg.h"
+#include "audio.h"
+#include "lcd.h"
+
+// Compute absolute address of any slave component attached to lightweight bridge
+// base is address of component in QSYS window
+// This computation only works for slave components attached to the lightweight bridge
+// base should be ranged checked from 0x0 - 0x1fffff
+
+#define FPGA_TO_HPS_LW_ADDR(base)  ((void *) (((char *)  (ALT_LWFPGASLVS_ADDR))+ (base)))
+
+#define APP_TASK_PRIO 5
+#define AUDIO_TASK_PRIO 7
+#define LCD_TASK_PRIO 6
+
+#define TASK_STACK_SIZE 4096
+#define LEDR_ADD 0x00000000
+#define LEDR_BASE FPGA_TO_HPS_LW_ADDR(LEDR_ADD)
+#define SYNTH0_ADD 0x1000
+#define SYNTH0_BASE FPGA_TO_HPS_LW_ADDR(SYNTH0_ADD)
+#define SYNTH1_ADD 0x1100
+#define SYNTH1_BASE FPGA_TO_HPS_LW_ADDR(SYNTH1_ADD)
+#define SYNTH2_ADD 0x1200
+#define SYNTH2_BASE FPGA_TO_HPS_LW_ADDR(SYNTH2_ADD)
+#define SYNTH3_ADD 0x1300
+#define SYNTH3_BASE FPGA_TO_HPS_LW_ADDR(SYNTH3_ADD)
+#define SYNTH4_ADD 0x1400
+#define SYNTH4_BASE FPGA_TO_HPS_LW_ADDR(SYNTH4_ADD)
+#define SYNTH5_ADD 0x1500
+#define SYNTH5_BASE FPGA_TO_HPS_LW_ADDR(SYNTH5_ADD)
+#define SYNTH6_ADD 0x1600
+#define SYNTH6_BASE FPGA_TO_HPS_LW_ADDR(SYNTH6_ADD)
+#define SYNTH7_ADD 0x1700
+#define SYNTH7_BASE FPGA_TO_HPS_LW_ADDR(SYNTH7_ADD)
+#define PHOTODIODE_ADD 0x2000
+#define PHOTODIODE_BASE FPGA_TO_HPS_LW_ADDR(PHOTODIODE_ADD)
+#define ENVELOPE_ADD 0x1800
+#define ENVELOPE_BASE FPGA_TO_HPS_LW_ADDR(ENVELOPE_ADD)
+
+#define SYNTH_OFFSET 20
+#define DIODE_0_MASK 1
+#define DIODE_1_MASK 2
+#define DIODE_2_MASK 4
+#define DIODE_3_MASK 8
+#define DIODE_4_MASK 16
+#define DIODE_5_MASK 32
+#define DIODE_6_MASK 64
+#define DIODE_7_MASK 128
+
+#define HarpInstrument 0
+#define PianoInstrument 1
+#define ClarinetInstrument 2
+#define ViolinInstrument 3
+
+#define AUDIO_BUFFER_SIZE 128
+/*
+*********************************************************************************************************
+*                                       LOCAL GLOBAL VARIABLES
+*********************************************************************************************************
+*/
+
+CPU_STK AppTaskStartStk[TASK_STACK_SIZE];
+CPU_STK AudioTaskStartStk[TASK_STACK_SIZE];
+CPU_STK LCDTaskStartStk[TASK_STACK_SIZE];
+
+INT32S SYNTH_VALUES[8];
+INT32S POLY_BUFFER[8];
+
+/*
+*********************************************************************************************************
+*                                      LOCAL FUNCTION PROTOTYPES
+*********************************************************************************************************
+*/
+
+static  void  AppTaskStart              (void        *p_arg);
+static  void  AudioTaskStart            (void        *p_arg);
+static  void  LCDTaskStart              (void        *p_arg);
+
+
+/*
+*********************************************************************************************************
+*                                               main()
+*
+* Description : Entry point for C code.
+*
+* Arguments   : none.
+*
+* Returns     : none.
+*
+* Note(s)     : (1) It is assumed that your code will call main() once you have performed all necessary
+*                   initialisation.
+*********************************************************************************************************
+*/
+int main ()
+{
+    INT8U os_err;
+
+    BSP_WatchDog_Reset();                                       /* Reset the watchdog as soon as possible.              */
+
+                                                                /* Scatter loading is complete. Now the caches can be activated.*/
+    BSP_BranchPredictorEn();                                    /* Enable branch prediction.                            */
+    BSP_L2C310Config();                                         /* Configure the L2 cache controller.                   */
+    BSP_CachesEn();                                             /* Enable L1 I&D caches + L2 unified cache.             */
+
+
+    CPU_Init();
+
+    Mem_Init();
+
+    BSP_Init();
+
+
+    OSInit();
+
+
+    os_err = OSTaskCreateExt((void (*)(void *)) AppTaskStart,   /* Create the start task.                               */
+                             (void          * ) 0,
+                             (OS_STK        * )&AppTaskStartStk[TASK_STACK_SIZE - 1],
+                             (INT8U           ) APP_TASK_PRIO,
+                             (INT16U          ) APP_TASK_PRIO,  // reuse prio for ID
+                             (OS_STK        * )&AppTaskStartStk[0],
+                             (INT32U          ) TASK_STACK_SIZE,
+                             (void          * )0,
+                             (INT16U          )(OS_TASK_OPT_STK_CLR | OS_TASK_OPT_STK_CHK));
+
+    if (os_err != OS_ERR_NONE) {
+        ; /* Handle error. */
+    }
+
+    os_err = OSTaskCreateExt((void (*)(void *)) AudioTaskStart,   /* Create the audio task.                               */
+							 (void          * ) 0,
+							 (OS_STK        * )&AudioTaskStartStk[TASK_STACK_SIZE - 1],
+							 (INT8U           ) AUDIO_TASK_PRIO,
+							 (INT16U          ) AUDIO_TASK_PRIO,  // reuse prio for ID
+							 (OS_STK        * )&AudioTaskStartStk[0],
+							 (INT32U          ) TASK_STACK_SIZE,
+							 (void          * )0,
+							 (INT16U          )(OS_TASK_OPT_STK_CLR | OS_TASK_OPT_STK_CHK));
+
+	if (os_err != OS_ERR_NONE) {
+		; /* Handle error. */
+	}
+
+	os_err = OSTaskCreateExt((void (*)(void *)) LCDTaskStart,   /* Create the start task.                               */
+							 (void          * ) 0,
+							 (OS_STK        * )&LCDTaskStartStk[TASK_STACK_SIZE - 1],
+							 (INT8U           ) LCD_TASK_PRIO,
+							 (INT16U          ) LCD_TASK_PRIO,  // reuse prio for ID
+							 (OS_STK        * )&LCDTaskStartStk[0],
+							 (INT32U          ) TASK_STACK_SIZE,
+							 (void          * )0,
+							 (INT16U          )(OS_TASK_OPT_STK_CLR | OS_TASK_OPT_STK_CHK));
+
+	if (os_err != OS_ERR_NONE) {
+		; /* Handle error. */
+	}
+
+    CPU_IntEn();
+
+    OSStart();
+
+}
+
+
+/*
+*********************************************************************************************************
+*                                           App_TaskStart()
+*
+* Description : Startup task example code.
+*
+* Arguments   : p_arg       Argument passed by 'OSTaskCreate()'.
+*
+* Returns     : none.
+*
+* Created by  : main().
+*
+* Notes       : (1) The ticker MUST be initialised AFTER multitasking has started.
+*********************************************************************************************************
+*/
+static  void  AppTaskStart (void *p_arg)
+{
+
+    BSP_OS_TmrTickInit(OS_TICKS_PER_SEC);                       /* Configure and enable OS tick interrupt.              */
+
+
+    for(;;) {
+        BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
+
+		OSTimeDlyHMSM(0, 0, 0, 500);
+
+		BSP_LED_On();
+
+		alt_write_word(LEDR_BASE, 0x00);
+
+		OSTimeDlyHMSM(0, 0, 0, 500);
+
+		BSP_LED_Off();
+
+		alt_write_word(LEDR_BASE, 0x3ff);
+    }
+}
+
+/*
+*********************************************************************************************************
+*                                           AudioTaskStart()
+*
+* Description : Startup task example code.
+*
+* Arguments   : p_arg       Argument passed by 'OSTaskCreate()'.
+*
+* Returns     : none.
+*
+* Created by  : main().
+*
+* Notes       : (1) The ticker MUST be initialised AFTER multitasking has started.
+*********************************************************************************************************
+*/
+static  void  AudioTaskStart (void *p_arg)
+{
+    // Configure audio device
+    // See WM8731 datasheet Register Map
+    write_audio_cfg_register(0x0, 0x17);
+    write_audio_cfg_register(0x1, 0x17);
+    write_audio_cfg_register(0x2, 0x7F);
+    write_audio_cfg_register(0x3, 0x7F);
+    write_audio_cfg_register(0x4, 0x15); // bits 3, 4, and 5 corresponding to selecting LINE IN BYPASS, DAC output, and MIC BYPASS respectively
+    write_audio_cfg_register(0x5, 0x06);
+    write_audio_cfg_register(0x6, 0x00);
+    write_audio_cfg_register(0x7, 0x4D);
+    write_audio_cfg_register(0x8, 0x20); // bits 5:2 config based on sampling rate. Use 0x18 for 32kHz and 0x20 for 44.1kHz
+    write_audio_cfg_register(0x9, 0x01);
+
+	// TODO: these three lines should be determined programatically later
+	float currentFreqs[8] = {24.33, 27.31, 30.65, 32.42, 36.41, 41, 45.88, 48.58};
+	int SYNTH0_BASE[8] = {SYNTH0_BASE, SYNTH1_BASE, SYNTH2_BASE, SYNTH3_BASE, SYNTH4_BASE, SYNTH5_BASE, SYNTH6_BASE, SYNTH7_BASE};
+	int DIODE_MASK[8] = {DIODE_0_MASK, DIODE_1_MASK, DIODE_2_MASK, DIODE_3_MASK, DIODE_4_MASK, DIODE_5_MASK, DIODE_6_MASK, DIODE_7_MASK};
+
+    for(;;) {
+        BSP_WatchDog_Reset();				/* Reset the watchdog.   */
+
+		// the hardware synthesizer outputs 32 bits with the top
+		// 12 being the actual sine value, therefore we do an
+		// arithmetic shift of 20 so that we keep its sign and
+		// its the correct amplitude
+		POLY_BUFFER[0] = 0;
+
+		INT8U photodiodes = (INT8U) alt_read_byte(PHOTODIODE_BASE);
+
+		// TODO: This should be determined by the button options
+		int instrument = 1;
+		int extend[8] = {0, 0, 0, 0, 0, 0, 0};
+		int extendConstant = 16;
+
+		int i;
+		for(i = 0; i < 8; i++) {
+			writeFreqToSynthesizer(SYNTH0_BASE[i], currentFreqs[i]);
+			int enable = (photodiodes & DIODE_MASK[i]);
+			float envelope;
+
+			// sound envelope is short, this allows us to extend/shorten it as we want
+			if ((extend[i] % extendConstant) == 0) {
+				envelope = readFromEnvelope(ENVELOPE_BASE, i, ~enable, instrument)
+			} if(enable) {extend[i] ++;}
+
+			POLY_BUFFER[0] += (INT32S) (readFromSythesizer(SYNTH_BASE[i], enable) * envelope);
+		}
+        write_audio_data(POLY_BUFFER, 1);
+
+    }
+}
+
+/*
+*********************************************************************************************************
+*                                           LCDTaskStart()
+*
+* Description : Startup task example code.
+*
+* Arguments   : p_arg       Argument passed by 'OSTaskCreate()'.
+*
+* Returns     : none.
+*
+* Created by  : main().
+*
+* Notes       : (1) The ticker MUST be initialised AFTER multitasking has started.
+*********************************************************************************************************
+*/
+static  void  LCDTaskStart (void *p_arg)
+{
+// Currently commented out before preliminary testing
+//	InitLCD();
+//	HomeLCD();
+//	PrintStringLCD("Hello World\n");
+	for(;;) {
+        BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
+
+        OSTimeDlyHMSM(0,1,0,0);
+	}
+}
+#ifndef SYNTHESIZER_H_
+#define SYNTHESIZER_H_
+
+#define SYNTH_OFFSET 20
+
+void writeFreqToSynthesizer(int diode, float frequnecy);
+INT32S readFromSythesizer(int diode, int enabled);
+float readFromEnvelope(int envelopeLocation, int diode, int reset, int instrument);
+
+#endif

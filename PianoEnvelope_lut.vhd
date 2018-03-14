@@ -555,11 +555,7 @@ begin
 rom_select: process (clk, en, reset)
 begin
 	if (rising_edge(clk)) then
-		if(en = '1') then
 			data_out <= ENVELOPE_ROM(conv_integer(index));
-		else
-			data_out <= x"00000000";
-		end if;
 	end if;
 end process rom_select;
 

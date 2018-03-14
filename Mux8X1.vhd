@@ -17,7 +17,8 @@ USE ieee.std_logic_arith.all;
 entity Mux8X1 is
 	generic (N : Integer := 32);
 	port(
-		sel			:	in std_logic_vector(2 downto 0);
+		clk 			: in std_logic:= '0'; 		
+		sel		:	in std_logic_vector(2 downto 0);
 		data_in0	: 	in std_logic_vector(N-1 downto 0); 
 		data_in1	: 	in std_logic_vector(N-1 downto 0); 
 		data_in2	: 	in std_logic_vector(N-1 downto 0); 
@@ -32,18 +33,20 @@ END Mux8X1;
 
 architecture behaviour of Mux8X1 is
 begin
-process (sel)
+process (sel, clk)
 begin
-  case sel is
-	when "000" => data_out <= data_in0;
-	when "001" => data_out <= data_in1;
-	when "010" => data_out <= data_in2;
-	when "011" => data_out <= data_in3;
-	when "100" => data_out <= data_in4;
-	when "101" => data_out <= data_in5;
-	when "110" => data_out <= data_in6;
-	when "111" => data_out <= data_in7;
-	when others => data_out <= x"000";
+  if(rising_edge(clk)) then
+	case sel is
+		when "000" => data_out <= data_in0;
+		when "001" => data_out <= data_in1;
+		when "010" => data_out <= data_in2;
+		when "011" => data_out <= data_in3;
+		when "100" => data_out <= data_in4;
+		when "101" => data_out <= data_in5;
+		when "110" => data_out <= data_in6;
+		when "111" => data_out <= data_in7;
+		when others =>
   end case;
+ end if;
 end process;
 end behaviour;
