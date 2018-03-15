@@ -296,14 +296,15 @@ static  void  AudioTaskStart (void *p_arg)
         // the number 41 for the hardware synthesizer seems to play 440Hz
         // therefore to play a specific frequency, like 523 (C#5),you need
         // to divide by 11
-        alt_write_word(SYNTH0_BASE, 24.33);
-		alt_write_word(SYNTH1_BASE, 27.31);
-		alt_write_word(SYNTH2_BASE, 30.65);
-		alt_write_word(SYNTH3_BASE, 32.42);
-		alt_write_word(SYNTH4_BASE, 36.41);
-		alt_write_word(SYNTH5_BASE, 40.87);
-		alt_write_word(SYNTH6_BASE, 45.88);
-		alt_write_word(SYNTH7_BASE, 48.58);
+        float f = 24.33;
+        alt_write_word(SYNTH0_BASE, (uint32_t)*&f);
+		alt_write_word(SYNTH1_BASE, (uint32_t)*&f);
+		alt_write_word(SYNTH2_BASE, (uint32_t)*&f);
+		alt_write_word(SYNTH3_BASE, (uint32_t)*&f);
+		alt_write_word(SYNTH4_BASE, (uint32_t)*&f);
+		alt_write_word(SYNTH5_BASE, (uint32_t)*&f);
+		alt_write_word(SYNTH6_BASE, (uint32_t)*&f);
+		alt_write_word(SYNTH7_BASE, (uint32_t)*&f);
 
 		// the hardware synthesizer outputs 32 bits with the top
 		// 12 being the actual sine value, therefore we do an
