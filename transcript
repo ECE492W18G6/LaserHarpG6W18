@@ -1,462 +1,53 @@
 # Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd failed with 3 errors.
-# 2 compiles, 1 failed with 3 errors.
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful with warnings.
-# 2 compiles, 0 failed with no errors.
-# Compile of Synthesizer.vhd was successful.
 # Compile of Synthesizer_tb.vhd was successful.
-# 2 compiles, 0 failed with no errors.
+# Compile of sin_lut.vhd was successful.
+# 3 compiles, 0 failed with no errors.
 vsim -gui work.synthesizer_tb
 # vsim -gui work.synthesizer_tb 
-# Start time: 13:11:56 on Mar 04,2018
+# Start time: 12:43:46 on Mar 16,2018
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading work.synthesizer_tb(behave)
 # Loading ieee.std_logic_arith(body)
-# Loading ieee.math_real(body)
+# Loading ieee.std_logic_unsigned(body)
 # Loading ieee.vital_timing(body)
 # Loading ieee.vital_primitives(body)
-# Loading ieee.std_logic_signed(body)
-# Loading ieee.std_logic_unsigned(body)
+# Loading altera_mf.altera_mf_components
 # Loading work.synthesizer(full_dds)
-# ** Warning: (vsim-3473) Component instance "lut : sin_lut" is not bound.
+# ** Error: (vsim-3732) C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/Synthesizer_tb.vhd(47): No default binding for component instance 'Synth'.
+#    The following component ports are not on the entity:
+#           data_out1
+#           phase_reg1
 #    Time: 0 ps  Iteration: 0  Instance: /synthesizer_tb/Synth File: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/Synthesizer.vhd
-# ** Warning: (vsim-8684) No drivers exist on out port /synthesizer_tb/Synth/data_out1, and its initial value is not used.
-# Therefore, simulation behavior may occur that is not in compliance with
-# the VHDL standard as the initial values come from the base signal /synthesizer_tb/data.
-add wave -position insertpoint sim:/synthesizer_tb/*
-run
-run
-run
-run
-restart
-# ** Warning: (vsim-3473) Component instance "lut : sin_lut" is not bound.
-#    Time: 0 ps  Iteration: 0  Instance: /synthesizer_tb/Synth File: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/Synthesizer.vhd
-# ** Warning: (vsim-8684) No drivers exist on out port /synthesizer_tb/Synth/data_out1, and its initial value is not used.
-# Therefore, simulation behavior may occur that is not in compliance with
-# the VHDL standard as the initial values come from the base signal /synthesizer_tb/data.
-run
+# Error loading design
+# End time: 12:43:46 on Mar 16,2018, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
 # Compile of Synthesizer.vhd was successful.
 # Compile of Synthesizer_tb.vhd was successful.
 # Compile of sin_lut.vhd was successful.
 # 3 compiles, 0 failed with no errors.
 vsim -gui work.synthesizer_tb
-# End time: 13:17:46 on Mar 04,2018, Elapsed time: 0:05:50
-# Errors: 0, Warnings: 4
 # vsim -gui work.synthesizer_tb 
-# Start time: 13:17:46 on Mar 04,2018
+# Start time: 12:44:14 on Mar 16,2018
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading work.synthesizer_tb(behave)
 # Loading ieee.std_logic_arith(body)
-# Loading ieee.math_real(body)
+# Loading ieee.std_logic_unsigned(body)
 # Loading ieee.vital_timing(body)
 # Loading ieee.vital_primitives(body)
-# Loading ieee.std_logic_signed(body)
-# Loading ieee.std_logic_unsigned(body)
+# Loading altera_mf.altera_mf_components
 # Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-add wave -position insertpoint sim:/synthesizer_tb/*
-run
-restart
-run
-restart
-run
-add wave -position insertpoint  \
-sim:/synthesizer_tb/Synth/lut_data1
-add wave -position insertpoint  \
-sim:/synthesizer_tb/Synth/lut_data_reg1
-add wave -position insertpoint  \
-sim:/synthesizer_tb/Synth/phase_acc1
-restart
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-vsim -gui work.synthesizer_tb
-# End time: 13:28:59 on Mar 04,2018, Elapsed time: 0:11:13
-# Errors: 0, Warnings: 0
-# vsim -gui work.synthesizer_tb 
-# Start time: 13:28:59 on Mar 04,2018
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.synthesizer_tb(behave)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.math_real(body)
-# Loading ieee.vital_timing(body)
-# Loading ieee.vital_primitives(body)
-# Loading ieee.std_logic_signed(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
 add wave -position insertpoint sim:/synthesizer_tb/*
 restart
 run
-add wave -position insertpoint  \
-sim:/synthesizer_tb/Synth/phase_reg1
-add wave -position insertpoint  \
-sim:/synthesizer_tb/Synth/phase_acc1
 restart
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 10 ns  Iteration: 1  Instance: /synthesizer_tb/Synth
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 10 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 10 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 30 ns  Iteration: 1  Instance: /synthesizer_tb/Synth
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 30 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 30 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 50 ns  Iteration: 1  Instance: /synthesizer_tb/Synth
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 50 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 50 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 70 ns  Iteration: 1  Instance: /synthesizer_tb/Synth
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 70 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 70 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 90 ns  Iteration: 1  Instance: /synthesizer_tb/Synth
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 90 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 90 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 10 ns  Iteration: 1  Instance: /synthesizer_tb/Synth
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 10 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 10 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 30 ns  Iteration: 1  Instance: /synthesizer_tb/Synth
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 30 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 30 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 50 ns  Iteration: 1  Instance: /synthesizer_tb/Synth
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 50 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 50 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 70 ns  Iteration: 1  Instance: /synthesizer_tb/Synth
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 70 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 70 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 90 ns  Iteration: 1  Instance: /synthesizer_tb/Synth
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 90 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 90 ns  Iteration: 1  Instance: /synthesizer_tb/Synth/lut
-add wave -position end  sim:/synthesizer_tb/Synth/phase_acc1
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful with warnings.
-# 3 compiles, 0 failed with no errors.
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful with warnings.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# ** Fatal: (vsim-3420) Array lengths do not match. Left is 32 (31 downto 0). Right is 16 (0 to 15).
-#    Time: 20 ns  Iteration: 1  Process: /synthesizer_tb/Synth/lut/rom_select File: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd
-# Fatal error in Process rom_select at C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd line 551
-# 
-# HDL call sequence:
-# Stopped at C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd 551 Process rom_select
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd 551 Process rom_select
-# 
-restart
-run
-# ** Fatal: (vsim-3420) Array lengths do not match. Left is 32 (31 downto 0). Right is 16 (0 to 15).
-#    Time: 20 ns  Iteration: 1  Process: /synthesizer_tb/Synth/lut/rom_select File: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd
-# Fatal error in Process rom_select at C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd line 551
-# 
-# HDL call sequence:
-# Stopped at C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd 551 Process rom_select
-# 
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
 run
 # Compile of Synthesizer.vhd was successful.
 # Compile of Synthesizer_tb.vhd failed with 2 errors.
 # Compile of sin_lut.vhd was successful.
 # 3 compiles, 1 failed with 2 errors.
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run -continue
-run
-run
-run
-restart
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-run -step
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-run
-restart
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-# Compile of Synthesizer.vhd was successful.
-# Compile of Synthesizer_tb.vhd was successful.
-# Compile of sin_lut.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-restart
-# Loading work.synthesizer_tb(behave)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-run
-vsim -gui work.synthesizer_tb
-# End time: 14:14:06 on Mar 04,2018, Elapsed time: 0:45:07
-# Errors: 5, Warnings: 30
-# vsim -gui work.synthesizer_tb 
-# Start time: 14:14:06 on Mar 04,2018
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.synthesizer_tb(behave)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.math_real(body)
-# Loading ieee.vital_timing(body)
-# Loading ieee.vital_primitives(body)
-# Loading ieee.std_logic_signed(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.synthesizer(full_dds)
-# Loading work.sin_lut(rtl)
-add wave -position insertpoint sim:/synthesizer_tb/*
-add wave -position insertpoint  \
-sim:/synthesizer_tb/Synth/phase_acc1
-add wave -position insertpoint  \
-sim:/synthesizer_tb/Synth/phase_reg1
-add wave -position insertpoint  \
-sim:/synthesizer_tb/Synth/lut/address_reg1
-add wave -position insertpoint  \
-sim:/synthesizer_tb/Synth/lut/sin_out1
-restart
-run
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/wave.do
-# ** Note: (vish-4074) File C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/vsim.wlf is still open, viewing file in live viewing mode.
-# 
-# End time: 14:19:55 on Mar 04,2018, Elapsed time: 0:05:49
+# End time: 13:31:10 on Mar 16,2018, Elapsed time: 0:46:56
 # Errors: 0, Warnings: 0

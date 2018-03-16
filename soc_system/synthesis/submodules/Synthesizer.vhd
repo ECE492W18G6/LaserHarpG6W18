@@ -16,10 +16,8 @@ USE ieee.std_logic_1164.all;
 USE ieee.std_logic_arith.all;
 USE ieee.math_real.all;
 use ieee.VITAL_Primitives.all;
---use IEEE.STD_LOGIC_SIGNED.all; 
+use IEEE.STD_LOGIC_SIGNED.all; 
 use IEEE.STD_LOGIC_UNSIGNED.all;
-library ieee_proposed;
-use ieee_proposed.float_pkg.all; 
 
 entity Synthesizer is 
 
@@ -56,7 +54,6 @@ end component sin_lut;
 signal phase_acc : std_logic_vector(31 downto 0);
 signal lut_data : std_logic_vector(31 downto 0);
 signal lut_data_reg : std_logic_vector(31 downto 0);
-signal curr_phase : real;
 
 begin
 
@@ -73,13 +70,11 @@ begin
 
 	if (reset = '1') then
 		phase_acc <= x"00000000"; -- reset accumulator.
-		curr_phase <= 0.0;
 
 	elsif (rising_edge(clk)) then 
 		if (write = '1') then
-			curr_phase <= curr_phase + to_real(to_float(phase_reg));
 			--at every rising edge, we are adding/changing the phase to the accumulator.
-			phase_acc <= to_slv(to_float(curr_phase)); -- unsigned(phase_acc) + unsigned(phase_reg);
+			phase_acc <= unsigned(phase_acc) + unsigned(phase_reg);
 		end if;
 	end if;
 

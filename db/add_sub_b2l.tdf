@@ -1,0 +1,131 @@
+--lpm_add_sub CARRY_CHAIN="MANUAL" CARRY_CHAIN_LENGTH=48 CBX_DECLARE_ALL_CONNECTED_PORTS="OFF" DEVICE_FAMILY="Cyclone V" LPM_PIPELINE=1 LPM_REPRESENTATION="SIGNED" LPM_WIDTH=14 aclr add_sub cin clken clock cout dataa datab result
+--VERSION_BEGIN 17.0 cbx_cycloneii 2017:07:19:18:07:03:SJ cbx_lpm_add_sub 2017:07:19:18:07:03:SJ cbx_mgl 2017:07:19:18:10:29:SJ cbx_nadder 2017:07:19:18:07:03:SJ cbx_stratix 2017:07:19:18:07:03:SJ cbx_stratixii 2017:07:19:18:07:03:SJ  VERSION_END
+
+
+-- Copyright (C) 2017  Intel Corporation. All rights reserved.
+--  Your use of Intel Corporation's design tools, logic functions 
+--  and other software and tools, and its AMPP partner logic 
+--  functions, and any output files from any of the foregoing 
+--  (including device programming or simulation files), and any 
+--  associated documentation or information are expressly subject 
+--  to the terms and conditions of the Intel Program License 
+--  Subscription Agreement, the Intel Quartus Prime License Agreement,
+--  the Intel MegaCore Function License Agreement, or other 
+--  applicable license agreement, including, without limitation, 
+--  that your use is for the sole purpose of programming logic 
+--  devices manufactured by Intel and sold by Intel or its 
+--  authorized distributors.  Please refer to the applicable 
+--  agreement for further details.
+
+
+FUNCTION cyclonev_lcell_comb (cin, dataa, datab, datac, datad, datae, dataf, datag, sharein)
+WITH ( DONT_TOUCH, EXTENDED_LUT, LUT_MASK, SHARED_ARITH)
+RETURNS ( combout, cout, shareout, sumout);
+
+--synthesis_resources = lut 14 reg 15 
+SUBDESIGN add_sub_b2l
+( 
+	aclr	:	input;
+	add_sub	:	input;
+	cin	:	input;
+	clken	:	input;
+	clock	:	input;
+	cout	:	output;
+	dataa[13..0]	:	input;
+	datab[13..0]	:	input;
+	result[13..0]	:	output;
+) 
+VARIABLE 
+	dffe35 : dffe;
+	dffe36 : dffe;
+	dffe37 : dffe;
+	dffe38 : dffe;
+	dffe39 : dffe;
+	dffe40 : dffe;
+	dffe41 : dffe;
+	dffe42 : dffe;
+	dffe43 : dffe;
+	dffe44 : dffe;
+	dffe45 : dffe;
+	dffe46 : dffe;
+	dffe47 : dffe;
+	dffe48 : dffe;
+	dffe49a[0..0] : dffe;
+	add_sub_cella[13..0] : cyclonev_lcell_comb
+		WITH (
+			EXTENDED_LUT = "off",
+			LUT_MASK = "00000FF00000FF00",
+			SHARED_ARITH = "off"
+		);
+	lsb_cin_wire[0..0]	: WIRE;
+
+BEGIN 
+	dffe35.clk = clock;
+	dffe35.clrn = (! aclr);
+	dffe35.d = add_sub_cella[0].sumout;
+	dffe35.ena = clken;
+	dffe36.clk = clock;
+	dffe36.clrn = (! aclr);
+	dffe36.d = add_sub_cella[1].sumout;
+	dffe36.ena = clken;
+	dffe37.clk = clock;
+	dffe37.clrn = (! aclr);
+	dffe37.d = add_sub_cella[2].sumout;
+	dffe37.ena = clken;
+	dffe38.clk = clock;
+	dffe38.clrn = (! aclr);
+	dffe38.d = add_sub_cella[3].sumout;
+	dffe38.ena = clken;
+	dffe39.clk = clock;
+	dffe39.clrn = (! aclr);
+	dffe39.d = add_sub_cella[4].sumout;
+	dffe39.ena = clken;
+	dffe40.clk = clock;
+	dffe40.clrn = (! aclr);
+	dffe40.d = add_sub_cella[5].sumout;
+	dffe40.ena = clken;
+	dffe41.clk = clock;
+	dffe41.clrn = (! aclr);
+	dffe41.d = add_sub_cella[6].sumout;
+	dffe41.ena = clken;
+	dffe42.clk = clock;
+	dffe42.clrn = (! aclr);
+	dffe42.d = add_sub_cella[7].sumout;
+	dffe42.ena = clken;
+	dffe43.clk = clock;
+	dffe43.clrn = (! aclr);
+	dffe43.d = add_sub_cella[8].sumout;
+	dffe43.ena = clken;
+	dffe44.clk = clock;
+	dffe44.clrn = (! aclr);
+	dffe44.d = add_sub_cella[9].sumout;
+	dffe44.ena = clken;
+	dffe45.clk = clock;
+	dffe45.clrn = (! aclr);
+	dffe45.d = add_sub_cella[10].sumout;
+	dffe45.ena = clken;
+	dffe46.clk = clock;
+	dffe46.clrn = (! aclr);
+	dffe46.d = add_sub_cella[11].sumout;
+	dffe46.ena = clken;
+	dffe47.clk = clock;
+	dffe47.clrn = (! aclr);
+	dffe47.d = add_sub_cella[12].sumout;
+	dffe47.ena = clken;
+	dffe48.clk = clock;
+	dffe48.clrn = (! aclr);
+	dffe48.d = add_sub_cella[13].sumout;
+	dffe48.ena = clken;
+	dffe49a[].clk = clock;
+	dffe49a[].clrn = (! aclr);
+	dffe49a[].d = add_sub_cella[13].cout;
+	dffe49a[].ena = clken;
+	add_sub_cella[].cin = ( add_sub_cella[12..0].cout, lsb_cin_wire[]);
+	add_sub_cella[].datac = add_sub;
+	add_sub_cella[].datad = dataa[];
+	add_sub_cella[].dataf = datab[];
+	cout = dffe49a[].q;
+	lsb_cin_wire[] = cin;
+	result[] = ( dffe48.q, dffe47.q, dffe46.q, dffe45.q, dffe44.q, dffe43.q, dffe42.q, dffe41.q, dffe40.q, dffe39.q, dffe38.q, dffe37.q, dffe36.q, dffe35.q);
+END;
+--VALID FILE
