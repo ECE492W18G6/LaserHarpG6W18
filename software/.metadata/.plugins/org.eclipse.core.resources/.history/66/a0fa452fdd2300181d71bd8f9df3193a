@@ -1,0 +1,65 @@
+/*
+ * Header file for changing Laser Harp Options
+ *  Created on: March 9, 2018
+ *  Authors: Adam Narten & Randi Derbyshire
+ */
+#ifndef OPTIONS_H_
+#define OPTIONS_H_
+
+int SCALE;
+#define MAJOR 0
+#define MINOR 1
+#define BLUES 2
+#define DORIAN 3
+#define NUM_SCALES 4
+
+int INSTRUMENT;
+#define HARP 0
+#define PIANO 1
+#define CLARINET 2
+#define VIOLIN 3
+#define NUM_INSTRUMENTS 4
+
+int OCTAVE;
+#define MIN_OCTAVE 2
+#define OCTAVE_2 2
+#define OCTAVE_3 3
+#define OCTAVE_4 4
+#define OCTAVE_5 5
+#define OCTAVE_6 6
+#define MAX_OCTAVE 6
+
+int KEY;
+#define C 0
+#define C_SHARP 1
+#define D 2
+#define D_SHARP 3
+#define E 4
+#define F 5
+#define F_SHARP 6
+#define G 7
+#define G_SHARP 8
+#define A 9
+#define A_SHARP 10
+#define B 11
+#define NUM_KEYS 12
+
+int REVERB;
+#define REVERB_OFF 0
+#define REVERB_ON 1
+
+int SUSTAIN;
+#define SUSTAIN_OFF 0
+#define SUSTAIN_ON 1
+
+void change_scale (void);
+void change_instrument (void);
+void change_octave (void);
+void change_key (void);
+void set_reverb(void);
+void remove_reverb(void);
+void set_sustain(void);
+void remove_sustain(void);
+void update_LCD_string(void);
+
+#endif /* OPTIONS_H_ */
