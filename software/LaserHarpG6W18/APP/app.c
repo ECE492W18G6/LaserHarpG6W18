@@ -128,8 +128,10 @@ CPU_STK ButtonTaskStk[TASK_STACK_SIZE];
 CPU_STK AudioTaskStk[TASK_STACK_SIZE];
 CPU_STK LCDTaskStk[TASK_STACK_SIZE];
 
-INT32S SYNTH_VALUES[NUM_STRINGS];
-INT32S POLY_BUFFER[NUM_STRINGS];
+INT32S SYNTH_VALUES[8];
+INT32S POLY_BUFFER[8];
+float decimals[8];
+float tracks[8];
 
 /*
 *********************************************************************************************************
@@ -302,6 +304,23 @@ static  void  AudioTask (void *p_arg)
     write_audio_cfg_register(0x7, 0x4D);
     write_audio_cfg_register(0x8, 0x20); // bits 5:2 config based on sampling rate. Use 0x18 for 32kHz and 0x20 for 44.1kHz
     write_audio_cfg_register(0x9, 0x01);
+    decimals[0] = 0.075;
+    decimals[1] = 0.819;
+    decimals[2] = 0.654;
+    decimals[3] = 0.109;
+    decimals[4] = 0.102;
+    decimals[5] = 0.21678;
+    decimals[6] = 0.46787;
+    decimals[7] = 0.1496;
+
+    tracks[0] = 0;
+    tracks[1] = 0;
+    tracks[2] = 0;
+    tracks[3] = 0;
+    tracks[4] = 0;
+    tracks[5] = 0;
+    tracks[6] = 0;
+    tracks[7] = 0;
 
     for(;;) {
         BSP_WatchDog_Reset();				/* Reset the watchdog.   */
@@ -309,14 +328,55 @@ static  void  AudioTask (void *p_arg)
         // the number 41 for the hardware synthesizer seems to play 440Hz
         // therefore to play a specific frequency, like 523 (C#5),you need
         // to divide by 11
-        alt_write_word(SYNTH0_BASE, 5.77*(pow(2,get_octave()-2)));
-		alt_write_word(SYNTH1_BASE, 6.47*(pow(2,get_octave()-2)));
-		alt_write_word(SYNTH2_BASE, 7.27*(pow(2,get_octave()-2)));
-		alt_write_word(SYNTH3_BASE, 7.70*(pow(2,get_octave()-2)));
-		alt_write_word(SYNTH4_BASE, 8.64*(pow(2,get_octave()-2)));
-		alt_write_word(SYNTH5_BASE, 9.70*(pow(2,get_octave()-2)));
-		alt_write_word(SYNTH6_BASE, 10.89*(pow(2,get_octave()-2)));
-		alt_write_word(SYNTH7_BASE, 11.54*(pow(2,get_octave()-2)));
+
+        alt_write_word(SYNTH0_BASE, 6);
+		alt_write_word(SYNTH1_BASE, 6);
+		alt_write_word(SYNTH2_BASE, 7);
+		alt_write_word(SYNTH3_BASE, 8);
+		alt_write_word(SYNTH4_BASE, 9);
+		alt_write_word(SYNTH5_BASE, 10);
+		alt_write_word(SYNTH6_BASE, 11);
+		alt_write_word(SYNTH7_BASE, 12);
+		tracks[0] = tracks[0] + decimals[0];
+		tracks[1] = tracks[1] + decimals[1];
+		tracks[2] = tracks[2] + decimals[2];
+		tracks[3] = tracks[3] + decimals[3];
+		tracks[4] = tracks[4] + decimals[4];
+		tracks[5] = tracks[5] + decimals[5];
+		tracks[6] = tracks[6] + decimals[6];
+		tracks[7] = tracks[7] + decimals[7];
+        if (tracks[0] > 1) {
+            alt_write_word(SYNTH0_BASE, 1);
+            tracks[0] = tracks[0] - 1;
+        }
+        if (tracks[1] > 1) {
+                    alt_write_word(SYNTH1_BASE, 1);
+                    tracks[1] = tracks[1] - 1;
+                }
+        if (tracks[2] > 1) {
+                    alt_write_word(SYNTH2_BASE, 1);
+                    tracks[2] = tracks[2] - 1;
+                }
+        if (tracks[3] > 1) {
+                    alt_write_word(SYNTH3_BASE, 1);
+                    tracks[3] = tracks[3] - 1;
+                }
+        if (tracks[4] > 1) {
+                    alt_write_word(SYNTH4_BASE, 1);
+                    tracks[4] = tracks[4] - 1;
+                }
+        if (tracks[5] > 1) {
+                    alt_write_word(SYNTH5_BASE, 1);
+                    tracks[5] = tracks[5] - 1;
+                }
+        if (tracks[6] > 1) {
+                    alt_write_word(SYNTH6_BASE, 1);
+                    tracks[6] = tracks[6] - 1;
+                }
+        if (tracks[7] > 1) {
+                    alt_write_word(SYNTH7_BASE, 1);
+                    tracks[7] = tracks[7] - 1;
+                }
 
 		// the hardware synthesizer outputs 32 bits with the top
 		// 12 being the actual sine value, therefore we do an

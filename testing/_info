@@ -23,9 +23,9 @@ VmeC@2<@Jid09Rl_WbiiLa1
 !s100 _cfGG87LmLz<?4F?@@PL]0
 Z8 OV;C;10.5b;63
 32
-Z9 !s110 1520889669
+Z9 !s110 1521225976
 !i10b 1
-Z10 !s108 1520889669.000000
+Z10 !s108 1521225976.000000
 Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd|
 Z12 !s107 C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd|
 !i113 1
@@ -52,63 +52,61 @@ R12
 R13
 R14
 Esynthesizer
-Z18 w1520556279
-R2
-Z19 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
+Z18 w1521225734
+Z19 DPx9 altera_mf 20 altera_mf_components 0 22 :YRc5<ojH^WgP]^Vezi9c1
 Z20 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
 Z21 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
-Z22 DPx4 ieee 9 math_real 0 22 Sk6CSihbPL<f[^Shm]=KX0
+R2
 R1
 R3
 R4
 R5
-Z23 8C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer.vhd
-Z24 FC:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer.vhd
+Z22 8C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer.vhd
+Z23 FC:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer.vhd
 l0
-L22
-V2B92<a9@2SW[TRVj:4n]o3
-!s100 KEHD`l`0N^BVPz[?1JU1]0
+L24
+VngHo1A@PF@n=MFbAdnib;3
+!s100 MIINfgEVS<NXbCnZeAF?12
 R8
 32
 Z25 !s110 1520889668
 !i10b 1
-Z26 !s108 1520889668.000000
-Z27 !s90 -reportprogress|300|-work|testing|-2002|-explicit|-stats=none|C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer.vhd|
-Z28 !s107 C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer.vhd|
+R10
+Z24 !s90 -reportprogress|300|-work|testing|-2002|-explicit|-stats=none|C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer.vhd|
+Z25 !s107 C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer.vhd|
 !i113 1
-Z29 o-work testing -2002 -explicit
+Z26 o-work testing -2002 -explicit
 R14
 Afull_dds
-R2
 R19
 R20
 R21
-R22
+R2
 R1
 R3
 R4
-DEx4 work 11 synthesizer 0 22 2B92<a9@2SW[TRVj:4n]o3
-l58
-L39
-VMoTc2T1>1;15zj8e7>`E11
-!s100 j@>M4R5W>]MDXle;gnEa91
+DEx4 work 11 synthesizer 0 22 ngHo1A@PF@n=MFbAdnib;3
+l61
+L41
+VhHO=VHE^o]KLWNlCVBoi<1
+!s100 @:c1<PJ2BlGfA6UIY0dMe2
 R8
 32
-R25
+R9
 !i10b 1
-R26
-R27
-R28
+R10
+R24
+R25
 !i113 1
-R29
+R26
 R14
 Esynthesizer_tb
-Z30 w1520889666
+Z27 w1521225968
 R3
 R4
 R5
-Z31 8C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer_tb.vhd
-Z32 FC:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer_tb.vhd
+Z28 8C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer_tb.vhd
+Z29 FC:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer_tb.vhd
 l0
 L16
 Vb@zIK_j7^B:N<fX3mh?b@1
@@ -117,11 +115,11 @@ R8
 32
 R25
 !i10b 1
-R26
-Z33 !s90 -reportprogress|300|-work|testing|-2002|-explicit|-stats=none|C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer_tb.vhd|
-Z34 !s107 C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer_tb.vhd|
+R10
+Z30 !s90 -reportprogress|300|-work|testing|-2002|-explicit|-stats=none|C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer_tb.vhd|
+Z31 !s107 C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer_tb.vhd|
 !i113 1
-R29
+R26
 R14
 Abehave
 R3
@@ -133,11 +131,11 @@ V^F@hRHYY4>k8E@OINCB<G0
 !s100 _eiRf:E0=Pk<VOVTM_Q5N0
 R8
 32
-R25
+Z32 !s110 1521225848
 !i10b 1
-R26
-R33
-R34
+Z33 !s108 1521225848.000000
+R30
+R31
 !i113 1
-R29
+R26
 R14
