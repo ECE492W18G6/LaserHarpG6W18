@@ -115,7 +115,6 @@
 #define DIODE_6_MASK 64
 #define DIODE_7_MASK 128
 
-#define NUM_STRINGS 8
 #define AUDIO_BUFFER_SIZE 128
 #define M_PI 3.14159265358979323846
 /*
@@ -130,8 +129,9 @@ CPU_STK LCDTaskStk[TASK_STACK_SIZE];
 
 INT32S SYNTH_VALUES[8];
 INT32S POLY_BUFFER[8];
-float decimals[8];
-float tracks[8];
+float fractions[NUM_STRINGS];
+int integers[NUM_STRINGS];
+float fraction_accumulators[NUM_STRINGS];
 
 /*
 *********************************************************************************************************
@@ -311,24 +311,10 @@ static  void  AudioTask (void *p_arg)
 
 	update_LCD_string();
 
-    decimals[0] = 0.075;
-    decimals[1] = 0.819;
-    decimals[2] = 0.654;
-    decimals[3] = 0.109;
-    decimals[4] = 0.102;
-    decimals[5] = 0.21678;
-    decimals[6] = 0.46787;
-    decimals[7] = 0.1496;
+	char *SYNTH_BASE[8] = {SYNTH0_BASE, SYNTH1_BASE, SYNTH2_BASE, SYNTH3_BASE, SYNTH4_BASE, SYNTH5_BASE, SYNTH6_BASE, SYNTH7_BASE};
+	int DIODE_MASK[8] = {DIODE_0_MASK, DIODE_1_MASK, DIODE_2_MASK, DIODE_3_MASK, DIODE_4_MASK, DIODE_5_MASK, DIODE_6_MASK, DIODE_7_MASK};
 
-    tracks[0] = 0;
-    tracks[1] = 0;
-    tracks[2] = 0;
-    tracks[3] = 0;
-    tracks[4] = 0;
-    tracks[5] = 0;
-    tracks[6] = 0;
-    tracks[7] = 0;
-
+    int i;
     for(;;) {
         BSP_WatchDog_Reset();				/* Reset the watchdog.   */
 
@@ -336,54 +322,16 @@ static  void  AudioTask (void *p_arg)
         // therefore to play a specific frequency, like 523 (C#5),you need
         // to divide by 11
 
-        alt_write_word(SYNTH0_BASE, 6*(pow(2,get_octave()-2)));
-		alt_write_word(SYNTH1_BASE, 6*(pow(2,get_octave()-2)));
-		alt_write_word(SYNTH2_BASE, 7*(pow(2,get_octave()-2)));
-		alt_write_word(SYNTH3_BASE, 8*(pow(2,get_octave()-2)));
-		alt_write_word(SYNTH4_BASE, 9*(pow(2,get_octave()-2)));
-		alt_write_word(SYNTH5_BASE, 10*(pow(2,get_octave()-2)));
-		alt_write_word(SYNTH6_BASE, 11*(pow(2,get_octave()-2)));
-		alt_write_word(SYNTH7_BASE, 12*(pow(2,get_octave()-2)));
-		tracks[0] = tracks[0] + decimals[0];
-		tracks[1] = tracks[1] + decimals[1];
-		tracks[2] = tracks[2] + decimals[2];
-		tracks[3] = tracks[3] + decimals[3];
-		tracks[4] = tracks[4] + decimals[4];
-		tracks[5] = tracks[5] + decimals[5];
-		tracks[6] = tracks[6] + decimals[6];
-		tracks[7] = tracks[7] + decimals[7];
-        if (tracks[0] > 1) {
-            alt_write_word(SYNTH0_BASE, 1*(pow(2,get_octave()-2)));
-            tracks[0] = tracks[0] - 1;
+        get_frequencies(integers, fractions);
+
+        for (i = 0; i < NUM_STRINGS; i++) {
+            alt_write_word(SYNTH_BASE[i], integers[i]);
+            fraction_accumulators[i] = fraction_accumulators[i] + fractions[i];
+            if (fraction_accumulators[i] > 1) {
+            	alt_write_word(SYNTH_BASE[i], 1);
+            	fraction_accumulators[i] = fraction_accumulators[i] - 1;
+            }
         }
-        if (tracks[1] > 1) {
-                    alt_write_word(SYNTH1_BASE, 1*(pow(2,get_octave()-2)));
-                    tracks[1] = tracks[1] - 1;
-                }
-        if (tracks[2] > 1) {
-                    alt_write_word(SYNTH2_BASE, 1*(pow(2,get_octave()-2)));
-                    tracks[2] = tracks[2] - 1;
-                }
-        if (tracks[3] > 1) {
-                    alt_write_word(SYNTH3_BASE, 1*(pow(2,get_octave()-2)));
-                    tracks[3] = tracks[3] - 1;
-                }
-        if (tracks[4] > 1) {
-                    alt_write_word(SYNTH4_BASE, 1*(pow(2,get_octave()-2)));
-                    tracks[4] = tracks[4] - 1;
-                }
-        if (tracks[5] > 1) {
-                    alt_write_word(SYNTH5_BASE, 1*(pow(2,get_octave()-2)));
-                    tracks[5] = tracks[5] - 1;
-                }
-        if (tracks[6] > 1) {
-                    alt_write_word(SYNTH6_BASE, 1*(pow(2,get_octave()-2)));
-                    tracks[6] = tracks[6] - 1;
-                }
-        if (tracks[7] > 1) {
-                    alt_write_word(SYNTH7_BASE, 1*(pow(2,get_octave()-2)));
-                    tracks[7] = tracks[7] - 1;
-                }
 
 		// the hardware synthesizer outputs 32 bits with the top
 		// 12 being the actual sine value, therefore we do an

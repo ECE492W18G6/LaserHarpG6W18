@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.arm.debugger.launcher2">
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data" value="585708"/>
-<mapEntry key="*Fetching Data Model" value="218350"/>
-<mapEntry key="*list global low level symbols" value="8799596"/>
+<mapEntry key="*Fetching Data" value="10584370"/>
+<mapEntry key="*Fetching Data Model" value="133266"/>
+<mapEntry key="*list global low level symbols" value="246941"/>
 <mapEntry key="*loading memory from target" value="11734254"/>
-<mapEntry key="*loading values from target" value="1559382"/>
-<mapEntry key="*updating variables" value="11159174"/>
-<mapEntry key="AddEventObserver" value="1116253"/>
-<mapEntry key="Evaluate" value="2971976"/>
-<mapEntry key="Retrieving globals list" value="11052618"/>
-<mapEntry key="areCachesAvailable" value="448340"/>
-<mapEntry key="break" value="22813769"/>
-<mapEntry key="continue" value="31983298"/>
+<mapEntry key="*loading values from target" value="22945967"/>
+<mapEntry key="*updating variables" value="525060"/>
+<mapEntry key="AddEventObserver" value="221691"/>
+<mapEntry key="Evaluate" value="2877495"/>
+<mapEntry key="Retrieving globals list" value="5782786"/>
+<mapEntry key="areCachesAvailable" value="463607"/>
+<mapEntry key="break" value="12144840"/>
+<mapEntry key="continue" value="30305805"/>
 <mapEntry key="core" value="8392234"/>
-<mapEntry key="disassemble" value="43976734"/>
+<mapEntry key="disassemble" value="29533910"/>
 <mapEntry key="evaluate address" value="378266"/>
-<mapEntry key="file" value="25134446"/>
-<mapEntry key="finish" value="25176061"/>
+<mapEntry key="file" value="46792867"/>
+<mapEntry key="finish" value="27963579"/>
 <mapEntry key="get byte order" value="554775"/>
-<mapEntry key="get capabilities" value="196250"/>
-<mapEntry key="get execution addresss" value="401213"/>
-<mapEntry key="get source lines" value="294167"/>
-<mapEntry key="getValidEncodings" value="402819"/>
-<mapEntry key="initialize command help" value="24320785"/>
-<mapEntry key="interrupt" value="38597996"/>
-<mapEntry key="list breakpoints" value="126820"/>
-<mapEntry key="list instruction sets" value="92766"/>
-<mapEntry key="list signals" value="1170819"/>
-<mapEntry key="list watchpoints" value="563662"/>
-<mapEntry key="loadfile" value="495658708"/>
-<mapEntry key="next" value="38813107"/>
-<mapEntry key="remove" value="14617181"/>
-<mapEntry key="set CWD" value="564195"/>
-<mapEntry key="set breakpoint properties" value="23344178"/>
-<mapEntry key="set debug-from" value="360278"/>
-<mapEntry key="source altera_target_check.py" value="236634796"/>
-<mapEntry key="source preloader.ds" value="2292394547"/>
-<mapEntry key="start" value="51627978"/>
-<mapEntry key="step" value="36157207"/>
-<mapEntry key="toggleBreakpoint" value="21698120"/>
-<mapEntry key="waitForTargetToStop" value="491304352"/>
+<mapEntry key="get capabilities" value="151183"/>
+<mapEntry key="get execution addresss" value="316732"/>
+<mapEntry key="get source lines" value="343991"/>
+<mapEntry key="getValidEncodings" value="395012"/>
+<mapEntry key="initialize command help" value="19169515"/>
+<mapEntry key="interrupt" value="39597456"/>
+<mapEntry key="list breakpoints" value="174983"/>
+<mapEntry key="list instruction sets" value="85652"/>
+<mapEntry key="list signals" value="39331024"/>
+<mapEntry key="list watchpoints" value="193177"/>
+<mapEntry key="loadfile" value="537982419"/>
+<mapEntry key="next" value="46785408"/>
+<mapEntry key="remove" value="24614578"/>
+<mapEntry key="set CWD" value="4750028"/>
+<mapEntry key="set breakpoint properties" value="19122798"/>
+<mapEntry key="set debug-from" value="287353"/>
+<mapEntry key="source altera_target_check.py" value="216758181"/>
+<mapEntry key="source preloader.ds" value="2237643741"/>
+<mapEntry key="start" value="48369532"/>
+<mapEntry key="step" value="67943104"/>
+<mapEntry key="toggleBreakpoint" value="25917502"/>
+<mapEntry key="waitForTargetToStop" value="407019053"/>
 <mapEntry key="write expression" value="42402046"/>
 </mapAttribute>
 <intAttribute key="DEBUG_TAB..RESOURCES.COUNT" value="0"/>
@@ -144,6 +144,22 @@
 <listEntry value="1"/>
 <listEntry value="element formatter"/>
 <listEntry value="Signed Decimal"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/HWLIBS/options.c::update_LCD_string::$0::f"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/HWLIBS/options.c::get_frequencies::$0::f"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/HWLIBS/options.c::get_frequencies::integers"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Signed Decimal"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/HWLIBS/options.c::get_frequencies::fractions"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Float"/>
 </listAttribute>
 <booleanAttribute key="VFS_ENABLED" value="true"/>
 <stringAttribute key="VFS_LOCAL_DIR" value="${workspace_loc}"/>

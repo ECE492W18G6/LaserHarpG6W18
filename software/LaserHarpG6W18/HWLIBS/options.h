@@ -6,6 +6,9 @@
 #ifndef OPTIONS_H_
 #define OPTIONS_H_
 
+#define C2_FREQUENCY 6.075
+#define NUM_STRINGS 8
+
 #define MAJOR 0
 #define MINOR 1
 #define BLUES 2
@@ -56,5 +59,6 @@ void set_sustain(void);
 void remove_sustain(void);
 void update_LCD_string(void);
 int get_octave(void);
+void get_frequencies(int* integers, float* fractions);
 
 #endif /* OPTIONS_H_ */
