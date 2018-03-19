@@ -1,4 +1,4 @@
-13:27:09 **** Incremental Build of configuration Debug for project LaserHarpG6W18 ****
+13:23:28 **** Incremental Build of configuration Debug for project LaserHarpG6W18 ****
 make all 
 'Building file: ../APP/app.c'
 'Invoking: ARM C Compiler 5'
@@ -108,5 +108,5 @@ Image component sizes
 'Finished building target: LaserHarpG6W18.axf'
 ' '
 
-13:27:10 Build Finished (took 1s.458ms)
+13:23:30 Build Finished (took 2s.451ms)
 
