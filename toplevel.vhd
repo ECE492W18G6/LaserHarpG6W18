@@ -153,6 +153,8 @@ entity LaserHarpG6W18 is
 			
 			LEDR 						: out std_logic_vector(9 downto 0);
 			KEY_N						: in std_logic_vector(3 downto 0);
+--			GPIO_0_20 				: in std_logic := 'X';
+
 			
 		-- I2C Interface
 			FPGA_I2C_SCLK			: out std_logic;
@@ -300,7 +302,7 @@ begin
 	  u0 : component soc_system
         port map (
 						clk_clk 										=> CLOCK_50,
-						reset_reset_n 								=> KEY_N(0),
+						reset_reset_n 								=> SW(9),
 						memory_mem_a 								=> HPS_DDR3_ADDR,
 						memory_mem_ba 								=> HPS_DDR3_BA,
 						memory_mem_ck 								=> HPS_DDR3_CK_P,
