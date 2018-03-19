@@ -153,7 +153,6 @@ entity LaserHarpG6W18 is
 			
 			LEDR 						: out std_logic_vector(9 downto 0);
 			KEY_N						: in std_logic_vector(3 downto 0);
---			GPIO_0_20 				: in std_logic := 'X';
 
 			
 		-- I2C Interface

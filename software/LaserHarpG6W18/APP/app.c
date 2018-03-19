@@ -269,6 +269,10 @@ static  void  ButtonTask (void *p_arg)
 			if ( PBreleases == 13) {
 				change_key();
 			}
+			if ( PBreleases == 14) {
+				change_instrument();
+			}
+			update_LCD_string();
 			alt_write_word(BUTTON_BASE, 0); //reset the changes for next round
 		}
 		OSTimeDlyHMSM(0,0,0,50);
@@ -304,6 +308,9 @@ static  void  AudioTask (void *p_arg)
     write_audio_cfg_register(0x7, 0x4D);
     write_audio_cfg_register(0x8, 0x20); // bits 5:2 config based on sampling rate. Use 0x18 for 32kHz and 0x20 for 44.1kHz
     write_audio_cfg_register(0x9, 0x01);
+
+	update_LCD_string();
+
     decimals[0] = 0.075;
     decimals[1] = 0.819;
     decimals[2] = 0.654;
@@ -329,14 +336,14 @@ static  void  AudioTask (void *p_arg)
         // therefore to play a specific frequency, like 523 (C#5),you need
         // to divide by 11
 
-        alt_write_word(SYNTH0_BASE, 6);
-		alt_write_word(SYNTH1_BASE, 6);
-		alt_write_word(SYNTH2_BASE, 7);
-		alt_write_word(SYNTH3_BASE, 8);
-		alt_write_word(SYNTH4_BASE, 9);
-		alt_write_word(SYNTH5_BASE, 10);
-		alt_write_word(SYNTH6_BASE, 11);
-		alt_write_word(SYNTH7_BASE, 12);
+        alt_write_word(SYNTH0_BASE, 6*(pow(2,get_octave()-2)));
+		alt_write_word(SYNTH1_BASE, 6*(pow(2,get_octave()-2)));
+		alt_write_word(SYNTH2_BASE, 7*(pow(2,get_octave()-2)));
+		alt_write_word(SYNTH3_BASE, 8*(pow(2,get_octave()-2)));
+		alt_write_word(SYNTH4_BASE, 9*(pow(2,get_octave()-2)));
+		alt_write_word(SYNTH5_BASE, 10*(pow(2,get_octave()-2)));
+		alt_write_word(SYNTH6_BASE, 11*(pow(2,get_octave()-2)));
+		alt_write_word(SYNTH7_BASE, 12*(pow(2,get_octave()-2)));
 		tracks[0] = tracks[0] + decimals[0];
 		tracks[1] = tracks[1] + decimals[1];
 		tracks[2] = tracks[2] + decimals[2];
@@ -346,35 +353,35 @@ static  void  AudioTask (void *p_arg)
 		tracks[6] = tracks[6] + decimals[6];
 		tracks[7] = tracks[7] + decimals[7];
         if (tracks[0] > 1) {
-            alt_write_word(SYNTH0_BASE, 1);
+            alt_write_word(SYNTH0_BASE, 1*(pow(2,get_octave()-2)));
             tracks[0] = tracks[0] - 1;
         }
         if (tracks[1] > 1) {
-                    alt_write_word(SYNTH1_BASE, 1);
+                    alt_write_word(SYNTH1_BASE, 1*(pow(2,get_octave()-2)));
                     tracks[1] = tracks[1] - 1;
                 }
         if (tracks[2] > 1) {
-                    alt_write_word(SYNTH2_BASE, 1);
+                    alt_write_word(SYNTH2_BASE, 1*(pow(2,get_octave()-2)));
                     tracks[2] = tracks[2] - 1;
                 }
         if (tracks[3] > 1) {
-                    alt_write_word(SYNTH3_BASE, 1);
+                    alt_write_word(SYNTH3_BASE, 1*(pow(2,get_octave()-2)));
                     tracks[3] = tracks[3] - 1;
                 }
         if (tracks[4] > 1) {
-                    alt_write_word(SYNTH4_BASE, 1);
+                    alt_write_word(SYNTH4_BASE, 1*(pow(2,get_octave()-2)));
                     tracks[4] = tracks[4] - 1;
                 }
         if (tracks[5] > 1) {
-                    alt_write_word(SYNTH5_BASE, 1);
+                    alt_write_word(SYNTH5_BASE, 1*(pow(2,get_octave()-2)));
                     tracks[5] = tracks[5] - 1;
                 }
         if (tracks[6] > 1) {
-                    alt_write_word(SYNTH6_BASE, 1);
+                    alt_write_word(SYNTH6_BASE, 1*(pow(2,get_octave()-2)));
                     tracks[6] = tracks[6] - 1;
                 }
         if (tracks[7] > 1) {
-                    alt_write_word(SYNTH7_BASE, 1);
+                    alt_write_word(SYNTH7_BASE, 1*(pow(2,get_octave()-2)));
                     tracks[7] = tracks[7] - 1;
                 }
 
@@ -445,18 +452,18 @@ static  void  LCDTask (void *p_arg)
 	for(;;) {
         BSP_WatchDog_Reset();                                   /* Reset the watchdog.                                  */
 
-        update_LCD_string();
+//        update_LCD_string();
 //        MoveCursorLCD(0);
 //    	PrintStringLCD("Key / Scale");
 //    	MoveCursorLCD(20);
 //    	PrintStringLCD("Switches: ");
-		int result = alt_read_word(SWITCH_BASE);
-		char buffer[32];
-		sprintf(buffer, "%x\n", result);
-		MoveCursorLCD(36);
-		PrintStringLCD("    ");
-		MoveCursorLCD(36);
-		PrintStringLCD(buffer);
-		OSTimeDlyHMSM(0, 0, 0, 50);
+//		int result = alt_read_word(SWITCH_BASE);
+//		char buffer[32];
+//		sprintf(buffer, "%x\n", result);
+//		MoveCursorLCD(36);
+//		PrintStringLCD("    ");
+//		MoveCursorLCD(36);
+//		PrintStringLCD(buffer);
+		OSTimeDlyHMSM(0, 0, 1, 50);
 	}
 }

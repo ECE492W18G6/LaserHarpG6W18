@@ -105,22 +105,22 @@ void update_LCD_string() {
 	}
 	switch (OCTAVE) {
 		case OCTAVE_2:
-			sprintf(octave, "Octave 2 ");
+			sprintf(octave, "Octave 2     ");
 			break;
 		case OCTAVE_3:
-			sprintf(octave, "Octave 3 ");
+			sprintf(octave, "Octave 3     ");
 			break;
 		case OCTAVE_4:
-			sprintf(octave, "Octave 4 ");
+			sprintf(octave, "Octave 4     ");
 			break;
 		case OCTAVE_5:
-			sprintf(octave, "Octave 5 ");
+			sprintf(octave, "Octave 5     ");
 			break;
 		case OCTAVE_6:
-			sprintf(octave, "Octave 6 ");
+			sprintf(octave, "Octave 6     ");
 			break;
 		default:
-			sprintf(octave, "Octave 2 ");
+			sprintf(octave, "Octave 2     ");
 	}
 	switch (KEY) {
 		case C:
@@ -163,10 +163,11 @@ void update_LCD_string() {
 			sprintf(key, "C ");
 	}
 
-	MoveCursorLCD(0);
-	PrintStringLCD(key);
-	PrintStringLCD(scale);
 	MoveCursorLCD(20);
 	PrintStringLCD(instrument);
 	PrintStringLCD(octave);
+	MoveCursorLCD(0);
+	PrintStringLCD(key);
+	PrintStringLCD(scale);
+
 }
