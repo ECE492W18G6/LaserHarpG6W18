@@ -41,6 +41,17 @@ end EnvelopeController;
 
 architecture rtl of EnvelopeController is
 
+component HarpEnvelope_lut is 
+	port (
+	clk 			: in std_logic;
+	en				: in std_logic;
+	reset 		: in std_logic;
+	index			: in std_logic_vector(11 downto 0);
+	data_out  	: out std_logic_vector(31 downto 0)
+	);
+
+end component HarpEnvelope_lut;
+
 component PianoEnvelope_lut is 
 	port (
 	clk 			: in std_logic;
@@ -51,6 +62,28 @@ component PianoEnvelope_lut is
 	);
 
 end component PianoEnvelope_lut;
+
+component ClarinetEnvelope_lut is 
+	port (
+	clk 			: in std_logic;
+	en				: in std_logic;
+	reset 		: in std_logic;
+	index			: in std_logic_vector(11 downto 0);
+	data_out  	: out std_logic_vector(31 downto 0)
+	);
+
+end component ClarinetEnvelope_lut;
+
+component ViolinEnvelope_lut is 
+	port (
+	clk 			: in std_logic;
+	en				: in std_logic;
+	reset 		: in std_logic;
+	index			: in std_logic_vector(11 downto 0);
+	data_out  	: out std_logic_vector(31 downto 0)
+	);
+
+end component ViolinEnvelope_lut;
 
 component Mux8X1 is
 	generic (N : Integer := 12);
@@ -99,12 +132,36 @@ signal violinLUT_out		: std_logic_vector(31 downto 0) := X"00000000";
 
 begin
 
+HarpLUT: component HarpEnvelope_lut  port map (
+		clk      	=> clk,
+		en       	=> write,
+		reset 		=> reset,
+		index			=> counterOut,
+		data_out 	=> harpLUT_out
+);
+
 PianoLUT: component PianoEnvelope_lut  port map (
 		clk      	=> clk,
 		en       	=> write,
 		reset 		=> reset,
 		index			=> counterOut,
 		data_out 	=> pianoLUT_out
+);
+
+ClarinetLUT: component ClarinetEnvelope_lut  port map (
+		clk      	=> clk,
+		en       	=> write,
+		reset 		=> reset,
+		index			=> counterOut,
+		data_out 	=> clarinetLUT_out
+);
+
+ViolinLUT: component ViolinEnvelope_lut  port map (
+		clk      	=> clk,
+		en       	=> write,
+		reset 		=> reset,
+		index			=> counterOut,
+		data_out 	=> violinLUT_out
 );
 
 mux8: component Mux8X1 port map (

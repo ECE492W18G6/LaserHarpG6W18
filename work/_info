@@ -8,71 +8,110 @@ z2
 !i10f 100
 cModel Technology
 dC:/intelFPGA/17.0
-Eenvelopecontroller
-Z0 w1521056066
-Z1 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
-DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
-DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
-DPx4 ieee 9 math_real 0 22 Sk6CSihbPL<f[^Shm]=KX0
-Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Eclarinetenvelope_lut
+Z0 w1521480625
+Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 Z5 dC:/Users/rarog/ECE492/LaserHarpG6W18
-Z6 8C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd
-Z7 FC:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd
+Z6 8C:/Users/rarog/ECE492/LaserHarpG6W18/ClarinetEnvelope_lut.vhd
+Z7 FC:/Users/rarog/ECE492/LaserHarpG6W18/ClarinetEnvelope_lut.vhd
 l0
-L33
-V65I8;cWHD6fHX6:ZaSDDT2
-!s100 O_8Uj[cizmEg@TZz_lXjc3
+L17
+VUPcP:1XgZoa=FeX5Q91_M3
+!s100 Jf6CG@Q<Tc>R^YUP;^48@2
 Z8 OV;C;10.5b;63
 32
-Z9 !s110 1521056073
+Z9 !s110 1521481267
 !i10b 1
-Z10 !s108 1521056073.000000
-Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd|
-Z12 !s107 C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd|
+Z10 !s108 1521481267.000000
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/rarog/ECE492/LaserHarpG6W18/ClarinetEnvelope_lut.vhd|
+Z12 !s107 C:/Users/rarog/ECE492/LaserHarpG6W18/ClarinetEnvelope_lut.vhd|
 !i113 1
 Z13 o-work work -2002 -explicit
 Z14 tExplicit 1 CvgOpt 0
 Artl
-R2
 R1
+R2
 R3
 R4
-DEx4 work 18 envelopecontroller 0 22 h;ZM7KoQhQ]QF^ni_1I?i1
-l100
-L42
-V8Mi6a=3d:kDoC?iCBZI:h1
-!s100 7bo;@[GUJzSWLWc2Q[MoB0
+DEx4 work 20 clarinetenvelope_lut 0 22 UPcP:1XgZoa=FeX5Q91_M3
+l553
+L32
+V]eSKaYRRMA]jmH1BeVO:I2
+!s100 B`24jzF4Yen`DLOYdWgn21
 R8
 32
-!s110 1521052822
+R9
 !i10b 1
-!s108 1521052822.000000
+R10
 R11
 R12
 !i113 1
 R13
 R14
-Eenvelopecontroller_tb
-Z15 w1521052819
+Eenvelopecontroller
+Z15 w1521480857
+R1
+R2
 R3
 R4
 R5
-Z16 8C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController_tb.vhd
-Z17 FC:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController_tb.vhd
+Z16 8C:\Users\rarog\ECE492\LaserHarpG6W18\EnvelopeController.vhd
+Z17 FC:\Users\rarog\ECE492\LaserHarpG6W18\EnvelopeController.vhd
+l0
+L29
+Vh;ZM7KoQhQ]QF^ni_1I?i1
+!s100 UR9oVPXIV=<MP0cZlEKcB3
+R8
+32
+Z18 !s110 1521481266
+!i10b 1
+Z19 !s108 1521481266.000000
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\rarog\ECE492\LaserHarpG6W18\EnvelopeController.vhd|
+Z21 !s107 C:\Users\rarog\ECE492\LaserHarpG6W18\EnvelopeController.vhd|
+!i113 1
+R13
+R14
+Artl
+R1
+R2
+R3
+R4
+DEx4 work 18 envelopecontroller 0 22 h;ZM7KoQhQ]QF^ni_1I?i1
+l133
+L42
+V3gD[B@Z@UQchggUIEe89i2
+!s100 DAaF`BiV[YJ3UeMb?Gl=91
+R8
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R13
+R14
+Eenvelopecontroller_tb
+Z22 w1521052819
+R3
+R4
+R5
+Z23 8C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController_tb.vhd
+Z24 FC:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController_tb.vhd
 l0
 L16
 VGzQ@>9`eXhhlYXFbPRPzG2
 !s100 ]ef8EzmDbO_G8UG4aOL:L2
 R8
 32
-Z18 !s110 1521056072
+R18
 !i10b 1
-Z19 !s108 1521056072.000000
-Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController_tb.vhd|
-Z21 !s107 C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController_tb.vhd|
+R19
+Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController_tb.vhd|
+Z26 !s107 C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController_tb.vhd|
 !i113 1
 R13
 R14
@@ -89,83 +128,44 @@ R8
 R18
 !i10b 1
 R19
-R20
-R21
-!i113 1
-R13
-R14
-Emux4x1
-Z22 w1521051929
-R2
-R3
-R4
-R5
-Z23 8C:/Users/rarog/ECE492/LaserHarpG6W18/Mux4X1.vhd
-Z24 FC:/Users/rarog/ECE492/LaserHarpG6W18/Mux4X1.vhd
-l0
-L17
-V^n[W3F2R=lATT`7eY2ZBB2
-!s100 `BL2hm<]blE2n=RB`D@o^2
-R8
-32
-R9
-!i10b 1
-R10
-Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/rarog/ECE492/LaserHarpG6W18/Mux4X1.vhd|
-Z26 !s107 C:/Users/rarog/ECE492/LaserHarpG6W18/Mux4X1.vhd|
-!i113 1
-R13
-R14
-Abehaviour
-R2
-R3
-R4
-DEx4 work 6 mux4x1 0 22 ^n[W3F2R=lATT`7eY2ZBB2
-l31
-L30
-VYabBhGK`iQQEJ@8PSSjQ<3
-!s100 @5Yd5FM]kCZgo2b4b`PgL0
-R8
-32
-R9
-!i10b 1
-R10
 R25
 R26
 !i113 1
 R13
 R14
-Emux8x1
-Z27 w1521053592
+Eharpenvelope_lut
+Z27 w1521480547
+R1
 R2
 R3
 R4
 R5
-Z28 8C:/Users/rarog/ECE492/LaserHarpG6W18/Mux8X1.vhd
-Z29 FC:/Users/rarog/ECE492/LaserHarpG6W18/Mux8X1.vhd
+Z28 8C:/Users/rarog/ECE492/LaserHarpG6W18/HarpEnvelope_lut.vhd
+Z29 FC:/Users/rarog/ECE492/LaserHarpG6W18/HarpEnvelope_lut.vhd
 l0
 L17
-VFI?Q1WW]WYW8@VPlE<LAk0
-!s100 j15nR^9n1WM3V87k2NBXi3
+VTE=0<QV<Eb71bIglSgPTc2
+!s100 GNmZaGb^YS`NU92H<7fUF3
 R8
 32
 R9
 !i10b 1
 R10
-Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/rarog/ECE492/LaserHarpG6W18/Mux8X1.vhd|
-Z31 !s107 C:/Users/rarog/ECE492/LaserHarpG6W18/Mux8X1.vhd|
+Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/rarog/ECE492/LaserHarpG6W18/HarpEnvelope_lut.vhd|
+Z31 !s107 C:/Users/rarog/ECE492/LaserHarpG6W18/HarpEnvelope_lut.vhd|
 !i113 1
 R13
 R14
-Abehaviour
+Artl
+R1
 R2
 R3
 R4
-Z32 DEx4 work 6 mux8x1 0 22 FI?Q1WW]WYW8@VPlE<LAk0
-l35
-L34
-Z33 VVa]Tg9RY:9E`G=nUhTU9;2
-Z34 !s100 zRLD<kH8b4i]Ti>0EKakR3
+DEx4 work 16 harpenvelope_lut 0 22 TE=0<QV<Eb71bIglSgPTc2
+l553
+L32
+VZ63?JeE;eX?<Tz@W4YhS00
+!s100 mT1?O2LRh6?]LFgI<lmU>3
 R8
 32
 R9
@@ -176,46 +176,171 @@ R31
 !i113 1
 R13
 R14
-Epianoenvelope_lut
-Z35 w1521048912
-R2
+Emux4x1
+Z32 w1521051929
 R1
 R3
 R4
 R5
-Z36 8C:/Users/rarog/ECE492/LaserHarpG6W18/PianoEnvelope_lut.vhd
-Z37 FC:/Users/rarog/ECE492/LaserHarpG6W18/PianoEnvelope_lut.vhd
+Z33 8C:/Users/rarog/ECE492/LaserHarpG6W18/Mux4X1.vhd
+Z34 FC:/Users/rarog/ECE492/LaserHarpG6W18/Mux4X1.vhd
+l0
+L17
+V^n[W3F2R=lATT`7eY2ZBB2
+!s100 `BL2hm<]blE2n=RB`D@o^2
+R8
+32
+R18
+!i10b 1
+R19
+Z35 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/rarog/ECE492/LaserHarpG6W18/Mux4X1.vhd|
+Z36 !s107 C:/Users/rarog/ECE492/LaserHarpG6W18/Mux4X1.vhd|
+!i113 1
+R13
+R14
+Abehaviour
+R1
+R3
+R4
+DEx4 work 6 mux4x1 0 22 ^n[W3F2R=lATT`7eY2ZBB2
+l31
+L30
+VYabBhGK`iQQEJ@8PSSjQ<3
+!s100 @5Yd5FM]kCZgo2b4b`PgL0
+R8
+32
+R18
+!i10b 1
+R19
+R35
+R36
+!i113 1
+R13
+R14
+Emux8x1
+Z37 w1521053592
+R1
+R3
+R4
+R5
+Z38 8C:/Users/rarog/ECE492/LaserHarpG6W18/Mux8X1.vhd
+Z39 FC:/Users/rarog/ECE492/LaserHarpG6W18/Mux8X1.vhd
+l0
+L17
+VFI?Q1WW]WYW8@VPlE<LAk0
+!s100 j15nR^9n1WM3V87k2NBXi3
+R8
+32
+R9
+!i10b 1
+R10
+Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/rarog/ECE492/LaserHarpG6W18/Mux8X1.vhd|
+Z41 !s107 C:/Users/rarog/ECE492/LaserHarpG6W18/Mux8X1.vhd|
+!i113 1
+R13
+R14
+Abehaviour
+R1
+R3
+R4
+DEx4 work 6 mux8x1 0 22 FI?Q1WW]WYW8@VPlE<LAk0
+l35
+L34
+VVa]Tg9RY:9E`G=nUhTU9;2
+!s100 zRLD<kH8b4i]Ti>0EKakR3
+R8
+32
+R9
+!i10b 1
+R10
+R40
+R41
+!i113 1
+R13
+R14
+Epianoenvelope_lut
+Z42 w1521480426
+R1
+R2
+R3
+R4
+R5
+Z43 8C:/Users/rarog/ECE492/LaserHarpG6W18/PianoEnvelope_lut.vhd
+Z44 FC:/Users/rarog/ECE492/LaserHarpG6W18/PianoEnvelope_lut.vhd
 l0
 L17
 VcDGR;I8P_^GOHIRh>1nQd2
 !s100 UbMe@`SklD1`3i^`4jPMj1
 R8
 32
-R9
+R18
 !i10b 1
-R10
-Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/rarog/ECE492/LaserHarpG6W18/PianoEnvelope_lut.vhd|
-Z39 !s107 C:/Users/rarog/ECE492/LaserHarpG6W18/PianoEnvelope_lut.vhd|
+R19
+Z45 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/rarog/ECE492/LaserHarpG6W18/PianoEnvelope_lut.vhd|
+Z46 !s107 C:/Users/rarog/ECE492/LaserHarpG6W18/PianoEnvelope_lut.vhd|
 !i113 1
 R13
 R14
 Artl
-R2
 R1
+R2
 R3
 R4
 DEx4 work 17 pianoenvelope_lut 0 22 cDGR;I8P_^GOHIRh>1nQd2
 l553
 L32
-VL9[SiCcn7EcLk0gTHf;BX3
-!s100 4:Okm^Hb83RXYS[`2dnbL0
+VzE?KI9_aZSze@J[?UJ60;3
+!s100 e<dDag5WF]`Iebh2[=L8k0
+R8
+32
+R18
+!i10b 1
+R19
+R45
+R46
+!i113 1
+R13
+R14
+Eviolinenvelope_lut
+Z47 w1521480590
+R1
+R2
+R3
+R4
+R5
+Z48 8C:/Users/rarog/ECE492/LaserHarpG6W18/ViolinEnvelope_lut.vhd
+Z49 FC:/Users/rarog/ECE492/LaserHarpG6W18/ViolinEnvelope_lut.vhd
+l0
+L17
+VjM2U4eBGz^lS2zmUVH1^h0
+!s100 BCn@o:FSL_k2Oa1nU^gGB3
 R8
 32
 R9
 !i10b 1
 R10
-R38
-R39
+Z50 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/rarog/ECE492/LaserHarpG6W18/ViolinEnvelope_lut.vhd|
+Z51 !s107 C:/Users/rarog/ECE492/LaserHarpG6W18/ViolinEnvelope_lut.vhd|
+!i113 1
+R13
+R14
+Artl
+R1
+R2
+R3
+R4
+DEx4 work 18 violinenvelope_lut 0 22 jM2U4eBGz^lS2zmUVH1^h0
+l553
+L32
+VjTF7IPb28aSjIdYcMYYmb0
+!s100 0hbUJ1BThiBaliL9b1D2z0
+R8
+32
+R9
+!i10b 1
+R10
+R50
+R51
 !i113 1
 R13
 R14

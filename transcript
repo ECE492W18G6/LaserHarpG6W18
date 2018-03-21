@@ -1,37 +1,12 @@
 # Compile of EnvelopeController_tb.vhd was successful.
 # Compile of PianoEnvelope_lut.vhd was successful.
-# Compile of EnvelopeController.vhd failed with 33 errors.
-# Compile of Mux4X1.vhd failed with 2 errors.
-# Compile of Mux8X1.vhd failed with 2 errors.
-# 5 compiles, 3 failed with 37 errors.
-# Compile of EnvelopeController_tb.vhd was successful.
-# Compile of PianoEnvelope_lut.vhd was successful.
-# Compile of EnvelopeController.vhd failed with 33 errors.
-# Compile of Mux4X1.vhd was successful.
-# Compile of Mux8X1.vhd was successful.
-# 5 compiles, 1 failed with 33 errors.
-# Compile of EnvelopeController.vhd failed with 33 errors.
-# Compile of EnvelopeController_tb.vhd was successful.
-# Compile of PianoEnvelope_lut.vhd was successful.
-# Compile of EnvelopeController.vhd failed with 33 errors.
-# Compile of Mux4X1.vhd was successful.
-# Compile of Mux8X1.vhd was successful.
-# 5 compiles, 1 failed with 33 errors.
-# Compile of EnvelopeController_tb.vhd was successful.
-# Compile of PianoEnvelope_lut.vhd was successful.
-# Compile of EnvelopeController.vhd failed with 33 errors.
-# Compile of Mux4X1.vhd was successful.
-# Compile of Mux8X1.vhd was successful.
-# 5 compiles, 1 failed with 33 errors.
-# Compile of EnvelopeController_tb.vhd was successful.
-# Compile of PianoEnvelope_lut.vhd was successful.
 # Compile of EnvelopeController.vhd was successful.
 # Compile of Mux4X1.vhd was successful.
 # Compile of Mux8X1.vhd was successful.
 # 5 compiles, 0 failed with no errors.
 vsim -gui work.envelopecontroller_tb
 # vsim -gui work.envelopecontroller_tb 
-# Start time: 12:17:36 on Mar 14,2018
+# Start time: 11:15:35 on Mar 19,2018
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -45,51 +20,32 @@ vsim -gui work.envelopecontroller_tb
 add wave  \
 sim:/envelopecontroller_tb/data_in \
 sim:/envelopecontroller_tb/data_out
-run
-add wave  \
-sim:/envelopecontroller_tb/Cont/PianoLUT/index \
-sim:/envelopecontroller_tb/Cont/PianoLUT/data_out
-add wave  \
-sim:/envelopecontroller_tb/Cont/mux8/sel \
-sim:/envelopecontroller_tb/Cont/mux8/data_in0 \
-sim:/envelopecontroller_tb/Cont/mux8/data_in1 \
-sim:/envelopecontroller_tb/Cont/mux8/data_in2 \
-sim:/envelopecontroller_tb/Cont/mux8/data_in3 \
-sim:/envelopecontroller_tb/Cont/mux8/data_in4 \
-sim:/envelopecontroller_tb/Cont/mux8/data_in5 \
-sim:/envelopecontroller_tb/Cont/mux8/data_in6 \
-sim:/envelopecontroller_tb/Cont/mux8/data_in7 \
-sim:/envelopecontroller_tb/Cont/mux8/data_out
-add wave  \
-sim:/envelopecontroller_tb/Cont/mux4/sel \
-sim:/envelopecontroller_tb/Cont/mux4/data_in0 \
-sim:/envelopecontroller_tb/Cont/mux4/data_in1 \
-sim:/envelopecontroller_tb/Cont/mux4/data_in2 \
-sim:/envelopecontroller_tb/Cont/mux4/data_in3 \
-sim:/envelopecontroller_tb/Cont/mux4/data_out
-add wave  \
-sim:/envelopecontroller_tb/data_in \
-sim:/envelopecontroller_tb/data_out
-run
 restart
 run
-# Compile of EnvelopeController_tb.vhd was successful.
-# Compile of PianoEnvelope_lut.vhd was successful.
-# Compile of EnvelopeController.vhd was successful.
-# Compile of Mux4X1.vhd was successful.
-# Compile of Mux8X1.vhd failed with 2 errors.
-# 5 compiles, 1 failed with 2 errors.
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/PianoLUT
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/PianoLUT
 # Compile of EnvelopeController_tb.vhd was successful.
 # Compile of PianoEnvelope_lut.vhd was successful.
 # Compile of EnvelopeController.vhd was successful.
 # Compile of Mux4X1.vhd was successful.
 # Compile of Mux8X1.vhd was successful.
 # 5 compiles, 0 failed with no errors.
+# Compile of EnvelopeController_tb.vhd was successful.
+# Compile of PianoEnvelope_lut.vhd was successful.
+# Compile of EnvelopeController.vhd was successful.
+# Compile of Mux4X1.vhd was successful.
+# Compile of Mux8X1.vhd was successful.
+# Compile of ViolinEnvelope_lut.vhd was successful.
+# Compile of ClarinetEnvelope_lut.vhd was successful.
+# Compile of HarpEnvelope_lut.vhd was successful.
+# 8 compiles, 0 failed with no errors.
 vsim -gui work.envelopecontroller_tb
-# End time: 12:26:41 on Mar 14,2018, Elapsed time: 0:09:05
-# Errors: 0, Warnings: 0
+# End time: 11:41:21 on Mar 19,2018, Elapsed time: 0:25:46
+# Errors: 0, Warnings: 2
 # vsim -gui work.envelopecontroller_tb 
-# Start time: 12:26:41 on Mar 14,2018
+# Start time: 11:41:21 on Mar 19,2018
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -97,94 +53,32 @@ vsim -gui work.envelopecontroller_tb
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
 # Loading work.envelopecontroller(rtl)
+# Loading work.harpenvelope_lut(rtl)
 # Loading work.pianoenvelope_lut(rtl)
+# Loading work.clarinetenvelope_lut(rtl)
+# Loading work.violinenvelope_lut(rtl)
 # Loading work.mux8x1(behaviour)
 # Loading work.mux4x1(behaviour)
-run
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/PianoLUT
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/PianoLUT
-run
-add wave  \
-sim:/envelopecontroller_tb/Cont/PianoLUT/index \
-sim:/envelopecontroller_tb/Cont/PianoLUT/data_out
-add wave  \
-sim:/envelopecontroller_tb/Cont/mux8/sel \
-sim:/envelopecontroller_tb/Cont/mux8/data_in0 \
-sim:/envelopecontroller_tb/Cont/mux8/data_in1 \
-sim:/envelopecontroller_tb/Cont/mux8/data_in2 \
-sim:/envelopecontroller_tb/Cont/mux8/data_in3 \
-sim:/envelopecontroller_tb/Cont/mux8/data_in4 \
-sim:/envelopecontroller_tb/Cont/mux8/data_in5 \
-sim:/envelopecontroller_tb/Cont/mux8/data_in6 \
-sim:/envelopecontroller_tb/Cont/mux8/data_in7 \
-sim:/envelopecontroller_tb/Cont/mux8/data_out
-add wave  \
-sim:/envelopecontroller_tb/Cont/mux4/sel \
-sim:/envelopecontroller_tb/Cont/mux4/data_in0 \
-sim:/envelopecontroller_tb/Cont/mux4/data_in1 \
-sim:/envelopecontroller_tb/Cont/mux4/data_in2 \
-sim:/envelopecontroller_tb/Cont/mux4/data_in3 \
-sim:/envelopecontroller_tb/Cont/mux4/data_out
 add wave  \
 sim:/envelopecontroller_tb/data_in \
 sim:/envelopecontroller_tb/data_out
-run
-run
 restart
 run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/HarpLUT
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/HarpLUT
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/PianoLUT
 # ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 #    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/PianoLUT
-restart
-run
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/PianoLUT
+#    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/ClarinetLUT
 # ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/PianoLUT
-# Compile of EnvelopeController_tb.vhd was successful.
-# Compile of PianoEnvelope_lut.vhd was successful.
-# Compile of EnvelopeController.vhd was successful.
-# Compile of Mux4X1.vhd was successful.
-# Compile of Mux8X1.vhd was successful.
-# 5 compiles, 0 failed with no errors.
-# Compile of EnvelopeController_tb.vhd was successful.
-# Compile of PianoEnvelope_lut.vhd was successful.
-# Compile of EnvelopeController.vhd was successful.
-# Compile of Mux4X1.vhd was successful.
-# Compile of Mux8X1.vhd was successful.
-# 5 compiles, 0 failed with no errors.
-restart
-# Loading work.envelopecontroller_tb(behave)
-# Loading work.envelopecontroller(rtl)
-# Loading work.pianoenvelope_lut(rtl)
-# Loading work.mux8x1(behaviour)
-# Loading work.mux4x1(behaviour)
-run
+#    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/ClarinetLUT
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/PianoLUT
+#    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/ViolinLUT
 # ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/PianoLUT
-restart
-run
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/PianoLUT
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/PianoLUT
-# Compile of EnvelopeController_tb.vhd was successful.
-# Compile of PianoEnvelope_lut.vhd was successful.
-# Compile of EnvelopeController.vhd failed with 33 errors.
-# Compile of Mux4X1.vhd was successful.
-# Compile of Mux8X1.vhd was successful.
-# 5 compiles, 1 failed with 33 errors.
-# Compile of EnvelopeController.vhd failed with 33 errors.
-# Compile of EnvelopeController_tb.vhd was successful.
-# Compile of PianoEnvelope_lut.vhd was successful.
-# Compile of EnvelopeController.vhd failed with 33 errors.
-# Compile of Mux4X1.vhd was successful.
-# Compile of Mux8X1.vhd was successful.
-# 5 compiles, 1 failed with 33 errors.
-# End time: 13:37:15 on Mar 14,2018, Elapsed time: 1:10:34
-# Errors: 0, Warnings: 10
+#    Time: 20 ns  Iteration: 1  Instance: /envelopecontroller_tb/Cont/ViolinLUT
+# End time: 12:48:33 on Mar 19,2018, Elapsed time: 1:07:12
+# Errors: 0, Warnings: 8

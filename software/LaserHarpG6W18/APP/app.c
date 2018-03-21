@@ -61,7 +61,8 @@
 #include  <hps.h>
 #include  <socal.h>
 #include  <hwlib.h>
-#include <math.h>
+#include  <math.h>
+#include <synthesizer.h>
 
 #include "audio_cfg.h"
 #include "audio.h"
@@ -304,7 +305,7 @@ static  void  AudioTaskStart (void *p_arg)
 	int instrument = 1;
 	int extend[8] = {0, 0, 0, 0, 0, 0, 0};
 	int extendConstant = 16;
-
+	float envelope[8] = {0,0,0,0,0,0,0,0};
     for(;;) {
         BSP_WatchDog_Reset();				/* Reset the watchdog.   */
 
@@ -316,25 +317,18 @@ static  void  AudioTaskStart (void *p_arg)
 
 		INT8U photodiodes = (INT8U) alt_read_byte(PHOTODIODE_BASE);
 
-
-
 		int i;
-		for(i = 0; i < 8; i++) {
-			writeFreqToSynthesizer(SYNTH0_BASE, 24.33);
-			int enable = (photodiodes & DIODE_MASK[i]);
-			float envelope;
 
+		for(i = 0; i < 8; i++) {
+			writeFreqToSynthesizer(SYNTH_BASE[i], currentFreqs[i]);
+			int enable = (photodiodes & DIODE_MASK[i]);
 			// sound envelope is short, this allows us to extend/shorten it as we want
 			if ((extend[i] % extendConstant) == 0) {
-				envelope = readFromEnvelope(ENVELOPE_BASE, i, (enable <= 0), instrument);
+				envelope[i] = readFromEnvelope(ENVELOPE_BASE, i, (enable <= 0), instrument);
 			}
-			if(enable) {
-				extend[i] ++;
-			} else {
-				extend[i] = 0;
-			}
-
-			POLY_BUFFER[0] += (INT32S) (readFromSythesizer(SYNTH0_BASE, enable) * envelope);
+			extend[i] = extend[i] + 1;
+			INT32S read = readFromSythesizer(SYNTH_BASE[i], enable);
+			POLY_BUFFER[0] += (INT32S) (read * envelope[i]);
 		}
         write_audio_data(POLY_BUFFER, 1);
 

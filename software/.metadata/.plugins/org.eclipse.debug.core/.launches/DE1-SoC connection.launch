@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.arm.debugger.launcher2">
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data" value="46612066"/>
-<mapEntry key="*Fetching Data Model" value="258635"/>
-<mapEntry key="*list global low level symbols" value="6462537"/>
-<mapEntry key="*loading memory from target" value="13025445"/>
-<mapEntry key="*loading values from target" value="55347573"/>
+<mapEntry key="*Fetching Data" value="58886011"/>
+<mapEntry key="*Fetching Data Model" value="327847"/>
+<mapEntry key="*list global low level symbols" value="3165577"/>
+<mapEntry key="*loading memory from target" value="15865837"/>
+<mapEntry key="*loading values from target" value="13169703"/>
 <mapEntry key="*updating local_variables" value="683846"/>
 <mapEntry key="*updating registers" value="38833019"/>
-<mapEntry key="*updating variables" value="841827"/>
-<mapEntry key="AddEventObserver" value="204573"/>
-<mapEntry key="Evaluate" value="3035146"/>
-<mapEntry key="Retrieving globals list" value="1680283"/>
-<mapEntry key="areCachesAvailable" value="488695"/>
+<mapEntry key="*updating variables" value="721922"/>
+<mapEntry key="AddEventObserver" value="400314"/>
+<mapEntry key="Evaluate" value="3109623"/>
+<mapEntry key="Retrieving globals list" value="3525461"/>
+<mapEntry key="areCachesAvailable" value="369272"/>
 <mapEntry key="backtrace" value="7793928"/>
-<mapEntry key="break" value="12314694"/>
-<mapEntry key="continue" value="24627592"/>
+<mapEntry key="break" value="31795520"/>
+<mapEntry key="continue" value="50128573"/>
 <mapEntry key="core" value="8392234"/>
 <mapEntry key="disassemble" value="54170919"/>
 <mapEntry key="evaluate address" value="378266"/>
-<mapEntry key="file" value="31398072"/>
+<mapEntry key="file" value="13864916"/>
 <mapEntry key="finish" value="17507794"/>
-<mapEntry key="get byte order" value="422880"/>
-<mapEntry key="get capabilities" value="108800"/>
-<mapEntry key="get execution addresss" value="366925"/>
-<mapEntry key="get source lines" value="309155"/>
-<mapEntry key="getValidEncodings" value="412485"/>
-<mapEntry key="initialize command help" value="19428547"/>
+<mapEntry key="get byte order" value="415337"/>
+<mapEntry key="get capabilities" value="152785"/>
+<mapEntry key="get execution addresss" value="258115"/>
+<mapEntry key="get source lines" value="239783"/>
+<mapEntry key="getValidEncodings" value="255393"/>
+<mapEntry key="initialize command help" value="24941609"/>
 <mapEntry key="interrupt" value="18686989"/>
-<mapEntry key="list breakpoints" value="200423"/>
-<mapEntry key="list instruction sets" value="95754"/>
-<mapEntry key="list signals" value="10416329"/>
-<mapEntry key="list watchpoints" value="208887"/>
-<mapEntry key="loadfile" value="401779511"/>
-<mapEntry key="next" value="75372494"/>
-<mapEntry key="remove" value="15979315"/>
-<mapEntry key="set CWD" value="2943746"/>
-<mapEntry key="set breakpoint properties" value="18442459"/>
-<mapEntry key="set debug-from" value="304190"/>
-<mapEntry key="source altera_target_check.py" value="223974693"/>
-<mapEntry key="source preloader.ds" value="6056989455"/>
-<mapEntry key="start" value="49157757"/>
-<mapEntry key="step" value="67556439"/>
-<mapEntry key="toggleBreakpoint" value="15671821"/>
-<mapEntry key="waitForTargetToStop" value="258297846"/>
+<mapEntry key="list breakpoints" value="764105"/>
+<mapEntry key="list instruction sets" value="853649"/>
+<mapEntry key="list signals" value="25476711"/>
+<mapEntry key="list watchpoints" value="447880"/>
+<mapEntry key="loadfile" value="506719518"/>
+<mapEntry key="next" value="53116411"/>
+<mapEntry key="remove" value="20512747"/>
+<mapEntry key="set CWD" value="777949"/>
+<mapEntry key="set breakpoint properties" value="26341986"/>
+<mapEntry key="set debug-from" value="953470"/>
+<mapEntry key="source altera_target_check.py" value="210711938"/>
+<mapEntry key="source preloader.ds" value="5954704790"/>
+<mapEntry key="start" value="86012543"/>
+<mapEntry key="step" value="59212579"/>
+<mapEntry key="toggleBreakpoint" value="14781738"/>
+<mapEntry key="waitForTargetToStop" value="441579224"/>
 <mapEntry key="write expression" value="42402046"/>
 </mapAttribute>
 <intAttribute key="DEBUG_TAB..RESOURCES.COUNT" value="0"/>
@@ -167,10 +167,6 @@
 <listEntry value="1"/>
 <listEntry value="element formatter"/>
 <listEntry value="Signed Decimal"/>
-<listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::$0::$0::envelope"/>
-<listEntry value="1"/>
-<listEntry value="formatter"/>
-<listEntry value="Hexadecimal"/>
 <listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::$0::$0::synth"/>
 <listEntry value="1"/>
 <listEntry value="formatter"/>
@@ -183,18 +179,10 @@
 <listEntry value="1"/>
 <listEntry value="formatter"/>
 <listEntry value="Hexadecimal"/>
-<listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::currentFreqs"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::$0::$0::transport_bits"/>
 <listEntry value="1"/>
-<listEntry value="element formatter"/>
-<listEntry value="Float"/>
-<listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::SYNTH_BASE"/>
-<listEntry value="1"/>
-<listEntry value="element formatter"/>
-<listEntry value="Signed Decimal"/>
-<listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::DIODE_MASK"/>
-<listEntry value="1"/>
-<listEntry value="element formatter"/>
-<listEntry value="Signed Decimal"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
 <listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/HWLIBS/synthesizer.c::readFromEnvelope::reset"/>
 <listEntry value="1"/>
 <listEntry value="formatter"/>
@@ -207,18 +195,42 @@
 <listEntry value="1"/>
 <listEntry value="formatter"/>
 <listEntry value="Hexadecimal"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::SYNTH_BASE:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::SYNTH_BASE[7]"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Character"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::SYNTH_BASE:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::SYNTH_BASE[0]"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Character"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::$0::envelope"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Float"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::currentFreqs"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Float"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::SYNTH_BASE"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="String (UTF-8)"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::DIODE_MASK"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Signed Decimal"/>
 <listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::$0::photodiodes"/>
 <listEntry value="1"/>
 <listEntry value="formatter"/>
 <listEntry value="Binary"/>
-<listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::$0::$0::transport_bits"/>
-<listEntry value="1"/>
-<listEntry value="formatter"/>
-<listEntry value="Hexadecimal"/>
 <listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::extend"/>
 <listEntry value="1"/>
 <listEntry value="element formatter"/>
 <listEntry value="Signed Decimal"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTaskStart::envelope"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Float"/>
 </listAttribute>
 <booleanAttribute key="VFS_ENABLED" value="true"/>
 <stringAttribute key="VFS_LOCAL_DIR" value="${workspace_loc}"/>
@@ -232,9 +244,10 @@
 </listAttribute>
 <listAttribute key="com.arm.debug.views.common.AddressTracker.debugger.view.MemoryView.addresses">
 <listEntry value=""/>
-<listEntry value="0xff201800"/>
-<listEntry value="0xff201000"/>
 <listEntry value="0xff201200"/>
+<listEntry value="0xff201800"/>
+<listEntry value="0xff021800"/>
+<listEntry value="0xff201000"/>
 <listEntry value="0xff201300"/>
 <listEntry value="0xff201400"/>
 <listEntry value="0xff201100"/>
@@ -260,6 +273,7 @@
 <listEntry value="1024"/>
 <listEntry value="1024"/>
 <listEntry value="1024"/>
+<listEntry value="1024"/>
 <listEntry value="4"/>
 <listEntry value="1024"/>
 <listEntry value="1024"/>
@@ -270,6 +284,7 @@
 <listEntry value="1024"/>
 <listEntry value="1024"/>
 </listAttribute>
+<stringAttribute key="com.arm.debug.views.debugConsole.DebugCommandLine.History" value=""/>
 <stringAttribute key="config_db_activity_name" value="Debug Cortex-A9x2 SMP"/>
 <stringAttribute key="config_db_connection_keys" value="rvi_address target_initialization_script dtsl_config dtsl_tracecapture_option dtsl_config_script eventviewer_tracesource config_file setup TCP_KILL_ON_EXIT TCP_DISABLE_EXTENDED_MODE"/>
 <stringAttribute key="config_db_connection_type" value="Bare Metal Debug"/>

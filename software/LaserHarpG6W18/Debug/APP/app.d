@@ -20,6 +20,7 @@ APP/app.o: C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/uCOS-II/
 APP/app.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av/socal/hps.h
 APP/app.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av/socal/socal.h
 APP/app.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/hwlib.h
+APP/app.o: C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/HWLIBS/synthesizer.h
 APP/app.o: C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/HWLIBS/audio_cfg.h
 APP/app.o: C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/HWLIBS/audio.h
 APP/app.o: C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/HWLIBS/lcd.h
