@@ -1,0 +1,139 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_arith.all;
+USE ieee.math_real.all;
+use ieee.VITAL_Primitives.all;
+use IEEE.STD_LOGIC_SIGNED.all; 
+use IEEE.STD_LOGIC_UNSIGNED.all;
+
+entity EnvelopeController is 
+
+	port(
+	-- system signals
+	clk 			: in std_logic:= '0'; 
+	reset 			: in std_logic:= '0'; 
+	read			: in std_logic:= '0'; 
+	write			: in std_logic:= '0';
+	data_in			: in std_logic_vector(31 downto 0);
+	data_out	 	: out std_logic_vector(31 downto 0)
+	);
+	
+end EnvelopeController;
+
+architecture rtl of EnvelopeController is
+
+component PianoEnvelope_lut is 
+	port (
+	clk 		: in std_logic;
+	en			: in std_logic;
+	reset 		: in std_logic;
+	index		: in std_logic_vector(11 downto 0);
+	data_out  	: out std_logic_vector(31 downto 0)
+	);
+
+end component PianoEnvelope_lut;
+
+component Mux8X1 is
+	port (
+		sel			:	in std_logic_vector(2 downto 0);
+		data_in0	: 	in std_logic_vector(11 downto 0); 
+		data_in1	: 	in std_logic_vector(11 downto 0); 
+		data_in2	: 	in std_logic_vector(11 downto 0); 
+		data_in3	: 	in std_logic_vector(11 downto 0); 
+		data_in4	: 	in std_logic_vector(11 downto 0); 
+		data_in5	: 	in std_logic_vector(11 downto 0); 
+		data_in6	: 	in std_logic_vector(11 downto 0); 
+		data_in7	: 	in std_logic_vector(11 downto 0); 
+		data_out	:	out std_logic_vector(11 downto 0);
+	);
+end component Mux8X1;
+
+signal counterDiode1 	: std_logic_vector(11 downto 0);
+signal counterDiode2 	: std_logic_vector(11 downto 0);
+signal counterDiode3 	: std_logic_vector(11 downto 0);
+signal counterDiode4 	: std_logic_vector(11 downto 0);
+signal counterDiode5 	: std_logic_vector(11 downto 0);
+signal counterDiode6 	: std_logic_vector(11 downto 0);
+signal counterDiode7 	: std_logic_vector(11 downto 0);
+signal counterDiode8	: std_logic_vector(11 downto 0);
+signal counterOut		: std_logic_vector(11 downto 0);
+
+signal enableHarp		: std_logic;
+signal enablePiano	 	: std_logic;
+signal enableClarinet	: std_logic;
+signal enableViolin		: std_logic;
+
+begin
+
+lut: component PianoEnvelope_lut  port map (
+		clk      	=> clk,
+		en       	=> enablePiano,
+		reset 		=> reset,
+		index		=> counterOut,
+		data_out 	=> data_out
+);
+
+mux: component Mux8X1 port map (
+	sel			=> data_in(2 downto 0);
+	data_in0	=> counterDiode1;
+	data_in1	=> counterDiode2;
+	data_in2	=> counterDiode3;
+	data_in3	=> counterDiode4;
+	data_in4	=> counterDiode5;
+	data_in5	=> counterDiode6;
+	data_in6	=> counterDiode7;
+	data_in7	=> counterDiode8;
+	data_out	=> counterOut;
+);
+
+enableInstrument : process(clk, write, data_in)
+begin
+	if(rising_edge(clk)) then
+		case data_in(7 downto 6) is
+			when "00" => 
+				enableHarp 		<= '1';
+				enablePiano 	<= '0';
+				enableClarinet 	<= '0';
+				enableViolin 	<= '0';
+			when "01" => 
+				enableHarp 		<= '0';
+				enablePiano 	<= '1';
+				enableClarinet 	<= '0';
+				enableViolin 	<= '0';
+			when "10" => 
+				enableHarp 		<= '0';
+				enablePiano 	<= '0';
+				enableClarinet 	<= '1';
+				enableViolin 	<= '0';
+			when "11" => 
+				enableHarp 		<= '0';
+				enablePiano 	<= '0';
+				enableClarinet 	<= '0';
+				enableViolin 	<= '1';
+		end case;
+	end if;
+end process enableInstrument;
+
+resetCounter : process(clk, reset, write, data_in)
+begin
+	if (reset = '1') then
+		counterOut <= x"000";
+
+	elsif (rising_edge(clk)) then
+		if(write = '1') then
+			counterOut <= x"000";
+			case data_in(5 downto 3) is
+				when "000" => counterDiode1 <= x"000";
+				when "001" => counterDiode2 <= x"000";
+				when "010" => counterDiode3 <= x"000";
+				when "011" => counterDiode4 <= x"000";
+				when "100" => counterDiode5 <= x"000";
+				when "101" => counterDiode6 <= x"000";
+				when "110" => counterDiode7 <= x"000";
+				when "111" => counterDiode8 <= x"000";
+			end case;
+		end if;
+	end if;
+end process resetCounter;
+ 
+end rtl;

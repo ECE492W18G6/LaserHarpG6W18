@@ -33,7 +33,7 @@ vsim -gui work.synthesizer_tb
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.synthesizer_tb(behave)
+# Loading work.envelopecontroller_tb(behave)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
 # Loading ieee.vital_timing(body)

@@ -1,0 +1,77 @@
+C:/Users/rarog/ECE492/LaserHarpG6W18/ClarinetEnvelope_lut.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/rarog/ECE492/LaserHarpG6W18/ClarinetEnvelope_lut.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ClarinetEnvelope_lut
+-- Compiling architecture rtl of ClarinetEnvelope_lut
+
+} {} {}} C:/Users/rarog/ECE492/LaserHarpG6W18/HarpEnvelope_lut.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/rarog/ECE492/LaserHarpG6W18/HarpEnvelope_lut.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity HarpEnvelope_lut
+-- Compiling architecture rtl of HarpEnvelope_lut
+
+} {} {}} C:/Users/rarog/ECE492/LaserHarpG6W18/PianoEnvelope_lut.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/rarog/ECE492/LaserHarpG6W18/PianoEnvelope_lut.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity PianoEnvelope_lut
+-- Compiling architecture rtl of PianoEnvelope_lut
+
+} {} {}} C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\rarog\ECE492\LaserHarpG6W18\EnvelopeController.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity EnvelopeController
+-- Compiling architecture rtl of EnvelopeController
+
+} {} {}} C:/Users/rarog/ECE492/LaserHarpG6W18/ViolinEnvelope_lut.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/rarog/ECE492/LaserHarpG6W18/ViolinEnvelope_lut.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ViolinEnvelope_lut
+-- Compiling architecture rtl of ViolinEnvelope_lut
+
+} {} {}} C:/Users/rarog/ECE492/LaserHarpG6W18/Mux4X1.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/rarog/ECE492/LaserHarpG6W18/Mux4X1.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Compiling entity Mux4X1
+-- Compiling architecture behaviour of Mux4X1
+
+} {} {}} C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/rarog/ECE492/LaserHarpG6W18/EnvelopeController_tb.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity EnvelopeController_tb
+-- Compiling architecture behave of EnvelopeController_tb
+
+} {} {}} C:/Users/rarog/ECE492/LaserHarpG6W18/Mux8X1.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/rarog/ECE492/LaserHarpG6W18/Mux8X1.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Compiling entity Mux8X1
+-- Compiling architecture behaviour of Mux8X1
+
+} {} {}}

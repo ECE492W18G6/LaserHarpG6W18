@@ -6,6 +6,7 @@
 		.audio_0_external_interface_DACLRCK               (<connected-to-audio_0_external_interface_DACLRCK>),               //                                            .DACLRCK
 		.audio_and_video_config_0_external_interface_SDAT (<connected-to-audio_and_video_config_0_external_interface_SDAT>), // audio_and_video_config_0_external_interface.SDAT
 		.audio_and_video_config_0_external_interface_SCLK (<connected-to-audio_and_video_config_0_external_interface_SCLK>), //                                            .SCLK
+		.buttons_external_connection_export               (<connected-to-buttons_external_connection_export>),               //                 buttons_external_connection.export
 		.character_lcd_0_external_interface_DATA          (<connected-to-character_lcd_0_external_interface_DATA>),          //          character_lcd_0_external_interface.DATA
 		.character_lcd_0_external_interface_ON            (<connected-to-character_lcd_0_external_interface_ON>),            //                                            .ON
 		.character_lcd_0_external_interface_BLON          (<connected-to-character_lcd_0_external_interface_BLON>),          //                                            .BLON
@@ -78,6 +79,10 @@
 		.memory_mem_odt                                   (<connected-to-memory_mem_odt>),                                   //                                            .mem_odt
 		.memory_mem_dm                                    (<connected-to-memory_mem_dm>),                                    //                                            .mem_dm
 		.memory_oct_rzqin                                 (<connected-to-memory_oct_rzqin>),                                 //                                            .oct_rzqin
+		.pll_0_outclk0_clk                                (<connected-to-pll_0_outclk0_clk>),                                //                               pll_0_outclk0.clk
+		.red_leds_external_connection_export              (<connected-to-red_leds_external_connection_export>),              //                red_leds_external_connection.export
+		.reset_reset_n                                    (<connected-to-reset_reset_n>),                                    //                                       reset.reset_n
+		.switches_external_connection_export              (<connected-to-switches_external_connection_export>),              //                switches_external_connection.export
 		.photodiode_0_conduit_end_export0                 (<connected-to-photodiode_0_conduit_end_export0>),                 //                    photodiode_0_conduit_end.export0
 		.photodiode_0_conduit_end_export1                 (<connected-to-photodiode_0_conduit_end_export1>),                 //                                            .export1
 		.photodiode_0_conduit_end_export2                 (<connected-to-photodiode_0_conduit_end_export2>),                 //                                            .export2
@@ -85,11 +90,6 @@
 		.photodiode_0_conduit_end_export4                 (<connected-to-photodiode_0_conduit_end_export4>),                 //                                            .export4
 		.photodiode_0_conduit_end_export5                 (<connected-to-photodiode_0_conduit_end_export5>),                 //                                            .export5
 		.photodiode_0_conduit_end_export6                 (<connected-to-photodiode_0_conduit_end_export6>),                 //                                            .export6
-		.photodiode_0_conduit_end_export7                 (<connected-to-photodiode_0_conduit_end_export7>),                 //                                            .export7
-		.pll_0_outclk0_clk                                (<connected-to-pll_0_outclk0_clk>),                                //                               pll_0_outclk0.clk
-		.red_leds_external_connection_export              (<connected-to-red_leds_external_connection_export>),              //                red_leds_external_connection.export
-		.reset_reset_n                                    (<connected-to-reset_reset_n>),                                    //                                       reset.reset_n
-		.switches_external_connection_export              (<connected-to-switches_external_connection_export>),              //                switches_external_connection.export
-		.buttons_external_connection_export               (<connected-to-buttons_external_connection_export>)                //                 buttons_external_connection.export
+		.photodiode_0_conduit_end_export7                 (<connected-to-photodiode_0_conduit_end_export7>)                  //                                            .export7
 	);
 
