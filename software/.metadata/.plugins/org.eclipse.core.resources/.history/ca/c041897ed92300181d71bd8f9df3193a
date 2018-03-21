@@ -1,0 +1,9 @@
+#include "options.h"
+
+void change_scale() {
+	SCALE = (SCALE + 1) % NUM_SCALES;
+}
+
+void change_instrument() {
+	INSTRUMENT = (INSTRUMENT + 1) % NUM_INSTRUMENTS;
+}

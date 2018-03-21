@@ -1,0 +1,16 @@
+#include "options.h"
+
+void change_scale() {
+	SCALE = (SCALE + 1) % NUM_SCALES;
+}
+
+void change_instrument() {
+	INSTRUMENT = (INSTRUMENT + 1) % NUM_INSTRUMENTS;
+}
+
+void change_octave() {
+	OCTAVE = OCTAVE + 1;
+	if (OCTAVE > MAX_OCTAVE) {
+		OCTAVE = OCTAVE_2
+	}
+}

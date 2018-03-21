@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/intelFPGA/17.0
 Esin_lut
-Z0 w1520196225
+Z0 w1520556280
 Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
@@ -18,14 +18,14 @@ Z5 dC:/Users/anarten/ECE492_Projects/LaserHarpG6W18
 Z6 8C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd
 Z7 FC:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd
 l0
-L8
-VEc1@oT3A96fL@RaE40jJl0
-!s100 A6ai]hIE:GcmD^@MgN3@X2
+L16
+VmeC@2<@Jid09Rl_WbiiLa1
+!s100 _cfGG87LmLz<?4F?@@PL]0
 Z8 OV;C;10.5b;63
 32
-Z9 !s110 1520197917
+Z9 !s110 1521225976
 !i10b 1
-Z10 !s108 1520197917.000000
+Z10 !s108 1521225976.000000
 Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd|
 Z12 !s107 C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd|
 !i113 1
@@ -36,11 +36,11 @@ R1
 R2
 R3
 R4
-Z15 DEx4 work 7 sin_lut 0 22 Ec1@oT3A96fL@RaE40jJl0
-l545
-L23
-Z16 VYKaERHPk6b=hQOCa^47`M0
-Z17 !s100 4I80mMl0:cz<LUMdJ_>2`1
+Z15 DEx4 work 7 sin_lut 0 22 meC@2<@Jid09Rl_WbiiLa1
+l553
+L31
+Z16 VLZ62ALOP1zW``3@nC=2Uk1
+Z17 !s100 bebX4T@B5L<?NQeK[4P5B1
 R8
 32
 R9
@@ -52,92 +52,90 @@ R12
 R13
 R14
 Esynthesizer
-Z18 w1520192180
-R2
-Z19 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
+Z18 w1521225734
+Z19 DPx9 altera_mf 20 altera_mf_components 0 22 :YRc5<ojH^WgP]^Vezi9c1
 Z20 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
 Z21 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
-Z22 DPx4 ieee 9 math_real 0 22 Sk6CSihbPL<f[^Shm]=KX0
+R2
 R1
 R3
 R4
 R5
-Z23 8C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/Synthesizer.vhd
-Z24 FC:/Users/anarten/ECE492_Projects/LaserHarpG6W18/Synthesizer.vhd
+Z22 8C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer.vhd
+Z23 FC:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer.vhd
 l0
-L12
-VzW3=4[fXZgZSIm_]R]6KO3
-!s100 zOclg@RMMlPeQBG9RQ`V01
+L24
+VngHo1A@PF@n=MFbAdnib;3
+!s100 MIINfgEVS<NXbCnZeAF?12
 R8
 32
-R9
+Z25 !s110 1520889668
 !i10b 1
-Z25 !s108 1520197916.000000
-Z26 !s90 -reportprogress|300|-work|testing|-2002|-explicit|-stats=none|C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/Synthesizer.vhd|
-Z27 !s107 C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/Synthesizer.vhd|
+R10
+Z24 !s90 -reportprogress|300|-work|testing|-2002|-explicit|-stats=none|C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer.vhd|
+Z25 !s107 C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer.vhd|
 !i113 1
-Z28 o-work testing -2002 -explicit
+Z26 o-work testing -2002 -explicit
 R14
 Afull_dds
-R2
 R19
 R20
 R21
-R22
+R2
 R1
 R3
 R4
-DEx4 work 11 synthesizer 0 22 zW3=4[fXZgZSIm_]R]6KO3
-l56
-L32
-VjbnWd`K:X0OZgIacYH;E50
-!s100 a9gO7GDNfg29W]K`dTRT<3
-R8
-32
-R9
-!i10b 1
-R25
-R26
-R27
-!i113 1
-R28
-R14
-Esynthesizer_tb
-Z29 w1520197913
-R3
-R4
-R5
-Z30 8C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/Synthesizer_tb.vhd
-Z31 FC:/Users/anarten/ECE492_Projects/LaserHarpG6W18/Synthesizer_tb.vhd
-l0
-L4
-VhoBA^@l0Hg3mF`E<hJ1832
-!s100 Ye@?_3?7Fm_WCL1<4IMnW2
+DEx4 work 11 synthesizer 0 22 ngHo1A@PF@n=MFbAdnib;3
+l61
+L41
+VhHO=VHE^o]KLWNlCVBoi<1
+!s100 @:c1<PJ2BlGfA6UIY0dMe2
 R8
 32
 R9
 !i10b 1
 R10
-Z32 !s90 -reportprogress|300|-work|testing|-2002|-explicit|-stats=none|C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/Synthesizer_tb.vhd|
-Z33 !s107 C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/Synthesizer_tb.vhd|
+R24
+R25
 !i113 1
-R28
+R26
+R14
+Esynthesizer_tb
+Z27 w1521225968
+R3
+R4
+R5
+Z28 8C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer_tb.vhd
+Z29 FC:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer_tb.vhd
+l0
+L16
+Vb@zIK_j7^B:N<fX3mh?b@1
+!s100 d;7z`V@SlZXXe]MkaAF`G0
+R8
+32
+R25
+!i10b 1
+R10
+Z30 !s90 -reportprogress|300|-work|testing|-2002|-explicit|-stats=none|C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer_tb.vhd|
+Z31 !s107 C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer_tb.vhd|
+!i113 1
+R26
 R14
 Abehave
 R3
 R4
-DEx4 work 14 synthesizer_tb 0 22 hoBA^@l0Hg3mF`E<hJ1832
-l25
-L7
-V8e6X>1zmzPjfCZD8DF55;0
-!s100 K??0HR[aMZ8OEf0:=:__90
+DEx4 work 14 synthesizer_tb 0 22 b@zIK_j7^B:N<fX3mh?b@1
+l37
+L19
+V^F@hRHYY4>k8E@OINCB<G0
+!s100 _eiRf:E0=Pk<VOVTM_Q5N0
 R8
 32
-R9
+Z32 !s110 1521225848
 !i10b 1
-R10
-R32
-R33
+Z33 !s108 1521225848.000000
+R30
+R31
 !i113 1
-R28
+R26
 R14

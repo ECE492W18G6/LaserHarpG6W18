@@ -7,10 +7,12 @@
 			audio_0_external_interface_DACLRCK               : in    std_logic                     := 'X';             -- DACLRCK
 			audio_and_video_config_0_external_interface_SDAT : inout std_logic                     := 'X';             -- SDAT
 			audio_and_video_config_0_external_interface_SCLK : out   std_logic;                                        -- SCLK
-			button_0_external_connection_export              : in    std_logic                     := 'X';             -- export
-			button_1_external_connection_export              : in    std_logic                     := 'X';             -- export
-			button_2_external_connection_export              : in    std_logic                     := 'X';             -- export
-			button_3_external_connection_export              : in    std_logic                     := 'X';             -- export
+			character_lcd_0_external_interface_DATA          : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- DATA
+			character_lcd_0_external_interface_ON            : out   std_logic;                                        -- ON
+			character_lcd_0_external_interface_BLON          : out   std_logic;                                        -- BLON
+			character_lcd_0_external_interface_EN            : out   std_logic;                                        -- EN
+			character_lcd_0_external_interface_RS            : out   std_logic;                                        -- RS
+			character_lcd_0_external_interface_RW            : out   std_logic;                                        -- RW
 			clk_clk                                          : in    std_logic                     := 'X';             -- clk
 			hps_io_hps_io_emac1_inst_TX_CLK                  : out   std_logic;                                        -- hps_io_emac1_inst_TX_CLK
 			hps_io_hps_io_emac1_inst_TXD0                    : out   std_logic;                                        -- hps_io_emac1_inst_TXD0
@@ -85,10 +87,11 @@
 			photodiode_0_conduit_end_export5                 : in    std_logic                     := 'X';             -- export5
 			photodiode_0_conduit_end_export6                 : in    std_logic                     := 'X';             -- export6
 			photodiode_0_conduit_end_export7                 : in    std_logic                     := 'X';             -- export7
+			pll_0_outclk0_clk                                : out   std_logic;                                        -- clk
 			red_leds_external_connection_export              : out   std_logic_vector(9 downto 0);                     -- export
 			reset_reset_n                                    : in    std_logic                     := 'X';             -- reset_n
 			switches_external_connection_export              : in    std_logic_vector(9 downto 0)  := (others => 'X'); -- export
-			pll_0_outclk0_clk                                : out   std_logic                                         -- clk
+			buttons_external_connection_export               : in    std_logic_vector(3 downto 0)  := (others => 'X')  -- export
 		);
 	end component soc_system;
 
@@ -101,10 +104,12 @@
 			audio_0_external_interface_DACLRCK               => CONNECTED_TO_audio_0_external_interface_DACLRCK,               --                                            .DACLRCK
 			audio_and_video_config_0_external_interface_SDAT => CONNECTED_TO_audio_and_video_config_0_external_interface_SDAT, -- audio_and_video_config_0_external_interface.SDAT
 			audio_and_video_config_0_external_interface_SCLK => CONNECTED_TO_audio_and_video_config_0_external_interface_SCLK, --                                            .SCLK
-			button_0_external_connection_export              => CONNECTED_TO_button_0_external_connection_export,              --                button_0_external_connection.export
-			button_1_external_connection_export              => CONNECTED_TO_button_1_external_connection_export,              --                button_1_external_connection.export
-			button_2_external_connection_export              => CONNECTED_TO_button_2_external_connection_export,              --                button_2_external_connection.export
-			button_3_external_connection_export              => CONNECTED_TO_button_3_external_connection_export,              --                button_3_external_connection.export
+			character_lcd_0_external_interface_DATA          => CONNECTED_TO_character_lcd_0_external_interface_DATA,          --          character_lcd_0_external_interface.DATA
+			character_lcd_0_external_interface_ON            => CONNECTED_TO_character_lcd_0_external_interface_ON,            --                                            .ON
+			character_lcd_0_external_interface_BLON          => CONNECTED_TO_character_lcd_0_external_interface_BLON,          --                                            .BLON
+			character_lcd_0_external_interface_EN            => CONNECTED_TO_character_lcd_0_external_interface_EN,            --                                            .EN
+			character_lcd_0_external_interface_RS            => CONNECTED_TO_character_lcd_0_external_interface_RS,            --                                            .RS
+			character_lcd_0_external_interface_RW            => CONNECTED_TO_character_lcd_0_external_interface_RW,            --                                            .RW
 			clk_clk                                          => CONNECTED_TO_clk_clk,                                          --                                         clk.clk
 			hps_io_hps_io_emac1_inst_TX_CLK                  => CONNECTED_TO_hps_io_hps_io_emac1_inst_TX_CLK,                  --                                      hps_io.hps_io_emac1_inst_TX_CLK
 			hps_io_hps_io_emac1_inst_TXD0                    => CONNECTED_TO_hps_io_hps_io_emac1_inst_TXD0,                    --                                            .hps_io_emac1_inst_TXD0
@@ -179,9 +184,10 @@
 			photodiode_0_conduit_end_export5                 => CONNECTED_TO_photodiode_0_conduit_end_export5,                 --                                            .export5
 			photodiode_0_conduit_end_export6                 => CONNECTED_TO_photodiode_0_conduit_end_export6,                 --                                            .export6
 			photodiode_0_conduit_end_export7                 => CONNECTED_TO_photodiode_0_conduit_end_export7,                 --                                            .export7
+			pll_0_outclk0_clk                                => CONNECTED_TO_pll_0_outclk0_clk,                                --                               pll_0_outclk0.clk
 			red_leds_external_connection_export              => CONNECTED_TO_red_leds_external_connection_export,              --                red_leds_external_connection.export
 			reset_reset_n                                    => CONNECTED_TO_reset_reset_n,                                    --                                       reset.reset_n
 			switches_external_connection_export              => CONNECTED_TO_switches_external_connection_export,              --                switches_external_connection.export
-			pll_0_outclk0_clk                                => CONNECTED_TO_pll_0_outclk0_clk                                 --                               pll_0_outclk0.clk
+			buttons_external_connection_export               => CONNECTED_TO_buttons_external_connection_export                --                 buttons_external_connection.export
 		);
 

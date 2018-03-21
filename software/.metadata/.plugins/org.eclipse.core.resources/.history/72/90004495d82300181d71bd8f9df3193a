@@ -1,0 +1,48 @@
+/*
+ *  Created on: March 9, 2018
+ *  Authors: Adam Narten & Randi Derbyshire
+ */
+#ifndef OPTIONS_H_
+#define OPTIONS_H_
+
+#define MAJOR 0
+#define MINOR 1
+#define BLUES 2
+#define DORIAN 3
+
+#define HARP 0
+#define PIANO 1
+#define CLARINET 2
+#define VIOLIN 3
+
+#define OCTAVE_2 2
+#define OCTAVE_3 3
+#define OCTAVE_4 4
+#define OCTAVE_5 5
+#define OCTAVE_6 6
+
+#define C 0
+#define C_SHARP 1
+#define D 2
+#define D_SHARP 3
+#define E 4
+#define F 5
+#define F_SHARP 6
+#define G 7
+#define G_SHARP 8
+#define A 9
+#define A_SHARP 10
+#define B 11
+
+
+
+
+void InitHPSTimerInterrupt (void);
+void InitFPGATimerInterrupt(void);
+void HPS_TimerISR_Handler(CPU_INT32U cpu_id);
+void FPGA_TimerISR_Handler(CPU_INT32U cpu_id);
+
+extern void FPGA_LEDS_Off(void);
+extern void FPGA_LEDS_On(void);
+
+#endif /* TIMER_H_ */

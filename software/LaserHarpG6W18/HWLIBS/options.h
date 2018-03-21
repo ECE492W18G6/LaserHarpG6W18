@@ -6,6 +6,9 @@
 #ifndef OPTIONS_H_
 #define OPTIONS_H_
 
+#define C2_FREQUENCY 6.075
+#define NUM_STRINGS 8
+
 #define MAJOR 0
 #define MINOR 1
 #define BLUES 2
@@ -46,11 +49,6 @@
 #define SUSTAIN_OFF 0
 #define SUSTAIN_ON 1
 
-#define HarpInstrument 0
-#define PianoInstrument 1
-#define ClarinetInstrument 2
-#define ViolinInstrument 3
-
 void change_scale (void);
 void change_instrument (void);
 void change_octave (void);
@@ -60,6 +58,7 @@ void remove_reverb(void);
 void set_sustain(void);
 void remove_sustain(void);
 void update_LCD_string(void);
-int EnvelopeOptions(int diode, int reset, int instrument);
+int get_octave(void);
+void get_frequencies(int* integers, float* fractions);
 
 #endif /* OPTIONS_H_ */

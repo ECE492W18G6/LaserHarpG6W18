@@ -15,10 +15,13 @@ entity soc_system is
 		audio_0_external_interface_DACLRCK               : in    std_logic                     := '0';             --                                            .DACLRCK
 		audio_and_video_config_0_external_interface_SDAT : inout std_logic                     := '0';             -- audio_and_video_config_0_external_interface.SDAT
 		audio_and_video_config_0_external_interface_SCLK : out   std_logic;                                        --                                            .SCLK
-		button_0_external_connection_export              : in    std_logic                     := '0';             --                button_0_external_connection.export
-		button_1_external_connection_export              : in    std_logic                     := '0';             --                button_1_external_connection.export
-		button_2_external_connection_export              : in    std_logic                     := '0';             --                button_2_external_connection.export
-		button_3_external_connection_export              : in    std_logic                     := '0';             --                button_3_external_connection.export
+		buttons_external_connection_export               : in    std_logic_vector(3 downto 0)  := (others => '0'); --                 buttons_external_connection.export
+		character_lcd_0_external_interface_DATA          : inout std_logic_vector(7 downto 0)  := (others => '0'); --          character_lcd_0_external_interface.DATA
+		character_lcd_0_external_interface_ON            : out   std_logic;                                        --                                            .ON
+		character_lcd_0_external_interface_BLON          : out   std_logic;                                        --                                            .BLON
+		character_lcd_0_external_interface_EN            : out   std_logic;                                        --                                            .EN
+		character_lcd_0_external_interface_RS            : out   std_logic;                                        --                                            .RS
+		character_lcd_0_external_interface_RW            : out   std_logic;                                        --                                            .RW
 		clk_clk                                          : in    std_logic                     := '0';             --                                         clk.clk
 		hps_io_hps_io_emac1_inst_TX_CLK                  : out   std_logic;                                        --                                      hps_io.hps_io_emac1_inst_TX_CLK
 		hps_io_hps_io_emac1_inst_TXD0                    : out   std_logic;                                        --                                            .hps_io_emac1_inst_TXD0
@@ -158,7 +161,7 @@ architecture rtl of soc_system is
 		);
 	end component soc_system_audio_and_video_config_0;
 
-	component soc_system_button_0 is
+	component soc_system_buttons is
 		port (
 			clk        : in  std_logic                     := 'X';             -- clk
 			reset_n    : in  std_logic                     := 'X';             -- reset_n
@@ -167,10 +170,30 @@ architecture rtl of soc_system is
 			writedata  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
 			chipselect : in  std_logic                     := 'X';             -- chipselect
 			readdata   : out std_logic_vector(31 downto 0);                    -- readdata
-			in_port    : in  std_logic                     := 'X';             -- export
+			in_port    : in  std_logic_vector(3 downto 0)  := (others => 'X'); -- export
 			irq        : out std_logic                                         -- irq
 		);
-	end component soc_system_button_0;
+	end component soc_system_buttons;
+
+	component soc_system_character_lcd_0 is
+		port (
+			clk         : in    std_logic                    := 'X';             -- clk
+			reset       : in    std_logic                    := 'X';             -- reset
+			address     : in    std_logic                    := 'X';             -- address
+			chipselect  : in    std_logic                    := 'X';             -- chipselect
+			read        : in    std_logic                    := 'X';             -- read
+			write       : in    std_logic                    := 'X';             -- write
+			writedata   : in    std_logic_vector(7 downto 0) := (others => 'X'); -- writedata
+			readdata    : out   std_logic_vector(7 downto 0);                    -- readdata
+			waitrequest : out   std_logic;                                       -- waitrequest
+			LCD_DATA    : inout std_logic_vector(7 downto 0) := (others => 'X'); -- export
+			LCD_ON      : out   std_logic;                                       -- export
+			LCD_BLON    : out   std_logic;                                       -- export
+			LCD_EN      : out   std_logic;                                       -- export
+			LCD_RS      : out   std_logic;                                       -- export
+			LCD_RW      : out   std_logic                                        -- export
+		);
+	end component soc_system_character_lcd_0;
 
 	component soc_system_hps_0 is
 		generic (
@@ -402,30 +425,18 @@ architecture rtl of soc_system is
 			audio_and_video_config_0_avalon_av_config_slave_writedata           : out std_logic_vector(31 downto 0);                    -- writedata
 			audio_and_video_config_0_avalon_av_config_slave_byteenable          : out std_logic_vector(3 downto 0);                     -- byteenable
 			audio_and_video_config_0_avalon_av_config_slave_waitrequest         : in  std_logic                     := 'X';             -- waitrequest
-			button_0_s1_address                                                 : out std_logic_vector(1 downto 0);                     -- address
-			button_0_s1_write                                                   : out std_logic;                                        -- write
-			button_0_s1_readdata                                                : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
-			button_0_s1_writedata                                               : out std_logic_vector(31 downto 0);                    -- writedata
-			button_0_s1_chipselect                                              : out std_logic;                                        -- chipselect
-			button_1_s1_address                                                 : out std_logic_vector(1 downto 0);                     -- address
-			button_1_s1_write                                                   : out std_logic;                                        -- write
-			button_1_s1_readdata                                                : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
-			button_1_s1_writedata                                               : out std_logic_vector(31 downto 0);                    -- writedata
-			button_1_s1_chipselect                                              : out std_logic;                                        -- chipselect
-			button_2_s1_address                                                 : out std_logic_vector(1 downto 0);                     -- address
-			button_2_s1_write                                                   : out std_logic;                                        -- write
-			button_2_s1_readdata                                                : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
-			button_2_s1_writedata                                               : out std_logic_vector(31 downto 0);                    -- writedata
-			button_2_s1_chipselect                                              : out std_logic;                                        -- chipselect
-			button_3_s1_address                                                 : out std_logic_vector(1 downto 0);                     -- address
-			button_3_s1_write                                                   : out std_logic;                                        -- write
-			button_3_s1_readdata                                                : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
-			button_3_s1_writedata                                               : out std_logic_vector(31 downto 0);                    -- writedata
-			button_3_s1_chipselect                                              : out std_logic;                                        -- chipselect
-			EnvelopeController_0_avalon_slave_write                             : out std_logic;                                        -- write
-			EnvelopeController_0_avalon_slave_read                              : out std_logic;                                        -- read
-			EnvelopeController_0_avalon_slave_readdata                          : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
-			EnvelopeController_0_avalon_slave_writedata                         : out std_logic_vector(31 downto 0);                    -- writedata
+			buttons_s1_address                                                  : out std_logic_vector(1 downto 0);                     -- address
+			buttons_s1_write                                                    : out std_logic;                                        -- write
+			buttons_s1_readdata                                                 : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			buttons_s1_writedata                                                : out std_logic_vector(31 downto 0);                    -- writedata
+			buttons_s1_chipselect                                               : out std_logic;                                        -- chipselect
+			character_lcd_0_avalon_lcd_slave_address                            : out std_logic_vector(0 downto 0);                     -- address
+			character_lcd_0_avalon_lcd_slave_write                              : out std_logic;                                        -- write
+			character_lcd_0_avalon_lcd_slave_read                               : out std_logic;                                        -- read
+			character_lcd_0_avalon_lcd_slave_readdata                           : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- readdata
+			character_lcd_0_avalon_lcd_slave_writedata                          : out std_logic_vector(7 downto 0);                     -- writedata
+			character_lcd_0_avalon_lcd_slave_waitrequest                        : in  std_logic                     := 'X';             -- waitrequest
+			character_lcd_0_avalon_lcd_slave_chipselect                         : out std_logic;                                        -- chipselect
 			photodiode_0_avalon_slave_read                                      : out std_logic;                                        -- read
 			photodiode_0_avalon_slave_readdata                                  : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- readdata
 			red_leds_s1_address                                                 : out std_logic_vector(1 downto 0);                     -- address
@@ -482,9 +493,6 @@ architecture rtl of soc_system is
 			receiver0_irq : in  std_logic                     := 'X'; -- irq
 			receiver1_irq : in  std_logic                     := 'X'; -- irq
 			receiver2_irq : in  std_logic                     := 'X'; -- irq
-			receiver3_irq : in  std_logic                     := 'X'; -- irq
-			receiver4_irq : in  std_logic                     := 'X'; -- irq
-			receiver5_irq : in  std_logic                     := 'X'; -- irq
 			sender_irq    : out std_logic_vector(31 downto 0)         -- irq
 		);
 	end component soc_system_irq_mapper;
@@ -678,6 +686,13 @@ architecture rtl of soc_system is
 	signal mm_interconnect_0_audio_and_video_config_0_avalon_av_config_slave_byteenable  : std_logic_vector(3 downto 0);  -- mm_interconnect_0:audio_and_video_config_0_avalon_av_config_slave_byteenable -> audio_and_video_config_0:byteenable
 	signal mm_interconnect_0_audio_and_video_config_0_avalon_av_config_slave_write       : std_logic;                     -- mm_interconnect_0:audio_and_video_config_0_avalon_av_config_slave_write -> audio_and_video_config_0:write
 	signal mm_interconnect_0_audio_and_video_config_0_avalon_av_config_slave_writedata   : std_logic_vector(31 downto 0); -- mm_interconnect_0:audio_and_video_config_0_avalon_av_config_slave_writedata -> audio_and_video_config_0:writedata
+	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_chipselect                 : std_logic;                     -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_chipselect -> character_lcd_0:chipselect
+	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_readdata                   : std_logic_vector(7 downto 0);  -- character_lcd_0:readdata -> mm_interconnect_0:character_lcd_0_avalon_lcd_slave_readdata
+	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_waitrequest                : std_logic;                     -- character_lcd_0:waitrequest -> mm_interconnect_0:character_lcd_0_avalon_lcd_slave_waitrequest
+	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_address                    : std_logic_vector(0 downto 0);  -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_address -> character_lcd_0:address
+	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_read                       : std_logic;                     -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_read -> character_lcd_0:read
+	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_write                      : std_logic;                     -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_write -> character_lcd_0:write
+	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_writedata                  : std_logic_vector(7 downto 0);  -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_writedata -> character_lcd_0:writedata
 	signal mm_interconnect_0_photodiode_0_avalon_slave_readdata                          : std_logic_vector(7 downto 0);  -- photodiode_0:avalon_slave_readdata -> mm_interconnect_0:photodiode_0_avalon_slave_readdata
 	signal mm_interconnect_0_photodiode_0_avalon_slave_read                              : std_logic;                     -- mm_interconnect_0:photodiode_0_avalon_slave_read -> mm_interconnect_0_photodiode_0_avalon_slave_read:in
 	signal mm_interconnect_0_envelopecontroller_0_avalon_slave_readdata                  : std_logic_vector(31 downto 0); -- EnvelopeController_0:data_out -> mm_interconnect_0:EnvelopeController_0_avalon_slave_readdata
@@ -723,26 +738,11 @@ architecture rtl of soc_system is
 	signal mm_interconnect_0_switches_s1_address                                         : std_logic_vector(1 downto 0);  -- mm_interconnect_0:switches_s1_address -> switches:address
 	signal mm_interconnect_0_switches_s1_write                                           : std_logic;                     -- mm_interconnect_0:switches_s1_write -> mm_interconnect_0_switches_s1_write:in
 	signal mm_interconnect_0_switches_s1_writedata                                       : std_logic_vector(31 downto 0); -- mm_interconnect_0:switches_s1_writedata -> switches:writedata
-	signal mm_interconnect_0_button_0_s1_chipselect                                      : std_logic;                     -- mm_interconnect_0:button_0_s1_chipselect -> button_0:chipselect
-	signal mm_interconnect_0_button_0_s1_readdata                                        : std_logic_vector(31 downto 0); -- button_0:readdata -> mm_interconnect_0:button_0_s1_readdata
-	signal mm_interconnect_0_button_0_s1_address                                         : std_logic_vector(1 downto 0);  -- mm_interconnect_0:button_0_s1_address -> button_0:address
-	signal mm_interconnect_0_button_0_s1_write                                           : std_logic;                     -- mm_interconnect_0:button_0_s1_write -> mm_interconnect_0_button_0_s1_write:in
-	signal mm_interconnect_0_button_0_s1_writedata                                       : std_logic_vector(31 downto 0); -- mm_interconnect_0:button_0_s1_writedata -> button_0:writedata
-	signal mm_interconnect_0_button_1_s1_chipselect                                      : std_logic;                     -- mm_interconnect_0:button_1_s1_chipselect -> button_1:chipselect
-	signal mm_interconnect_0_button_1_s1_readdata                                        : std_logic_vector(31 downto 0); -- button_1:readdata -> mm_interconnect_0:button_1_s1_readdata
-	signal mm_interconnect_0_button_1_s1_address                                         : std_logic_vector(1 downto 0);  -- mm_interconnect_0:button_1_s1_address -> button_1:address
-	signal mm_interconnect_0_button_1_s1_write                                           : std_logic;                     -- mm_interconnect_0:button_1_s1_write -> mm_interconnect_0_button_1_s1_write:in
-	signal mm_interconnect_0_button_1_s1_writedata                                       : std_logic_vector(31 downto 0); -- mm_interconnect_0:button_1_s1_writedata -> button_1:writedata
-	signal mm_interconnect_0_button_2_s1_chipselect                                      : std_logic;                     -- mm_interconnect_0:button_2_s1_chipselect -> button_2:chipselect
-	signal mm_interconnect_0_button_2_s1_readdata                                        : std_logic_vector(31 downto 0); -- button_2:readdata -> mm_interconnect_0:button_2_s1_readdata
-	signal mm_interconnect_0_button_2_s1_address                                         : std_logic_vector(1 downto 0);  -- mm_interconnect_0:button_2_s1_address -> button_2:address
-	signal mm_interconnect_0_button_2_s1_write                                           : std_logic;                     -- mm_interconnect_0:button_2_s1_write -> mm_interconnect_0_button_2_s1_write:in
-	signal mm_interconnect_0_button_2_s1_writedata                                       : std_logic_vector(31 downto 0); -- mm_interconnect_0:button_2_s1_writedata -> button_2:writedata
-	signal mm_interconnect_0_button_3_s1_chipselect                                      : std_logic;                     -- mm_interconnect_0:button_3_s1_chipselect -> button_3:chipselect
-	signal mm_interconnect_0_button_3_s1_readdata                                        : std_logic_vector(31 downto 0); -- button_3:readdata -> mm_interconnect_0:button_3_s1_readdata
-	signal mm_interconnect_0_button_3_s1_address                                         : std_logic_vector(1 downto 0);  -- mm_interconnect_0:button_3_s1_address -> button_3:address
-	signal mm_interconnect_0_button_3_s1_write                                           : std_logic;                     -- mm_interconnect_0:button_3_s1_write -> mm_interconnect_0_button_3_s1_write:in
-	signal mm_interconnect_0_button_3_s1_writedata                                       : std_logic_vector(31 downto 0); -- mm_interconnect_0:button_3_s1_writedata -> button_3:writedata
+	signal mm_interconnect_0_buttons_s1_chipselect                                       : std_logic;                     -- mm_interconnect_0:buttons_s1_chipselect -> buttons:chipselect
+	signal mm_interconnect_0_buttons_s1_readdata                                         : std_logic_vector(31 downto 0); -- buttons:readdata -> mm_interconnect_0:buttons_s1_readdata
+	signal mm_interconnect_0_buttons_s1_address                                          : std_logic_vector(1 downto 0);  -- mm_interconnect_0:buttons_s1_address -> buttons:address
+	signal mm_interconnect_0_buttons_s1_write                                            : std_logic;                     -- mm_interconnect_0:buttons_s1_write -> mm_interconnect_0_buttons_s1_write:in
+	signal mm_interconnect_0_buttons_s1_writedata                                        : std_logic_vector(31 downto 0); -- mm_interconnect_0:buttons_s1_writedata -> buttons:writedata
 	signal mm_interconnect_0_red_leds_s1_chipselect                                      : std_logic;                     -- mm_interconnect_0:red_leds_s1_chipselect -> red_leds:chipselect
 	signal mm_interconnect_0_red_leds_s1_readdata                                        : std_logic_vector(31 downto 0); -- red_leds:readdata -> mm_interconnect_0:red_leds_s1_readdata
 	signal mm_interconnect_0_red_leds_s1_address                                         : std_logic_vector(1 downto 0);  -- mm_interconnect_0:red_leds_s1_address -> red_leds:address
@@ -750,25 +750,19 @@ architecture rtl of soc_system is
 	signal mm_interconnect_0_red_leds_s1_writedata                                       : std_logic_vector(31 downto 0); -- mm_interconnect_0:red_leds_s1_writedata -> red_leds:writedata
 	signal irq_mapper_receiver0_irq                                                      : std_logic;                     -- audio_0:irq -> irq_mapper:receiver0_irq
 	signal irq_mapper_receiver1_irq                                                      : std_logic;                     -- switches:irq -> irq_mapper:receiver1_irq
-	signal irq_mapper_receiver2_irq                                                      : std_logic;                     -- button_0:irq -> irq_mapper:receiver2_irq
-	signal irq_mapper_receiver3_irq                                                      : std_logic;                     -- button_1:irq -> irq_mapper:receiver3_irq
-	signal irq_mapper_receiver4_irq                                                      : std_logic;                     -- button_2:irq -> irq_mapper:receiver4_irq
-	signal irq_mapper_receiver5_irq                                                      : std_logic;                     -- button_3:irq -> irq_mapper:receiver5_irq
+	signal irq_mapper_receiver2_irq                                                      : std_logic;                     -- buttons:irq -> irq_mapper:receiver2_irq
 	signal hps_0_f2h_irq0_irq                                                            : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> hps_0:f2h_irq_p0
 	signal hps_0_f2h_irq1_irq                                                            : std_logic_vector(31 downto 0); -- irq_mapper_001:sender_irq -> hps_0:f2h_irq_p1
-	signal rst_controller_reset_out_reset                                                : std_logic;                     -- rst_controller:reset_out -> [EnvelopeController_0:reset, Synthesizer_0:reset, Synthesizer_1:reset, Synthesizer_2:reset, Synthesizer_3:reset, Synthesizer_4:reset, Synthesizer_5:reset, Synthesizer_6:reset, Synthesizer_7:reset, audio_0:reset, audio_and_video_config_0:reset, mm_interconnect_0:audio_0_reset_reset_bridge_in_reset_reset, rst_controller_reset_out_reset:in]
+	signal rst_controller_reset_out_reset                                                : std_logic;                     -- rst_controller:reset_out -> [Synthesizer_0:reset, Synthesizer_1:reset, Synthesizer_2:reset, Synthesizer_3:reset, Synthesizer_4:reset, Synthesizer_5:reset, Synthesizer_6:reset, Synthesizer_7:reset, audio_0:reset, audio_and_video_config_0:reset, character_lcd_0:reset, mm_interconnect_0:audio_0_reset_reset_bridge_in_reset_reset, rst_controller_reset_out_reset:in]
 	signal hps_0_h2f_reset_reset                                                         : std_logic;                     -- hps_0:h2f_rst_n -> hps_0_h2f_reset_reset:in
 	signal rst_controller_001_reset_out_reset                                            : std_logic;                     -- rst_controller_001:reset_out -> pll_0:rst
 	signal rst_controller_002_reset_out_reset                                            : std_logic;                     -- rst_controller_002:reset_out -> mm_interconnect_0:hps_0_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset_reset
 	signal reset_reset_n_ports_inv                                                       : std_logic;                     -- reset_reset_n:inv -> [rst_controller:reset_in0, rst_controller_001:reset_in0]
 	signal mm_interconnect_0_photodiode_0_avalon_slave_read_ports_inv                    : std_logic;                     -- mm_interconnect_0_photodiode_0_avalon_slave_read:inv -> photodiode_0:avalon_slave_read_n
 	signal mm_interconnect_0_switches_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_switches_s1_write:inv -> switches:write_n
-	signal mm_interconnect_0_button_0_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_0_s1_write:inv -> button_0:write_n
-	signal mm_interconnect_0_button_1_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_1_s1_write:inv -> button_1:write_n
-	signal mm_interconnect_0_button_2_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_2_s1_write:inv -> button_2:write_n
-	signal mm_interconnect_0_button_3_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_button_3_s1_write:inv -> button_3:write_n
+	signal mm_interconnect_0_buttons_s1_write_ports_inv                                  : std_logic;                     -- mm_interconnect_0_buttons_s1_write:inv -> buttons:write_n
 	signal mm_interconnect_0_red_leds_s1_write_ports_inv                                 : std_logic;                     -- mm_interconnect_0_red_leds_s1_write:inv -> red_leds:write_n
-	signal rst_controller_reset_out_reset_ports_inv                                      : std_logic;                     -- rst_controller_reset_out_reset:inv -> [button_0:reset_n, button_1:reset_n, button_2:reset_n, button_3:reset_n, photodiode_0:reset_n, red_leds:reset_n, switches:reset_n, sysid_qsys_0:reset_n]
+	signal rst_controller_reset_out_reset_ports_inv                                      : std_logic;                     -- rst_controller_reset_out_reset:inv -> [buttons:reset_n, photodiode_0:reset_n, red_leds:reset_n, switches:reset_n, sysid_qsys_0:reset_n]
 	signal hps_0_h2f_reset_reset_ports_inv                                               : std_logic;                     -- hps_0_h2f_reset_reset:inv -> [rst_controller:reset_in1, rst_controller_001:reset_in1, rst_controller_002:reset_in0]
 
 begin
@@ -896,56 +890,36 @@ begin
 			I2C_SCLK    => audio_and_video_config_0_external_interface_SCLK                               --                       .export
 		);
 
-	button_0 : component soc_system_button_0
+	buttons : component soc_system_buttons
 		port map (
-			clk        => clk_clk,                                       --                 clk.clk
-			reset_n    => rst_controller_reset_out_reset_ports_inv,      --               reset.reset_n
-			address    => mm_interconnect_0_button_0_s1_address,         --                  s1.address
-			write_n    => mm_interconnect_0_button_0_s1_write_ports_inv, --                    .write_n
-			writedata  => mm_interconnect_0_button_0_s1_writedata,       --                    .writedata
-			chipselect => mm_interconnect_0_button_0_s1_chipselect,      --                    .chipselect
-			readdata   => mm_interconnect_0_button_0_s1_readdata,        --                    .readdata
-			in_port    => button_0_external_connection_export,           -- external_connection.export
-			irq        => irq_mapper_receiver2_irq                       --                 irq.irq
+			clk        => clk_clk,                                      --                 clk.clk
+			reset_n    => rst_controller_reset_out_reset_ports_inv,     --               reset.reset_n
+			address    => mm_interconnect_0_buttons_s1_address,         --                  s1.address
+			write_n    => mm_interconnect_0_buttons_s1_write_ports_inv, --                    .write_n
+			writedata  => mm_interconnect_0_buttons_s1_writedata,       --                    .writedata
+			chipselect => mm_interconnect_0_buttons_s1_chipselect,      --                    .chipselect
+			readdata   => mm_interconnect_0_buttons_s1_readdata,        --                    .readdata
+			in_port    => buttons_external_connection_export,           -- external_connection.export
+			irq        => irq_mapper_receiver2_irq                      --                 irq.irq
 		);
 
-	button_1 : component soc_system_button_0
+	character_lcd_0 : component soc_system_character_lcd_0
 		port map (
-			clk        => clk_clk,                                       --                 clk.clk
-			reset_n    => rst_controller_reset_out_reset_ports_inv,      --               reset.reset_n
-			address    => mm_interconnect_0_button_1_s1_address,         --                  s1.address
-			write_n    => mm_interconnect_0_button_1_s1_write_ports_inv, --                    .write_n
-			writedata  => mm_interconnect_0_button_1_s1_writedata,       --                    .writedata
-			chipselect => mm_interconnect_0_button_1_s1_chipselect,      --                    .chipselect
-			readdata   => mm_interconnect_0_button_1_s1_readdata,        --                    .readdata
-			in_port    => button_1_external_connection_export,           -- external_connection.export
-			irq        => irq_mapper_receiver3_irq                       --                 irq.irq
-		);
-
-	button_2 : component soc_system_button_0
-		port map (
-			clk        => clk_clk,                                       --                 clk.clk
-			reset_n    => rst_controller_reset_out_reset_ports_inv,      --               reset.reset_n
-			address    => mm_interconnect_0_button_2_s1_address,         --                  s1.address
-			write_n    => mm_interconnect_0_button_2_s1_write_ports_inv, --                    .write_n
-			writedata  => mm_interconnect_0_button_2_s1_writedata,       --                    .writedata
-			chipselect => mm_interconnect_0_button_2_s1_chipselect,      --                    .chipselect
-			readdata   => mm_interconnect_0_button_2_s1_readdata,        --                    .readdata
-			in_port    => button_2_external_connection_export,           -- external_connection.export
-			irq        => irq_mapper_receiver4_irq                       --                 irq.irq
-		);
-
-	button_3 : component soc_system_button_0
-		port map (
-			clk        => clk_clk,                                       --                 clk.clk
-			reset_n    => rst_controller_reset_out_reset_ports_inv,      --               reset.reset_n
-			address    => mm_interconnect_0_button_3_s1_address,         --                  s1.address
-			write_n    => mm_interconnect_0_button_3_s1_write_ports_inv, --                    .write_n
-			writedata  => mm_interconnect_0_button_3_s1_writedata,       --                    .writedata
-			chipselect => mm_interconnect_0_button_3_s1_chipselect,      --                    .chipselect
-			readdata   => mm_interconnect_0_button_3_s1_readdata,        --                    .readdata
-			in_port    => button_3_external_connection_export,           -- external_connection.export
-			irq        => irq_mapper_receiver5_irq                       --                 irq.irq
+			clk         => clk_clk,                                                        --                clk.clk
+			reset       => rst_controller_reset_out_reset,                                 --              reset.reset
+			address     => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_address(0),  --   avalon_lcd_slave.address
+			chipselect  => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_chipselect,  --                   .chipselect
+			read        => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_read,        --                   .read
+			write       => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_write,       --                   .write
+			writedata   => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_writedata,   --                   .writedata
+			readdata    => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_readdata,    --                   .readdata
+			waitrequest => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_waitrequest, --                   .waitrequest
+			LCD_DATA    => character_lcd_0_external_interface_DATA,                        -- external_interface.export
+			LCD_ON      => character_lcd_0_external_interface_ON,                          --                   .export
+			LCD_BLON    => character_lcd_0_external_interface_BLON,                        --                   .export
+			LCD_EN      => character_lcd_0_external_interface_EN,                          --                   .export
+			LCD_RS      => character_lcd_0_external_interface_RS,                          --                   .export
+			LCD_RW      => character_lcd_0_external_interface_RW                           --                   .export
 		);
 
 	hps_0 : component soc_system_hps_0
@@ -1172,30 +1146,18 @@ begin
 			audio_and_video_config_0_avalon_av_config_slave_writedata           => mm_interconnect_0_audio_and_video_config_0_avalon_av_config_slave_writedata,   --                                                              .writedata
 			audio_and_video_config_0_avalon_av_config_slave_byteenable          => mm_interconnect_0_audio_and_video_config_0_avalon_av_config_slave_byteenable,  --                                                              .byteenable
 			audio_and_video_config_0_avalon_av_config_slave_waitrequest         => mm_interconnect_0_audio_and_video_config_0_avalon_av_config_slave_waitrequest, --                                                              .waitrequest
-			button_0_s1_address                                                 => mm_interconnect_0_button_0_s1_address,                                         --                                                   button_0_s1.address
-			button_0_s1_write                                                   => mm_interconnect_0_button_0_s1_write,                                           --                                                              .write
-			button_0_s1_readdata                                                => mm_interconnect_0_button_0_s1_readdata,                                        --                                                              .readdata
-			button_0_s1_writedata                                               => mm_interconnect_0_button_0_s1_writedata,                                       --                                                              .writedata
-			button_0_s1_chipselect                                              => mm_interconnect_0_button_0_s1_chipselect,                                      --                                                              .chipselect
-			button_1_s1_address                                                 => mm_interconnect_0_button_1_s1_address,                                         --                                                   button_1_s1.address
-			button_1_s1_write                                                   => mm_interconnect_0_button_1_s1_write,                                           --                                                              .write
-			button_1_s1_readdata                                                => mm_interconnect_0_button_1_s1_readdata,                                        --                                                              .readdata
-			button_1_s1_writedata                                               => mm_interconnect_0_button_1_s1_writedata,                                       --                                                              .writedata
-			button_1_s1_chipselect                                              => mm_interconnect_0_button_1_s1_chipselect,                                      --                                                              .chipselect
-			button_2_s1_address                                                 => mm_interconnect_0_button_2_s1_address,                                         --                                                   button_2_s1.address
-			button_2_s1_write                                                   => mm_interconnect_0_button_2_s1_write,                                           --                                                              .write
-			button_2_s1_readdata                                                => mm_interconnect_0_button_2_s1_readdata,                                        --                                                              .readdata
-			button_2_s1_writedata                                               => mm_interconnect_0_button_2_s1_writedata,                                       --                                                              .writedata
-			button_2_s1_chipselect                                              => mm_interconnect_0_button_2_s1_chipselect,                                      --                                                              .chipselect
-			button_3_s1_address                                                 => mm_interconnect_0_button_3_s1_address,                                         --                                                   button_3_s1.address
-			button_3_s1_write                                                   => mm_interconnect_0_button_3_s1_write,                                           --                                                              .write
-			button_3_s1_readdata                                                => mm_interconnect_0_button_3_s1_readdata,                                        --                                                              .readdata
-			button_3_s1_writedata                                               => mm_interconnect_0_button_3_s1_writedata,                                       --                                                              .writedata
-			button_3_s1_chipselect                                              => mm_interconnect_0_button_3_s1_chipselect,                                      --                                                              .chipselect
-			EnvelopeController_0_avalon_slave_write                             => mm_interconnect_0_envelopecontroller_0_avalon_slave_write,                     --                             EnvelopeController_0_avalon_slave.write
-			EnvelopeController_0_avalon_slave_read                              => mm_interconnect_0_envelopecontroller_0_avalon_slave_read,                      --                                                              .read
-			EnvelopeController_0_avalon_slave_readdata                          => mm_interconnect_0_envelopecontroller_0_avalon_slave_readdata,                  --                                                              .readdata
-			EnvelopeController_0_avalon_slave_writedata                         => mm_interconnect_0_envelopecontroller_0_avalon_slave_writedata,                 --                                                              .writedata
+			buttons_s1_address                                                  => mm_interconnect_0_buttons_s1_address,                                          --                                                    buttons_s1.address
+			buttons_s1_write                                                    => mm_interconnect_0_buttons_s1_write,                                            --                                                              .write
+			buttons_s1_readdata                                                 => mm_interconnect_0_buttons_s1_readdata,                                         --                                                              .readdata
+			buttons_s1_writedata                                                => mm_interconnect_0_buttons_s1_writedata,                                        --                                                              .writedata
+			buttons_s1_chipselect                                               => mm_interconnect_0_buttons_s1_chipselect,                                       --                                                              .chipselect
+			character_lcd_0_avalon_lcd_slave_address                            => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_address,                    --                              character_lcd_0_avalon_lcd_slave.address
+			character_lcd_0_avalon_lcd_slave_write                              => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_write,                      --                                                              .write
+			character_lcd_0_avalon_lcd_slave_read                               => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_read,                       --                                                              .read
+			character_lcd_0_avalon_lcd_slave_readdata                           => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_readdata,                   --                                                              .readdata
+			character_lcd_0_avalon_lcd_slave_writedata                          => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_writedata,                  --                                                              .writedata
+			character_lcd_0_avalon_lcd_slave_waitrequest                        => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_waitrequest,                --                                                              .waitrequest
+			character_lcd_0_avalon_lcd_slave_chipselect                         => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_chipselect,                 --                                                              .chipselect
 			photodiode_0_avalon_slave_read                                      => mm_interconnect_0_photodiode_0_avalon_slave_read,                              --                                     photodiode_0_avalon_slave.read
 			photodiode_0_avalon_slave_readdata                                  => mm_interconnect_0_photodiode_0_avalon_slave_readdata,                          --                                                              .readdata
 			red_leds_s1_address                                                 => mm_interconnect_0_red_leds_s1_address,                                         --                                                   red_leds_s1.address
@@ -1251,9 +1213,6 @@ begin
 			receiver0_irq => irq_mapper_receiver0_irq, -- receiver0.irq
 			receiver1_irq => irq_mapper_receiver1_irq, -- receiver1.irq
 			receiver2_irq => irq_mapper_receiver2_irq, -- receiver2.irq
-			receiver3_irq => irq_mapper_receiver3_irq, -- receiver3.irq
-			receiver4_irq => irq_mapper_receiver4_irq, -- receiver4.irq
-			receiver5_irq => irq_mapper_receiver5_irq, -- receiver5.irq
 			sender_irq    => hps_0_f2h_irq0_irq        --    sender.irq
 		);
 
@@ -1465,13 +1424,7 @@ begin
 
 	mm_interconnect_0_switches_s1_write_ports_inv <= not mm_interconnect_0_switches_s1_write;
 
-	mm_interconnect_0_button_0_s1_write_ports_inv <= not mm_interconnect_0_button_0_s1_write;
-
-	mm_interconnect_0_button_1_s1_write_ports_inv <= not mm_interconnect_0_button_1_s1_write;
-
-	mm_interconnect_0_button_2_s1_write_ports_inv <= not mm_interconnect_0_button_2_s1_write;
-
-	mm_interconnect_0_button_3_s1_write_ports_inv <= not mm_interconnect_0_button_3_s1_write;
+	mm_interconnect_0_buttons_s1_write_ports_inv <= not mm_interconnect_0_buttons_s1_write;
 
 	mm_interconnect_0_red_leds_s1_write_ports_inv <= not mm_interconnect_0_red_leds_s1_write;
 
