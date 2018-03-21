@@ -11,7 +11,8 @@ C_SRCS += \
 ../HWLIBS/audio.c \
 ../HWLIBS/audio_cfg.c \
 ../HWLIBS/lcd.c \
-../HWLIBS/options.c 
+../HWLIBS/options.c \
+../HWLIBS/synthesizer.c 
 
 C_DEPS += \
 ./HWLIBS/alt_16550_uart.d \
@@ -21,7 +22,8 @@ C_DEPS += \
 ./HWLIBS/audio.d \
 ./HWLIBS/audio_cfg.d \
 ./HWLIBS/lcd.d \
-./HWLIBS/options.d 
+./HWLIBS/options.d \
+./HWLIBS/synthesizer.d 
 
 OBJS += \
 ./HWLIBS/alt_16550_uart.o \
@@ -31,7 +33,8 @@ OBJS += \
 ./HWLIBS/audio.o \
 ./HWLIBS/audio_cfg.o \
 ./HWLIBS/lcd.o \
-./HWLIBS/options.o 
+./HWLIBS/options.o \
+./HWLIBS/synthesizer.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes

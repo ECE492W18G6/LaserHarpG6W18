@@ -13,7 +13,7 @@
    {
       datum _sortIndex
       {
-         value = "21";
+         value = "11";
          type = "int";
       }
    }
@@ -34,7 +34,7 @@
    {
       datum _sortIndex
       {
-         value = "3";
+         value = "12";
          type = "int";
       }
    }
@@ -55,7 +55,7 @@
    {
       datum _sortIndex
       {
-         value = "4";
+         value = "13";
          type = "int";
       }
    }
@@ -76,7 +76,7 @@
    {
       datum _sortIndex
       {
-         value = "5";
+         value = "14";
          type = "int";
       }
    }
@@ -97,7 +97,7 @@
    {
       datum _sortIndex
       {
-         value = "6";
+         value = "15";
          type = "int";
       }
    }
@@ -118,7 +118,7 @@
    {
       datum _sortIndex
       {
-         value = "7";
+         value = "16";
          type = "int";
       }
    }
@@ -139,7 +139,7 @@
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "17";
          type = "int";
       }
    }
@@ -160,7 +160,7 @@
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "18";
          type = "int";
       }
    }
@@ -181,7 +181,7 @@
    {
       datum _sortIndex
       {
-         value = "10";
+         value = "19";
          type = "int";
       }
    }
@@ -202,7 +202,7 @@
    {
       datum _sortIndex
       {
-         value = "11";
+         value = "3";
          type = "int";
       }
    }
@@ -223,7 +223,7 @@
    {
       datum _sortIndex
       {
-         value = "12";
+         value = "4";
          type = "int";
       }
    }
@@ -244,7 +244,7 @@
    {
       datum _sortIndex
       {
-         value = "17";
+         value = "9";
          type = "int";
       }
    }
@@ -265,7 +265,7 @@
    {
       datum _sortIndex
       {
-         value = "14";
+         value = "6";
          type = "int";
       }
    }
@@ -297,7 +297,7 @@
    {
       datum _sortIndex
       {
-         value = "18";
+         value = "10";
          type = "int";
       }
    }
@@ -318,7 +318,7 @@
    {
       datum _sortIndex
       {
-         value = "13";
+         value = "5";
          type = "int";
       }
    }
@@ -326,7 +326,7 @@
    {
       datum _sortIndex
       {
-         value = "15";
+         value = "7";
          type = "int";
       }
    }
@@ -542,7 +542,7 @@
    {
       datum _sortIndex
       {
-         value = "16";
+         value = "8";
          type = "int";
       }
    }
@@ -1521,18 +1521,18 @@
    kind="avalon"
    version="17.0"
    start="hps_0.h2f_lw_axi_master"
-   end="photodiode_0.avalon_slave">
+   end="EnvelopeController_0.avalon_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2000" />
+  <parameter name="baseAddress" value="0x1800" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
    kind="avalon"
    version="17.0"
    start="hps_0.h2f_lw_axi_master"
-   end="EnvelopeController_0.avalon_slave">
+   end="photodiode_0.avalon_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1800" />
+  <parameter name="baseAddress" value="0x2000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1548,45 +1548,9 @@
    kind="avalon"
    version="17.0"
    start="hps_0.h2f_lw_axi_master"
-   end="Synthesizer_7.avalon_slave_0">
+   end="Synthesizer_1.avalon_slave_0">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1700" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.0"
-   start="hps_0.h2f_lw_axi_master"
-   end="Synthesizer_6.avalon_slave_0">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1600" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.0"
-   start="hps_0.h2f_lw_axi_master"
-   end="Synthesizer_5.avalon_slave_0">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1500" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.0"
-   start="hps_0.h2f_lw_axi_master"
-   end="Synthesizer_4.avalon_slave_0">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1400" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.0"
-   start="hps_0.h2f_lw_axi_master"
-   end="Synthesizer_3.avalon_slave_0">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1300" />
+  <parameter name="baseAddress" value="0x1100" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1602,9 +1566,45 @@
    kind="avalon"
    version="17.0"
    start="hps_0.h2f_lw_axi_master"
-   end="Synthesizer_1.avalon_slave_0">
+   end="Synthesizer_3.avalon_slave_0">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1100" />
+  <parameter name="baseAddress" value="0x1300" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="17.0"
+   start="hps_0.h2f_lw_axi_master"
+   end="Synthesizer_4.avalon_slave_0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x1400" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="17.0"
+   start="hps_0.h2f_lw_axi_master"
+   end="Synthesizer_5.avalon_slave_0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x1500" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="17.0"
+   start="hps_0.h2f_lw_axi_master"
+   end="Synthesizer_6.avalon_slave_0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x1600" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="17.0"
+   start="hps_0.h2f_lw_axi_master"
+   end="Synthesizer_7.avalon_slave_0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x1700" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1662,6 +1662,16 @@
    kind="clock"
    version="17.0"
    start="clk_0.clk"
+   end="EnvelopeController_0.clock" />
+ <connection
+   kind="clock"
+   version="17.0"
+   start="clk_0.clk"
+   end="photodiode_0.clock" />
+ <connection
+   kind="clock"
+   version="17.0"
+   start="clk_0.clk"
    end="Synthesizer_0.clock" />
  <connection
    kind="clock"
@@ -1698,16 +1708,6 @@
    version="17.0"
    start="clk_0.clk"
    end="Synthesizer_7.clock" />
- <connection
-   kind="clock"
-   version="17.0"
-   start="clk_0.clk"
-   end="photodiode_0.clock" />
- <connection
-   kind="clock"
-   version="17.0"
-   start="clk_0.clk"
-   end="EnvelopeController_0.clock" />
  <connection
    kind="clock"
    version="17.0"
@@ -1770,6 +1770,21 @@
    kind="reset"
    version="17.0"
    start="clk_0.clk_reset"
+   end="character_lcd_0.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
+   start="clk_0.clk_reset"
+   end="EnvelopeController_0.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
+   start="clk_0.clk_reset"
+   end="photodiode_0.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
+   start="clk_0.clk_reset"
    end="Synthesizer_0.reset" />
  <connection
    kind="reset"
@@ -1806,16 +1821,6 @@
    version="17.0"
    start="clk_0.clk_reset"
    end="Synthesizer_7.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="clk_0.clk_reset"
-   end="photodiode_0.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="clk_0.clk_reset"
-   end="character_lcd_0.reset" />
  <connection
    kind="reset"
    version="17.0"
@@ -1851,6 +1856,21 @@
    kind="reset"
    version="17.0"
    start="hps_0.h2f_reset"
+   end="character_lcd_0.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
+   start="hps_0.h2f_reset"
+   end="EnvelopeController_0.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
+   start="hps_0.h2f_reset"
+   end="photodiode_0.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
+   start="hps_0.h2f_reset"
    end="Synthesizer_0.reset" />
  <connection
    kind="reset"
@@ -1887,16 +1907,6 @@
    version="17.0"
    start="hps_0.h2f_reset"
    end="Synthesizer_7.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="hps_0.h2f_reset"
-   end="photodiode_0.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="hps_0.h2f_reset"
-   end="character_lcd_0.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />
