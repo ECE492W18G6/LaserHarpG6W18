@@ -326,7 +326,7 @@ static  void  AudioTask (void *p_arg)
 	int extendConstant = 16;
 	float envelope[8] = {0,0,0,0,0,0,0,0};
 
-    int i;
+	int i;
     for(;;) {
         BSP_WatchDog_Reset();				/* Reset the watchdog.   */
 
@@ -351,6 +351,9 @@ static  void  AudioTask (void *p_arg)
 			}
 			extend[i] = extend[i] + 1;
 			INT32S read = readFromSythesizer(SYNTH_BASE[i], enable);
+			if (read > 2047) {
+				read = read - 4096;
+			}
 			POLY_BUFFER[0] += (INT32S) (read * envelope[i]);
         }
 		write_audio_data(POLY_BUFFER, 1);
