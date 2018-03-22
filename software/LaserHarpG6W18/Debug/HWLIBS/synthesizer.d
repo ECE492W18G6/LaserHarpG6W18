@@ -4,7 +4,6 @@ HWLIBS/synthesizer.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/
 HWLIBS/synthesizer.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/uCOS-II/Ports/os_cpu.h
 HWLIBS/synthesizer.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av/socal/socal.h
 HWLIBS/synthesizer.o: ../HWLIBS/options.h
-HWLIBS/synthesizer.o: ../HWLIBS/lcd.h
 HWLIBS/synthesizer.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/APP/app_cfg.h
 HWLIBS/synthesizer.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/uC-LIBS/lib_mem.h
 HWLIBS/synthesizer.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/uC-CPU/ARM-Cortex-A/cpu.h

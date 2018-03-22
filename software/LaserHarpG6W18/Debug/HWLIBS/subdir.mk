@@ -10,6 +10,7 @@ C_SRCS += \
 ../HWLIBS/alt_fpga_manager.c \
 ../HWLIBS/audio.c \
 ../HWLIBS/audio_cfg.c \
+../HWLIBS/button.c \
 ../HWLIBS/lcd.c \
 ../HWLIBS/options.c \
 ../HWLIBS/synthesizer.c 
@@ -21,6 +22,7 @@ C_DEPS += \
 ./HWLIBS/alt_fpga_manager.d \
 ./HWLIBS/audio.d \
 ./HWLIBS/audio_cfg.d \
+./HWLIBS/button.d \
 ./HWLIBS/lcd.d \
 ./HWLIBS/options.d \
 ./HWLIBS/synthesizer.d 
@@ -32,6 +34,7 @@ OBJS += \
 ./HWLIBS/alt_fpga_manager.o \
 ./HWLIBS/audio.o \
 ./HWLIBS/audio_cfg.o \
+./HWLIBS/button.o \
 ./HWLIBS/lcd.o \
 ./HWLIBS/options.o \
 ./HWLIBS/synthesizer.o 

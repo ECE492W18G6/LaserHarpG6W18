@@ -8,10 +8,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "GPIO_0_9",
-					"strict" : false
-				},
-				{
 					"name" : "FPGA_I2C_SCLK",
 					"strict" : false
 				},
@@ -21,6 +17,10 @@
 				},
 				{
 					"name" : "GPIO_0_10",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0_9",
 					"strict" : false
 				},
 				{
@@ -64,6 +64,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "FPGA_I2C_SDAT",
+					"strict" : false
+				},
+				{
 					"name" : "GPIO_0[0]",
 					"strict" : false
 				},
@@ -93,10 +97,6 @@
 				},
 				{
 					"name" : "GPIO_0[7]",
-					"strict" : false
-				},
-				{
-					"name" : "FPGA_I2C_SDAT",
 					"strict" : false
 				},
 				{

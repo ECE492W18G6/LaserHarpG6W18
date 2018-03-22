@@ -104,16 +104,16 @@ void update_LCD_string() {
 			frequencies[7] = ( C2_FREQUENCY * pow(2,(double)(KEY+10)/12) * pow(2,OCTAVE-2) );
 			frequencies[8] = ( C2_FREQUENCY * pow(2,(double)(KEY+12)/12) * pow(2,OCTAVE-2) );
 			break;
-		case BLUES: // 3 | 3 | SEMITONE | 3 | TONE
+		case BLUES: // 3 | TONE | SEMITONE | SEMITONE | 3
 			sprintf(scale, "Blues Scale  ");
 			frequencies[1] = ( C2_FREQUENCY * pow(2,(double)KEY/12) * pow(2,OCTAVE-2) );
 			frequencies[2] = ( C2_FREQUENCY * pow(2,(double)(KEY+3)/12) * pow(2,OCTAVE-2) );
-			frequencies[3] = ( C2_FREQUENCY * pow(2,(double)(KEY+6)/12) * pow(2,OCTAVE-2) );
-			frequencies[4] = ( C2_FREQUENCY * pow(2,(double)(KEY+7)/12) * pow(2,OCTAVE-2) );
-			frequencies[5] = ( C2_FREQUENCY * pow(2,(double)(KEY+10)/12) * pow(2,OCTAVE-2) );
-			frequencies[6] = ( C2_FREQUENCY * pow(2,(double)(KEY+12)/12) * pow(2,OCTAVE-2) );
-			frequencies[7] = ( C2_FREQUENCY * pow(2,(double)(KEY+15)/12) * pow(2,OCTAVE-2) );
-			frequencies[8] = ( C2_FREQUENCY * pow(2,(double)(KEY+18)/12) * pow(2,OCTAVE-2) );
+			frequencies[3] = ( C2_FREQUENCY * pow(2,(double)(KEY+5)/12) * pow(2,OCTAVE-2) );
+			frequencies[4] = ( C2_FREQUENCY * pow(2,(double)(KEY+6)/12) * pow(2,OCTAVE-2) );
+			frequencies[5] = ( C2_FREQUENCY * pow(2,(double)(KEY+7)/12) * pow(2,OCTAVE-2) );
+			frequencies[6] = ( C2_FREQUENCY * pow(2,(double)(KEY+10)/12) * pow(2,OCTAVE-2) );
+			frequencies[7] = ( C2_FREQUENCY * pow(2,(double)(KEY+12)/12) * pow(2,OCTAVE-2) );
+			frequencies[8] = ( C2_FREQUENCY * pow(2,(double)(KEY+15)/12) * pow(2,OCTAVE-2) );
 			break;
 		case DORIAN: // TONE SEMITONE TONE TONE TONE SEMITONE TONE
 			sprintf(scale, "Dorian Scale ");
@@ -219,13 +219,4 @@ void update_LCD_string() {
 	MoveCursorLCD(0);
 	PrintStringLCD(key);
 	PrintStringLCD(scale);
-
-}
-
-int EnvelopeOptions(int diode, int reset, int instrument) {
-	int combined = 0;
-	combined = (combined | instrument) << 1;
-	combined = (combined | reset) << 3;
-	combined = (combined | diode);
-	return combined;
 }

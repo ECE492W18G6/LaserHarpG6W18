@@ -60,6 +60,5 @@ void remove_sustain(void);
 void update_LCD_string(void);
 int get_octave(void);
 void get_frequencies(int* integers, float* fractions);
-float readFromEnvelope(void *envelopeLocation, int diode, int reset, int instrument);
 
 #endif /* OPTIONS_H_ */
