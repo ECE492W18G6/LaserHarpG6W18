@@ -496,3 +496,622 @@ Caused by: com.arm.debug.dtsl.DTSLException: No connection is open
 	at com.arm.debug.dtsl.components.AbstractMPDevice.getThreadList(AbstractMPDevice.java:825)
 	at com.arm.debug.targetaccess.device.RDDIExecutionContextSupport.listExecutionContexts(RDDIExecutionContextSupport.java:221)
 	... 25 more
+!SESSION 2018-03-23 14:23:16.017 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_45
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product com.arm.ds.uni
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.arm.ds.uni
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-03-23 14:23:28.611
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\anarten'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.arm.debugger.ux 4 0 2018-03-23 14:23:34.417
+!MESSAGE Unable to connect to DE1-SoC connection. The script file ( altera_debug_server.py ) failed during execution:
+Port 3010 is already in use
+
+See Target Console view for more details
+!STACK 0
+com.arm.debug.control.LaunchException: The script file ( altera_debug_server.py ) failed during execution:
+Port 3010 is already in use
+
+See Target Console view for more details
+	at com.arm.debug.control.target.AbstractTargetController.runSetupScript(AbstractTargetController.java:192)
+	at com.arm.debug.control.target.AbstractTargetController.setupTarget(AbstractTargetController.java:69)
+	at com.arm.debug.control.ConnectionController.doPreDebugServiceInitialization(ConnectionController.java:623)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:531)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:515)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:453)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:400)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:282)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.arm.debug.launch.script.ScriptException: The script file ( altera_debug_server.py ) failed during execution:
+Port 3010 is already in use
+	at com.arm.debug.launch.script.PythonScriptRunner.run(PythonScriptRunner.java:102)
+	at com.arm.debug.launch.script.TargetControlScriptRunner.run(TargetControlScriptRunner.java:32)
+	at com.arm.debug.control.target.AbstractTargetController.runSetupScript(AbstractTargetController.java:189)
+	... 14 more
+Caused by: Traceback (most recent call last):
+  File "C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\altera_debug_server.py", line 48, in <module>
+    startDebugServer(configFile, rddidapBaseName, timeout)
+  File "C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py", line 334, in startDebugServer
+    launcher.launch()
+  File "C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py", line 106, in launch
+    serverProc = self.doLaunch()
+  File "C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py", line 137, in doLaunch
+    raise RuntimeError, 'Port 3010 is already in use'
+RuntimeError: Port 3010 is already in use
+
+	at org.python.core.PyException.doRaise(PyException.java:198)
+	at org.python.core.Py.makeException(Py.java:1337)
+	at org.python.core.Py.makeException(Py.java:1341)
+	at rddi_dap_debug_server$py.doLaunch$13(C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py:196)
+	at rddi_dap_debug_server$py.call_function(C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py)
+	at org.python.core.PyTableCode.call(PyTableCode.java:167)
+	at org.python.core.PyBaseCode.call(PyBaseCode.java:138)
+	at org.python.core.PyFunction.__call__(PyFunction.java:413)
+	at org.python.core.PyMethod.__call__(PyMethod.java:126)
+	at rddi_dap_debug_server$py.launch$12(C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py:112)
+	at rddi_dap_debug_server$py.call_function(C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py)
+	at org.python.core.PyTableCode.call(PyTableCode.java:167)
+	at org.python.core.PyBaseCode.call(PyBaseCode.java:138)
+	at org.python.core.PyFunction.__call__(PyFunction.java:413)
+	at org.python.core.PyMethod.__call__(PyMethod.java:126)
+	at rddi_dap_debug_server$py.startDebugServer$23(C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py:337)
+	at rddi_dap_debug_server$py.call_function(C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py)
+	at org.python.core.PyTableCode.call(PyTableCode.java:167)
+	at org.python.core.PyBaseCode.call(PyBaseCode.java:307)
+	at org.python.core.PyBaseCode.call(PyBaseCode.java:161)
+	at org.python.core.PyFunction.__call__(PyFunction.java:434)
+	at org.python.pycode._pyx1.f$0(C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\altera_debug_server.py:48)
+	at org.python.pycode._pyx1.call_function(C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\altera_debug_server.py)
+	at org.python.core.PyTableCode.call(PyTableCode.java:167)
+	at org.python.core.PyCode.call(PyCode.java:18)
+	at org.python.core.Py.runCode(Py.java:1386)
+	at org.python.core.__builtin__.execfile_flags(__builtin__.java:535)
+	at org.python.util.PythonInterpreter.execfile(PythonInterpreter.java:286)
+	at com.arm.jython.Jython.runScript(Jython.java:81)
+	at com.arm.jython.Jython.runScript(Jython.java:94)
+	at com.arm.debug.launch.script.PythonScriptRunner.run(PythonScriptRunner.java:91)
+	... 16 more
+
+!ENTRY com.arm.debugger.ux 4 0 2018-03-23 14:24:01.337
+!MESSAGE Unable to connect to DE1-SoC connection. The script file ( altera_debug_server.py ) failed during execution:
+Port 3010 is already in use
+
+See Target Console view for more details
+!STACK 0
+com.arm.debug.control.LaunchException: The script file ( altera_debug_server.py ) failed during execution:
+Port 3010 is already in use
+
+See Target Console view for more details
+	at com.arm.debug.control.target.AbstractTargetController.runSetupScript(AbstractTargetController.java:192)
+	at com.arm.debug.control.target.AbstractTargetController.setupTarget(AbstractTargetController.java:69)
+	at com.arm.debug.control.ConnectionController.doPreDebugServiceInitialization(ConnectionController.java:623)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:531)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:515)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:453)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:400)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:282)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.arm.debug.launch.script.ScriptException: The script file ( altera_debug_server.py ) failed during execution:
+Port 3010 is already in use
+	at com.arm.debug.launch.script.PythonScriptRunner.run(PythonScriptRunner.java:102)
+	at com.arm.debug.launch.script.TargetControlScriptRunner.run(TargetControlScriptRunner.java:32)
+	at com.arm.debug.control.target.AbstractTargetController.runSetupScript(AbstractTargetController.java:189)
+	... 14 more
+Caused by: Traceback (most recent call last):
+  File "C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\altera_debug_server.py", line 48, in <module>
+    startDebugServer(configFile, rddidapBaseName, timeout)
+  File "C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py", line 334, in startDebugServer
+    launcher.launch()
+  File "C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py", line 106, in launch
+    serverProc = self.doLaunch()
+  File "C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py", line 137, in doLaunch
+    raise RuntimeError, 'Port 3010 is already in use'
+RuntimeError: Port 3010 is already in use
+
+	at org.python.core.PyException.doRaise(PyException.java:198)
+	at org.python.core.Py.makeException(Py.java:1337)
+	at org.python.core.Py.makeException(Py.java:1341)
+	at rddi_dap_debug_server$py.doLaunch$13(C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py:196)
+	at rddi_dap_debug_server$py.call_function(C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py)
+	at org.python.core.PyTableCode.call(PyTableCode.java:167)
+	at org.python.core.PyBaseCode.call(PyBaseCode.java:138)
+	at org.python.core.PyFunction.__call__(PyFunction.java:413)
+	at org.python.core.PyMethod.__call__(PyMethod.java:126)
+	at rddi_dap_debug_server$py.launch$12(C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py:112)
+	at rddi_dap_debug_server$py.call_function(C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py)
+	at org.python.core.PyTableCode.call(PyTableCode.java:167)
+	at org.python.core.PyBaseCode.call(PyBaseCode.java:138)
+	at org.python.core.PyFunction.__call__(PyFunction.java:413)
+	at org.python.core.PyMethod.__call__(PyMethod.java:126)
+	at rddi_dap_debug_server$py.startDebugServer$23(C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py:337)
+	at rddi_dap_debug_server$py.call_function(C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\rddi_dap_debug_server.py)
+	at org.python.core.PyTableCode.call(PyTableCode.java:167)
+	at org.python.core.PyBaseCode.call(PyBaseCode.java:307)
+	at org.python.core.PyBaseCode.call(PyBaseCode.java:161)
+	at org.python.core.PyFunction.__call__(PyFunction.java:434)
+	at org.python.pycode._pyx3.f$0(C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\altera_debug_server.py:48)
+	at org.python.pycode._pyx3.call_function(C:\intelFPGA\17.0\embedded\ds-5\sw\debugger\configdb\Scripts\altera_debug_server.py)
+	at org.python.core.PyTableCode.call(PyTableCode.java:167)
+	at org.python.core.PyCode.call(PyCode.java:18)
+	at org.python.core.Py.runCode(Py.java:1386)
+	at org.python.core.__builtin__.execfile_flags(__builtin__.java:535)
+	at org.python.util.PythonInterpreter.execfile(PythonInterpreter.java:286)
+	at com.arm.jython.Jython.runScript(Jython.java:81)
+	at com.arm.jython.Jython.runScript(Jython.java:94)
+	at com.arm.debug.launch.script.PythonScriptRunner.run(PythonScriptRunner.java:91)
+	... 16 more
+
+!ENTRY com.arm.debugger.ux 4 0 2018-03-23 14:25:04.304
+!MESSAGE The script C:\Users\anarten\ECE492_Projects\eclass_preloader\preloader.ds failed to complete due to an error during execution of the script
+!STACK 0
+com.arm.debug.core.interfaces.engine.DebugException: The script C:\Users\anarten\ECE492_Projects\eclass_preloader\preloader.ds failed to complete due to an error during execution of the script
+	at com.arm.debug.interpreter.ds.commands.file.SourceCommand.execute(SourceCommand.java:74)
+	at com.arm.debug.interpreter.ds.commands.file.SourceCommand.execute(SourceCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter.executeCommand(DSInterpreter.java:377)
+	at com.arm.debug.interpreter.ds.DSInterpreter.execute(DSInterpreter.java:429)
+	at com.arm.debug.interpreter.ds.DSInterpreter.executeLine(DSInterpreter.java:228)
+	at com.arm.debug.service.DebugService.execute(DebugService.java:750)
+	at com.arm.debug.service.DebugService.runScript(DebugService.java:1508)
+	at com.arm.debug.service.DebugService.runScript(DebugService.java:1516)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invokeImpl(DebugServiceWrapper.java:116)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.access$0(DebugServiceWrapper.java:94)
+	at com.arm.debug.service.proxy.DebugServiceWrapper$1.run(DebugServiceWrapper.java:89)
+	at com.arm.debug.service.proxy.SingleThreader$QueuedCall.run(SingleThreader.java:56)
+	at com.arm.debug.service.proxy.SingleThreader$1.run(SingleThreader.java:120)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1353)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.runScript(Commands.java:678)
+	at com.arm.debug.control.ConnectionController.runScript(ConnectionController.java:1127)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:917)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:535)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:515)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:453)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:400)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:282)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Asynchronously called from thread Worker-3
+	at com.arm.debug.service.proxy.SingleThreader.execute(SingleThreader.java:152)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invoke(DebugServiceWrapper.java:78)
+	at com.sun.proxy.$Proxy53.runScript(Unknown Source)
+	at com.arm.debug.api.commands.RunScript.execute(RunScript.java:31)
+	at com.arm.debug.api.commands.RunScript.execute(RunScript.java:1)
+	at com.arm.debug.api.AbstractDebugCommand.call(AbstractDebugCommand.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
+	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1481)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.debugger.ux 4 0 2018-03-23 14:25:04.350
+!MESSAGE Unable to load one or more images
+!STACK 0
+java.util.concurrent.ExecutionException: com.arm.debug.interpreter.ds.DSException: Failed to load "LaserHarpG6W18.axf"
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
+	at com.arm.debug.control.CommandTask.get(CommandTask.java:197)
+	at com.arm.debug.api.Commands.loadFileAndWait(Commands.java:272)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:990)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:535)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:515)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:453)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:400)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:282)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.arm.debug.interpreter.ds.DSException: Failed to load "LaserHarpG6W18.axf"
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:84)
+	at com.arm.debug.interpreter.ds.commands.file.LoadCommand.execute(LoadCommand.java:55)
+	at com.arm.debug.interpreter.ds.commands.file.LoadFileCommand.execute(LoadFileCommand.java:88)
+	at com.arm.debug.interpreter.ds.commands.file.LoadFileCommand.execute(LoadFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:382)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1353)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.loadFile(Commands.java:262)
+	... 15 more
+Caused by: com.arm.debug.core.interfaces.memory.MemoryException: Failed to write 65,536 bytes to address S:0x01000000 while writing block of 4,096 bytes to address S:0x01000000
+	at com.arm.debug.targetaccess.device.MemoryAccess.doWriteMemory(MemoryAccess.java:461)
+	at com.arm.debug.targetaccess.device.MemoryAccess.writeMemory(MemoryAccess.java:403)
+	at com.arm.debug.targetaccess.device.MemoryAccess.writeMemory(MemoryAccess.java:392)
+	at com.arm.debug.targetaccess.device.TargetDeviceClientSynchronizer.writeMemory(TargetDeviceClientSynchronizer.java:345)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.arm.debug.os.stopmode.StopModeTargetAccessShim$ExecContextUnpackingInvocationHandler.invoke(StopModeTargetAccessShim.java:124)
+	at com.sun.proxy.$Proxy47.writeMemory(Unknown Source)
+	at com.arm.debug.core.engine.memory.ops.WriteOp.performOp(WriteOp.java:53)
+	at com.arm.debug.core.engine.memory.ops.MemoryOperation.visitRange(MemoryOperation.java:45)
+	at com.arm.debug.core.engine.memory.MemoryAccess.writeMemory(MemoryAccess.java:213)
+	at com.arm.debug.core.engine.image.ImageControl.downloadImageToBoard(ImageControl.java:826)
+	at com.arm.debug.core.engine.image.ImageControl.loadImage(ImageControl.java:705)
+	at com.arm.debug.core.engine.image.ImageControl.loadImage(ImageControl.java:348)
+	at com.arm.debug.core.engine.image.ImageControl.loadImage(ImageControl.java:247)
+	at com.arm.debug.interpreter.ds.commands.file.LoadCommand.tryExecute(LoadCommand.java:111)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.LoadCommand.execute(LoadCommand.java:55)
+	at com.arm.debug.interpreter.ds.commands.file.LoadFileCommand.execute(LoadFileCommand.java:88)
+	at com.arm.debug.interpreter.ds.commands.file.LoadFileCommand.execute(LoadFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:382)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+Caused by: com.arm.debug.dtsl.nativelayer.NativeException: General error on memory or register access.
+	at com.arm.debug.dtsl.components.AddressFilterAdapter$1.memWrite(AddressFilterAdapter.java:145)
+	at com.arm.debug.dtsl.components.Device$MemoryAccessWrapper.memWrite(Device.java:144)
+	at com.arm.debug.dtsl.components.Device.memWrite(Device.java:503)
+	at com.arm.debug.dtsl.components.AbstractMPDevice.memWrite(AbstractMPDevice.java:479)
+	at com.arm.debug.targetaccess.device.MemoryAccess.doWriteMemory(MemoryAccess.java:440)
+	... 27 more
+Caused by: com.arm.rddi.RDDIException: General error on memory or register access.
+	at com.arm.rddi.RDDI.checkResult(RDDI.java:1709)
+	at com.arm.rddi.RDDI.access$1(RDDI.java:1696)
+	at com.arm.rddi.RDDI$Debug.memWrite(RDDI.java:353)
+	at com.arm.debug.dtsl.components.AddressFilterAdapter$1.memWrite(AddressFilterAdapter.java:143)
+	... 31 more
+
+!ENTRY com.arm.debugger.ux 4 0 2018-03-23 14:25:04.366
+!MESSAGE General error on memory or register access.
+!STACK 0
+com.arm.debug.interpreter.ds.DSException: Failed to load "LaserHarpG6W18.axf"
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:84)
+	at com.arm.debug.interpreter.ds.commands.file.LoadCommand.execute(LoadCommand.java:55)
+	at com.arm.debug.interpreter.ds.commands.file.LoadFileCommand.execute(LoadFileCommand.java:88)
+	at com.arm.debug.interpreter.ds.commands.file.LoadFileCommand.execute(LoadFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:382)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1353)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.loadFile(Commands.java:262)
+	at com.arm.debug.api.Commands.loadFileAndWait(Commands.java:272)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:990)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:535)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:515)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:453)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:400)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:282)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.arm.debug.core.interfaces.memory.MemoryException: Failed to write 65,536 bytes to address S:0x01000000 while writing block of 4,096 bytes to address S:0x01000000
+	at com.arm.debug.targetaccess.device.MemoryAccess.doWriteMemory(MemoryAccess.java:461)
+	at com.arm.debug.targetaccess.device.MemoryAccess.writeMemory(MemoryAccess.java:403)
+	at com.arm.debug.targetaccess.device.MemoryAccess.writeMemory(MemoryAccess.java:392)
+	at com.arm.debug.targetaccess.device.TargetDeviceClientSynchronizer.writeMemory(TargetDeviceClientSynchronizer.java:345)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.arm.debug.os.stopmode.StopModeTargetAccessShim$ExecContextUnpackingInvocationHandler.invoke(StopModeTargetAccessShim.java:124)
+	at com.sun.proxy.$Proxy47.writeMemory(Unknown Source)
+	at com.arm.debug.core.engine.memory.ops.WriteOp.performOp(WriteOp.java:53)
+	at com.arm.debug.core.engine.memory.ops.MemoryOperation.visitRange(MemoryOperation.java:45)
+	at com.arm.debug.core.engine.memory.MemoryAccess.writeMemory(MemoryAccess.java:213)
+	at com.arm.debug.core.engine.image.ImageControl.downloadImageToBoard(ImageControl.java:826)
+	at com.arm.debug.core.engine.image.ImageControl.loadImage(ImageControl.java:705)
+	at com.arm.debug.core.engine.image.ImageControl.loadImage(ImageControl.java:348)
+	at com.arm.debug.core.engine.image.ImageControl.loadImage(ImageControl.java:247)
+	at com.arm.debug.interpreter.ds.commands.file.LoadCommand.tryExecute(LoadCommand.java:111)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.LoadCommand.execute(LoadCommand.java:55)
+	at com.arm.debug.interpreter.ds.commands.file.LoadFileCommand.execute(LoadFileCommand.java:88)
+	at com.arm.debug.interpreter.ds.commands.file.LoadFileCommand.execute(LoadFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:382)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+Caused by: com.arm.debug.dtsl.nativelayer.NativeException: General error on memory or register access.
+	at com.arm.debug.dtsl.components.AddressFilterAdapter$1.memWrite(AddressFilterAdapter.java:145)
+	at com.arm.debug.dtsl.components.Device$MemoryAccessWrapper.memWrite(Device.java:144)
+	at com.arm.debug.dtsl.components.Device.memWrite(Device.java:503)
+	at com.arm.debug.dtsl.components.AbstractMPDevice.memWrite(AbstractMPDevice.java:479)
+	at com.arm.debug.targetaccess.device.MemoryAccess.doWriteMemory(MemoryAccess.java:440)
+	... 27 more
+Caused by: com.arm.rddi.RDDIException: General error on memory or register access.
+	at com.arm.rddi.RDDI.checkResult(RDDI.java:1709)
+	at com.arm.rddi.RDDI.access$1(RDDI.java:1696)
+	at com.arm.rddi.RDDI$Debug.memWrite(RDDI.java:353)
+	at com.arm.debug.dtsl.components.AddressFilterAdapter$1.memWrite(AddressFilterAdapter.java:143)
+	... 31 more
+Asynchronously called from thread Worker-0
+	at com.arm.debug.service.proxy.SingleThreader.execute(SingleThreader.java:152)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invoke(DebugServiceWrapper.java:78)
+	at com.sun.proxy.$Proxy53.loadfile(Unknown Source)
+	at com.arm.debug.api.commands.LoadFile.execute(LoadFile.java:27)
+	at com.arm.debug.api.commands.LoadFile.execute(LoadFile.java:1)
+	at com.arm.debug.api.AbstractDebugCommand.call(AbstractDebugCommand.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
+	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1481)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.debugger.ux 4 0 2018-03-23 14:25:04.382
+!MESSAGE Command not possible when running
+!STACK 0
+com.arm.debug.interpreter.ds.DSException: Command not possible when running
+	at com.arm.debug.interpreter.ds.commands.exec.RunCommand.setTargetRunning(RunCommand.java:83)
+	at com.arm.debug.interpreter.ds.commands.exec.RunCommand.access$1(RunCommand.java:60)
+	at com.arm.debug.interpreter.ds.commands.exec.RunCommand$1.run(RunCommand.java:191)
+	at com.arm.debug.interpreter.ds.commands.exec.RunCommand$1.run(RunCommand.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.execute(ConnectionEventManager.java:488)
+	at com.arm.debug.core.engine.connection.Connection.execute(Connection.java:342)
+	at com.arm.debug.interpreter.ds.commands.exec.RunCommand.execute(RunCommand.java:186)
+	at com.arm.debug.interpreter.ds.commands.exec.StartCommand.execute(StartCommand.java:52)
+	at com.arm.debug.interpreter.ds.commands.exec.RunCommand.execute(RunCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:382)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1353)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.start(Commands.java:289)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:1057)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:535)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:515)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:453)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:400)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:282)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1353)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.start(Commands.java:289)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:1057)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:535)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:515)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:453)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:400)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:282)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Asynchronously called from thread Worker-0
+	at com.arm.debug.service.proxy.SingleThreader.execute(SingleThreader.java:152)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invoke(DebugServiceWrapper.java:78)
+	at com.sun.proxy.$Proxy53.start(Unknown Source)
+	at com.arm.debug.api.commands.Start.execute(Start.java:21)
+	at com.arm.debug.api.commands.Start.execute(Start.java:1)
+	at com.arm.debug.api.AbstractDebugCommand.call(AbstractDebugCommand.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
+	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1481)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.debugger.ux 4 0 2018-03-23 14:25:06.706
+!MESSAGE Wait for stopped interrupted
+!STACK 0
+java.util.concurrent.ExecutionException: com.arm.debug.core.interfaces.engine.DebugException: Wait for stopped interrupted
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
+	at com.arm.debug.control.CommandTask.get(CommandTask.java:197)
+	at com.arm.debug.api.Commands.waitForTargetToStopAndWait(Commands.java:920)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:1069)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:535)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:515)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:453)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:400)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:282)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.arm.debug.core.interfaces.engine.DebugException: Wait for stopped interrupted
+	at com.arm.debug.interpreter.ds.commands.exec.WaitCommand.execute(WaitCommand.java:82)
+	at com.arm.debug.interpreter.ds.commands.PauseCommand.execute(PauseCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter.executeCommand(DSInterpreter.java:377)
+	at com.arm.debug.interpreter.ds.DSInterpreter.execute(DSInterpreter.java:429)
+	at com.arm.debug.interpreter.ds.DSInterpreter.executeLine(DSInterpreter.java:228)
+	at com.arm.debug.service.DebugService.execute(DebugService.java:750)
+	at com.arm.debug.service.DebugService.waitForTargetToStop(DebugService.java:783)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invokeImpl(DebugServiceWrapper.java:116)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.access$0(DebugServiceWrapper.java:94)
+	at com.arm.debug.service.proxy.DebugServiceWrapper$1.run(DebugServiceWrapper.java:89)
+	at com.arm.debug.service.proxy.SingleThreader$QueuedCall.run(SingleThreader.java:56)
+	at com.arm.debug.service.proxy.SingleThreader$1.run(SingleThreader.java:120)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1353)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.waitForTargetToStop(Commands.java:911)
+	... 15 more
+
+!ENTRY com.arm.debugger.ux 4 0 2018-03-23 14:25:06.706
+!MESSAGE Wait for stopped interrupted
+!STACK 0
+com.arm.debug.core.interfaces.engine.DebugException: Wait for stopped interrupted
+	at com.arm.debug.interpreter.ds.commands.exec.WaitCommand.execute(WaitCommand.java:82)
+	at com.arm.debug.interpreter.ds.commands.PauseCommand.execute(PauseCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter.executeCommand(DSInterpreter.java:377)
+	at com.arm.debug.interpreter.ds.DSInterpreter.execute(DSInterpreter.java:429)
+	at com.arm.debug.interpreter.ds.DSInterpreter.executeLine(DSInterpreter.java:228)
+	at com.arm.debug.service.DebugService.execute(DebugService.java:750)
+	at com.arm.debug.service.DebugService.waitForTargetToStop(DebugService.java:783)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invokeImpl(DebugServiceWrapper.java:116)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.access$0(DebugServiceWrapper.java:94)
+	at com.arm.debug.service.proxy.DebugServiceWrapper$1.run(DebugServiceWrapper.java:89)
+	at com.arm.debug.service.proxy.SingleThreader$QueuedCall.run(SingleThreader.java:56)
+	at com.arm.debug.service.proxy.SingleThreader$1.run(SingleThreader.java:120)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1353)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.waitForTargetToStop(Commands.java:911)
+	at com.arm.debug.api.Commands.waitForTargetToStopAndWait(Commands.java:920)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:1069)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:535)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:515)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:453)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:400)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:282)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Asynchronously called from thread Worker-4
+	at com.arm.debug.service.proxy.SingleThreader.execute(SingleThreader.java:152)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invoke(DebugServiceWrapper.java:78)
+	at com.sun.proxy.$Proxy53.waitForTargetToStop(Unknown Source)
+	at com.arm.debug.api.commands.WaitForTargetToStop.execute(WaitForTargetToStop.java:18)
+	at com.arm.debug.api.commands.WaitForTargetToStop.execute(WaitForTargetToStop.java:1)
+	at com.arm.debug.api.AbstractDebugCommand.call(AbstractDebugCommand.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
+	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1481)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.debugger.ux 4 0 2018-03-23 14:27:55.624
+!MESSAGE Failed to get list of active threads from device Cortex-A9 SMP
+!STACK 0
+com.arm.debug.core.interfaces.engine.DebugException: Failed to get list of active threads from device Cortex-A9 SMP
+	at com.arm.debug.targetaccess.device.RDDIExecutionContextSupport.listExecutionContexts(RDDIExecutionContextSupport.java:245)
+	at com.arm.debug.targetaccess.device.TargetDeviceClientSynchronizer.listExecutionContexts(TargetDeviceClientSynchronizer.java:505)
+	at com.arm.debug.os.stopmode.threads.StopModeExecutionContextProvider.listExecutionContexts(StopModeExecutionContextProvider.java:435)
+	at com.arm.debug.os.stopmode.threads.StopModeExecutionContextProvider.executionStateChangedEvent(StopModeExecutionContextProvider.java:253)
+	at com.arm.debug.os.stopmode.threads.StopModeExecutionContextProvider$ExecutionStateChangedEventFilter.filterEvent(StopModeExecutionContextProvider.java:605)
+	at com.arm.debug.os.stopmode.threads.StopModeExecutionContextProvider$ExecutionStateChangedEventFilter.filterEvent(StopModeExecutionContextProvider.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processEvent(ConnectionEventManager.java:326)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.join(ConnectionEventManager.java:557)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.sendEventAndWait(ConnectionEventManager.java:509)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.shutdown(ConnectionEventManager.java:259)
+	at com.arm.debug.core.engine.connection.Connection.disconnect(Connection.java:624)
+	at com.arm.debug.core.engine.connection.ConnectionBase.destroy(ConnectionBase.java:308)
+	at com.arm.debug.core.engine.connection.Connection.destroy(Connection.java:557)
+	at com.arm.debug.interpreter.ds.DSInterpreter$5.run(DSInterpreter.java:587)
+	at com.arm.debug.interpreter.ds.DSInterpreter$5.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.execute(ConnectionEventManager.java:488)
+	at com.arm.debug.core.engine.connection.Connection.execute(Connection.java:342)
+	at com.arm.debug.interpreter.ds.DSInterpreter.terminate(DSInterpreter.java:584)
+	at com.arm.debug.interpreter.ds.commands.exec.QuitCommand.execute(QuitCommand.java:29)
+	at com.arm.debug.interpreter.ds.commands.exec.QuitCommand.execute(QuitCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:382)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+Caused by: com.arm.debug.dtsl.DTSLException: No connection is open
+	at com.arm.debug.dtsl.components.AbstractMPDevice.checkConnected(AbstractMPDevice.java:867)
+	at com.arm.debug.dtsl.components.AbstractMPDevice.getThreadList(AbstractMPDevice.java:825)
+	at com.arm.debug.targetaccess.device.RDDIExecutionContextSupport.listExecutionContexts(RDDIExecutionContextSupport.java:221)
+	... 25 more
+
+!ENTRY com.arm.debugger.ux 4 0 2018-03-23 14:29:42.679
+!MESSAGE Failed to get list of active threads from device Cortex-A9 SMP
+!STACK 0
+com.arm.debug.core.interfaces.engine.DebugException: Failed to get list of active threads from device Cortex-A9 SMP
+	at com.arm.debug.targetaccess.device.RDDIExecutionContextSupport.listExecutionContexts(RDDIExecutionContextSupport.java:245)
+	at com.arm.debug.targetaccess.device.TargetDeviceClientSynchronizer.listExecutionContexts(TargetDeviceClientSynchronizer.java:505)
+	at com.arm.debug.os.stopmode.threads.StopModeExecutionContextProvider.listExecutionContexts(StopModeExecutionContextProvider.java:435)
+	at com.arm.debug.os.stopmode.threads.StopModeExecutionContextProvider.executionStateChangedEvent(StopModeExecutionContextProvider.java:253)
+	at com.arm.debug.os.stopmode.threads.StopModeExecutionContextProvider$ExecutionStateChangedEventFilter.filterEvent(StopModeExecutionContextProvider.java:605)
+	at com.arm.debug.os.stopmode.threads.StopModeExecutionContextProvider$ExecutionStateChangedEventFilter.filterEvent(StopModeExecutionContextProvider.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processEvent(ConnectionEventManager.java:326)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.join(ConnectionEventManager.java:557)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.sendEventAndWait(ConnectionEventManager.java:509)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.shutdown(ConnectionEventManager.java:259)
+	at com.arm.debug.core.engine.connection.Connection.disconnect(Connection.java:624)
+	at com.arm.debug.core.engine.connection.ConnectionBase.destroy(ConnectionBase.java:308)
+	at com.arm.debug.core.engine.connection.Connection.destroy(Connection.java:557)
+	at com.arm.debug.interpreter.ds.DSInterpreter$5.run(DSInterpreter.java:587)
+	at com.arm.debug.interpreter.ds.DSInterpreter$5.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.execute(ConnectionEventManager.java:488)
+	at com.arm.debug.core.engine.connection.Connection.execute(Connection.java:342)
+	at com.arm.debug.interpreter.ds.DSInterpreter.terminate(DSInterpreter.java:584)
+	at com.arm.debug.interpreter.ds.commands.exec.QuitCommand.execute(QuitCommand.java:29)
+	at com.arm.debug.interpreter.ds.commands.exec.QuitCommand.execute(QuitCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:382)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+Caused by: com.arm.debug.dtsl.DTSLException: No connection is open
+	at com.arm.debug.dtsl.components.AbstractMPDevice.checkConnected(AbstractMPDevice.java:867)
+	at com.arm.debug.dtsl.components.AbstractMPDevice.getThreadList(AbstractMPDevice.java:825)
+	at com.arm.debug.targetaccess.device.RDDIExecutionContextSupport.listExecutionContexts(RDDIExecutionContextSupport.java:221)
+	... 25 more
