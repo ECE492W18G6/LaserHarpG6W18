@@ -93,8 +93,8 @@ void update_LCD_string() {
 			frequencies[7] = ( C2_FREQUENCY * pow(2,(double)(KEY+11)/12) * pow(2,OCTAVE-2) );
 			frequencies[8] = ( C2_FREQUENCY * pow(2,(double)(KEY+12)/12) * pow(2,OCTAVE-2) );
 			break;
-		case MINOR: // TONE SEMITONE TONE TONE SEMITONE TONE TONE
-			sprintf(scale, "Minor Scale  ");
+		case NATURAL_MINOR: // TONE SEMITONE TONE TONE SEMITONE TONE TONE
+			sprintf(scale, "Nat. Minor Scale  ");
 			frequencies[1] = ( C2_FREQUENCY * pow(2,(double)KEY/12) * pow(2,OCTAVE-2) );
 			frequencies[2] = ( C2_FREQUENCY * pow(2,(double)(KEY+2)/12) * pow(2,OCTAVE-2) );
 			frequencies[3] = ( C2_FREQUENCY * pow(2,(double)(KEY+3)/12) * pow(2,OCTAVE-2) );
@@ -102,6 +102,28 @@ void update_LCD_string() {
 			frequencies[5] = ( C2_FREQUENCY * pow(2,(double)(KEY+7)/12) * pow(2,OCTAVE-2) );
 			frequencies[6] = ( C2_FREQUENCY * pow(2,(double)(KEY+8)/12) * pow(2,OCTAVE-2) );
 			frequencies[7] = ( C2_FREQUENCY * pow(2,(double)(KEY+10)/12) * pow(2,OCTAVE-2) );
+			frequencies[8] = ( C2_FREQUENCY * pow(2,(double)(KEY+12)/12) * pow(2,OCTAVE-2) );
+			break;
+		case HARMONIC_MINOR: // TONE SEMITONE TONE TONE SEMITONE TONE TONE
+			sprintf(scale, "Har. Minor Scale  ");
+			frequencies[1] = ( C2_FREQUENCY * pow(2,(double)KEY/12) * pow(2,OCTAVE-2) );
+			frequencies[2] = ( C2_FREQUENCY * pow(2,(double)(KEY+2)/12) * pow(2,OCTAVE-2) );
+			frequencies[3] = ( C2_FREQUENCY * pow(2,(double)(KEY+3)/12) * pow(2,OCTAVE-2) );
+			frequencies[4] = ( C2_FREQUENCY * pow(2,(double)(KEY+5)/12) * pow(2,OCTAVE-2) );
+			frequencies[5] = ( C2_FREQUENCY * pow(2,(double)(KEY+7)/12) * pow(2,OCTAVE-2) );
+			frequencies[6] = ( C2_FREQUENCY * pow(2,(double)(KEY+8)/12) * pow(2,OCTAVE-2) );
+			frequencies[7] = ( C2_FREQUENCY * pow(2,(double)(KEY+11)/12) * pow(2,OCTAVE-2) );
+			frequencies[8] = ( C2_FREQUENCY * pow(2,(double)(KEY+12)/12) * pow(2,OCTAVE-2) );
+			break;
+		case MELODIC_MINOR: // TONE SEMITONE TONE TONE SEMITONE TONE TONE
+			sprintf(scale, "Mel. Minor Scale  ");
+			frequencies[1] = ( C2_FREQUENCY * pow(2,(double)KEY/12) * pow(2,OCTAVE-2) );
+			frequencies[2] = ( C2_FREQUENCY * pow(2,(double)(KEY+2)/12) * pow(2,OCTAVE-2) );
+			frequencies[3] = ( C2_FREQUENCY * pow(2,(double)(KEY+3)/12) * pow(2,OCTAVE-2) );
+			frequencies[4] = ( C2_FREQUENCY * pow(2,(double)(KEY+5)/12) * pow(2,OCTAVE-2) );
+			frequencies[5] = ( C2_FREQUENCY * pow(2,(double)(KEY+7)/12) * pow(2,OCTAVE-2) );
+			frequencies[6] = ( C2_FREQUENCY * pow(2,(double)(KEY+9)/12) * pow(2,OCTAVE-2) );
+			frequencies[7] = ( C2_FREQUENCY * pow(2,(double)(KEY+11)/12) * pow(2,OCTAVE-2) );
 			frequencies[8] = ( C2_FREQUENCY * pow(2,(double)(KEY+12)/12) * pow(2,OCTAVE-2) );
 			break;
 		case BLUES: // 3 | TONE | SEMITONE | SEMITONE | 3

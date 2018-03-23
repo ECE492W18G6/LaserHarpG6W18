@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.arm.debugger.launcher2">
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data" value="619923"/>
-<mapEntry key="*Fetching Data Model" value="114642"/>
-<mapEntry key="*list global low level symbols" value="4540317"/>
+<mapEntry key="*Fetching Data" value="510216"/>
+<mapEntry key="*Fetching Data Model" value="282894"/>
+<mapEntry key="*list global low level symbols" value="558823"/>
 <mapEntry key="*loading memory from target" value="11734254"/>
 <mapEntry key="*loading values from target" value="1402112"/>
 <mapEntry key="*updating variables" value="402258"/>
-<mapEntry key="AddEventObserver" value="137679"/>
-<mapEntry key="Evaluate" value="2300458"/>
+<mapEntry key="AddEventObserver" value="363956"/>
+<mapEntry key="Evaluate" value="2525536"/>
 <mapEntry key="Retrieving globals list" value="1563679"/>
 <mapEntry key="areCachesAvailable" value="463607"/>
 <mapEntry key="break" value="11386045"/>
-<mapEntry key="continue" value="21590437"/>
+<mapEntry key="continue" value="23599683"/>
 <mapEntry key="core" value="8392234"/>
-<mapEntry key="disassemble" value="30700854"/>
+<mapEntry key="disassemble" value="51135848"/>
 <mapEntry key="evaluate address" value="378266"/>
-<mapEntry key="file" value="52469989"/>
+<mapEntry key="file" value="76649536"/>
 <mapEntry key="finish" value="31789447"/>
 <mapEntry key="get byte order" value="554775"/>
-<mapEntry key="get capabilities" value="89048"/>
-<mapEntry key="get execution addresss" value="310519"/>
-<mapEntry key="get source lines" value="307573"/>
+<mapEntry key="get capabilities" value="2447503"/>
+<mapEntry key="get execution addresss" value="158265"/>
+<mapEntry key="get source lines" value="240296"/>
 <mapEntry key="getValidEncodings" value="395012"/>
-<mapEntry key="initialize command help" value="19912643"/>
+<mapEntry key="initialize command help" value="26481156"/>
 <mapEntry key="interrupt" value="32450690"/>
-<mapEntry key="list breakpoints" value="472418"/>
-<mapEntry key="list instruction sets" value="87702"/>
-<mapEntry key="list signals" value="1437384"/>
-<mapEntry key="list watchpoints" value="195213"/>
-<mapEntry key="loadfile" value="508272105"/>
+<mapEntry key="list breakpoints" value="644344"/>
+<mapEntry key="list instruction sets" value="273455"/>
+<mapEntry key="list signals" value="21179512"/>
+<mapEntry key="list watchpoints" value="952041"/>
+<mapEntry key="loadfile" value="549062333"/>
 <mapEntry key="next" value="48430448"/>
 <mapEntry key="remove" value="17744029"/>
-<mapEntry key="set CWD" value="466619"/>
+<mapEntry key="set CWD" value="1057434"/>
 <mapEntry key="set breakpoint properties" value="24823914"/>
-<mapEntry key="set debug-from" value="361641"/>
-<mapEntry key="source altera_target_check.py" value="205151986"/>
-<mapEntry key="source preloader.ds" value="2449644086"/>
-<mapEntry key="start" value="63129151"/>
+<mapEntry key="set debug-from" value="613251"/>
+<mapEntry key="source altera_target_check.py" value="245079605"/>
+<mapEntry key="source preloader.ds" value="2396274691"/>
+<mapEntry key="start" value="78001948"/>
 <mapEntry key="step" value="58742393"/>
 <mapEntry key="toggleBreakpoint" value="22624096"/>
-<mapEntry key="waitForTargetToStop" value="463447454"/>
+<mapEntry key="waitForTargetToStop" value="506278690"/>
 <mapEntry key="write expression" value="42402046"/>
 </mapAttribute>
 <intAttribute key="DEBUG_TAB..RESOURCES.COUNT" value="0"/>
