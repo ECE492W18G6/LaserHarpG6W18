@@ -1,21 +1,34 @@
-C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/Synthesizer_tb.vhd {0 {vcom -work testing -2002 -explicit -stats=none {C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer_tb.vhd}
+C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/Synthesizer_tb.vhd {1 {vcom -work testing -2002 -explicit -stats=none {C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer_tb.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Compiling entity Synthesizer_tb
 -- Compiling architecture behave of Synthesizer_tb
-** Error: C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer_tb.vhd(58): Real literal 24.2 is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
-** Error: C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\Synthesizer_tb.vhd(77): VHDL Compiler exiting
 
-} {8.0 10.0} {}} C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd
+} {} {}} C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/sin_lut.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
+-- Loading package STD_LOGIC_SIGNED
+-- Loading package NUMERIC_STD
 -- Compiling entity sin_lut
 -- Compiling architecture rtl of sin_lut
+
+} {} {}} C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/Synthesizer.vhd {1 {vcom -work testing -2002 -explicit -stats=none C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/Synthesizer.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package MATH_REAL
+-- Loading package VITAL_Timing
+-- Loading package VITAL_Primitives
+-- Loading package STD_LOGIC_SIGNED
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity Synthesizer
+-- Compiling architecture full_dds of Synthesizer
 
 } {} {}}
