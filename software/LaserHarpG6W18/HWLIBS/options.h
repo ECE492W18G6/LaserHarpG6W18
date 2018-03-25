@@ -10,10 +10,12 @@
 #define NUM_STRINGS 8
 
 #define MAJOR 0
-#define MINOR 1
-#define BLUES 2
-#define DORIAN 3
-#define NUM_SCALES 4
+#define NATURAL_MINOR 1
+#define HARMONIC_MINOR 2
+#define MELODIC_MINOR 3
+#define BLUES 4
+#define DORIAN 5
+#define NUM_SCALES 6
 
 #define HARP 0
 #define PIANO 1
@@ -60,6 +62,5 @@ void remove_sustain(void);
 void update_LCD_string(void);
 int get_octave(void);
 void get_frequencies(int* integers, float* fractions);
-float readFromEnvelope(void *envelopeLocation, int diode, int reset, int instrument);
 
 #endif /* OPTIONS_H_ */
