@@ -231,7 +231,6 @@ static  void  AudioTask (void *p_arg)
 
 	update_LCD_string();
 
-	char *SYNTH_BASE[8] = {SYNTH0_BASE, SYNTH1_BASE, SYNTH2_BASE, SYNTH3_BASE, SYNTH4_BASE, SYNTH5_BASE, SYNTH6_BASE, SYNTH7_BASE};
 	int DIODE_MASK[8] = {DIODE_0_MASK, DIODE_1_MASK, DIODE_2_MASK, DIODE_3_MASK, DIODE_4_MASK, DIODE_5_MASK, DIODE_6_MASK, DIODE_7_MASK};
 
 	// TODO: This should be determined by the button options
@@ -249,19 +248,20 @@ static  void  AudioTask (void *p_arg)
         INT8U photodiodes = (INT8U) alt_read_byte(PHOTODIODE_BASE);
 
         for (i = 0; i < NUM_STRINGS; i++) {
-        	writeFreqToSynthesizer(SYNTH_BASE[i], integers[i]);
+        	writeFreqToSynthesizer(SYNTH_BASE, integers[i], i, instrument);
             fraction_accumulators[i] = fraction_accumulators[i] + fractions[i];
             int enable = (photodiodes & DIODE_MASK[i]);
             if (fraction_accumulators[i] > 1) {
-            	alt_write_word(SYNTH_BASE[i], 1);
+            	writeFreqToSynthesizer(SYNTH_BASE, 1, i, instrument);
             	fraction_accumulators[i] = fraction_accumulators[i] - 1;
             }
             if ((extend[i] % extendConstant) == 0) {
 				envelope[i] = readFromEnvelope(ENVELOPE_BASE, i, (enable <= 0), instrument);
 			}
 			extend[i] = extend[i] + 1;
-			INT32S read = readFromSythesizer(SYNTH_BASE[i], enable);
-			POLY_BUFFER[0] += (INT32S) (read * envelope[i]);
+			INT32S read = readFromSythesizer(SYNTH_BASE, enable);
+			int inst = integers[i];
+			POLY_BUFFER[0] += (INT32S) (read);// * envelope[i]);
         }
 		write_audio_data(POLY_BUFFER, 1);
     }

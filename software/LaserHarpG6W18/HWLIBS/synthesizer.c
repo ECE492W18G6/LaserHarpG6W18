@@ -19,8 +19,13 @@
 #include  <math.h>
 
 
-void writeFreqToSynthesizer(void *diode, float frequnecy) {
-	alt_write_word(diode, frequnecy);
+void writeFreqToSynthesizer(void *synthBase, int frequency, int diode, int instrument) {
+	int combined = 0;
+	int frequency12Bits = (int) 0xFFF & frequency;
+	combined = (combined | diode) << 2;
+	combined = (combined | instrument) << 12;
+	combined = (combined | frequency12Bits);
+	alt_write_word(synthBase, combined);
 }
 
 INT32S readFromSythesizer(void *diode, int enabled) {

@@ -28,8 +28,7 @@
 #define OCTAVE_3 3
 #define OCTAVE_4 4
 #define OCTAVE_5 5
-#define OCTAVE_6 6
-#define MAX_OCTAVE 6
+#define MAX_OCTAVE 5
 
 #define C 0
 #define C_SHARP 1
@@ -54,6 +53,7 @@
 void change_scale (void);
 void change_instrument (void);
 void change_octave (void);
+int get_instrument(void);
 void change_key (void);
 void set_reverb(void);
 void remove_reverb(void);

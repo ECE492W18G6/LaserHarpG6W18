@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.arm.debugger.launcher2">
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data" value="666989"/>
-<mapEntry key="*Fetching Data Model" value="735848"/>
-<mapEntry key="*list global low level symbols" value="1204423"/>
+<mapEntry key="*Fetching Data" value="66170200"/>
+<mapEntry key="*Fetching Data Model" value="183200"/>
+<mapEntry key="*list global low level symbols" value="592903"/>
 <mapEntry key="*loading memory from target" value="11734254"/>
-<mapEntry key="*loading values from target" value="1402112"/>
-<mapEntry key="*updating variables" value="402258"/>
-<mapEntry key="AddEventObserver" value="501030"/>
-<mapEntry key="Evaluate" value="2589615"/>
-<mapEntry key="Retrieving globals list" value="1563679"/>
+<mapEntry key="*loading values from target" value="5667217"/>
+<mapEntry key="*updating variables" value="758039"/>
+<mapEntry key="AddEventObserver" value="246839"/>
+<mapEntry key="Evaluate" value="2798936"/>
+<mapEntry key="Retrieving globals list" value="1750290"/>
 <mapEntry key="areCachesAvailable" value="463607"/>
-<mapEntry key="break" value="11386045"/>
-<mapEntry key="continue" value="21894196"/>
+<mapEntry key="break" value="6630586"/>
+<mapEntry key="continue" value="36063525"/>
 <mapEntry key="core" value="8392234"/>
-<mapEntry key="disassemble" value="71104686"/>
+<mapEntry key="disassemble" value="22112673"/>
 <mapEntry key="evaluate address" value="378266"/>
-<mapEntry key="file" value="76678078"/>
+<mapEntry key="file" value="70119921"/>
 <mapEntry key="finish" value="31789447"/>
 <mapEntry key="get byte order" value="554775"/>
-<mapEntry key="get capabilities" value="880487"/>
-<mapEntry key="get execution addresss" value="187839"/>
-<mapEntry key="get source lines" value="217284"/>
+<mapEntry key="get capabilities" value="84004"/>
+<mapEntry key="get execution addresss" value="282178"/>
+<mapEntry key="get source lines" value="339078"/>
 <mapEntry key="getValidEncodings" value="395012"/>
-<mapEntry key="initialize command help" value="24590575"/>
+<mapEntry key="initialize command help" value="22888300"/>
 <mapEntry key="interrupt" value="32450690"/>
-<mapEntry key="list breakpoints" value="1690506"/>
-<mapEntry key="list instruction sets" value="633338"/>
-<mapEntry key="list signals" value="25869935"/>
-<mapEntry key="list watchpoints" value="2299246"/>
-<mapEntry key="loadfile" value="538284004"/>
-<mapEntry key="next" value="48430448"/>
-<mapEntry key="remove" value="17744029"/>
-<mapEntry key="set CWD" value="1625619"/>
-<mapEntry key="set breakpoint properties" value="24823914"/>
-<mapEntry key="set debug-from" value="622556"/>
-<mapEntry key="source altera_target_check.py" value="221147181"/>
-<mapEntry key="source preloader.ds" value="2206019690"/>
-<mapEntry key="start" value="56225358"/>
-<mapEntry key="step" value="58742393"/>
-<mapEntry key="toggleBreakpoint" value="22624096"/>
-<mapEntry key="waitForTargetToStop" value="462184830"/>
+<mapEntry key="list breakpoints" value="327470"/>
+<mapEntry key="list instruction sets" value="110062"/>
+<mapEntry key="list signals" value="24849412"/>
+<mapEntry key="list watchpoints" value="217214"/>
+<mapEntry key="loadfile" value="612147970"/>
+<mapEntry key="next" value="45154648"/>
+<mapEntry key="remove" value="14050408"/>
+<mapEntry key="set CWD" value="1274380"/>
+<mapEntry key="set breakpoint properties" value="11046432"/>
+<mapEntry key="set debug-from" value="693648"/>
+<mapEntry key="source altera_target_check.py" value="215271445"/>
+<mapEntry key="source preloader.ds" value="6330042468"/>
+<mapEntry key="start" value="51551531"/>
+<mapEntry key="step" value="48841256"/>
+<mapEntry key="toggleBreakpoint" value="15165889"/>
+<mapEntry key="waitForTargetToStop" value="401622964"/>
 <mapEntry key="write expression" value="42402046"/>
 </mapAttribute>
 <intAttribute key="DEBUG_TAB..RESOURCES.COUNT" value="0"/>
@@ -51,19 +51,19 @@
 <stringAttribute key="FILES.DEBUG_RESIDENT_ANDROID.RESOURCES.0.VALUE" value=""/>
 <intAttribute key="FILES.DEBUG_RESIDENT_ANDROID.RESOURCES.COUNT" value="1"/>
 <listAttribute key="FILES.DEBUG_RESIDENT_APP"/>
-<stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.0.TYPE" value="TARGET_WORKING_DIR"/>
+<stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.0.TYPE" value="APPLICATION_ON_TARGET"/>
 <stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.0.VALUE" value=""/>
-<stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.1.TYPE" value="APPLICATION_ON_TARGET"/>
+<stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.1.TYPE" value="TARGET_WORKING_DIR"/>
 <stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.1.VALUE" value=""/>
 <intAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.COUNT" value="2"/>
 <listAttribute key="FILES.DOWNLOAD_AND_DEBUG"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.0.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.0.OPTION.ON_DEMAND_LOAD" value="true"/>
-<stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.0.TYPE" value="TARGET_DOWNLOAD_DIR"/>
+<stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.0.TYPE" value="APP_ON_HOST_TO_DOWNLOAD"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.0.VALUE" value=""/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.1.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.1.OPTION.ON_DEMAND_LOAD" value="true"/>
-<stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.1.TYPE" value="APP_ON_HOST_TO_DOWNLOAD"/>
+<stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.1.TYPE" value="TARGET_DOWNLOAD_DIR"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.1.VALUE" value=""/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.2.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.2.OPTION.ON_DEMAND_LOAD" value="true"/>
@@ -73,11 +73,11 @@
 <listAttribute key="FILES.DOWNLOAD_DEBUG"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.OPTION.ON_DEMAND_LOAD" value="true"/>
-<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.TYPE" value="TARGET_DOWNLOAD_DIR"/>
+<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.TYPE" value="APP_ON_HOST_TO_DOWNLOAD"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.VALUE" value=""/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.OPTION.ON_DEMAND_LOAD" value="true"/>
-<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.TYPE" value="APP_ON_HOST_TO_DOWNLOAD"/>
+<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.TYPE" value="TARGET_DOWNLOAD_DIR"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.VALUE" value=""/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.2.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.2.OPTION.ON_DEMAND_LOAD" value="true"/>
@@ -172,6 +172,26 @@
 <listEntry value="1"/>
 <listEntry value="formatter"/>
 <listEntry value="Hexadecimal"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/chiasson/Documents/ece492/software/LaserHarpG6W18/APP/app.c::AudioTask::$0::$0::read"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/chiasson/Documents/ece492/software/LaserHarpG6W18/APP/app.c::AudioTask::extend"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Signed Decimal"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/chiasson/Documents/ece492/software/LaserHarpG6W18/APP/app.c::AudioTask::envelope"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Float"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/chiasson/Documents/ece492/software/LaserHarpG6W18/HWLIBS/synthesizer.c::writeFreqToSynthesizer::combined"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Binary"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/chiasson/Documents/ece492/software/LaserHarpG6W18/HWLIBS/synthesizer.c::writeFreqToSynthesizer::frequency12Bits"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Binary"/>
 </listAttribute>
 <booleanAttribute key="VFS_ENABLED" value="true"/>
 <stringAttribute key="VFS_LOCAL_DIR" value="${workspace_loc}"/>
@@ -241,7 +261,7 @@
 <stringAttribute key="debugger.view.NewRegisterView:DebugOutlineColumnState" value="OutlineConfig1&#9;8&#9;0&#9;true&#9;false&#9;111&#9;-1&#9;true&#9;1&#9;false&#9;true&#9;90&#9;-1&#9;true&#9;2&#9;true&#9;true&#9;46&#9;-1&#9;true&#9;3&#9;false&#9;true&#9;43&#9;-1&#9;true&#9;4&#9;false&#9;true&#9;50&#9;-1&#9;true&#9;5&#9;true&#9;true&#9;37&#9;-1&#9;true&#9;6&#9;false&#9;true&#9;62&#9;-1&#9;true&#9;7&#9;true&#9;true&#9;53&#9;-1&#9;true"/>
 <stringAttribute key="debugger.view.NewRegisterView:_selectedRegisterSet" value="All registers"/>
 <mapAttribute key="debugger.view.NewRegisterView_registerSets"/>
-<stringAttribute key="debugger.view.VariableTreeView:DebugOutlineColumnState" value="OutlineConfig1&#9;8&#9;0&#9;true&#9;false&#9;150&#9;-1&#9;true&#9;1&#9;false&#9;true&#9;90&#9;-1&#9;true&#9;2&#9;true&#9;false&#9;122&#9;-1&#9;true&#9;3&#9;true&#9;false&#9;119&#9;-1&#9;true&#9;4&#9;true&#9;true&#9;50&#9;-1&#9;true&#9;5&#9;true&#9;true&#9;37&#9;-1&#9;true&#9;6&#9;true&#9;true&#9;62&#9;-1&#9;true&#9;7&#9;true&#9;true&#9;53&#9;-1&#9;true"/>
+<stringAttribute key="debugger.view.VariableTreeView:DebugOutlineColumnState" value="OutlineConfig1&#9;8&#9;0&#9;true&#9;false&#9;150&#9;-1&#9;true&#9;1&#9;false&#9;true&#9;90&#9;-1&#9;true&#9;2&#9;true&#9;false&#9;262&#9;-1&#9;true&#9;3&#9;true&#9;false&#9;119&#9;-1&#9;true&#9;4&#9;true&#9;true&#9;50&#9;-1&#9;true&#9;5&#9;true&#9;true&#9;37&#9;-1&#9;true&#9;6&#9;true&#9;true&#9;62&#9;-1&#9;true&#9;7&#9;true&#9;true&#9;53&#9;-1&#9;true"/>
 <listAttribute key="debugger.view.VariableTreeView:USER_ADDED_FILE_STATICS"/>
 <listAttribute key="debugger.view.VariableTreeView:USER_ADDED_GLOBALS"/>
 <booleanAttribute key="debugger.view.register.DrawAsHex" value="false"/>
@@ -257,7 +277,7 @@
 <stringAttribute key="os_extension_id" value="com.arm.debug.os.ucosii"/>
 <stringAttribute key="rddi_type" value="rddi-debug-rvi"/>
 <booleanAttribute key="runAfterConnect" value="false"/>
-<stringAttribute key="runTargetInitializationScript" value="C:\Users\anarten\ECE492_Projects\eclass_preloader\preloader.ds"/>
+<stringAttribute key="runTargetInitializationScript" value="C:\Users\chiasson\Documents\terasic_preloader\terasic_preloader\preloader.ds"/>
 <stringAttribute key="rvi_address" value="DE-SoC on localhost [USB-1]:DE-SoC USB-1"/>
 <listAttribute key="setup">
 <listEntry value="CDB://../../../Scripts/altera_debug_server.py"/>

@@ -40,6 +40,10 @@ int get_octave() {
 	return OCTAVE;
 }
 
+int get_instrument() {
+	return INSTRUMENT;
+}
+
 void change_instrument() {
 	INSTRUMENT = (INSTRUMENT + 1) % NUM_INSTRUMENTS;
 }
@@ -78,6 +82,8 @@ void get_frequencies(int* integers, float* fractions) {
 		fractions[i] = frequencies[i+1] - integers[i];
 	}
 }
+
+
 
 void update_LCD_string() {
 
@@ -187,9 +193,6 @@ void update_LCD_string() {
 			break;
 		case OCTAVE_5:
 			sprintf(octave, "Octave 5     ");
-			break;
-		case OCTAVE_6:
-			sprintf(octave, "Octave 6     ");
 			break;
 		default:
 			sprintf(octave, "Octave 2     ");
