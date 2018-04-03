@@ -1,5 +1,5 @@
 Flow report for LaserHarpG6W18
-Wed Mar 21 13:01:40 2018
+Thu Mar 22 15:29:18 2018
 Quartus Prime Version 17.0.2 Build 602 07/19/2017 SJ Standard Edition
 
 
@@ -41,18 +41,18 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Wed Mar 21 13:01:02 2018           ;
+; Flow Status                     ; Successful - Thu Mar 22 15:28:42 2018           ;
 ; Quartus Prime Version           ; 17.0.2 Build 602 07/19/2017 SJ Standard Edition ;
 ; Revision Name                   ; LaserHarpG6W18                                  ;
 ; Top-level Entity Name           ; LaserHarpG6W18                                  ;
 ; Family                          ; Cyclone V                                       ;
 ; Device                          ; 5CSEMA5F31C6                                    ;
 ; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 2,837 / 32,070 ( 9 % )                          ;
-; Total registers                 ; 3850                                            ;
+; Logic utilization (in ALMs)     ; 2,852 / 32,070 ( 9 % )                          ;
+; Total registers                 ; 3924                                            ;
 ; Total pins                      ; 173 / 457 ( 38 % )                              ;
 ; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 512,000 / 4,065,280 ( 13 % )                    ;
+; Total block memory bits         ; 315,392 / 4,065,280 ( 8 % )                     ;
 ; Total DSP Blocks                ; 0 / 87 ( 0 % )                                  ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/21/2018 12:55:21 ;
+; Start date & time ; 03/22/2018 15:23:20 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; LaserHarpG6W18      ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ agreement for further details.
 +---------------------------------------+--------------------------------------------------------------------------+---------------+--------------------------------+------------+
 ; Assignment Name                       ; Value                                                                    ; Default Value ; Entity Name                    ; Section Id ;
 +---------------------------------------+--------------------------------------------------------------------------+---------------+--------------------------------+------------+
-; COMPILER_SIGNATURE_ID                 ; 268883478210473.152165851704164                                          ; --            ; --                             ; --         ;
+; COMPILER_SIGNATURE_ID                 ; 268883478210473.152175379701176                                          ; --            ; --                             ; --         ;
 ; ECO_REGENERATE_REPORT                 ; On                                                                       ; Off           ; --                             ; --         ;
 ; HPS_ISW_FILE                          ; soc_system/synthesis/submodules/sequencer/alt_types.pre.h                ; --            ; soc_system_hps_0_hps_io_border ; --         ;
 ; HPS_ISW_FILE                          ; soc_system/synthesis/submodules/sequencer/emif.pre.xml                   ; --            ; soc_system_hps_0_hps_io_border ; --         ;
@@ -122,7 +122,7 @@ agreement for further details.
 ; PROJECT_OUTPUT_DIRECTORY              ; output_files                                                             ; --            ; --                             ; --         ;
 ; SLD_FILE                              ; soc_system/synthesis/soc_system.regmap                                   ; --            ; --                             ; --         ;
 ; SLD_FILE                              ; soc_system/synthesis/soc_system.debuginfo                                ; --            ; --                             ; --         ;
-; SLD_INFO                              ; QSYS_NAME soc_system HAS_SOPCINFO 1 GENERATION_ID 1521658381             ; --            ; soc_system                     ; --         ;
+; SLD_INFO                              ; QSYS_NAME soc_system HAS_SOPCINFO 1 GENERATION_ID 1521753717             ; --            ; soc_system                     ; --         ;
 ; SOPCINFO_FILE                         ; soc_system/synthesis/../../soc_system.sopcinfo                           ; --            ; --                             ; --         ;
 ; SYNTHESIS_ONLY_QIP                    ; On                                                                       ; --            ; --                             ; --         ;
 ; USE_DLL_FREQUENCY_FOR_DQS_DELAY_CHAIN ; On                                                                       ; Off           ; --                             ; --         ;
@@ -134,11 +134,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:52     ; 1.9                     ; 1211 MB             ; 00:01:33                           ;
-; Fitter                    ; 00:01:45     ; 1.2                     ; 3416 MB             ; 00:03:43                           ;
-; Assembler                 ; 00:00:13     ; 1.0                     ; 804 MB              ; 00:00:13                           ;
-; TimeQuest Timing Analyzer ; 00:00:37     ; 1.4                     ; 1542 MB             ; 00:00:46                           ;
-; Total                     ; 00:03:27     ; --                      ; --                  ; 00:06:15                           ;
+; Analysis & Synthesis      ; 00:00:48     ; 2.0                     ; 1138 MB             ; 00:01:28                           ;
+; Fitter                    ; 00:01:45     ; 1.2                     ; 3420 MB             ; 00:04:01                           ;
+; Assembler                 ; 00:00:12     ; 1.0                     ; 803 MB              ; 00:00:12                           ;
+; TimeQuest Timing Analyzer ; 00:00:34     ; 1.4                     ; 1539 MB             ; 00:00:44                           ;
+; Total                     ; 00:03:19     ; --                      ; --                  ; 00:06:25                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
