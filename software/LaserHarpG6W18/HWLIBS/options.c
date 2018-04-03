@@ -55,20 +55,8 @@ void change_key() {
 	KEY = (KEY+1) % NUM_KEYS;
 }
 
-void set_reverb() {
-	REVERB = REVERB_ON;
-}
-
-void remove_reverb() {
-	REVERB = REVERB_OFF;
-}
-
-void set_sustain() {
-	SUSTAIN = SUSTAIN_ON;
-}
-
-void remove_sustain() {
-	SUSTAIN = SUSTAIN_OFF;
+int sustain_enabled() {
+	return alt_read_word(PEDAL_BASE);
 }
 
 void get_frequencies(int* integers, float* fractions) {

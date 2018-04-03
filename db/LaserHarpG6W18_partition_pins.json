@@ -8,15 +8,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "FPGA_I2C_SCLK",
-					"strict" : false
-				},
-				{
-					"name" : "AUD_DACDAT",
-					"strict" : false
-				},
-				{
 					"name" : "GPIO_0_10",
+					"strict" : false
+				},
+				{
+					"name" : "FPGA_I2C_SCLK",
 					"strict" : false
 				},
 				{
@@ -64,6 +60,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "AUD_DACDAT",
+					"strict" : false
+				},
+				{
 					"name" : "FPGA_I2C_SDAT",
 					"strict" : false
 				},
@@ -100,10 +100,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "CLOCK_50",
-					"strict" : false
-				},
-				{
 					"name" : "KEY_N[2]",
 					"strict" : false
 				},
@@ -120,59 +116,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "CLOCK_50",
+					"strict" : false
+				},
+				{
 					"name" : "SW[9]",
 					"strict" : false
 				},
 				{
-					"name" : "GPIO_0_28",
-					"strict" : false
-				},
-				{
-					"name" : "SW[0]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_0_29",
-					"strict" : false
-				},
-				{
-					"name" : "SW[1]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_0_30",
-					"strict" : false
-				},
-				{
-					"name" : "SW[2]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_0_31",
-					"strict" : false
-				},
-				{
-					"name" : "SW[3]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_0_32",
-					"strict" : false
-				},
-				{
-					"name" : "SW[4]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_0_33",
-					"strict" : false
-				},
-				{
-					"name" : "SW[5]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_0_34",
+					"name" : "SW[8]",
 					"strict" : false
 				},
 				{
@@ -180,15 +132,67 @@
 					"strict" : false
 				},
 				{
-					"name" : "GPIO_0_35",
-					"strict" : false
-				},
-				{
 					"name" : "SW[7]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[8]",
+					"name" : "SW[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[4]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0_17",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0_28",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0_29",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0_30",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0_31",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0_32",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0_33",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0_34",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0_35",
 					"strict" : false
 				},
 				{

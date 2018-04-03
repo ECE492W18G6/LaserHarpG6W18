@@ -1,5 +1,6 @@
 HWLIBS/options.o: ../HWLIBS/options.c
 HWLIBS/options.o: ../HWLIBS/options.h
+HWLIBS/options.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av/socal/hps.h
 HWLIBS/options.o: ../HWLIBS/lcd.h
 HWLIBS/options.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/APP/app_cfg.h
 HWLIBS/options.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/uC-LIBS/lib_mem.h
@@ -19,6 +20,5 @@ HWLIBS/options.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/Laser
 HWLIBS/options.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/uCOS-II/Ports/os_cpu.h
 HWLIBS/options.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/uC-CPU/cpu_cache.h
 HWLIBS/options.o: C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/uCOS-II/Source/os.h
-HWLIBS/options.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av/socal/hps.h
 HWLIBS/options.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av/socal/socal.h
 HWLIBS/options.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/hwlib.h

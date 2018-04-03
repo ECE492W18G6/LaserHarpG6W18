@@ -30,6 +30,22 @@
          type = "String";
       }
    }
+   element Pedal_0
+   {
+      datum _sortIndex
+      {
+         value = "20";
+         type = "int";
+      }
+   }
+   element Pedal_0.avalon_slave
+   {
+      datum baseAddress
+      {
+         value = "8448";
+         type = "String";
+      }
+   }
    element Synthesizer_0
    {
       datum _sortIndex
@@ -625,6 +641,11 @@
  <interface name="hps_io" internal="hps_0.hps_io" type="conduit" dir="end" />
  <interface name="memory" internal="hps_0.memory" type="conduit" dir="end" />
  <interface
+   name="pedal_0_conduit_end"
+   internal="Pedal_0.conduit_end"
+   type="conduit"
+   dir="end" />
+ <interface
    name="photodiode_0_conduit_end"
    internal="photodiode_0.conduit_end"
    type="conduit"
@@ -650,6 +671,7 @@
    kind="EnvelopeController"
    version="1.0"
    enabled="1" />
+ <module name="Pedal_0" kind="Pedal" version="1.0" enabled="1" />
  <module name="Synthesizer_0" kind="Synthesizer" version="1.0" enabled="1" />
  <module name="Synthesizer_1" kind="Synthesizer" version="1.0" enabled="1" />
  <module name="Synthesizer_2" kind="Synthesizer" version="1.0" enabled="1" />
@@ -1539,6 +1561,15 @@
    kind="avalon"
    version="17.0"
    start="hps_0.h2f_lw_axi_master"
+   end="Pedal_0.avalon_slave">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x2100" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="17.0"
+   start="hps_0.h2f_lw_axi_master"
    end="Synthesizer_0.avalon_slave_0">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x1000" />
@@ -1708,6 +1739,7 @@
    version="17.0"
    start="clk_0.clk"
    end="Synthesizer_7.clock" />
+ <connection kind="clock" version="17.0" start="clk_0.clk" end="Pedal_0.clock" />
  <connection
    kind="clock"
    version="17.0"
@@ -1824,6 +1856,11 @@
  <connection
    kind="reset"
    version="17.0"
+   start="clk_0.clk_reset"
+   end="Pedal_0.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
    start="hps_0.h2f_reset"
    end="sysid_qsys_0.reset" />
  <connection
@@ -1907,6 +1944,11 @@
    version="17.0"
    start="hps_0.h2f_reset"
    end="Synthesizer_7.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
+   start="hps_0.h2f_reset"
+   end="Pedal_0.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />

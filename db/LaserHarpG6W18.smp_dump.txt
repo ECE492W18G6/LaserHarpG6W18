@@ -123,6 +123,20 @@ s_serial_protocol.STATE_3_START_BIT 0 0 1 0 0 1
 s_serial_protocol.STATE_4_TRANSFER 0 1 0 0 0 1 
 s_serial_protocol.STATE_5_STOP_BIT 1 0 0 0 0 1 
 
+State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pedal_0_avalon_slave_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:photodiode_0_avalon_slave_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
 State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:character_lcd_0_avalon_lcd_slave_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
 Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
 state.ST_IDLE 0 0 0 0 
@@ -147,13 +161,6 @@ s_lcd.LCD_STATE_1_ENABLE 0 0 0 1 1
 s_lcd.LCD_STATE_2_HOLD 0 0 1 0 1 
 s_lcd.LCD_STATE_3_END 0 1 0 0 1 
 s_lcd.LCD_STATE_0_OPERATION 1 0 0 0 1 
-
-State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:photodiode_0_avalon_slave_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
-Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
-state.ST_IDLE 0 0 0 0 
-state.ST_COMP_TRANS 1 0 0 1 
-state.ST_UNCOMP_TRANS 1 0 1 0 
-state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
 
 State Machine - |LaserHarpG6W18|soc_system:u0|soc_system_character_lcd_0:character_lcd_0|altera_up_character_lcd_initialization:Char_LCD_Init|s_lcd_initialize
 Name s_lcd_initialize.LCD_INIT_STATE_3_DONE s_lcd_initialize.LCD_INIT_STATE_2_CHECK_DONE s_lcd_initialize.LCD_INIT_STATE_1_SEND_COMMAND s_lcd_initialize.LCD_INIT_STATE_0_WAIT_POWER_UP 

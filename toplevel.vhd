@@ -175,7 +175,10 @@ entity LaserHarpG6W18 is
 			GPIO_0_32				: in std_logic := 'X';
 			GPIO_0_33				: in std_logic := 'X';
 			GPIO_0_34				: in std_logic := 'X';
-			GPIO_0_35				: in std_logic := 'X'
+			GPIO_0_35				: in std_logic := 'X';
+			
+		-- Pedal Pin
+			GPIO_0_17				: in std_logic := 'X'
 	);
 end LaserHarpG6W18;
 
@@ -276,7 +279,8 @@ architecture rtl of LaserHarpG6W18 is
             photodiode_0_conduit_end_export4                 : in    std_logic                     := 'X';             -- export4
             photodiode_0_conduit_end_export5                 : in    std_logic                     := 'X';             -- export5
             photodiode_0_conduit_end_export6                 : in    std_logic                     := 'X';             -- export6
-            photodiode_0_conduit_end_export7                 : in    std_logic                     := 'X'              -- export7
+            photodiode_0_conduit_end_export7                 : in    std_logic                     := 'X';              -- export7
+				pedal_0_conduit_end_export                       : in    std_logic                     := 'X'              -- export
         );
     end component soc_system;
 
@@ -384,7 +388,8 @@ begin
 						photodiode_0_conduit_end_export4 => GPIO_0_32,
 						photodiode_0_conduit_end_export5 => GPIO_0_33,
 						photodiode_0_conduit_end_export6 => GPIO_0_34,
-						photodiode_0_conduit_end_export7 => GPIO_0_35
+						photodiode_0_conduit_end_export7 => GPIO_0_35,
+						pedal_0_conduit_end_export => GPIO_0_17
         );
 
 
