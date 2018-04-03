@@ -13,11 +13,8 @@
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
-USE ieee.std_logic_arith.all;
-USE ieee.math_real.all;
-use ieee.VITAL_Primitives.all;
-use IEEE.STD_LOGIC_SIGNED.all; 
 use IEEE.STD_LOGIC_UNSIGNED.all;
+USE ieee.std_logic_arith.all;
 
 entity Synthesizer is 
 
@@ -29,7 +26,7 @@ entity Synthesizer is
 	read		: in std_logic:= '0'; 
 	
 	-- frequnecy input
-	phase_reg : in std_logic_vector(31 downto 0) := (others => '0'); 
+	phase_reg : in std_logic_vector(31 downto 0); 
 	-- Sine waveform from laser
 	data_out : out std_logic_vector(31 downto 0)
 	);
@@ -133,6 +130,9 @@ signal indexOut	: std_logic_vector(31 downto 0);
 signal lut_data : std_logic_vector(31 downto 0);
 signal lut_data_reg : std_logic_vector(31 downto 0);
 
+signal instrumentSel	: std_logic_vector(1 downto 0);
+signal diodeSel		: std_logic_vector(2 downto 0);
+
 signal Harplut_data		: std_logic_vector(31 downto 0) := X"00000000";
 signal Pianolut_data		: std_logic_vector(31 downto 0) := X"00000000";
 signal Clarinetlut_data	: std_logic_vector(31 downto 0) := X"00000000";
@@ -177,7 +177,7 @@ Harplut: component HarpSin_lut  port map (
 
  mux8: component Mux8X1 port map (
 	clk		=> clk,
-	sel		=> phase_reg(16 downto 14),
+	sel		=> diodeSel,
 	data_in0	=> phase1_acc,
 	data_in1	=> phase2_acc,
 	data_in2	=> phase3_acc,
@@ -191,7 +191,7 @@ Harplut: component HarpSin_lut  port map (
  
 mux4: component Mux4X1 port map (
 	clk		=> clk,
-	sel		=> phase_reg(13 downto 12),
+	sel		=> instrumentSel,
 	data_in0	=> Harplut_data,
 	data_in1	=> Pianolut_data,
 	data_in2	=> Clarinetlut_data,
@@ -205,26 +205,29 @@ counterControl : process(clk, write, phase_reg)
 begin
 	if (rising_edge(clk)) then
 		if(write = '1') then
-			case phase_reg(16 downto 14) is
+			diodeSel <= phase_reg(16 downto 14);
+			instrumentSel <= phase_reg(13 downto 12);
+			
+			case diodeSel is
 				-- the first 8 cases are when the reset is not enabled
 				-- therefore, we increment the counter, unless its at the
 				-- end in which case we stay at the end of the LUT
 				when "000" => 
-						phase1_acc <= unsigned(phase1_acc) + unsigned(phase_reg);
+						phase1_acc <= unsigned(phase1_acc) + unsigned(phase_reg(11 downto 0));
 				when "001" => 
-						phase2_acc <= unsigned(phase2_acc) + unsigned(phase_reg);
+						phase2_acc <= unsigned(phase2_acc) + unsigned(phase_reg(11 downto 0));
 				when "010" => 
-						phase3_acc <= unsigned(phase3_acc) + unsigned(phase_reg);
+						phase3_acc <= unsigned(phase3_acc) + unsigned(phase_reg(11 downto 0));
 				when "011" =>
-						phase4_acc <= unsigned(phase4_acc) + unsigned(phase_reg);
+						phase4_acc <= unsigned(phase4_acc) + unsigned(phase_reg(11 downto 0));
 				when "100" => 
-						phase5_acc <= unsigned(phase5_acc) + unsigned(phase_reg);
+						phase5_acc <= unsigned(phase5_acc) + unsigned(phase_reg(11 downto 0));
 				when "101" => 
-						phase6_acc <= unsigned(phase6_acc) + unsigned(phase_reg);
+						phase6_acc <= unsigned(phase6_acc) + unsigned(phase_reg(11 downto 0));
 				when "110" => 
-						phase7_acc <= unsigned(phase7_acc) + unsigned(phase_reg);
+						phase7_acc <= unsigned(phase7_acc) + unsigned(phase_reg(11 downto 0));
 				when "111" => 
-						phase8_acc <= unsigned(phase8_acc) + unsigned(phase_reg);
+						phase8_acc <= unsigned(phase8_acc) + unsigned(phase_reg(11 downto 0));
  			end case;
 		end if;
 	end if;

@@ -246,21 +246,24 @@ static  void  AudioTask (void *p_arg)
         POLY_BUFFER[0] = 0;
         get_frequencies(integers, fractions);
         INT8U photodiodes = (INT8U) alt_read_byte(PHOTODIODE_BASE);
-
+        instrument = get_instrument();
         for (i = 0; i < NUM_STRINGS; i++) {
-        	writeFreqToSynthesizer(SYNTH_BASE, integers[i], i, instrument);
-            fraction_accumulators[i] = fraction_accumulators[i] + fractions[i];
-            int enable = (photodiodes & DIODE_MASK[i]);
-            if (fraction_accumulators[i] > 1) {
-            	writeFreqToSynthesizer(SYNTH_BASE, 1, i, instrument);
-            	fraction_accumulators[i] = fraction_accumulators[i] - 1;
-            }
+        	int enable = (photodiodes & DIODE_MASK[i]);
+        	INT32S read = 0;
+        	if(enable) {
+        		writeFreqToSynthesizer(SYNTH_BASE, integers[i], i, instrument);
+        		fraction_accumulators[i] = fraction_accumulators[i] + fractions[i];
+				if (fraction_accumulators[i] > 1) {
+					writeFreqToSynthesizer(SYNTH_BASE, 1, i, instrument);
+					fraction_accumulators[i] = fraction_accumulators[i] - 1;
+				}
+				read = readFromSythesizer(SYNTH_BASE, enable);
+        	}
+
             if ((extend[i] % extendConstant) == 0) {
 				envelope[i] = readFromEnvelope(ENVELOPE_BASE, i, (enable <= 0), instrument);
 			}
 			extend[i] = extend[i] + 1;
-			INT32S read = readFromSythesizer(SYNTH_BASE, enable);
-			int inst = integers[i];
 			POLY_BUFFER[0] += (INT32S) (read);// * envelope[i]);
         }
 		write_audio_data(POLY_BUFFER, 1);
