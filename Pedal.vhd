@@ -1,3 +1,10 @@
+--------------------------------------------------------------------------------------------------------------------------
+-- Original Author : Adam Narten											--
+-- Date created: April 3, 2018									--
+--															--
+-- This program is the file for the custom pedal component for the Winter18 Laser Harp in ECE492.
+--------------------------------------------------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
