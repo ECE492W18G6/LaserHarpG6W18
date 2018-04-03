@@ -272,14 +272,14 @@ architecture rtl of LaserHarpG6W18 is
             reset_reset_n                                    : in    std_logic                     := 'X';             -- reset_n
             switches_external_connection_export              : in    std_logic_vector(9 downto 0)  := (others => 'X'); -- export
             pll_0_outclk0_clk                                : out   std_logic;                             -- clk
-				photodiode_0_conduit_end_export0                 : in    std_logic                     := 'X';             -- export0
-            photodiode_0_conduit_end_export1                 : in    std_logic                     := 'X';             -- export1
-            photodiode_0_conduit_end_export2                 : in    std_logic                     := 'X';             -- export2
-            photodiode_0_conduit_end_export3                 : in    std_logic                     := 'X';             -- export3
-            photodiode_0_conduit_end_export4                 : in    std_logic                     := 'X';             -- export4
-            photodiode_0_conduit_end_export5                 : in    std_logic                     := 'X';             -- export5
-            photodiode_0_conduit_end_export6                 : in    std_logic                     := 'X';             -- export6
-            photodiode_0_conduit_end_export7                 : in    std_logic                     := 'X';              -- export7
+				photodiodes_0_conduit_end_export0                 : in    std_logic                     := 'X';             -- export0
+            photodiodes_0_conduit_end_export1                 : in    std_logic                     := 'X';             -- export1
+            photodiodes_0_conduit_end_export2                 : in    std_logic                     := 'X';             -- export2
+            photodiodes_0_conduit_end_export3                 : in    std_logic                     := 'X';             -- export3
+            photodiodes_0_conduit_end_export4                 : in    std_logic                     := 'X';             -- export4
+            photodiodes_0_conduit_end_export5                 : in    std_logic                     := 'X';             -- export5
+            photodiodes_0_conduit_end_export6                 : in    std_logic                     := 'X';             -- export6
+            photodiodes_0_conduit_end_export7                 : in    std_logic                     := 'X';              -- export7
 				pedal_0_conduit_end_export                       : in    std_logic                     := 'X'              -- export
         );
     end component soc_system;
@@ -381,14 +381,14 @@ begin
 						pll_0_outclk0_clk				=> AUD_XCK,
 						buttons_external_connection_export => KEY_N,
 						red_leds_external_connection_export => LEDR,
-						photodiode_0_conduit_end_export0 => GPIO_0_28,
-						photodiode_0_conduit_end_export1 => GPIO_0_29,
-						photodiode_0_conduit_end_export2 => GPIO_0_30,
-						photodiode_0_conduit_end_export3 => GPIO_0_31,
-						photodiode_0_conduit_end_export4 => GPIO_0_32,
-						photodiode_0_conduit_end_export5 => GPIO_0_33,
-						photodiode_0_conduit_end_export6 => GPIO_0_34,
-						photodiode_0_conduit_end_export7 => GPIO_0_35,
+						photodiodes_0_conduit_end_export0 => GPIO_0_28,
+						photodiodes_0_conduit_end_export1 => GPIO_0_29,
+						photodiodes_0_conduit_end_export2 => GPIO_0_30,
+						photodiodes_0_conduit_end_export3 => GPIO_0_31,
+						photodiodes_0_conduit_end_export4 => GPIO_0_32,
+						photodiodes_0_conduit_end_export5 => GPIO_0_33,
+						photodiodes_0_conduit_end_export6 => GPIO_0_34,
+						photodiodes_0_conduit_end_export7 => GPIO_0_35,
 						pedal_0_conduit_end_export => GPIO_0_17
         );
 

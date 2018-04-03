@@ -4,8 +4,11 @@ Progress: Loading LaserHarpG6W18/soc_system.qsys
 Progress: Reading input file
 Progress: Adding EnvelopeController_0 [EnvelopeController 1.0]
 Progress: Parameterizing module EnvelopeController_0
-Progress: Adding Pedal [Pedal 1.0]
-Progress: Parameterizing module Pedal
+Progress: Adding Pedal_0 [Pedal 1.0]
+Progress: Parameterizing module Pedal_0
+Progress: Adding Photodiodes_0 [Photodiodes 1.0]
+Error: There are multiple signals with role "export". Components using hw.tcl package 14.0 and greater must specify unique signal roles.     while executing "add_interface_port conduit_end conduit_end_1 export Input 1"
+Progress: Parameterizing module Photodiodes_0
 Progress: Adding Synthesizer_0 [Synthesizer 1.0]
 Progress: Parameterizing module Synthesizer_0
 Progress: Adding Synthesizer_1 [Synthesizer 1.0]
@@ -34,8 +37,6 @@ Progress: Adding clk_0 [clock_source 17.0]
 Progress: Parameterizing module clk_0
 Progress: Adding hps_0 [altera_hps 17.0]
 Progress: Parameterizing module hps_0
-Progress: Adding photodiode_0 [photodiode 1.0]
-Progress: Parameterizing module photodiode_0
 Progress: Adding pll_0 [altera_pll 17.0]
 Progress: Parameterizing module pll_0
 Progress: Adding red_leds [altera_avalon_pio 17.0]
@@ -48,6 +49,7 @@ Progress: Building connections
 Progress: Parameterizing connections
 Progress: Validating
 Progress: Done reading input file
+Error: soc_system.: There are multiple signals with role "export". Components using hw.tcl package 14.0 and greater must specify unique signal roles.     while executing "add_interface_port conduit_end conduit_end_1 export Input 1"
 Info: soc_system.buttons: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
 Info: soc_system.hps_0: HPS Main PLL counter settings: n = 0  m = 63
 Info: soc_system.hps_0: HPS peripherial PLL counter settings: n = 0  m = 39
@@ -65,8 +67,10 @@ Progress: Loading LaserHarpG6W18/soc_system.qsys
 Progress: Reading input file
 Progress: Adding EnvelopeController_0 [EnvelopeController 1.0]
 Progress: Parameterizing module EnvelopeController_0
-Progress: Adding Pedal [Pedal 1.0]
-Progress: Parameterizing module Pedal
+Progress: Adding Pedal_0 [Pedal 1.0]
+Progress: Parameterizing module Pedal_0
+Progress: Adding Photodiodes_0 [Photodiodes 1.0]
+Progress: Parameterizing module Photodiodes_0
 Progress: Adding Synthesizer_0 [Synthesizer 1.0]
 Progress: Parameterizing module Synthesizer_0
 Progress: Adding Synthesizer_1 [Synthesizer 1.0]
@@ -95,8 +99,6 @@ Progress: Adding clk_0 [clock_source 17.0]
 Progress: Parameterizing module clk_0
 Progress: Adding hps_0 [altera_hps 17.0]
 Progress: Parameterizing module hps_0
-Progress: Adding photodiode_0 [photodiode 1.0]
-Progress: Parameterizing module photodiode_0
 Progress: Adding pll_0 [altera_pll 17.0]
 Progress: Parameterizing module pll_0
 Progress: Adding red_leds [altera_avalon_pio 17.0]
@@ -109,6 +111,7 @@ Progress: Building connections
 Progress: Parameterizing connections
 Progress: Validating
 Progress: Done reading input file
+Error: soc_system.: There are multiple signals with role "export". Components using hw.tcl package 14.0 and greater must specify unique signal roles.     while executing "add_interface_port conduit_end conduit_end_1 export Input 1"
 Info: soc_system.buttons: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
 Info: soc_system.hps_0: HPS Main PLL counter settings: n = 0  m = 63
 Info: soc_system.hps_0: HPS peripherial PLL counter settings: n = 0  m = 39
@@ -123,14 +126,15 @@ Warning: hps_0.f2h_irq0: Cannot connect reset for irq_mapper.sender
 Warning: hps_0.f2h_irq1: Cannot connect clock for irq_mapper_001.sender
 Warning: hps_0.f2h_irq1: Cannot connect reset for irq_mapper_001.sender
 Info: EnvelopeController_0: "soc_system" instantiated EnvelopeController "EnvelopeController_0"
-Info: Pedal: "soc_system" instantiated Pedal "Pedal"
+Info: Pedal_0: "soc_system" instantiated Pedal "Pedal_0"
+Info: Photodiodes_0: "soc_system" instantiated Photodiodes "Photodiodes_0"
 Info: Synthesizer_0: "soc_system" instantiated Synthesizer "Synthesizer_0"
 Info: audio_0: Starting Generation of Audio Controller
 Info: audio_0: "soc_system" instantiated altera_up_avalon_audio "audio_0"
 Info: audio_and_video_config_0: Starting Generation of Audio and Video Config
 Info: audio_and_video_config_0: "soc_system" instantiated altera_up_avalon_audio_and_video_config "audio_and_video_config_0"
 Info: buttons: Starting RTL generation for module 'soc_system_buttons'
-Info: buttons:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_buttons --dir=C:/Users/anarten/AppData/Local/Temp/alt7624_8499498970754119530.dir/0008_buttons_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/anarten/AppData/Local/Temp/alt7624_8499498970754119530.dir/0008_buttons_gen//soc_system_buttons_component_configuration.pl  --do_build_sim=0  ]
+Info: buttons:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_buttons --dir=C:/Users/anarten/AppData/Local/Temp/alt7624_7733448486095855117.dir/0009_buttons_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/anarten/AppData/Local/Temp/alt7624_7733448486095855117.dir/0009_buttons_gen//soc_system_buttons_component_configuration.pl  --do_build_sim=0  ]
 Info: buttons: Done RTL generation for module 'soc_system_buttons'
 Info: buttons: "soc_system" instantiated altera_avalon_pio "buttons"
 Info: character_lcd_0: Starting Generation of Character LCD
@@ -139,14 +143,13 @@ Info: hps_0: "Running  for module: hps_0"
 Info: hps_0: HPS Main PLL counter settings: n = 0  m = 63
 Info: hps_0: HPS peripherial PLL counter settings: n = 0  m = 39
 Info: hps_0: "soc_system" instantiated altera_hps "hps_0"
-Info: photodiode_0: "soc_system" instantiated photodiode "photodiode_0"
 Info: pll_0: "soc_system" instantiated altera_pll "pll_0"
 Info: red_leds: Starting RTL generation for module 'soc_system_red_leds'
-Info: red_leds:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_red_leds --dir=C:/Users/anarten/AppData/Local/Temp/alt7624_8499498970754119530.dir/0012_red_leds_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/anarten/AppData/Local/Temp/alt7624_8499498970754119530.dir/0012_red_leds_gen//soc_system_red_leds_component_configuration.pl  --do_build_sim=0  ]
+Info: red_leds:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_red_leds --dir=C:/Users/anarten/AppData/Local/Temp/alt7624_7733448486095855117.dir/0012_red_leds_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/anarten/AppData/Local/Temp/alt7624_7733448486095855117.dir/0012_red_leds_gen//soc_system_red_leds_component_configuration.pl  --do_build_sim=0  ]
 Info: red_leds: Done RTL generation for module 'soc_system_red_leds'
 Info: red_leds: "soc_system" instantiated altera_avalon_pio "red_leds"
 Info: switches: Starting RTL generation for module 'soc_system_switches'
-Info: switches:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_switches --dir=C:/Users/anarten/AppData/Local/Temp/alt7624_8499498970754119530.dir/0013_switches_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/anarten/AppData/Local/Temp/alt7624_8499498970754119530.dir/0013_switches_gen//soc_system_switches_component_configuration.pl  --do_build_sim=0  ]
+Info: switches:   Generation command is [exec C:/intelfpga/17.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/17.0/quartus/bin64/perl/lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin/europa -I C:/intelfpga/17.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/17.0/quartus/sopc_builder/bin -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_switches --dir=C:/Users/anarten/AppData/Local/Temp/alt7624_7733448486095855117.dir/0013_switches_gen/ --quartus_dir=C:/intelfpga/17.0/quartus --verilog --config=C:/Users/anarten/AppData/Local/Temp/alt7624_7733448486095855117.dir/0013_switches_gen//soc_system_switches_component_configuration.pl  --do_build_sim=0  ]
 Info: switches: Done RTL generation for module 'soc_system_switches'
 Info: switches: "soc_system" instantiated altera_avalon_pio "switches"
 Info: sysid_qsys_0: "soc_system" instantiated altera_avalon_sysid_qsys "sysid_qsys_0"
@@ -200,5 +203,5 @@ Info: border: "hps_io" instantiated altera_interface_generator "border"
 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
 Info: error_adapter_0: "avalon_st_adapter_002" instantiated error_adapter "error_adapter_0"
 Info: soc_system: Done "soc_system" with 39 modules, 127 files
-Info: qsys-generate succeeded.
+Error: qsys-generate failed with exit code 1: 1 Error, 4 Warnings
 Info: Finished: Create HDL design files for synthesis

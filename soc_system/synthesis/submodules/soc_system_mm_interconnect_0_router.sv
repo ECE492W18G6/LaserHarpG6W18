@@ -225,7 +225,7 @@ module soc_system_mm_interconnect_0_router
     // ( 0x200 .. 0x202 )
     if ( {address[RG:PAD2],{PAD2{1'b0}}} == 14'h200   ) begin
             src_channel = 18'b000000000000000100;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 13;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 14;
     end
 
     // ( 0x300 .. 0x310 )
@@ -237,67 +237,67 @@ module soc_system_mm_interconnect_0_router
     // ( 0x400 .. 0x410 )
     if ( {address[RG:PAD4],{PAD4{1'b0}}} == 14'h400   ) begin
             src_channel = 18'b000000000000000001;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 10;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 11;
     end
 
     // ( 0x500 .. 0x510 )
     if ( {address[RG:PAD5],{PAD5{1'b0}}} == 14'h500   ) begin
             src_channel = 18'b000000000000000010;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 11;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 12;
     end
 
     // ( 0x600 .. 0x610 )
     if ( {address[RG:PAD6],{PAD6{1'b0}}} == 14'h600   ) begin
             src_channel = 18'b010000000000000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 12;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 13;
     end
 
     // ( 0x1000 .. 0x1004 )
     if ( {address[RG:PAD7],{PAD7{1'b0}}} == 14'h1000   ) begin
             src_channel = 18'b000000000001000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
     end
 
     // ( 0x1100 .. 0x1104 )
     if ( {address[RG:PAD8],{PAD8{1'b0}}} == 14'h1100   ) begin
             src_channel = 18'b000000000010000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 4;
     end
 
     // ( 0x1200 .. 0x1204 )
     if ( {address[RG:PAD9],{PAD9{1'b0}}} == 14'h1200   ) begin
             src_channel = 18'b000000000100000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 4;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 5;
     end
 
     // ( 0x1300 .. 0x1304 )
     if ( {address[RG:PAD10],{PAD10{1'b0}}} == 14'h1300   ) begin
             src_channel = 18'b000000001000000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 5;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 6;
     end
 
     // ( 0x1400 .. 0x1404 )
     if ( {address[RG:PAD11],{PAD11{1'b0}}} == 14'h1400   ) begin
             src_channel = 18'b000000010000000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 6;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 7;
     end
 
     // ( 0x1500 .. 0x1504 )
     if ( {address[RG:PAD12],{PAD12{1'b0}}} == 14'h1500   ) begin
             src_channel = 18'b000000100000000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 7;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 8;
     end
 
     // ( 0x1600 .. 0x1604 )
     if ( {address[RG:PAD13],{PAD13{1'b0}}} == 14'h1600   ) begin
             src_channel = 18'b000001000000000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 8;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 9;
     end
 
     // ( 0x1700 .. 0x1704 )
     if ( {address[RG:PAD14],{PAD14{1'b0}}} == 14'h1700   ) begin
             src_channel = 18'b000010000000000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 9;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 10;
     end
 
     // ( 0x1800 .. 0x1804 )
@@ -308,13 +308,13 @@ module soc_system_mm_interconnect_0_router
 
     // ( 0x2000 .. 0x2001 )
     if ( {address[RG:PAD16],{PAD16{1'b0}}} == 14'h2000  && read_transaction  ) begin
-            src_channel = 18'b000000000000010000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 14;
+            src_channel = 18'b000000000000100000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
     end
 
     // ( 0x2100 .. 0x2101 )
     if ( {address[RG:PAD17],{PAD17{1'b0}}} == 14'h2100  && read_transaction  ) begin
-            src_channel = 18'b000000000000100000;
+            src_channel = 18'b000000000000010000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
     end
 

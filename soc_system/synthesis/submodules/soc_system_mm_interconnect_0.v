@@ -77,8 +77,8 @@ module soc_system_mm_interconnect_0 (
 		output wire [31:0] EnvelopeController_0_avalon_slave_writedata,                         //                                                              .writedata
 		output wire        Pedal_0_avalon_slave_read,                                           //                                          Pedal_0_avalon_slave.read
 		input  wire [7:0]  Pedal_0_avalon_slave_readdata,                                       //                                                              .readdata
-		output wire        photodiode_0_avalon_slave_read,                                      //                                     photodiode_0_avalon_slave.read
-		input  wire [7:0]  photodiode_0_avalon_slave_readdata,                                  //                                                              .readdata
+		output wire        Photodiodes_0_avalon_slave_read,                                     //                                    Photodiodes_0_avalon_slave.read
+		input  wire [7:0]  Photodiodes_0_avalon_slave_readdata,                                 //                                                              .readdata
 		output wire [1:0]  red_leds_s1_address,                                                 //                                                   red_leds_s1.address
 		output wire        red_leds_s1_write,                                                   //                                                              .write
 		input  wire [31:0] red_leds_s1_readdata,                                                //                                                              .readdata
@@ -221,30 +221,6 @@ module soc_system_mm_interconnect_0 (
 	wire          envelopecontroller_0_avalon_slave_agent_rdata_fifo_src_valid;                        // EnvelopeController_0_avalon_slave_agent:rdata_fifo_src_valid -> EnvelopeController_0_avalon_slave_agent_rdata_fifo:in_valid
 	wire   [33:0] envelopecontroller_0_avalon_slave_agent_rdata_fifo_src_data;                         // EnvelopeController_0_avalon_slave_agent:rdata_fifo_src_data -> EnvelopeController_0_avalon_slave_agent_rdata_fifo:in_data
 	wire          envelopecontroller_0_avalon_slave_agent_rdata_fifo_src_ready;                        // EnvelopeController_0_avalon_slave_agent_rdata_fifo:in_ready -> EnvelopeController_0_avalon_slave_agent:rdata_fifo_src_ready
-	wire    [7:0] photodiode_0_avalon_slave_agent_m0_readdata;                                         // photodiode_0_avalon_slave_translator:uav_readdata -> photodiode_0_avalon_slave_agent:m0_readdata
-	wire          photodiode_0_avalon_slave_agent_m0_waitrequest;                                      // photodiode_0_avalon_slave_translator:uav_waitrequest -> photodiode_0_avalon_slave_agent:m0_waitrequest
-	wire          photodiode_0_avalon_slave_agent_m0_debugaccess;                                      // photodiode_0_avalon_slave_agent:m0_debugaccess -> photodiode_0_avalon_slave_translator:uav_debugaccess
-	wire   [20:0] photodiode_0_avalon_slave_agent_m0_address;                                          // photodiode_0_avalon_slave_agent:m0_address -> photodiode_0_avalon_slave_translator:uav_address
-	wire    [0:0] photodiode_0_avalon_slave_agent_m0_byteenable;                                       // photodiode_0_avalon_slave_agent:m0_byteenable -> photodiode_0_avalon_slave_translator:uav_byteenable
-	wire          photodiode_0_avalon_slave_agent_m0_read;                                             // photodiode_0_avalon_slave_agent:m0_read -> photodiode_0_avalon_slave_translator:uav_read
-	wire          photodiode_0_avalon_slave_agent_m0_readdatavalid;                                    // photodiode_0_avalon_slave_translator:uav_readdatavalid -> photodiode_0_avalon_slave_agent:m0_readdatavalid
-	wire          photodiode_0_avalon_slave_agent_m0_lock;                                             // photodiode_0_avalon_slave_agent:m0_lock -> photodiode_0_avalon_slave_translator:uav_lock
-	wire    [7:0] photodiode_0_avalon_slave_agent_m0_writedata;                                        // photodiode_0_avalon_slave_agent:m0_writedata -> photodiode_0_avalon_slave_translator:uav_writedata
-	wire          photodiode_0_avalon_slave_agent_m0_write;                                            // photodiode_0_avalon_slave_agent:m0_write -> photodiode_0_avalon_slave_translator:uav_write
-	wire    [0:0] photodiode_0_avalon_slave_agent_m0_burstcount;                                       // photodiode_0_avalon_slave_agent:m0_burstcount -> photodiode_0_avalon_slave_translator:uav_burstcount
-	wire          photodiode_0_avalon_slave_agent_rf_source_valid;                                     // photodiode_0_avalon_slave_agent:rf_source_valid -> photodiode_0_avalon_slave_agent_rsp_fifo:in_valid
-	wire   [93:0] photodiode_0_avalon_slave_agent_rf_source_data;                                      // photodiode_0_avalon_slave_agent:rf_source_data -> photodiode_0_avalon_slave_agent_rsp_fifo:in_data
-	wire          photodiode_0_avalon_slave_agent_rf_source_ready;                                     // photodiode_0_avalon_slave_agent_rsp_fifo:in_ready -> photodiode_0_avalon_slave_agent:rf_source_ready
-	wire          photodiode_0_avalon_slave_agent_rf_source_startofpacket;                             // photodiode_0_avalon_slave_agent:rf_source_startofpacket -> photodiode_0_avalon_slave_agent_rsp_fifo:in_startofpacket
-	wire          photodiode_0_avalon_slave_agent_rf_source_endofpacket;                               // photodiode_0_avalon_slave_agent:rf_source_endofpacket -> photodiode_0_avalon_slave_agent_rsp_fifo:in_endofpacket
-	wire          photodiode_0_avalon_slave_agent_rsp_fifo_out_valid;                                  // photodiode_0_avalon_slave_agent_rsp_fifo:out_valid -> photodiode_0_avalon_slave_agent:rf_sink_valid
-	wire   [93:0] photodiode_0_avalon_slave_agent_rsp_fifo_out_data;                                   // photodiode_0_avalon_slave_agent_rsp_fifo:out_data -> photodiode_0_avalon_slave_agent:rf_sink_data
-	wire          photodiode_0_avalon_slave_agent_rsp_fifo_out_ready;                                  // photodiode_0_avalon_slave_agent:rf_sink_ready -> photodiode_0_avalon_slave_agent_rsp_fifo:out_ready
-	wire          photodiode_0_avalon_slave_agent_rsp_fifo_out_startofpacket;                          // photodiode_0_avalon_slave_agent_rsp_fifo:out_startofpacket -> photodiode_0_avalon_slave_agent:rf_sink_startofpacket
-	wire          photodiode_0_avalon_slave_agent_rsp_fifo_out_endofpacket;                            // photodiode_0_avalon_slave_agent_rsp_fifo:out_endofpacket -> photodiode_0_avalon_slave_agent:rf_sink_endofpacket
-	wire          photodiode_0_avalon_slave_agent_rdata_fifo_src_valid;                                // photodiode_0_avalon_slave_agent:rdata_fifo_src_valid -> photodiode_0_avalon_slave_agent_rdata_fifo:in_valid
-	wire    [9:0] photodiode_0_avalon_slave_agent_rdata_fifo_src_data;                                 // photodiode_0_avalon_slave_agent:rdata_fifo_src_data -> photodiode_0_avalon_slave_agent_rdata_fifo:in_data
-	wire          photodiode_0_avalon_slave_agent_rdata_fifo_src_ready;                                // photodiode_0_avalon_slave_agent_rdata_fifo:in_ready -> photodiode_0_avalon_slave_agent:rdata_fifo_src_ready
 	wire    [7:0] pedal_0_avalon_slave_agent_m0_readdata;                                              // Pedal_0_avalon_slave_translator:uav_readdata -> Pedal_0_avalon_slave_agent:m0_readdata
 	wire          pedal_0_avalon_slave_agent_m0_waitrequest;                                           // Pedal_0_avalon_slave_translator:uav_waitrequest -> Pedal_0_avalon_slave_agent:m0_waitrequest
 	wire          pedal_0_avalon_slave_agent_m0_debugaccess;                                           // Pedal_0_avalon_slave_agent:m0_debugaccess -> Pedal_0_avalon_slave_translator:uav_debugaccess
@@ -269,6 +245,30 @@ module soc_system_mm_interconnect_0 (
 	wire          pedal_0_avalon_slave_agent_rdata_fifo_src_valid;                                     // Pedal_0_avalon_slave_agent:rdata_fifo_src_valid -> Pedal_0_avalon_slave_agent_rdata_fifo:in_valid
 	wire    [9:0] pedal_0_avalon_slave_agent_rdata_fifo_src_data;                                      // Pedal_0_avalon_slave_agent:rdata_fifo_src_data -> Pedal_0_avalon_slave_agent_rdata_fifo:in_data
 	wire          pedal_0_avalon_slave_agent_rdata_fifo_src_ready;                                     // Pedal_0_avalon_slave_agent_rdata_fifo:in_ready -> Pedal_0_avalon_slave_agent:rdata_fifo_src_ready
+	wire    [7:0] photodiodes_0_avalon_slave_agent_m0_readdata;                                        // Photodiodes_0_avalon_slave_translator:uav_readdata -> Photodiodes_0_avalon_slave_agent:m0_readdata
+	wire          photodiodes_0_avalon_slave_agent_m0_waitrequest;                                     // Photodiodes_0_avalon_slave_translator:uav_waitrequest -> Photodiodes_0_avalon_slave_agent:m0_waitrequest
+	wire          photodiodes_0_avalon_slave_agent_m0_debugaccess;                                     // Photodiodes_0_avalon_slave_agent:m0_debugaccess -> Photodiodes_0_avalon_slave_translator:uav_debugaccess
+	wire   [20:0] photodiodes_0_avalon_slave_agent_m0_address;                                         // Photodiodes_0_avalon_slave_agent:m0_address -> Photodiodes_0_avalon_slave_translator:uav_address
+	wire    [0:0] photodiodes_0_avalon_slave_agent_m0_byteenable;                                      // Photodiodes_0_avalon_slave_agent:m0_byteenable -> Photodiodes_0_avalon_slave_translator:uav_byteenable
+	wire          photodiodes_0_avalon_slave_agent_m0_read;                                            // Photodiodes_0_avalon_slave_agent:m0_read -> Photodiodes_0_avalon_slave_translator:uav_read
+	wire          photodiodes_0_avalon_slave_agent_m0_readdatavalid;                                   // Photodiodes_0_avalon_slave_translator:uav_readdatavalid -> Photodiodes_0_avalon_slave_agent:m0_readdatavalid
+	wire          photodiodes_0_avalon_slave_agent_m0_lock;                                            // Photodiodes_0_avalon_slave_agent:m0_lock -> Photodiodes_0_avalon_slave_translator:uav_lock
+	wire    [7:0] photodiodes_0_avalon_slave_agent_m0_writedata;                                       // Photodiodes_0_avalon_slave_agent:m0_writedata -> Photodiodes_0_avalon_slave_translator:uav_writedata
+	wire          photodiodes_0_avalon_slave_agent_m0_write;                                           // Photodiodes_0_avalon_slave_agent:m0_write -> Photodiodes_0_avalon_slave_translator:uav_write
+	wire    [0:0] photodiodes_0_avalon_slave_agent_m0_burstcount;                                      // Photodiodes_0_avalon_slave_agent:m0_burstcount -> Photodiodes_0_avalon_slave_translator:uav_burstcount
+	wire          photodiodes_0_avalon_slave_agent_rf_source_valid;                                    // Photodiodes_0_avalon_slave_agent:rf_source_valid -> Photodiodes_0_avalon_slave_agent_rsp_fifo:in_valid
+	wire   [93:0] photodiodes_0_avalon_slave_agent_rf_source_data;                                     // Photodiodes_0_avalon_slave_agent:rf_source_data -> Photodiodes_0_avalon_slave_agent_rsp_fifo:in_data
+	wire          photodiodes_0_avalon_slave_agent_rf_source_ready;                                    // Photodiodes_0_avalon_slave_agent_rsp_fifo:in_ready -> Photodiodes_0_avalon_slave_agent:rf_source_ready
+	wire          photodiodes_0_avalon_slave_agent_rf_source_startofpacket;                            // Photodiodes_0_avalon_slave_agent:rf_source_startofpacket -> Photodiodes_0_avalon_slave_agent_rsp_fifo:in_startofpacket
+	wire          photodiodes_0_avalon_slave_agent_rf_source_endofpacket;                              // Photodiodes_0_avalon_slave_agent:rf_source_endofpacket -> Photodiodes_0_avalon_slave_agent_rsp_fifo:in_endofpacket
+	wire          photodiodes_0_avalon_slave_agent_rsp_fifo_out_valid;                                 // Photodiodes_0_avalon_slave_agent_rsp_fifo:out_valid -> Photodiodes_0_avalon_slave_agent:rf_sink_valid
+	wire   [93:0] photodiodes_0_avalon_slave_agent_rsp_fifo_out_data;                                  // Photodiodes_0_avalon_slave_agent_rsp_fifo:out_data -> Photodiodes_0_avalon_slave_agent:rf_sink_data
+	wire          photodiodes_0_avalon_slave_agent_rsp_fifo_out_ready;                                 // Photodiodes_0_avalon_slave_agent:rf_sink_ready -> Photodiodes_0_avalon_slave_agent_rsp_fifo:out_ready
+	wire          photodiodes_0_avalon_slave_agent_rsp_fifo_out_startofpacket;                         // Photodiodes_0_avalon_slave_agent_rsp_fifo:out_startofpacket -> Photodiodes_0_avalon_slave_agent:rf_sink_startofpacket
+	wire          photodiodes_0_avalon_slave_agent_rsp_fifo_out_endofpacket;                           // Photodiodes_0_avalon_slave_agent_rsp_fifo:out_endofpacket -> Photodiodes_0_avalon_slave_agent:rf_sink_endofpacket
+	wire          photodiodes_0_avalon_slave_agent_rdata_fifo_src_valid;                               // Photodiodes_0_avalon_slave_agent:rdata_fifo_src_valid -> Photodiodes_0_avalon_slave_agent_rdata_fifo:in_valid
+	wire    [9:0] photodiodes_0_avalon_slave_agent_rdata_fifo_src_data;                                // Photodiodes_0_avalon_slave_agent:rdata_fifo_src_data -> Photodiodes_0_avalon_slave_agent_rdata_fifo:in_data
+	wire          photodiodes_0_avalon_slave_agent_rdata_fifo_src_ready;                               // Photodiodes_0_avalon_slave_agent_rdata_fifo:in_ready -> Photodiodes_0_avalon_slave_agent:rdata_fifo_src_ready
 	wire   [31:0] synthesizer_0_avalon_slave_0_agent_m0_readdata;                                      // Synthesizer_0_avalon_slave_0_translator:uav_readdata -> Synthesizer_0_avalon_slave_0_agent:m0_readdata
 	wire          synthesizer_0_avalon_slave_0_agent_m0_waitrequest;                                   // Synthesizer_0_avalon_slave_0_translator:uav_waitrequest -> Synthesizer_0_avalon_slave_0_agent:m0_waitrequest
 	wire          synthesizer_0_avalon_slave_0_agent_m0_debugaccess;                                   // Synthesizer_0_avalon_slave_0_agent:m0_debugaccess -> Synthesizer_0_avalon_slave_0_translator:uav_debugaccess
@@ -605,16 +605,16 @@ module soc_system_mm_interconnect_0 (
 	wire   [17:0] router_005_src_channel;                                                              // router_005:src_channel -> rsp_demux_003:sink_channel
 	wire          router_005_src_startofpacket;                                                        // router_005:src_startofpacket -> rsp_demux_003:sink_startofpacket
 	wire          router_005_src_endofpacket;                                                          // router_005:src_endofpacket -> rsp_demux_003:sink_endofpacket
-	wire          photodiode_0_avalon_slave_agent_rp_valid;                                            // photodiode_0_avalon_slave_agent:rp_valid -> router_006:sink_valid
-	wire   [92:0] photodiode_0_avalon_slave_agent_rp_data;                                             // photodiode_0_avalon_slave_agent:rp_data -> router_006:sink_data
-	wire          photodiode_0_avalon_slave_agent_rp_ready;                                            // router_006:sink_ready -> photodiode_0_avalon_slave_agent:rp_ready
-	wire          photodiode_0_avalon_slave_agent_rp_startofpacket;                                    // photodiode_0_avalon_slave_agent:rp_startofpacket -> router_006:sink_startofpacket
-	wire          photodiode_0_avalon_slave_agent_rp_endofpacket;                                      // photodiode_0_avalon_slave_agent:rp_endofpacket -> router_006:sink_endofpacket
-	wire          pedal_0_avalon_slave_agent_rp_valid;                                                 // Pedal_0_avalon_slave_agent:rp_valid -> router_007:sink_valid
-	wire   [92:0] pedal_0_avalon_slave_agent_rp_data;                                                  // Pedal_0_avalon_slave_agent:rp_data -> router_007:sink_data
-	wire          pedal_0_avalon_slave_agent_rp_ready;                                                 // router_007:sink_ready -> Pedal_0_avalon_slave_agent:rp_ready
-	wire          pedal_0_avalon_slave_agent_rp_startofpacket;                                         // Pedal_0_avalon_slave_agent:rp_startofpacket -> router_007:sink_startofpacket
-	wire          pedal_0_avalon_slave_agent_rp_endofpacket;                                           // Pedal_0_avalon_slave_agent:rp_endofpacket -> router_007:sink_endofpacket
+	wire          pedal_0_avalon_slave_agent_rp_valid;                                                 // Pedal_0_avalon_slave_agent:rp_valid -> router_006:sink_valid
+	wire   [92:0] pedal_0_avalon_slave_agent_rp_data;                                                  // Pedal_0_avalon_slave_agent:rp_data -> router_006:sink_data
+	wire          pedal_0_avalon_slave_agent_rp_ready;                                                 // router_006:sink_ready -> Pedal_0_avalon_slave_agent:rp_ready
+	wire          pedal_0_avalon_slave_agent_rp_startofpacket;                                         // Pedal_0_avalon_slave_agent:rp_startofpacket -> router_006:sink_startofpacket
+	wire          pedal_0_avalon_slave_agent_rp_endofpacket;                                           // Pedal_0_avalon_slave_agent:rp_endofpacket -> router_006:sink_endofpacket
+	wire          photodiodes_0_avalon_slave_agent_rp_valid;                                           // Photodiodes_0_avalon_slave_agent:rp_valid -> router_007:sink_valid
+	wire   [92:0] photodiodes_0_avalon_slave_agent_rp_data;                                            // Photodiodes_0_avalon_slave_agent:rp_data -> router_007:sink_data
+	wire          photodiodes_0_avalon_slave_agent_rp_ready;                                           // router_007:sink_ready -> Photodiodes_0_avalon_slave_agent:rp_ready
+	wire          photodiodes_0_avalon_slave_agent_rp_startofpacket;                                   // Photodiodes_0_avalon_slave_agent:rp_startofpacket -> router_007:sink_startofpacket
+	wire          photodiodes_0_avalon_slave_agent_rp_endofpacket;                                     // Photodiodes_0_avalon_slave_agent:rp_endofpacket -> router_007:sink_endofpacket
 	wire          synthesizer_0_avalon_slave_0_agent_rp_valid;                                         // Synthesizer_0_avalon_slave_0_agent:rp_valid -> router_008:sink_valid
 	wire  [119:0] synthesizer_0_avalon_slave_0_agent_rp_data;                                          // Synthesizer_0_avalon_slave_0_agent:rp_data -> router_008:sink_data
 	wire          synthesizer_0_avalon_slave_0_agent_rp_ready;                                         // router_008:sink_ready -> Synthesizer_0_avalon_slave_0_agent:rp_ready
@@ -835,18 +835,18 @@ module soc_system_mm_interconnect_0 (
 	wire   [17:0] envelopecontroller_0_avalon_slave_burst_adapter_source0_channel;                     // EnvelopeController_0_avalon_slave_burst_adapter:source0_channel -> EnvelopeController_0_avalon_slave_agent:cp_channel
 	wire          envelopecontroller_0_avalon_slave_burst_adapter_source0_startofpacket;               // EnvelopeController_0_avalon_slave_burst_adapter:source0_startofpacket -> EnvelopeController_0_avalon_slave_agent:cp_startofpacket
 	wire          envelopecontroller_0_avalon_slave_burst_adapter_source0_endofpacket;                 // EnvelopeController_0_avalon_slave_burst_adapter:source0_endofpacket -> EnvelopeController_0_avalon_slave_agent:cp_endofpacket
-	wire          photodiode_0_avalon_slave_burst_adapter_source0_valid;                               // photodiode_0_avalon_slave_burst_adapter:source0_valid -> photodiode_0_avalon_slave_agent:cp_valid
-	wire   [92:0] photodiode_0_avalon_slave_burst_adapter_source0_data;                                // photodiode_0_avalon_slave_burst_adapter:source0_data -> photodiode_0_avalon_slave_agent:cp_data
-	wire          photodiode_0_avalon_slave_burst_adapter_source0_ready;                               // photodiode_0_avalon_slave_agent:cp_ready -> photodiode_0_avalon_slave_burst_adapter:source0_ready
-	wire   [17:0] photodiode_0_avalon_slave_burst_adapter_source0_channel;                             // photodiode_0_avalon_slave_burst_adapter:source0_channel -> photodiode_0_avalon_slave_agent:cp_channel
-	wire          photodiode_0_avalon_slave_burst_adapter_source0_startofpacket;                       // photodiode_0_avalon_slave_burst_adapter:source0_startofpacket -> photodiode_0_avalon_slave_agent:cp_startofpacket
-	wire          photodiode_0_avalon_slave_burst_adapter_source0_endofpacket;                         // photodiode_0_avalon_slave_burst_adapter:source0_endofpacket -> photodiode_0_avalon_slave_agent:cp_endofpacket
 	wire          pedal_0_avalon_slave_burst_adapter_source0_valid;                                    // Pedal_0_avalon_slave_burst_adapter:source0_valid -> Pedal_0_avalon_slave_agent:cp_valid
 	wire   [92:0] pedal_0_avalon_slave_burst_adapter_source0_data;                                     // Pedal_0_avalon_slave_burst_adapter:source0_data -> Pedal_0_avalon_slave_agent:cp_data
 	wire          pedal_0_avalon_slave_burst_adapter_source0_ready;                                    // Pedal_0_avalon_slave_agent:cp_ready -> Pedal_0_avalon_slave_burst_adapter:source0_ready
 	wire   [17:0] pedal_0_avalon_slave_burst_adapter_source0_channel;                                  // Pedal_0_avalon_slave_burst_adapter:source0_channel -> Pedal_0_avalon_slave_agent:cp_channel
 	wire          pedal_0_avalon_slave_burst_adapter_source0_startofpacket;                            // Pedal_0_avalon_slave_burst_adapter:source0_startofpacket -> Pedal_0_avalon_slave_agent:cp_startofpacket
 	wire          pedal_0_avalon_slave_burst_adapter_source0_endofpacket;                              // Pedal_0_avalon_slave_burst_adapter:source0_endofpacket -> Pedal_0_avalon_slave_agent:cp_endofpacket
+	wire          photodiodes_0_avalon_slave_burst_adapter_source0_valid;                              // Photodiodes_0_avalon_slave_burst_adapter:source0_valid -> Photodiodes_0_avalon_slave_agent:cp_valid
+	wire   [92:0] photodiodes_0_avalon_slave_burst_adapter_source0_data;                               // Photodiodes_0_avalon_slave_burst_adapter:source0_data -> Photodiodes_0_avalon_slave_agent:cp_data
+	wire          photodiodes_0_avalon_slave_burst_adapter_source0_ready;                              // Photodiodes_0_avalon_slave_agent:cp_ready -> Photodiodes_0_avalon_slave_burst_adapter:source0_ready
+	wire   [17:0] photodiodes_0_avalon_slave_burst_adapter_source0_channel;                            // Photodiodes_0_avalon_slave_burst_adapter:source0_channel -> Photodiodes_0_avalon_slave_agent:cp_channel
+	wire          photodiodes_0_avalon_slave_burst_adapter_source0_startofpacket;                      // Photodiodes_0_avalon_slave_burst_adapter:source0_startofpacket -> Photodiodes_0_avalon_slave_agent:cp_startofpacket
+	wire          photodiodes_0_avalon_slave_burst_adapter_source0_endofpacket;                        // Photodiodes_0_avalon_slave_burst_adapter:source0_endofpacket -> Photodiodes_0_avalon_slave_agent:cp_endofpacket
 	wire          cmd_mux_006_src_valid;                                                               // cmd_mux_006:src_valid -> Synthesizer_0_avalon_slave_0_burst_adapter:sink0_valid
 	wire  [119:0] cmd_mux_006_src_data;                                                                // cmd_mux_006:src_data -> Synthesizer_0_avalon_slave_0_burst_adapter:sink0_data
 	wire          cmd_mux_006_src_ready;                                                               // Synthesizer_0_avalon_slave_0_burst_adapter:sink0_ready -> cmd_mux_006:src_ready
@@ -1435,30 +1435,30 @@ module soc_system_mm_interconnect_0 (
 	wire   [17:0] character_lcd_0_avalon_lcd_slave_rsp_width_adapter_src_channel;                      // character_lcd_0_avalon_lcd_slave_rsp_width_adapter:out_channel -> rsp_demux_002:sink_channel
 	wire          character_lcd_0_avalon_lcd_slave_rsp_width_adapter_src_startofpacket;                // character_lcd_0_avalon_lcd_slave_rsp_width_adapter:out_startofpacket -> rsp_demux_002:sink_startofpacket
 	wire          character_lcd_0_avalon_lcd_slave_rsp_width_adapter_src_endofpacket;                  // character_lcd_0_avalon_lcd_slave_rsp_width_adapter:out_endofpacket -> rsp_demux_002:sink_endofpacket
-	wire          router_006_src_valid;                                                                // router_006:src_valid -> photodiode_0_avalon_slave_rsp_width_adapter:in_valid
-	wire   [92:0] router_006_src_data;                                                                 // router_006:src_data -> photodiode_0_avalon_slave_rsp_width_adapter:in_data
-	wire          router_006_src_ready;                                                                // photodiode_0_avalon_slave_rsp_width_adapter:in_ready -> router_006:src_ready
-	wire   [17:0] router_006_src_channel;                                                              // router_006:src_channel -> photodiode_0_avalon_slave_rsp_width_adapter:in_channel
-	wire          router_006_src_startofpacket;                                                        // router_006:src_startofpacket -> photodiode_0_avalon_slave_rsp_width_adapter:in_startofpacket
-	wire          router_006_src_endofpacket;                                                          // router_006:src_endofpacket -> photodiode_0_avalon_slave_rsp_width_adapter:in_endofpacket
-	wire          photodiode_0_avalon_slave_rsp_width_adapter_src_valid;                               // photodiode_0_avalon_slave_rsp_width_adapter:out_valid -> rsp_demux_004:sink_valid
-	wire  [119:0] photodiode_0_avalon_slave_rsp_width_adapter_src_data;                                // photodiode_0_avalon_slave_rsp_width_adapter:out_data -> rsp_demux_004:sink_data
-	wire          photodiode_0_avalon_slave_rsp_width_adapter_src_ready;                               // rsp_demux_004:sink_ready -> photodiode_0_avalon_slave_rsp_width_adapter:out_ready
-	wire   [17:0] photodiode_0_avalon_slave_rsp_width_adapter_src_channel;                             // photodiode_0_avalon_slave_rsp_width_adapter:out_channel -> rsp_demux_004:sink_channel
-	wire          photodiode_0_avalon_slave_rsp_width_adapter_src_startofpacket;                       // photodiode_0_avalon_slave_rsp_width_adapter:out_startofpacket -> rsp_demux_004:sink_startofpacket
-	wire          photodiode_0_avalon_slave_rsp_width_adapter_src_endofpacket;                         // photodiode_0_avalon_slave_rsp_width_adapter:out_endofpacket -> rsp_demux_004:sink_endofpacket
-	wire          router_007_src_valid;                                                                // router_007:src_valid -> Pedal_0_avalon_slave_rsp_width_adapter:in_valid
-	wire   [92:0] router_007_src_data;                                                                 // router_007:src_data -> Pedal_0_avalon_slave_rsp_width_adapter:in_data
-	wire          router_007_src_ready;                                                                // Pedal_0_avalon_slave_rsp_width_adapter:in_ready -> router_007:src_ready
-	wire   [17:0] router_007_src_channel;                                                              // router_007:src_channel -> Pedal_0_avalon_slave_rsp_width_adapter:in_channel
-	wire          router_007_src_startofpacket;                                                        // router_007:src_startofpacket -> Pedal_0_avalon_slave_rsp_width_adapter:in_startofpacket
-	wire          router_007_src_endofpacket;                                                          // router_007:src_endofpacket -> Pedal_0_avalon_slave_rsp_width_adapter:in_endofpacket
-	wire          pedal_0_avalon_slave_rsp_width_adapter_src_valid;                                    // Pedal_0_avalon_slave_rsp_width_adapter:out_valid -> rsp_demux_005:sink_valid
-	wire  [119:0] pedal_0_avalon_slave_rsp_width_adapter_src_data;                                     // Pedal_0_avalon_slave_rsp_width_adapter:out_data -> rsp_demux_005:sink_data
-	wire          pedal_0_avalon_slave_rsp_width_adapter_src_ready;                                    // rsp_demux_005:sink_ready -> Pedal_0_avalon_slave_rsp_width_adapter:out_ready
-	wire   [17:0] pedal_0_avalon_slave_rsp_width_adapter_src_channel;                                  // Pedal_0_avalon_slave_rsp_width_adapter:out_channel -> rsp_demux_005:sink_channel
-	wire          pedal_0_avalon_slave_rsp_width_adapter_src_startofpacket;                            // Pedal_0_avalon_slave_rsp_width_adapter:out_startofpacket -> rsp_demux_005:sink_startofpacket
-	wire          pedal_0_avalon_slave_rsp_width_adapter_src_endofpacket;                              // Pedal_0_avalon_slave_rsp_width_adapter:out_endofpacket -> rsp_demux_005:sink_endofpacket
+	wire          router_006_src_valid;                                                                // router_006:src_valid -> Pedal_0_avalon_slave_rsp_width_adapter:in_valid
+	wire   [92:0] router_006_src_data;                                                                 // router_006:src_data -> Pedal_0_avalon_slave_rsp_width_adapter:in_data
+	wire          router_006_src_ready;                                                                // Pedal_0_avalon_slave_rsp_width_adapter:in_ready -> router_006:src_ready
+	wire   [17:0] router_006_src_channel;                                                              // router_006:src_channel -> Pedal_0_avalon_slave_rsp_width_adapter:in_channel
+	wire          router_006_src_startofpacket;                                                        // router_006:src_startofpacket -> Pedal_0_avalon_slave_rsp_width_adapter:in_startofpacket
+	wire          router_006_src_endofpacket;                                                          // router_006:src_endofpacket -> Pedal_0_avalon_slave_rsp_width_adapter:in_endofpacket
+	wire          pedal_0_avalon_slave_rsp_width_adapter_src_valid;                                    // Pedal_0_avalon_slave_rsp_width_adapter:out_valid -> rsp_demux_004:sink_valid
+	wire  [119:0] pedal_0_avalon_slave_rsp_width_adapter_src_data;                                     // Pedal_0_avalon_slave_rsp_width_adapter:out_data -> rsp_demux_004:sink_data
+	wire          pedal_0_avalon_slave_rsp_width_adapter_src_ready;                                    // rsp_demux_004:sink_ready -> Pedal_0_avalon_slave_rsp_width_adapter:out_ready
+	wire   [17:0] pedal_0_avalon_slave_rsp_width_adapter_src_channel;                                  // Pedal_0_avalon_slave_rsp_width_adapter:out_channel -> rsp_demux_004:sink_channel
+	wire          pedal_0_avalon_slave_rsp_width_adapter_src_startofpacket;                            // Pedal_0_avalon_slave_rsp_width_adapter:out_startofpacket -> rsp_demux_004:sink_startofpacket
+	wire          pedal_0_avalon_slave_rsp_width_adapter_src_endofpacket;                              // Pedal_0_avalon_slave_rsp_width_adapter:out_endofpacket -> rsp_demux_004:sink_endofpacket
+	wire          router_007_src_valid;                                                                // router_007:src_valid -> Photodiodes_0_avalon_slave_rsp_width_adapter:in_valid
+	wire   [92:0] router_007_src_data;                                                                 // router_007:src_data -> Photodiodes_0_avalon_slave_rsp_width_adapter:in_data
+	wire          router_007_src_ready;                                                                // Photodiodes_0_avalon_slave_rsp_width_adapter:in_ready -> router_007:src_ready
+	wire   [17:0] router_007_src_channel;                                                              // router_007:src_channel -> Photodiodes_0_avalon_slave_rsp_width_adapter:in_channel
+	wire          router_007_src_startofpacket;                                                        // router_007:src_startofpacket -> Photodiodes_0_avalon_slave_rsp_width_adapter:in_startofpacket
+	wire          router_007_src_endofpacket;                                                          // router_007:src_endofpacket -> Photodiodes_0_avalon_slave_rsp_width_adapter:in_endofpacket
+	wire          photodiodes_0_avalon_slave_rsp_width_adapter_src_valid;                              // Photodiodes_0_avalon_slave_rsp_width_adapter:out_valid -> rsp_demux_005:sink_valid
+	wire  [119:0] photodiodes_0_avalon_slave_rsp_width_adapter_src_data;                               // Photodiodes_0_avalon_slave_rsp_width_adapter:out_data -> rsp_demux_005:sink_data
+	wire          photodiodes_0_avalon_slave_rsp_width_adapter_src_ready;                              // rsp_demux_005:sink_ready -> Photodiodes_0_avalon_slave_rsp_width_adapter:out_ready
+	wire   [17:0] photodiodes_0_avalon_slave_rsp_width_adapter_src_channel;                            // Photodiodes_0_avalon_slave_rsp_width_adapter:out_channel -> rsp_demux_005:sink_channel
+	wire          photodiodes_0_avalon_slave_rsp_width_adapter_src_startofpacket;                      // Photodiodes_0_avalon_slave_rsp_width_adapter:out_startofpacket -> rsp_demux_005:sink_startofpacket
+	wire          photodiodes_0_avalon_slave_rsp_width_adapter_src_endofpacket;                        // Photodiodes_0_avalon_slave_rsp_width_adapter:out_endofpacket -> rsp_demux_005:sink_endofpacket
 	wire          cmd_mux_002_src_valid;                                                               // cmd_mux_002:src_valid -> character_lcd_0_avalon_lcd_slave_cmd_width_adapter:in_valid
 	wire  [119:0] cmd_mux_002_src_data;                                                                // cmd_mux_002:src_data -> character_lcd_0_avalon_lcd_slave_cmd_width_adapter:in_data
 	wire          cmd_mux_002_src_ready;                                                               // character_lcd_0_avalon_lcd_slave_cmd_width_adapter:in_ready -> cmd_mux_002:src_ready
@@ -1471,30 +1471,30 @@ module soc_system_mm_interconnect_0 (
 	wire   [17:0] character_lcd_0_avalon_lcd_slave_cmd_width_adapter_src_channel;                      // character_lcd_0_avalon_lcd_slave_cmd_width_adapter:out_channel -> character_lcd_0_avalon_lcd_slave_burst_adapter:sink0_channel
 	wire          character_lcd_0_avalon_lcd_slave_cmd_width_adapter_src_startofpacket;                // character_lcd_0_avalon_lcd_slave_cmd_width_adapter:out_startofpacket -> character_lcd_0_avalon_lcd_slave_burst_adapter:sink0_startofpacket
 	wire          character_lcd_0_avalon_lcd_slave_cmd_width_adapter_src_endofpacket;                  // character_lcd_0_avalon_lcd_slave_cmd_width_adapter:out_endofpacket -> character_lcd_0_avalon_lcd_slave_burst_adapter:sink0_endofpacket
-	wire          cmd_mux_004_src_valid;                                                               // cmd_mux_004:src_valid -> photodiode_0_avalon_slave_cmd_width_adapter:in_valid
-	wire  [119:0] cmd_mux_004_src_data;                                                                // cmd_mux_004:src_data -> photodiode_0_avalon_slave_cmd_width_adapter:in_data
-	wire          cmd_mux_004_src_ready;                                                               // photodiode_0_avalon_slave_cmd_width_adapter:in_ready -> cmd_mux_004:src_ready
-	wire   [17:0] cmd_mux_004_src_channel;                                                             // cmd_mux_004:src_channel -> photodiode_0_avalon_slave_cmd_width_adapter:in_channel
-	wire          cmd_mux_004_src_startofpacket;                                                       // cmd_mux_004:src_startofpacket -> photodiode_0_avalon_slave_cmd_width_adapter:in_startofpacket
-	wire          cmd_mux_004_src_endofpacket;                                                         // cmd_mux_004:src_endofpacket -> photodiode_0_avalon_slave_cmd_width_adapter:in_endofpacket
-	wire          photodiode_0_avalon_slave_cmd_width_adapter_src_valid;                               // photodiode_0_avalon_slave_cmd_width_adapter:out_valid -> photodiode_0_avalon_slave_burst_adapter:sink0_valid
-	wire   [92:0] photodiode_0_avalon_slave_cmd_width_adapter_src_data;                                // photodiode_0_avalon_slave_cmd_width_adapter:out_data -> photodiode_0_avalon_slave_burst_adapter:sink0_data
-	wire          photodiode_0_avalon_slave_cmd_width_adapter_src_ready;                               // photodiode_0_avalon_slave_burst_adapter:sink0_ready -> photodiode_0_avalon_slave_cmd_width_adapter:out_ready
-	wire   [17:0] photodiode_0_avalon_slave_cmd_width_adapter_src_channel;                             // photodiode_0_avalon_slave_cmd_width_adapter:out_channel -> photodiode_0_avalon_slave_burst_adapter:sink0_channel
-	wire          photodiode_0_avalon_slave_cmd_width_adapter_src_startofpacket;                       // photodiode_0_avalon_slave_cmd_width_adapter:out_startofpacket -> photodiode_0_avalon_slave_burst_adapter:sink0_startofpacket
-	wire          photodiode_0_avalon_slave_cmd_width_adapter_src_endofpacket;                         // photodiode_0_avalon_slave_cmd_width_adapter:out_endofpacket -> photodiode_0_avalon_slave_burst_adapter:sink0_endofpacket
-	wire          cmd_mux_005_src_valid;                                                               // cmd_mux_005:src_valid -> Pedal_0_avalon_slave_cmd_width_adapter:in_valid
-	wire  [119:0] cmd_mux_005_src_data;                                                                // cmd_mux_005:src_data -> Pedal_0_avalon_slave_cmd_width_adapter:in_data
-	wire          cmd_mux_005_src_ready;                                                               // Pedal_0_avalon_slave_cmd_width_adapter:in_ready -> cmd_mux_005:src_ready
-	wire   [17:0] cmd_mux_005_src_channel;                                                             // cmd_mux_005:src_channel -> Pedal_0_avalon_slave_cmd_width_adapter:in_channel
-	wire          cmd_mux_005_src_startofpacket;                                                       // cmd_mux_005:src_startofpacket -> Pedal_0_avalon_slave_cmd_width_adapter:in_startofpacket
-	wire          cmd_mux_005_src_endofpacket;                                                         // cmd_mux_005:src_endofpacket -> Pedal_0_avalon_slave_cmd_width_adapter:in_endofpacket
+	wire          cmd_mux_004_src_valid;                                                               // cmd_mux_004:src_valid -> Pedal_0_avalon_slave_cmd_width_adapter:in_valid
+	wire  [119:0] cmd_mux_004_src_data;                                                                // cmd_mux_004:src_data -> Pedal_0_avalon_slave_cmd_width_adapter:in_data
+	wire          cmd_mux_004_src_ready;                                                               // Pedal_0_avalon_slave_cmd_width_adapter:in_ready -> cmd_mux_004:src_ready
+	wire   [17:0] cmd_mux_004_src_channel;                                                             // cmd_mux_004:src_channel -> Pedal_0_avalon_slave_cmd_width_adapter:in_channel
+	wire          cmd_mux_004_src_startofpacket;                                                       // cmd_mux_004:src_startofpacket -> Pedal_0_avalon_slave_cmd_width_adapter:in_startofpacket
+	wire          cmd_mux_004_src_endofpacket;                                                         // cmd_mux_004:src_endofpacket -> Pedal_0_avalon_slave_cmd_width_adapter:in_endofpacket
 	wire          pedal_0_avalon_slave_cmd_width_adapter_src_valid;                                    // Pedal_0_avalon_slave_cmd_width_adapter:out_valid -> Pedal_0_avalon_slave_burst_adapter:sink0_valid
 	wire   [92:0] pedal_0_avalon_slave_cmd_width_adapter_src_data;                                     // Pedal_0_avalon_slave_cmd_width_adapter:out_data -> Pedal_0_avalon_slave_burst_adapter:sink0_data
 	wire          pedal_0_avalon_slave_cmd_width_adapter_src_ready;                                    // Pedal_0_avalon_slave_burst_adapter:sink0_ready -> Pedal_0_avalon_slave_cmd_width_adapter:out_ready
 	wire   [17:0] pedal_0_avalon_slave_cmd_width_adapter_src_channel;                                  // Pedal_0_avalon_slave_cmd_width_adapter:out_channel -> Pedal_0_avalon_slave_burst_adapter:sink0_channel
 	wire          pedal_0_avalon_slave_cmd_width_adapter_src_startofpacket;                            // Pedal_0_avalon_slave_cmd_width_adapter:out_startofpacket -> Pedal_0_avalon_slave_burst_adapter:sink0_startofpacket
 	wire          pedal_0_avalon_slave_cmd_width_adapter_src_endofpacket;                              // Pedal_0_avalon_slave_cmd_width_adapter:out_endofpacket -> Pedal_0_avalon_slave_burst_adapter:sink0_endofpacket
+	wire          cmd_mux_005_src_valid;                                                               // cmd_mux_005:src_valid -> Photodiodes_0_avalon_slave_cmd_width_adapter:in_valid
+	wire  [119:0] cmd_mux_005_src_data;                                                                // cmd_mux_005:src_data -> Photodiodes_0_avalon_slave_cmd_width_adapter:in_data
+	wire          cmd_mux_005_src_ready;                                                               // Photodiodes_0_avalon_slave_cmd_width_adapter:in_ready -> cmd_mux_005:src_ready
+	wire   [17:0] cmd_mux_005_src_channel;                                                             // cmd_mux_005:src_channel -> Photodiodes_0_avalon_slave_cmd_width_adapter:in_channel
+	wire          cmd_mux_005_src_startofpacket;                                                       // cmd_mux_005:src_startofpacket -> Photodiodes_0_avalon_slave_cmd_width_adapter:in_startofpacket
+	wire          cmd_mux_005_src_endofpacket;                                                         // cmd_mux_005:src_endofpacket -> Photodiodes_0_avalon_slave_cmd_width_adapter:in_endofpacket
+	wire          photodiodes_0_avalon_slave_cmd_width_adapter_src_valid;                              // Photodiodes_0_avalon_slave_cmd_width_adapter:out_valid -> Photodiodes_0_avalon_slave_burst_adapter:sink0_valid
+	wire   [92:0] photodiodes_0_avalon_slave_cmd_width_adapter_src_data;                               // Photodiodes_0_avalon_slave_cmd_width_adapter:out_data -> Photodiodes_0_avalon_slave_burst_adapter:sink0_data
+	wire          photodiodes_0_avalon_slave_cmd_width_adapter_src_ready;                              // Photodiodes_0_avalon_slave_burst_adapter:sink0_ready -> Photodiodes_0_avalon_slave_cmd_width_adapter:out_ready
+	wire   [17:0] photodiodes_0_avalon_slave_cmd_width_adapter_src_channel;                            // Photodiodes_0_avalon_slave_cmd_width_adapter:out_channel -> Photodiodes_0_avalon_slave_burst_adapter:sink0_channel
+	wire          photodiodes_0_avalon_slave_cmd_width_adapter_src_startofpacket;                      // Photodiodes_0_avalon_slave_cmd_width_adapter:out_startofpacket -> Photodiodes_0_avalon_slave_burst_adapter:sink0_startofpacket
+	wire          photodiodes_0_avalon_slave_cmd_width_adapter_src_endofpacket;                        // Photodiodes_0_avalon_slave_cmd_width_adapter:out_endofpacket -> Photodiodes_0_avalon_slave_burst_adapter:sink0_endofpacket
 	wire   [17:0] hps_0_h2f_lw_axi_master_wr_limiter_cmd_valid_data;                                   // hps_0_h2f_lw_axi_master_wr_limiter:cmd_src_valid -> cmd_demux:sink_valid
 	wire   [17:0] hps_0_h2f_lw_axi_master_rd_limiter_cmd_valid_data;                                   // hps_0_h2f_lw_axi_master_rd_limiter:cmd_src_valid -> cmd_demux_001:sink_valid
 	wire          audio_0_avalon_audio_slave_agent_rdata_fifo_out_valid;                               // audio_0_avalon_audio_slave_agent_rdata_fifo:out_valid -> avalon_st_adapter:in_0_valid
@@ -1525,20 +1525,20 @@ module soc_system_mm_interconnect_0 (
 	wire   [33:0] avalon_st_adapter_003_out_0_data;                                                    // avalon_st_adapter_003:out_0_data -> EnvelopeController_0_avalon_slave_agent:rdata_fifo_sink_data
 	wire          avalon_st_adapter_003_out_0_ready;                                                   // EnvelopeController_0_avalon_slave_agent:rdata_fifo_sink_ready -> avalon_st_adapter_003:out_0_ready
 	wire    [0:0] avalon_st_adapter_003_out_0_error;                                                   // avalon_st_adapter_003:out_0_error -> EnvelopeController_0_avalon_slave_agent:rdata_fifo_sink_error
-	wire          photodiode_0_avalon_slave_agent_rdata_fifo_out_valid;                                // photodiode_0_avalon_slave_agent_rdata_fifo:out_valid -> avalon_st_adapter_004:in_0_valid
-	wire    [9:0] photodiode_0_avalon_slave_agent_rdata_fifo_out_data;                                 // photodiode_0_avalon_slave_agent_rdata_fifo:out_data -> avalon_st_adapter_004:in_0_data
-	wire          photodiode_0_avalon_slave_agent_rdata_fifo_out_ready;                                // avalon_st_adapter_004:in_0_ready -> photodiode_0_avalon_slave_agent_rdata_fifo:out_ready
-	wire          avalon_st_adapter_004_out_0_valid;                                                   // avalon_st_adapter_004:out_0_valid -> photodiode_0_avalon_slave_agent:rdata_fifo_sink_valid
-	wire    [9:0] avalon_st_adapter_004_out_0_data;                                                    // avalon_st_adapter_004:out_0_data -> photodiode_0_avalon_slave_agent:rdata_fifo_sink_data
-	wire          avalon_st_adapter_004_out_0_ready;                                                   // photodiode_0_avalon_slave_agent:rdata_fifo_sink_ready -> avalon_st_adapter_004:out_0_ready
-	wire    [0:0] avalon_st_adapter_004_out_0_error;                                                   // avalon_st_adapter_004:out_0_error -> photodiode_0_avalon_slave_agent:rdata_fifo_sink_error
-	wire          pedal_0_avalon_slave_agent_rdata_fifo_out_valid;                                     // Pedal_0_avalon_slave_agent_rdata_fifo:out_valid -> avalon_st_adapter_005:in_0_valid
-	wire    [9:0] pedal_0_avalon_slave_agent_rdata_fifo_out_data;                                      // Pedal_0_avalon_slave_agent_rdata_fifo:out_data -> avalon_st_adapter_005:in_0_data
-	wire          pedal_0_avalon_slave_agent_rdata_fifo_out_ready;                                     // avalon_st_adapter_005:in_0_ready -> Pedal_0_avalon_slave_agent_rdata_fifo:out_ready
-	wire          avalon_st_adapter_005_out_0_valid;                                                   // avalon_st_adapter_005:out_0_valid -> Pedal_0_avalon_slave_agent:rdata_fifo_sink_valid
-	wire    [9:0] avalon_st_adapter_005_out_0_data;                                                    // avalon_st_adapter_005:out_0_data -> Pedal_0_avalon_slave_agent:rdata_fifo_sink_data
-	wire          avalon_st_adapter_005_out_0_ready;                                                   // Pedal_0_avalon_slave_agent:rdata_fifo_sink_ready -> avalon_st_adapter_005:out_0_ready
-	wire    [0:0] avalon_st_adapter_005_out_0_error;                                                   // avalon_st_adapter_005:out_0_error -> Pedal_0_avalon_slave_agent:rdata_fifo_sink_error
+	wire          pedal_0_avalon_slave_agent_rdata_fifo_out_valid;                                     // Pedal_0_avalon_slave_agent_rdata_fifo:out_valid -> avalon_st_adapter_004:in_0_valid
+	wire    [9:0] pedal_0_avalon_slave_agent_rdata_fifo_out_data;                                      // Pedal_0_avalon_slave_agent_rdata_fifo:out_data -> avalon_st_adapter_004:in_0_data
+	wire          pedal_0_avalon_slave_agent_rdata_fifo_out_ready;                                     // avalon_st_adapter_004:in_0_ready -> Pedal_0_avalon_slave_agent_rdata_fifo:out_ready
+	wire          avalon_st_adapter_004_out_0_valid;                                                   // avalon_st_adapter_004:out_0_valid -> Pedal_0_avalon_slave_agent:rdata_fifo_sink_valid
+	wire    [9:0] avalon_st_adapter_004_out_0_data;                                                    // avalon_st_adapter_004:out_0_data -> Pedal_0_avalon_slave_agent:rdata_fifo_sink_data
+	wire          avalon_st_adapter_004_out_0_ready;                                                   // Pedal_0_avalon_slave_agent:rdata_fifo_sink_ready -> avalon_st_adapter_004:out_0_ready
+	wire    [0:0] avalon_st_adapter_004_out_0_error;                                                   // avalon_st_adapter_004:out_0_error -> Pedal_0_avalon_slave_agent:rdata_fifo_sink_error
+	wire          photodiodes_0_avalon_slave_agent_rdata_fifo_out_valid;                               // Photodiodes_0_avalon_slave_agent_rdata_fifo:out_valid -> avalon_st_adapter_005:in_0_valid
+	wire    [9:0] photodiodes_0_avalon_slave_agent_rdata_fifo_out_data;                                // Photodiodes_0_avalon_slave_agent_rdata_fifo:out_data -> avalon_st_adapter_005:in_0_data
+	wire          photodiodes_0_avalon_slave_agent_rdata_fifo_out_ready;                               // avalon_st_adapter_005:in_0_ready -> Photodiodes_0_avalon_slave_agent_rdata_fifo:out_ready
+	wire          avalon_st_adapter_005_out_0_valid;                                                   // avalon_st_adapter_005:out_0_valid -> Photodiodes_0_avalon_slave_agent:rdata_fifo_sink_valid
+	wire    [9:0] avalon_st_adapter_005_out_0_data;                                                    // avalon_st_adapter_005:out_0_data -> Photodiodes_0_avalon_slave_agent:rdata_fifo_sink_data
+	wire          avalon_st_adapter_005_out_0_ready;                                                   // Photodiodes_0_avalon_slave_agent:rdata_fifo_sink_ready -> avalon_st_adapter_005:out_0_ready
+	wire    [0:0] avalon_st_adapter_005_out_0_error;                                                   // avalon_st_adapter_005:out_0_error -> Photodiodes_0_avalon_slave_agent:rdata_fifo_sink_error
 	wire          synthesizer_0_avalon_slave_0_agent_rdata_fifo_out_valid;                             // Synthesizer_0_avalon_slave_0_agent_rdata_fifo:out_valid -> avalon_st_adapter_006:in_0_valid
 	wire   [33:0] synthesizer_0_avalon_slave_0_agent_rdata_fifo_out_data;                              // Synthesizer_0_avalon_slave_0_agent_rdata_fifo:out_data -> avalon_st_adapter_006:in_0_data
 	wire          synthesizer_0_avalon_slave_0_agent_rdata_fifo_out_ready;                             // avalon_st_adapter_006:in_0_ready -> Synthesizer_0_avalon_slave_0_agent_rdata_fifo:out_ready
@@ -1906,70 +1906,6 @@ module soc_system_mm_interconnect_0 (
 		.AV_WRITE_WAIT_CYCLES           (0),
 		.AV_SETUP_WAIT_CYCLES           (0),
 		.AV_DATA_HOLD_CYCLES            (0)
-	) photodiode_0_avalon_slave_translator (
-		.clk                    (clk_0_clk_clk),                                    //                      clk.clk
-		.reset                  (audio_0_reset_reset_bridge_in_reset_reset),        //                    reset.reset
-		.uav_address            (photodiode_0_avalon_slave_agent_m0_address),       // avalon_universal_slave_0.address
-		.uav_burstcount         (photodiode_0_avalon_slave_agent_m0_burstcount),    //                         .burstcount
-		.uav_read               (photodiode_0_avalon_slave_agent_m0_read),          //                         .read
-		.uav_write              (photodiode_0_avalon_slave_agent_m0_write),         //                         .write
-		.uav_waitrequest        (photodiode_0_avalon_slave_agent_m0_waitrequest),   //                         .waitrequest
-		.uav_readdatavalid      (photodiode_0_avalon_slave_agent_m0_readdatavalid), //                         .readdatavalid
-		.uav_byteenable         (photodiode_0_avalon_slave_agent_m0_byteenable),    //                         .byteenable
-		.uav_readdata           (photodiode_0_avalon_slave_agent_m0_readdata),      //                         .readdata
-		.uav_writedata          (photodiode_0_avalon_slave_agent_m0_writedata),     //                         .writedata
-		.uav_lock               (photodiode_0_avalon_slave_agent_m0_lock),          //                         .lock
-		.uav_debugaccess        (photodiode_0_avalon_slave_agent_m0_debugaccess),   //                         .debugaccess
-		.av_read                (photodiode_0_avalon_slave_read),                   //      avalon_anti_slave_0.read
-		.av_readdata            (photodiode_0_avalon_slave_readdata),               //                         .readdata
-		.av_address             (),                                                 //              (terminated)
-		.av_write               (),                                                 //              (terminated)
-		.av_writedata           (),                                                 //              (terminated)
-		.av_begintransfer       (),                                                 //              (terminated)
-		.av_beginbursttransfer  (),                                                 //              (terminated)
-		.av_burstcount          (),                                                 //              (terminated)
-		.av_byteenable          (),                                                 //              (terminated)
-		.av_readdatavalid       (1'b0),                                             //              (terminated)
-		.av_waitrequest         (1'b0),                                             //              (terminated)
-		.av_writebyteenable     (),                                                 //              (terminated)
-		.av_lock                (),                                                 //              (terminated)
-		.av_chipselect          (),                                                 //              (terminated)
-		.av_clken               (),                                                 //              (terminated)
-		.uav_clken              (1'b0),                                             //              (terminated)
-		.av_debugaccess         (),                                                 //              (terminated)
-		.av_outputenable        (),                                                 //              (terminated)
-		.uav_response           (),                                                 //              (terminated)
-		.av_response            (2'b00),                                            //              (terminated)
-		.uav_writeresponsevalid (),                                                 //              (terminated)
-		.av_writeresponsevalid  (1'b0)                                              //              (terminated)
-	);
-
-	altera_merlin_slave_translator #(
-		.AV_ADDRESS_W                   (1),
-		.AV_DATA_W                      (8),
-		.UAV_DATA_W                     (8),
-		.AV_BURSTCOUNT_W                (1),
-		.AV_BYTEENABLE_W                (1),
-		.UAV_BYTEENABLE_W               (1),
-		.UAV_ADDRESS_W                  (21),
-		.UAV_BURSTCOUNT_W               (1),
-		.AV_READLATENCY                 (0),
-		.USE_READDATAVALID              (0),
-		.USE_WAITREQUEST                (0),
-		.USE_UAV_CLKEN                  (0),
-		.USE_READRESPONSE               (0),
-		.USE_WRITERESPONSE              (0),
-		.AV_SYMBOLS_PER_WORD            (1),
-		.AV_ADDRESS_SYMBOLS             (0),
-		.AV_BURSTCOUNT_SYMBOLS          (0),
-		.AV_CONSTANT_BURST_BEHAVIOR     (0),
-		.UAV_CONSTANT_BURST_BEHAVIOR    (0),
-		.AV_REQUIRE_UNALIGNED_ADDRESSES (0),
-		.CHIPSELECT_THROUGH_READLATENCY (0),
-		.AV_READ_WAIT_CYCLES            (1),
-		.AV_WRITE_WAIT_CYCLES           (0),
-		.AV_SETUP_WAIT_CYCLES           (0),
-		.AV_DATA_HOLD_CYCLES            (0)
 	) pedal_0_avalon_slave_translator (
 		.clk                    (clk_0_clk_clk),                               //                      clk.clk
 		.reset                  (audio_0_reset_reset_bridge_in_reset_reset),   //                    reset.reset
@@ -2006,6 +1942,70 @@ module soc_system_mm_interconnect_0 (
 		.av_response            (2'b00),                                       //              (terminated)
 		.uav_writeresponsevalid (),                                            //              (terminated)
 		.av_writeresponsevalid  (1'b0)                                         //              (terminated)
+	);
+
+	altera_merlin_slave_translator #(
+		.AV_ADDRESS_W                   (1),
+		.AV_DATA_W                      (8),
+		.UAV_DATA_W                     (8),
+		.AV_BURSTCOUNT_W                (1),
+		.AV_BYTEENABLE_W                (1),
+		.UAV_BYTEENABLE_W               (1),
+		.UAV_ADDRESS_W                  (21),
+		.UAV_BURSTCOUNT_W               (1),
+		.AV_READLATENCY                 (0),
+		.USE_READDATAVALID              (0),
+		.USE_WAITREQUEST                (0),
+		.USE_UAV_CLKEN                  (0),
+		.USE_READRESPONSE               (0),
+		.USE_WRITERESPONSE              (0),
+		.AV_SYMBOLS_PER_WORD            (1),
+		.AV_ADDRESS_SYMBOLS             (0),
+		.AV_BURSTCOUNT_SYMBOLS          (0),
+		.AV_CONSTANT_BURST_BEHAVIOR     (0),
+		.UAV_CONSTANT_BURST_BEHAVIOR    (0),
+		.AV_REQUIRE_UNALIGNED_ADDRESSES (0),
+		.CHIPSELECT_THROUGH_READLATENCY (0),
+		.AV_READ_WAIT_CYCLES            (1),
+		.AV_WRITE_WAIT_CYCLES           (0),
+		.AV_SETUP_WAIT_CYCLES           (0),
+		.AV_DATA_HOLD_CYCLES            (0)
+	) photodiodes_0_avalon_slave_translator (
+		.clk                    (clk_0_clk_clk),                                     //                      clk.clk
+		.reset                  (audio_0_reset_reset_bridge_in_reset_reset),         //                    reset.reset
+		.uav_address            (photodiodes_0_avalon_slave_agent_m0_address),       // avalon_universal_slave_0.address
+		.uav_burstcount         (photodiodes_0_avalon_slave_agent_m0_burstcount),    //                         .burstcount
+		.uav_read               (photodiodes_0_avalon_slave_agent_m0_read),          //                         .read
+		.uav_write              (photodiodes_0_avalon_slave_agent_m0_write),         //                         .write
+		.uav_waitrequest        (photodiodes_0_avalon_slave_agent_m0_waitrequest),   //                         .waitrequest
+		.uav_readdatavalid      (photodiodes_0_avalon_slave_agent_m0_readdatavalid), //                         .readdatavalid
+		.uav_byteenable         (photodiodes_0_avalon_slave_agent_m0_byteenable),    //                         .byteenable
+		.uav_readdata           (photodiodes_0_avalon_slave_agent_m0_readdata),      //                         .readdata
+		.uav_writedata          (photodiodes_0_avalon_slave_agent_m0_writedata),     //                         .writedata
+		.uav_lock               (photodiodes_0_avalon_slave_agent_m0_lock),          //                         .lock
+		.uav_debugaccess        (photodiodes_0_avalon_slave_agent_m0_debugaccess),   //                         .debugaccess
+		.av_read                (Photodiodes_0_avalon_slave_read),                   //      avalon_anti_slave_0.read
+		.av_readdata            (Photodiodes_0_avalon_slave_readdata),               //                         .readdata
+		.av_address             (),                                                  //              (terminated)
+		.av_write               (),                                                  //              (terminated)
+		.av_writedata           (),                                                  //              (terminated)
+		.av_begintransfer       (),                                                  //              (terminated)
+		.av_beginbursttransfer  (),                                                  //              (terminated)
+		.av_burstcount          (),                                                  //              (terminated)
+		.av_byteenable          (),                                                  //              (terminated)
+		.av_readdatavalid       (1'b0),                                              //              (terminated)
+		.av_waitrequest         (1'b0),                                              //              (terminated)
+		.av_writebyteenable     (),                                                  //              (terminated)
+		.av_lock                (),                                                  //              (terminated)
+		.av_chipselect          (),                                                  //              (terminated)
+		.av_clken               (),                                                  //              (terminated)
+		.uav_clken              (1'b0),                                              //              (terminated)
+		.av_debugaccess         (),                                                  //              (terminated)
+		.av_outputenable        (),                                                  //              (terminated)
+		.uav_response           (),                                                  //              (terminated)
+		.av_response            (2'b00),                                             //              (terminated)
+		.uav_writeresponsevalid (),                                                  //              (terminated)
+		.av_writeresponsevalid  (1'b0)                                               //              (terminated)
 	);
 
 	altera_merlin_slave_translator #(
@@ -3606,172 +3606,6 @@ module soc_system_mm_interconnect_0 (
 		.USE_READRESPONSE          (0),
 		.USE_WRITERESPONSE         (0),
 		.ECC_ENABLE                (0)
-	) photodiode_0_avalon_slave_agent (
-		.clk                     (clk_0_clk_clk),                                                 //             clk.clk
-		.reset                   (audio_0_reset_reset_bridge_in_reset_reset),                     //       clk_reset.reset
-		.m0_address              (photodiode_0_avalon_slave_agent_m0_address),                    //              m0.address
-		.m0_burstcount           (photodiode_0_avalon_slave_agent_m0_burstcount),                 //                .burstcount
-		.m0_byteenable           (photodiode_0_avalon_slave_agent_m0_byteenable),                 //                .byteenable
-		.m0_debugaccess          (photodiode_0_avalon_slave_agent_m0_debugaccess),                //                .debugaccess
-		.m0_lock                 (photodiode_0_avalon_slave_agent_m0_lock),                       //                .lock
-		.m0_readdata             (photodiode_0_avalon_slave_agent_m0_readdata),                   //                .readdata
-		.m0_readdatavalid        (photodiode_0_avalon_slave_agent_m0_readdatavalid),              //                .readdatavalid
-		.m0_read                 (photodiode_0_avalon_slave_agent_m0_read),                       //                .read
-		.m0_waitrequest          (photodiode_0_avalon_slave_agent_m0_waitrequest),                //                .waitrequest
-		.m0_writedata            (photodiode_0_avalon_slave_agent_m0_writedata),                  //                .writedata
-		.m0_write                (photodiode_0_avalon_slave_agent_m0_write),                      //                .write
-		.rp_endofpacket          (photodiode_0_avalon_slave_agent_rp_endofpacket),                //              rp.endofpacket
-		.rp_ready                (photodiode_0_avalon_slave_agent_rp_ready),                      //                .ready
-		.rp_valid                (photodiode_0_avalon_slave_agent_rp_valid),                      //                .valid
-		.rp_data                 (photodiode_0_avalon_slave_agent_rp_data),                       //                .data
-		.rp_startofpacket        (photodiode_0_avalon_slave_agent_rp_startofpacket),              //                .startofpacket
-		.cp_ready                (photodiode_0_avalon_slave_burst_adapter_source0_ready),         //              cp.ready
-		.cp_valid                (photodiode_0_avalon_slave_burst_adapter_source0_valid),         //                .valid
-		.cp_data                 (photodiode_0_avalon_slave_burst_adapter_source0_data),          //                .data
-		.cp_startofpacket        (photodiode_0_avalon_slave_burst_adapter_source0_startofpacket), //                .startofpacket
-		.cp_endofpacket          (photodiode_0_avalon_slave_burst_adapter_source0_endofpacket),   //                .endofpacket
-		.cp_channel              (photodiode_0_avalon_slave_burst_adapter_source0_channel),       //                .channel
-		.rf_sink_ready           (photodiode_0_avalon_slave_agent_rsp_fifo_out_ready),            //         rf_sink.ready
-		.rf_sink_valid           (photodiode_0_avalon_slave_agent_rsp_fifo_out_valid),            //                .valid
-		.rf_sink_startofpacket   (photodiode_0_avalon_slave_agent_rsp_fifo_out_startofpacket),    //                .startofpacket
-		.rf_sink_endofpacket     (photodiode_0_avalon_slave_agent_rsp_fifo_out_endofpacket),      //                .endofpacket
-		.rf_sink_data            (photodiode_0_avalon_slave_agent_rsp_fifo_out_data),             //                .data
-		.rf_source_ready         (photodiode_0_avalon_slave_agent_rf_source_ready),               //       rf_source.ready
-		.rf_source_valid         (photodiode_0_avalon_slave_agent_rf_source_valid),               //                .valid
-		.rf_source_startofpacket (photodiode_0_avalon_slave_agent_rf_source_startofpacket),       //                .startofpacket
-		.rf_source_endofpacket   (photodiode_0_avalon_slave_agent_rf_source_endofpacket),         //                .endofpacket
-		.rf_source_data          (photodiode_0_avalon_slave_agent_rf_source_data),                //                .data
-		.rdata_fifo_sink_ready   (avalon_st_adapter_004_out_0_ready),                             // rdata_fifo_sink.ready
-		.rdata_fifo_sink_valid   (avalon_st_adapter_004_out_0_valid),                             //                .valid
-		.rdata_fifo_sink_data    (avalon_st_adapter_004_out_0_data),                              //                .data
-		.rdata_fifo_sink_error   (avalon_st_adapter_004_out_0_error),                             //                .error
-		.rdata_fifo_src_ready    (photodiode_0_avalon_slave_agent_rdata_fifo_src_ready),          //  rdata_fifo_src.ready
-		.rdata_fifo_src_valid    (photodiode_0_avalon_slave_agent_rdata_fifo_src_valid),          //                .valid
-		.rdata_fifo_src_data     (photodiode_0_avalon_slave_agent_rdata_fifo_src_data),           //                .data
-		.m0_response             (2'b00),                                                         //     (terminated)
-		.m0_writeresponsevalid   (1'b0)                                                           //     (terminated)
-	);
-
-	altera_avalon_sc_fifo #(
-		.SYMBOLS_PER_BEAT    (1),
-		.BITS_PER_SYMBOL     (94),
-		.FIFO_DEPTH          (2),
-		.CHANNEL_WIDTH       (0),
-		.ERROR_WIDTH         (0),
-		.USE_PACKETS         (1),
-		.USE_FILL_LEVEL      (0),
-		.EMPTY_LATENCY       (1),
-		.USE_MEMORY_BLOCKS   (0),
-		.USE_STORE_FORWARD   (0),
-		.USE_ALMOST_FULL_IF  (0),
-		.USE_ALMOST_EMPTY_IF (0)
-	) photodiode_0_avalon_slave_agent_rsp_fifo (
-		.clk               (clk_0_clk_clk),                                              //       clk.clk
-		.reset             (audio_0_reset_reset_bridge_in_reset_reset),                  // clk_reset.reset
-		.in_data           (photodiode_0_avalon_slave_agent_rf_source_data),             //        in.data
-		.in_valid          (photodiode_0_avalon_slave_agent_rf_source_valid),            //          .valid
-		.in_ready          (photodiode_0_avalon_slave_agent_rf_source_ready),            //          .ready
-		.in_startofpacket  (photodiode_0_avalon_slave_agent_rf_source_startofpacket),    //          .startofpacket
-		.in_endofpacket    (photodiode_0_avalon_slave_agent_rf_source_endofpacket),      //          .endofpacket
-		.out_data          (photodiode_0_avalon_slave_agent_rsp_fifo_out_data),          //       out.data
-		.out_valid         (photodiode_0_avalon_slave_agent_rsp_fifo_out_valid),         //          .valid
-		.out_ready         (photodiode_0_avalon_slave_agent_rsp_fifo_out_ready),         //          .ready
-		.out_startofpacket (photodiode_0_avalon_slave_agent_rsp_fifo_out_startofpacket), //          .startofpacket
-		.out_endofpacket   (photodiode_0_avalon_slave_agent_rsp_fifo_out_endofpacket),   //          .endofpacket
-		.csr_address       (2'b00),                                                      // (terminated)
-		.csr_read          (1'b0),                                                       // (terminated)
-		.csr_write         (1'b0),                                                       // (terminated)
-		.csr_readdata      (),                                                           // (terminated)
-		.csr_writedata     (32'b00000000000000000000000000000000),                       // (terminated)
-		.almost_full_data  (),                                                           // (terminated)
-		.almost_empty_data (),                                                           // (terminated)
-		.in_empty          (1'b0),                                                       // (terminated)
-		.out_empty         (),                                                           // (terminated)
-		.in_error          (1'b0),                                                       // (terminated)
-		.out_error         (),                                                           // (terminated)
-		.in_channel        (1'b0),                                                       // (terminated)
-		.out_channel       ()                                                            // (terminated)
-	);
-
-	altera_avalon_sc_fifo #(
-		.SYMBOLS_PER_BEAT    (1),
-		.BITS_PER_SYMBOL     (10),
-		.FIFO_DEPTH          (2),
-		.CHANNEL_WIDTH       (0),
-		.ERROR_WIDTH         (0),
-		.USE_PACKETS         (0),
-		.USE_FILL_LEVEL      (0),
-		.EMPTY_LATENCY       (0),
-		.USE_MEMORY_BLOCKS   (0),
-		.USE_STORE_FORWARD   (0),
-		.USE_ALMOST_FULL_IF  (0),
-		.USE_ALMOST_EMPTY_IF (0)
-	) photodiode_0_avalon_slave_agent_rdata_fifo (
-		.clk               (clk_0_clk_clk),                                        //       clk.clk
-		.reset             (audio_0_reset_reset_bridge_in_reset_reset),            // clk_reset.reset
-		.in_data           (photodiode_0_avalon_slave_agent_rdata_fifo_src_data),  //        in.data
-		.in_valid          (photodiode_0_avalon_slave_agent_rdata_fifo_src_valid), //          .valid
-		.in_ready          (photodiode_0_avalon_slave_agent_rdata_fifo_src_ready), //          .ready
-		.out_data          (photodiode_0_avalon_slave_agent_rdata_fifo_out_data),  //       out.data
-		.out_valid         (photodiode_0_avalon_slave_agent_rdata_fifo_out_valid), //          .valid
-		.out_ready         (photodiode_0_avalon_slave_agent_rdata_fifo_out_ready), //          .ready
-		.csr_address       (2'b00),                                                // (terminated)
-		.csr_read          (1'b0),                                                 // (terminated)
-		.csr_write         (1'b0),                                                 // (terminated)
-		.csr_readdata      (),                                                     // (terminated)
-		.csr_writedata     (32'b00000000000000000000000000000000),                 // (terminated)
-		.almost_full_data  (),                                                     // (terminated)
-		.almost_empty_data (),                                                     // (terminated)
-		.in_startofpacket  (1'b0),                                                 // (terminated)
-		.in_endofpacket    (1'b0),                                                 // (terminated)
-		.out_startofpacket (),                                                     // (terminated)
-		.out_endofpacket   (),                                                     // (terminated)
-		.in_empty          (1'b0),                                                 // (terminated)
-		.out_empty         (),                                                     // (terminated)
-		.in_error          (1'b0),                                                 // (terminated)
-		.out_error         (),                                                     // (terminated)
-		.in_channel        (1'b0),                                                 // (terminated)
-		.out_channel       ()                                                      // (terminated)
-	);
-
-	altera_merlin_slave_agent #(
-		.PKT_ORI_BURST_SIZE_H      (92),
-		.PKT_ORI_BURST_SIZE_L      (90),
-		.PKT_RESPONSE_STATUS_H     (89),
-		.PKT_RESPONSE_STATUS_L     (88),
-		.PKT_BURST_SIZE_H          (52),
-		.PKT_BURST_SIZE_L          (50),
-		.PKT_TRANS_LOCK            (34),
-		.PKT_BEGIN_BURST           (57),
-		.PKT_PROTECTION_H          (83),
-		.PKT_PROTECTION_L          (81),
-		.PKT_BURSTWRAP_H           (49),
-		.PKT_BURSTWRAP_L           (43),
-		.PKT_BYTE_CNT_H            (42),
-		.PKT_BYTE_CNT_L            (36),
-		.PKT_ADDR_H                (29),
-		.PKT_ADDR_L                (9),
-		.PKT_TRANS_COMPRESSED_READ (30),
-		.PKT_TRANS_POSTED          (31),
-		.PKT_TRANS_WRITE           (32),
-		.PKT_TRANS_READ            (33),
-		.PKT_DATA_H                (7),
-		.PKT_DATA_L                (0),
-		.PKT_BYTEEN_H              (8),
-		.PKT_BYTEEN_L              (8),
-		.PKT_SRC_ID_H              (63),
-		.PKT_SRC_ID_L              (59),
-		.PKT_DEST_ID_H             (68),
-		.PKT_DEST_ID_L             (64),
-		.PKT_SYMBOL_W              (8),
-		.ST_CHANNEL_W              (18),
-		.ST_DATA_W                 (93),
-		.AVS_BURSTCOUNT_W          (1),
-		.SUPPRESS_0_BYTEEN_CMD     (1),
-		.PREVENT_FIFO_OVERFLOW     (1),
-		.USE_READRESPONSE          (0),
-		.USE_WRITERESPONSE         (0),
-		.ECC_ENABLE                (0)
 	) pedal_0_avalon_slave_agent (
 		.clk                     (clk_0_clk_clk),                                            //             clk.clk
 		.reset                   (audio_0_reset_reset_bridge_in_reset_reset),                //       clk_reset.reset
@@ -3807,10 +3641,10 @@ module soc_system_mm_interconnect_0 (
 		.rf_source_startofpacket (pedal_0_avalon_slave_agent_rf_source_startofpacket),       //                .startofpacket
 		.rf_source_endofpacket   (pedal_0_avalon_slave_agent_rf_source_endofpacket),         //                .endofpacket
 		.rf_source_data          (pedal_0_avalon_slave_agent_rf_source_data),                //                .data
-		.rdata_fifo_sink_ready   (avalon_st_adapter_005_out_0_ready),                        // rdata_fifo_sink.ready
-		.rdata_fifo_sink_valid   (avalon_st_adapter_005_out_0_valid),                        //                .valid
-		.rdata_fifo_sink_data    (avalon_st_adapter_005_out_0_data),                         //                .data
-		.rdata_fifo_sink_error   (avalon_st_adapter_005_out_0_error),                        //                .error
+		.rdata_fifo_sink_ready   (avalon_st_adapter_004_out_0_ready),                        // rdata_fifo_sink.ready
+		.rdata_fifo_sink_valid   (avalon_st_adapter_004_out_0_valid),                        //                .valid
+		.rdata_fifo_sink_data    (avalon_st_adapter_004_out_0_data),                         //                .data
+		.rdata_fifo_sink_error   (avalon_st_adapter_004_out_0_error),                        //                .error
 		.rdata_fifo_src_ready    (pedal_0_avalon_slave_agent_rdata_fifo_src_ready),          //  rdata_fifo_src.ready
 		.rdata_fifo_src_valid    (pedal_0_avalon_slave_agent_rdata_fifo_src_valid),          //                .valid
 		.rdata_fifo_src_data     (pedal_0_avalon_slave_agent_rdata_fifo_src_data),           //                .data
@@ -3898,6 +3732,172 @@ module soc_system_mm_interconnect_0 (
 		.out_error         (),                                                // (terminated)
 		.in_channel        (1'b0),                                            // (terminated)
 		.out_channel       ()                                                 // (terminated)
+	);
+
+	altera_merlin_slave_agent #(
+		.PKT_ORI_BURST_SIZE_H      (92),
+		.PKT_ORI_BURST_SIZE_L      (90),
+		.PKT_RESPONSE_STATUS_H     (89),
+		.PKT_RESPONSE_STATUS_L     (88),
+		.PKT_BURST_SIZE_H          (52),
+		.PKT_BURST_SIZE_L          (50),
+		.PKT_TRANS_LOCK            (34),
+		.PKT_BEGIN_BURST           (57),
+		.PKT_PROTECTION_H          (83),
+		.PKT_PROTECTION_L          (81),
+		.PKT_BURSTWRAP_H           (49),
+		.PKT_BURSTWRAP_L           (43),
+		.PKT_BYTE_CNT_H            (42),
+		.PKT_BYTE_CNT_L            (36),
+		.PKT_ADDR_H                (29),
+		.PKT_ADDR_L                (9),
+		.PKT_TRANS_COMPRESSED_READ (30),
+		.PKT_TRANS_POSTED          (31),
+		.PKT_TRANS_WRITE           (32),
+		.PKT_TRANS_READ            (33),
+		.PKT_DATA_H                (7),
+		.PKT_DATA_L                (0),
+		.PKT_BYTEEN_H              (8),
+		.PKT_BYTEEN_L              (8),
+		.PKT_SRC_ID_H              (63),
+		.PKT_SRC_ID_L              (59),
+		.PKT_DEST_ID_H             (68),
+		.PKT_DEST_ID_L             (64),
+		.PKT_SYMBOL_W              (8),
+		.ST_CHANNEL_W              (18),
+		.ST_DATA_W                 (93),
+		.AVS_BURSTCOUNT_W          (1),
+		.SUPPRESS_0_BYTEEN_CMD     (1),
+		.PREVENT_FIFO_OVERFLOW     (1),
+		.USE_READRESPONSE          (0),
+		.USE_WRITERESPONSE         (0),
+		.ECC_ENABLE                (0)
+	) photodiodes_0_avalon_slave_agent (
+		.clk                     (clk_0_clk_clk),                                                  //             clk.clk
+		.reset                   (audio_0_reset_reset_bridge_in_reset_reset),                      //       clk_reset.reset
+		.m0_address              (photodiodes_0_avalon_slave_agent_m0_address),                    //              m0.address
+		.m0_burstcount           (photodiodes_0_avalon_slave_agent_m0_burstcount),                 //                .burstcount
+		.m0_byteenable           (photodiodes_0_avalon_slave_agent_m0_byteenable),                 //                .byteenable
+		.m0_debugaccess          (photodiodes_0_avalon_slave_agent_m0_debugaccess),                //                .debugaccess
+		.m0_lock                 (photodiodes_0_avalon_slave_agent_m0_lock),                       //                .lock
+		.m0_readdata             (photodiodes_0_avalon_slave_agent_m0_readdata),                   //                .readdata
+		.m0_readdatavalid        (photodiodes_0_avalon_slave_agent_m0_readdatavalid),              //                .readdatavalid
+		.m0_read                 (photodiodes_0_avalon_slave_agent_m0_read),                       //                .read
+		.m0_waitrequest          (photodiodes_0_avalon_slave_agent_m0_waitrequest),                //                .waitrequest
+		.m0_writedata            (photodiodes_0_avalon_slave_agent_m0_writedata),                  //                .writedata
+		.m0_write                (photodiodes_0_avalon_slave_agent_m0_write),                      //                .write
+		.rp_endofpacket          (photodiodes_0_avalon_slave_agent_rp_endofpacket),                //              rp.endofpacket
+		.rp_ready                (photodiodes_0_avalon_slave_agent_rp_ready),                      //                .ready
+		.rp_valid                (photodiodes_0_avalon_slave_agent_rp_valid),                      //                .valid
+		.rp_data                 (photodiodes_0_avalon_slave_agent_rp_data),                       //                .data
+		.rp_startofpacket        (photodiodes_0_avalon_slave_agent_rp_startofpacket),              //                .startofpacket
+		.cp_ready                (photodiodes_0_avalon_slave_burst_adapter_source0_ready),         //              cp.ready
+		.cp_valid                (photodiodes_0_avalon_slave_burst_adapter_source0_valid),         //                .valid
+		.cp_data                 (photodiodes_0_avalon_slave_burst_adapter_source0_data),          //                .data
+		.cp_startofpacket        (photodiodes_0_avalon_slave_burst_adapter_source0_startofpacket), //                .startofpacket
+		.cp_endofpacket          (photodiodes_0_avalon_slave_burst_adapter_source0_endofpacket),   //                .endofpacket
+		.cp_channel              (photodiodes_0_avalon_slave_burst_adapter_source0_channel),       //                .channel
+		.rf_sink_ready           (photodiodes_0_avalon_slave_agent_rsp_fifo_out_ready),            //         rf_sink.ready
+		.rf_sink_valid           (photodiodes_0_avalon_slave_agent_rsp_fifo_out_valid),            //                .valid
+		.rf_sink_startofpacket   (photodiodes_0_avalon_slave_agent_rsp_fifo_out_startofpacket),    //                .startofpacket
+		.rf_sink_endofpacket     (photodiodes_0_avalon_slave_agent_rsp_fifo_out_endofpacket),      //                .endofpacket
+		.rf_sink_data            (photodiodes_0_avalon_slave_agent_rsp_fifo_out_data),             //                .data
+		.rf_source_ready         (photodiodes_0_avalon_slave_agent_rf_source_ready),               //       rf_source.ready
+		.rf_source_valid         (photodiodes_0_avalon_slave_agent_rf_source_valid),               //                .valid
+		.rf_source_startofpacket (photodiodes_0_avalon_slave_agent_rf_source_startofpacket),       //                .startofpacket
+		.rf_source_endofpacket   (photodiodes_0_avalon_slave_agent_rf_source_endofpacket),         //                .endofpacket
+		.rf_source_data          (photodiodes_0_avalon_slave_agent_rf_source_data),                //                .data
+		.rdata_fifo_sink_ready   (avalon_st_adapter_005_out_0_ready),                              // rdata_fifo_sink.ready
+		.rdata_fifo_sink_valid   (avalon_st_adapter_005_out_0_valid),                              //                .valid
+		.rdata_fifo_sink_data    (avalon_st_adapter_005_out_0_data),                               //                .data
+		.rdata_fifo_sink_error   (avalon_st_adapter_005_out_0_error),                              //                .error
+		.rdata_fifo_src_ready    (photodiodes_0_avalon_slave_agent_rdata_fifo_src_ready),          //  rdata_fifo_src.ready
+		.rdata_fifo_src_valid    (photodiodes_0_avalon_slave_agent_rdata_fifo_src_valid),          //                .valid
+		.rdata_fifo_src_data     (photodiodes_0_avalon_slave_agent_rdata_fifo_src_data),           //                .data
+		.m0_response             (2'b00),                                                          //     (terminated)
+		.m0_writeresponsevalid   (1'b0)                                                            //     (terminated)
+	);
+
+	altera_avalon_sc_fifo #(
+		.SYMBOLS_PER_BEAT    (1),
+		.BITS_PER_SYMBOL     (94),
+		.FIFO_DEPTH          (2),
+		.CHANNEL_WIDTH       (0),
+		.ERROR_WIDTH         (0),
+		.USE_PACKETS         (1),
+		.USE_FILL_LEVEL      (0),
+		.EMPTY_LATENCY       (1),
+		.USE_MEMORY_BLOCKS   (0),
+		.USE_STORE_FORWARD   (0),
+		.USE_ALMOST_FULL_IF  (0),
+		.USE_ALMOST_EMPTY_IF (0)
+	) photodiodes_0_avalon_slave_agent_rsp_fifo (
+		.clk               (clk_0_clk_clk),                                               //       clk.clk
+		.reset             (audio_0_reset_reset_bridge_in_reset_reset),                   // clk_reset.reset
+		.in_data           (photodiodes_0_avalon_slave_agent_rf_source_data),             //        in.data
+		.in_valid          (photodiodes_0_avalon_slave_agent_rf_source_valid),            //          .valid
+		.in_ready          (photodiodes_0_avalon_slave_agent_rf_source_ready),            //          .ready
+		.in_startofpacket  (photodiodes_0_avalon_slave_agent_rf_source_startofpacket),    //          .startofpacket
+		.in_endofpacket    (photodiodes_0_avalon_slave_agent_rf_source_endofpacket),      //          .endofpacket
+		.out_data          (photodiodes_0_avalon_slave_agent_rsp_fifo_out_data),          //       out.data
+		.out_valid         (photodiodes_0_avalon_slave_agent_rsp_fifo_out_valid),         //          .valid
+		.out_ready         (photodiodes_0_avalon_slave_agent_rsp_fifo_out_ready),         //          .ready
+		.out_startofpacket (photodiodes_0_avalon_slave_agent_rsp_fifo_out_startofpacket), //          .startofpacket
+		.out_endofpacket   (photodiodes_0_avalon_slave_agent_rsp_fifo_out_endofpacket),   //          .endofpacket
+		.csr_address       (2'b00),                                                       // (terminated)
+		.csr_read          (1'b0),                                                        // (terminated)
+		.csr_write         (1'b0),                                                        // (terminated)
+		.csr_readdata      (),                                                            // (terminated)
+		.csr_writedata     (32'b00000000000000000000000000000000),                        // (terminated)
+		.almost_full_data  (),                                                            // (terminated)
+		.almost_empty_data (),                                                            // (terminated)
+		.in_empty          (1'b0),                                                        // (terminated)
+		.out_empty         (),                                                            // (terminated)
+		.in_error          (1'b0),                                                        // (terminated)
+		.out_error         (),                                                            // (terminated)
+		.in_channel        (1'b0),                                                        // (terminated)
+		.out_channel       ()                                                             // (terminated)
+	);
+
+	altera_avalon_sc_fifo #(
+		.SYMBOLS_PER_BEAT    (1),
+		.BITS_PER_SYMBOL     (10),
+		.FIFO_DEPTH          (2),
+		.CHANNEL_WIDTH       (0),
+		.ERROR_WIDTH         (0),
+		.USE_PACKETS         (0),
+		.USE_FILL_LEVEL      (0),
+		.EMPTY_LATENCY       (0),
+		.USE_MEMORY_BLOCKS   (0),
+		.USE_STORE_FORWARD   (0),
+		.USE_ALMOST_FULL_IF  (0),
+		.USE_ALMOST_EMPTY_IF (0)
+	) photodiodes_0_avalon_slave_agent_rdata_fifo (
+		.clk               (clk_0_clk_clk),                                         //       clk.clk
+		.reset             (audio_0_reset_reset_bridge_in_reset_reset),             // clk_reset.reset
+		.in_data           (photodiodes_0_avalon_slave_agent_rdata_fifo_src_data),  //        in.data
+		.in_valid          (photodiodes_0_avalon_slave_agent_rdata_fifo_src_valid), //          .valid
+		.in_ready          (photodiodes_0_avalon_slave_agent_rdata_fifo_src_ready), //          .ready
+		.out_data          (photodiodes_0_avalon_slave_agent_rdata_fifo_out_data),  //       out.data
+		.out_valid         (photodiodes_0_avalon_slave_agent_rdata_fifo_out_valid), //          .valid
+		.out_ready         (photodiodes_0_avalon_slave_agent_rdata_fifo_out_ready), //          .ready
+		.csr_address       (2'b00),                                                 // (terminated)
+		.csr_read          (1'b0),                                                  // (terminated)
+		.csr_write         (1'b0),                                                  // (terminated)
+		.csr_readdata      (),                                                      // (terminated)
+		.csr_writedata     (32'b00000000000000000000000000000000),                  // (terminated)
+		.almost_full_data  (),                                                      // (terminated)
+		.almost_empty_data (),                                                      // (terminated)
+		.in_startofpacket  (1'b0),                                                  // (terminated)
+		.in_endofpacket    (1'b0),                                                  // (terminated)
+		.out_startofpacket (),                                                      // (terminated)
+		.out_endofpacket   (),                                                      // (terminated)
+		.in_empty          (1'b0),                                                  // (terminated)
+		.out_empty         (),                                                      // (terminated)
+		.in_error          (1'b0),                                                  // (terminated)
+		.out_error         (),                                                      // (terminated)
+		.in_channel        (1'b0),                                                  // (terminated)
+		.out_channel       ()                                                       // (terminated)
 	);
 
 	altera_merlin_slave_agent #(
@@ -5989,22 +5989,6 @@ module soc_system_mm_interconnect_0 (
 	);
 
 	soc_system_mm_interconnect_0_router_004 router_006 (
-		.sink_ready         (photodiode_0_avalon_slave_agent_rp_ready),         //      sink.ready
-		.sink_valid         (photodiode_0_avalon_slave_agent_rp_valid),         //          .valid
-		.sink_data          (photodiode_0_avalon_slave_agent_rp_data),          //          .data
-		.sink_startofpacket (photodiode_0_avalon_slave_agent_rp_startofpacket), //          .startofpacket
-		.sink_endofpacket   (photodiode_0_avalon_slave_agent_rp_endofpacket),   //          .endofpacket
-		.clk                (clk_0_clk_clk),                                    //       clk.clk
-		.reset              (audio_0_reset_reset_bridge_in_reset_reset),        // clk_reset.reset
-		.src_ready          (router_006_src_ready),                             //       src.ready
-		.src_valid          (router_006_src_valid),                             //          .valid
-		.src_data           (router_006_src_data),                              //          .data
-		.src_channel        (router_006_src_channel),                           //          .channel
-		.src_startofpacket  (router_006_src_startofpacket),                     //          .startofpacket
-		.src_endofpacket    (router_006_src_endofpacket)                        //          .endofpacket
-	);
-
-	soc_system_mm_interconnect_0_router_004 router_007 (
 		.sink_ready         (pedal_0_avalon_slave_agent_rp_ready),         //      sink.ready
 		.sink_valid         (pedal_0_avalon_slave_agent_rp_valid),         //          .valid
 		.sink_data          (pedal_0_avalon_slave_agent_rp_data),          //          .data
@@ -6012,12 +5996,28 @@ module soc_system_mm_interconnect_0 (
 		.sink_endofpacket   (pedal_0_avalon_slave_agent_rp_endofpacket),   //          .endofpacket
 		.clk                (clk_0_clk_clk),                               //       clk.clk
 		.reset              (audio_0_reset_reset_bridge_in_reset_reset),   // clk_reset.reset
-		.src_ready          (router_007_src_ready),                        //       src.ready
-		.src_valid          (router_007_src_valid),                        //          .valid
-		.src_data           (router_007_src_data),                         //          .data
-		.src_channel        (router_007_src_channel),                      //          .channel
-		.src_startofpacket  (router_007_src_startofpacket),                //          .startofpacket
-		.src_endofpacket    (router_007_src_endofpacket)                   //          .endofpacket
+		.src_ready          (router_006_src_ready),                        //       src.ready
+		.src_valid          (router_006_src_valid),                        //          .valid
+		.src_data           (router_006_src_data),                         //          .data
+		.src_channel        (router_006_src_channel),                      //          .channel
+		.src_startofpacket  (router_006_src_startofpacket),                //          .startofpacket
+		.src_endofpacket    (router_006_src_endofpacket)                   //          .endofpacket
+	);
+
+	soc_system_mm_interconnect_0_router_004 router_007 (
+		.sink_ready         (photodiodes_0_avalon_slave_agent_rp_ready),         //      sink.ready
+		.sink_valid         (photodiodes_0_avalon_slave_agent_rp_valid),         //          .valid
+		.sink_data          (photodiodes_0_avalon_slave_agent_rp_data),          //          .data
+		.sink_startofpacket (photodiodes_0_avalon_slave_agent_rp_startofpacket), //          .startofpacket
+		.sink_endofpacket   (photodiodes_0_avalon_slave_agent_rp_endofpacket),   //          .endofpacket
+		.clk                (clk_0_clk_clk),                                     //       clk.clk
+		.reset              (audio_0_reset_reset_bridge_in_reset_reset),         // clk_reset.reset
+		.src_ready          (router_007_src_ready),                              //       src.ready
+		.src_valid          (router_007_src_valid),                              //          .valid
+		.src_data           (router_007_src_data),                               //          .data
+		.src_channel        (router_007_src_channel),                            //          .channel
+		.src_startofpacket  (router_007_src_startofpacket),                      //          .startofpacket
+		.src_endofpacket    (router_007_src_endofpacket)                         //          .endofpacket
 	);
 
 	soc_system_mm_interconnect_0_router_002 router_008 (
@@ -6545,21 +6545,21 @@ module soc_system_mm_interconnect_0 (
 		.BURSTWRAP_CONST_MASK      (0),
 		.BURSTWRAP_CONST_VALUE     (0),
 		.ADAPTER_VERSION           ("13.1")
-	) photodiode_0_avalon_slave_burst_adapter (
-		.clk                   (clk_0_clk_clk),                                                 //       cr0.clk
-		.reset                 (audio_0_reset_reset_bridge_in_reset_reset),                     // cr0_reset.reset
-		.sink0_valid           (photodiode_0_avalon_slave_cmd_width_adapter_src_valid),         //     sink0.valid
-		.sink0_data            (photodiode_0_avalon_slave_cmd_width_adapter_src_data),          //          .data
-		.sink0_channel         (photodiode_0_avalon_slave_cmd_width_adapter_src_channel),       //          .channel
-		.sink0_startofpacket   (photodiode_0_avalon_slave_cmd_width_adapter_src_startofpacket), //          .startofpacket
-		.sink0_endofpacket     (photodiode_0_avalon_slave_cmd_width_adapter_src_endofpacket),   //          .endofpacket
-		.sink0_ready           (photodiode_0_avalon_slave_cmd_width_adapter_src_ready),         //          .ready
-		.source0_valid         (photodiode_0_avalon_slave_burst_adapter_source0_valid),         //   source0.valid
-		.source0_data          (photodiode_0_avalon_slave_burst_adapter_source0_data),          //          .data
-		.source0_channel       (photodiode_0_avalon_slave_burst_adapter_source0_channel),       //          .channel
-		.source0_startofpacket (photodiode_0_avalon_slave_burst_adapter_source0_startofpacket), //          .startofpacket
-		.source0_endofpacket   (photodiode_0_avalon_slave_burst_adapter_source0_endofpacket),   //          .endofpacket
-		.source0_ready         (photodiode_0_avalon_slave_burst_adapter_source0_ready)          //          .ready
+	) pedal_0_avalon_slave_burst_adapter (
+		.clk                   (clk_0_clk_clk),                                            //       cr0.clk
+		.reset                 (audio_0_reset_reset_bridge_in_reset_reset),                // cr0_reset.reset
+		.sink0_valid           (pedal_0_avalon_slave_cmd_width_adapter_src_valid),         //     sink0.valid
+		.sink0_data            (pedal_0_avalon_slave_cmd_width_adapter_src_data),          //          .data
+		.sink0_channel         (pedal_0_avalon_slave_cmd_width_adapter_src_channel),       //          .channel
+		.sink0_startofpacket   (pedal_0_avalon_slave_cmd_width_adapter_src_startofpacket), //          .startofpacket
+		.sink0_endofpacket     (pedal_0_avalon_slave_cmd_width_adapter_src_endofpacket),   //          .endofpacket
+		.sink0_ready           (pedal_0_avalon_slave_cmd_width_adapter_src_ready),         //          .ready
+		.source0_valid         (pedal_0_avalon_slave_burst_adapter_source0_valid),         //   source0.valid
+		.source0_data          (pedal_0_avalon_slave_burst_adapter_source0_data),          //          .data
+		.source0_channel       (pedal_0_avalon_slave_burst_adapter_source0_channel),       //          .channel
+		.source0_startofpacket (pedal_0_avalon_slave_burst_adapter_source0_startofpacket), //          .startofpacket
+		.source0_endofpacket   (pedal_0_avalon_slave_burst_adapter_source0_endofpacket),   //          .endofpacket
+		.source0_ready         (pedal_0_avalon_slave_burst_adapter_source0_ready)          //          .ready
 	);
 
 	altera_merlin_burst_adapter #(
@@ -6595,21 +6595,21 @@ module soc_system_mm_interconnect_0 (
 		.BURSTWRAP_CONST_MASK      (0),
 		.BURSTWRAP_CONST_VALUE     (0),
 		.ADAPTER_VERSION           ("13.1")
-	) pedal_0_avalon_slave_burst_adapter (
-		.clk                   (clk_0_clk_clk),                                            //       cr0.clk
-		.reset                 (audio_0_reset_reset_bridge_in_reset_reset),                // cr0_reset.reset
-		.sink0_valid           (pedal_0_avalon_slave_cmd_width_adapter_src_valid),         //     sink0.valid
-		.sink0_data            (pedal_0_avalon_slave_cmd_width_adapter_src_data),          //          .data
-		.sink0_channel         (pedal_0_avalon_slave_cmd_width_adapter_src_channel),       //          .channel
-		.sink0_startofpacket   (pedal_0_avalon_slave_cmd_width_adapter_src_startofpacket), //          .startofpacket
-		.sink0_endofpacket     (pedal_0_avalon_slave_cmd_width_adapter_src_endofpacket),   //          .endofpacket
-		.sink0_ready           (pedal_0_avalon_slave_cmd_width_adapter_src_ready),         //          .ready
-		.source0_valid         (pedal_0_avalon_slave_burst_adapter_source0_valid),         //   source0.valid
-		.source0_data          (pedal_0_avalon_slave_burst_adapter_source0_data),          //          .data
-		.source0_channel       (pedal_0_avalon_slave_burst_adapter_source0_channel),       //          .channel
-		.source0_startofpacket (pedal_0_avalon_slave_burst_adapter_source0_startofpacket), //          .startofpacket
-		.source0_endofpacket   (pedal_0_avalon_slave_burst_adapter_source0_endofpacket),   //          .endofpacket
-		.source0_ready         (pedal_0_avalon_slave_burst_adapter_source0_ready)          //          .ready
+	) photodiodes_0_avalon_slave_burst_adapter (
+		.clk                   (clk_0_clk_clk),                                                  //       cr0.clk
+		.reset                 (audio_0_reset_reset_bridge_in_reset_reset),                      // cr0_reset.reset
+		.sink0_valid           (photodiodes_0_avalon_slave_cmd_width_adapter_src_valid),         //     sink0.valid
+		.sink0_data            (photodiodes_0_avalon_slave_cmd_width_adapter_src_data),          //          .data
+		.sink0_channel         (photodiodes_0_avalon_slave_cmd_width_adapter_src_channel),       //          .channel
+		.sink0_startofpacket   (photodiodes_0_avalon_slave_cmd_width_adapter_src_startofpacket), //          .startofpacket
+		.sink0_endofpacket     (photodiodes_0_avalon_slave_cmd_width_adapter_src_endofpacket),   //          .endofpacket
+		.sink0_ready           (photodiodes_0_avalon_slave_cmd_width_adapter_src_ready),         //          .ready
+		.source0_valid         (photodiodes_0_avalon_slave_burst_adapter_source0_valid),         //   source0.valid
+		.source0_data          (photodiodes_0_avalon_slave_burst_adapter_source0_data),          //          .data
+		.source0_channel       (photodiodes_0_avalon_slave_burst_adapter_source0_channel),       //          .channel
+		.source0_startofpacket (photodiodes_0_avalon_slave_burst_adapter_source0_startofpacket), //          .startofpacket
+		.source0_endofpacket   (photodiodes_0_avalon_slave_burst_adapter_source0_endofpacket),   //          .endofpacket
+		.source0_ready         (photodiodes_0_avalon_slave_burst_adapter_source0_ready)          //          .ready
 	);
 
 	altera_merlin_burst_adapter #(
@@ -7957,29 +7957,6 @@ module soc_system_mm_interconnect_0 (
 	);
 
 	soc_system_mm_interconnect_0_rsp_demux rsp_demux_004 (
-		.clk                (clk_0_clk_clk),                                                 //       clk.clk
-		.reset              (audio_0_reset_reset_bridge_in_reset_reset),                     // clk_reset.reset
-		.sink_ready         (photodiode_0_avalon_slave_rsp_width_adapter_src_ready),         //      sink.ready
-		.sink_channel       (photodiode_0_avalon_slave_rsp_width_adapter_src_channel),       //          .channel
-		.sink_data          (photodiode_0_avalon_slave_rsp_width_adapter_src_data),          //          .data
-		.sink_startofpacket (photodiode_0_avalon_slave_rsp_width_adapter_src_startofpacket), //          .startofpacket
-		.sink_endofpacket   (photodiode_0_avalon_slave_rsp_width_adapter_src_endofpacket),   //          .endofpacket
-		.sink_valid         (photodiode_0_avalon_slave_rsp_width_adapter_src_valid),         //          .valid
-		.src0_ready         (rsp_demux_004_src0_ready),                                      //      src0.ready
-		.src0_valid         (rsp_demux_004_src0_valid),                                      //          .valid
-		.src0_data          (rsp_demux_004_src0_data),                                       //          .data
-		.src0_channel       (rsp_demux_004_src0_channel),                                    //          .channel
-		.src0_startofpacket (rsp_demux_004_src0_startofpacket),                              //          .startofpacket
-		.src0_endofpacket   (rsp_demux_004_src0_endofpacket),                                //          .endofpacket
-		.src1_ready         (rsp_demux_004_src1_ready),                                      //      src1.ready
-		.src1_valid         (rsp_demux_004_src1_valid),                                      //          .valid
-		.src1_data          (rsp_demux_004_src1_data),                                       //          .data
-		.src1_channel       (rsp_demux_004_src1_channel),                                    //          .channel
-		.src1_startofpacket (rsp_demux_004_src1_startofpacket),                              //          .startofpacket
-		.src1_endofpacket   (rsp_demux_004_src1_endofpacket)                                 //          .endofpacket
-	);
-
-	soc_system_mm_interconnect_0_rsp_demux rsp_demux_005 (
 		.clk                (clk_0_clk_clk),                                            //       clk.clk
 		.reset              (audio_0_reset_reset_bridge_in_reset_reset),                // clk_reset.reset
 		.sink_ready         (pedal_0_avalon_slave_rsp_width_adapter_src_ready),         //      sink.ready
@@ -7988,18 +7965,41 @@ module soc_system_mm_interconnect_0 (
 		.sink_startofpacket (pedal_0_avalon_slave_rsp_width_adapter_src_startofpacket), //          .startofpacket
 		.sink_endofpacket   (pedal_0_avalon_slave_rsp_width_adapter_src_endofpacket),   //          .endofpacket
 		.sink_valid         (pedal_0_avalon_slave_rsp_width_adapter_src_valid),         //          .valid
-		.src0_ready         (rsp_demux_005_src0_ready),                                 //      src0.ready
-		.src0_valid         (rsp_demux_005_src0_valid),                                 //          .valid
-		.src0_data          (rsp_demux_005_src0_data),                                  //          .data
-		.src0_channel       (rsp_demux_005_src0_channel),                               //          .channel
-		.src0_startofpacket (rsp_demux_005_src0_startofpacket),                         //          .startofpacket
-		.src0_endofpacket   (rsp_demux_005_src0_endofpacket),                           //          .endofpacket
-		.src1_ready         (rsp_demux_005_src1_ready),                                 //      src1.ready
-		.src1_valid         (rsp_demux_005_src1_valid),                                 //          .valid
-		.src1_data          (rsp_demux_005_src1_data),                                  //          .data
-		.src1_channel       (rsp_demux_005_src1_channel),                               //          .channel
-		.src1_startofpacket (rsp_demux_005_src1_startofpacket),                         //          .startofpacket
-		.src1_endofpacket   (rsp_demux_005_src1_endofpacket)                            //          .endofpacket
+		.src0_ready         (rsp_demux_004_src0_ready),                                 //      src0.ready
+		.src0_valid         (rsp_demux_004_src0_valid),                                 //          .valid
+		.src0_data          (rsp_demux_004_src0_data),                                  //          .data
+		.src0_channel       (rsp_demux_004_src0_channel),                               //          .channel
+		.src0_startofpacket (rsp_demux_004_src0_startofpacket),                         //          .startofpacket
+		.src0_endofpacket   (rsp_demux_004_src0_endofpacket),                           //          .endofpacket
+		.src1_ready         (rsp_demux_004_src1_ready),                                 //      src1.ready
+		.src1_valid         (rsp_demux_004_src1_valid),                                 //          .valid
+		.src1_data          (rsp_demux_004_src1_data),                                  //          .data
+		.src1_channel       (rsp_demux_004_src1_channel),                               //          .channel
+		.src1_startofpacket (rsp_demux_004_src1_startofpacket),                         //          .startofpacket
+		.src1_endofpacket   (rsp_demux_004_src1_endofpacket)                            //          .endofpacket
+	);
+
+	soc_system_mm_interconnect_0_rsp_demux rsp_demux_005 (
+		.clk                (clk_0_clk_clk),                                                  //       clk.clk
+		.reset              (audio_0_reset_reset_bridge_in_reset_reset),                      // clk_reset.reset
+		.sink_ready         (photodiodes_0_avalon_slave_rsp_width_adapter_src_ready),         //      sink.ready
+		.sink_channel       (photodiodes_0_avalon_slave_rsp_width_adapter_src_channel),       //          .channel
+		.sink_data          (photodiodes_0_avalon_slave_rsp_width_adapter_src_data),          //          .data
+		.sink_startofpacket (photodiodes_0_avalon_slave_rsp_width_adapter_src_startofpacket), //          .startofpacket
+		.sink_endofpacket   (photodiodes_0_avalon_slave_rsp_width_adapter_src_endofpacket),   //          .endofpacket
+		.sink_valid         (photodiodes_0_avalon_slave_rsp_width_adapter_src_valid),         //          .valid
+		.src0_ready         (rsp_demux_005_src0_ready),                                       //      src0.ready
+		.src0_valid         (rsp_demux_005_src0_valid),                                       //          .valid
+		.src0_data          (rsp_demux_005_src0_data),                                        //          .data
+		.src0_channel       (rsp_demux_005_src0_channel),                                     //          .channel
+		.src0_startofpacket (rsp_demux_005_src0_startofpacket),                               //          .startofpacket
+		.src0_endofpacket   (rsp_demux_005_src0_endofpacket),                                 //          .endofpacket
+		.src1_ready         (rsp_demux_005_src1_ready),                                       //      src1.ready
+		.src1_valid         (rsp_demux_005_src1_valid),                                       //          .valid
+		.src1_data          (rsp_demux_005_src1_data),                                        //          .data
+		.src1_channel       (rsp_demux_005_src1_channel),                                     //          .channel
+		.src1_startofpacket (rsp_demux_005_src1_startofpacket),                               //          .startofpacket
+		.src1_endofpacket   (rsp_demux_005_src1_endofpacket)                                  //          .endofpacket
 	);
 
 	soc_system_mm_interconnect_0_rsp_demux rsp_demux_006 (
@@ -8630,22 +8630,22 @@ module soc_system_mm_interconnect_0 (
 		.CONSTANT_BURST_SIZE           (0),
 		.PACKING                       (1),
 		.ENABLE_ADDRESS_ALIGNMENT      (1)
-	) photodiode_0_avalon_slave_rsp_width_adapter (
-		.clk                  (clk_0_clk_clk),                                                 //       clk.clk
-		.reset                (audio_0_reset_reset_bridge_in_reset_reset),                     // clk_reset.reset
-		.in_valid             (router_006_src_valid),                                          //      sink.valid
-		.in_channel           (router_006_src_channel),                                        //          .channel
-		.in_startofpacket     (router_006_src_startofpacket),                                  //          .startofpacket
-		.in_endofpacket       (router_006_src_endofpacket),                                    //          .endofpacket
-		.in_ready             (router_006_src_ready),                                          //          .ready
-		.in_data              (router_006_src_data),                                           //          .data
-		.out_endofpacket      (photodiode_0_avalon_slave_rsp_width_adapter_src_endofpacket),   //       src.endofpacket
-		.out_data             (photodiode_0_avalon_slave_rsp_width_adapter_src_data),          //          .data
-		.out_channel          (photodiode_0_avalon_slave_rsp_width_adapter_src_channel),       //          .channel
-		.out_valid            (photodiode_0_avalon_slave_rsp_width_adapter_src_valid),         //          .valid
-		.out_ready            (photodiode_0_avalon_slave_rsp_width_adapter_src_ready),         //          .ready
-		.out_startofpacket    (photodiode_0_avalon_slave_rsp_width_adapter_src_startofpacket), //          .startofpacket
-		.in_command_size_data (3'b000)                                                         // (terminated)
+	) pedal_0_avalon_slave_rsp_width_adapter (
+		.clk                  (clk_0_clk_clk),                                            //       clk.clk
+		.reset                (audio_0_reset_reset_bridge_in_reset_reset),                // clk_reset.reset
+		.in_valid             (router_006_src_valid),                                     //      sink.valid
+		.in_channel           (router_006_src_channel),                                   //          .channel
+		.in_startofpacket     (router_006_src_startofpacket),                             //          .startofpacket
+		.in_endofpacket       (router_006_src_endofpacket),                               //          .endofpacket
+		.in_ready             (router_006_src_ready),                                     //          .ready
+		.in_data              (router_006_src_data),                                      //          .data
+		.out_endofpacket      (pedal_0_avalon_slave_rsp_width_adapter_src_endofpacket),   //       src.endofpacket
+		.out_data             (pedal_0_avalon_slave_rsp_width_adapter_src_data),          //          .data
+		.out_channel          (pedal_0_avalon_slave_rsp_width_adapter_src_channel),       //          .channel
+		.out_valid            (pedal_0_avalon_slave_rsp_width_adapter_src_valid),         //          .valid
+		.out_ready            (pedal_0_avalon_slave_rsp_width_adapter_src_ready),         //          .ready
+		.out_startofpacket    (pedal_0_avalon_slave_rsp_width_adapter_src_startofpacket), //          .startofpacket
+		.in_command_size_data (3'b000)                                                    // (terminated)
 	);
 
 	altera_merlin_width_adapter #(
@@ -8696,22 +8696,22 @@ module soc_system_mm_interconnect_0 (
 		.CONSTANT_BURST_SIZE           (0),
 		.PACKING                       (1),
 		.ENABLE_ADDRESS_ALIGNMENT      (1)
-	) pedal_0_avalon_slave_rsp_width_adapter (
-		.clk                  (clk_0_clk_clk),                                            //       clk.clk
-		.reset                (audio_0_reset_reset_bridge_in_reset_reset),                // clk_reset.reset
-		.in_valid             (router_007_src_valid),                                     //      sink.valid
-		.in_channel           (router_007_src_channel),                                   //          .channel
-		.in_startofpacket     (router_007_src_startofpacket),                             //          .startofpacket
-		.in_endofpacket       (router_007_src_endofpacket),                               //          .endofpacket
-		.in_ready             (router_007_src_ready),                                     //          .ready
-		.in_data              (router_007_src_data),                                      //          .data
-		.out_endofpacket      (pedal_0_avalon_slave_rsp_width_adapter_src_endofpacket),   //       src.endofpacket
-		.out_data             (pedal_0_avalon_slave_rsp_width_adapter_src_data),          //          .data
-		.out_channel          (pedal_0_avalon_slave_rsp_width_adapter_src_channel),       //          .channel
-		.out_valid            (pedal_0_avalon_slave_rsp_width_adapter_src_valid),         //          .valid
-		.out_ready            (pedal_0_avalon_slave_rsp_width_adapter_src_ready),         //          .ready
-		.out_startofpacket    (pedal_0_avalon_slave_rsp_width_adapter_src_startofpacket), //          .startofpacket
-		.in_command_size_data (3'b000)                                                    // (terminated)
+	) photodiodes_0_avalon_slave_rsp_width_adapter (
+		.clk                  (clk_0_clk_clk),                                                  //       clk.clk
+		.reset                (audio_0_reset_reset_bridge_in_reset_reset),                      // clk_reset.reset
+		.in_valid             (router_007_src_valid),                                           //      sink.valid
+		.in_channel           (router_007_src_channel),                                         //          .channel
+		.in_startofpacket     (router_007_src_startofpacket),                                   //          .startofpacket
+		.in_endofpacket       (router_007_src_endofpacket),                                     //          .endofpacket
+		.in_ready             (router_007_src_ready),                                           //          .ready
+		.in_data              (router_007_src_data),                                            //          .data
+		.out_endofpacket      (photodiodes_0_avalon_slave_rsp_width_adapter_src_endofpacket),   //       src.endofpacket
+		.out_data             (photodiodes_0_avalon_slave_rsp_width_adapter_src_data),          //          .data
+		.out_channel          (photodiodes_0_avalon_slave_rsp_width_adapter_src_channel),       //          .channel
+		.out_valid            (photodiodes_0_avalon_slave_rsp_width_adapter_src_valid),         //          .valid
+		.out_ready            (photodiodes_0_avalon_slave_rsp_width_adapter_src_ready),         //          .ready
+		.out_startofpacket    (photodiodes_0_avalon_slave_rsp_width_adapter_src_startofpacket), //          .startofpacket
+		.in_command_size_data (3'b000)                                                          // (terminated)
 	);
 
 	altera_merlin_width_adapter #(
@@ -8828,22 +8828,22 @@ module soc_system_mm_interconnect_0 (
 		.CONSTANT_BURST_SIZE           (0),
 		.PACKING                       (0),
 		.ENABLE_ADDRESS_ALIGNMENT      (1)
-	) photodiode_0_avalon_slave_cmd_width_adapter (
-		.clk                  (clk_0_clk_clk),                                                 //       clk.clk
-		.reset                (audio_0_reset_reset_bridge_in_reset_reset),                     // clk_reset.reset
-		.in_valid             (cmd_mux_004_src_valid),                                         //      sink.valid
-		.in_channel           (cmd_mux_004_src_channel),                                       //          .channel
-		.in_startofpacket     (cmd_mux_004_src_startofpacket),                                 //          .startofpacket
-		.in_endofpacket       (cmd_mux_004_src_endofpacket),                                   //          .endofpacket
-		.in_ready             (cmd_mux_004_src_ready),                                         //          .ready
-		.in_data              (cmd_mux_004_src_data),                                          //          .data
-		.out_endofpacket      (photodiode_0_avalon_slave_cmd_width_adapter_src_endofpacket),   //       src.endofpacket
-		.out_data             (photodiode_0_avalon_slave_cmd_width_adapter_src_data),          //          .data
-		.out_channel          (photodiode_0_avalon_slave_cmd_width_adapter_src_channel),       //          .channel
-		.out_valid            (photodiode_0_avalon_slave_cmd_width_adapter_src_valid),         //          .valid
-		.out_ready            (photodiode_0_avalon_slave_cmd_width_adapter_src_ready),         //          .ready
-		.out_startofpacket    (photodiode_0_avalon_slave_cmd_width_adapter_src_startofpacket), //          .startofpacket
-		.in_command_size_data (3'b000)                                                         // (terminated)
+	) pedal_0_avalon_slave_cmd_width_adapter (
+		.clk                  (clk_0_clk_clk),                                            //       clk.clk
+		.reset                (audio_0_reset_reset_bridge_in_reset_reset),                // clk_reset.reset
+		.in_valid             (cmd_mux_004_src_valid),                                    //      sink.valid
+		.in_channel           (cmd_mux_004_src_channel),                                  //          .channel
+		.in_startofpacket     (cmd_mux_004_src_startofpacket),                            //          .startofpacket
+		.in_endofpacket       (cmd_mux_004_src_endofpacket),                              //          .endofpacket
+		.in_ready             (cmd_mux_004_src_ready),                                    //          .ready
+		.in_data              (cmd_mux_004_src_data),                                     //          .data
+		.out_endofpacket      (pedal_0_avalon_slave_cmd_width_adapter_src_endofpacket),   //       src.endofpacket
+		.out_data             (pedal_0_avalon_slave_cmd_width_adapter_src_data),          //          .data
+		.out_channel          (pedal_0_avalon_slave_cmd_width_adapter_src_channel),       //          .channel
+		.out_valid            (pedal_0_avalon_slave_cmd_width_adapter_src_valid),         //          .valid
+		.out_ready            (pedal_0_avalon_slave_cmd_width_adapter_src_ready),         //          .ready
+		.out_startofpacket    (pedal_0_avalon_slave_cmd_width_adapter_src_startofpacket), //          .startofpacket
+		.in_command_size_data (3'b000)                                                    // (terminated)
 	);
 
 	altera_merlin_width_adapter #(
@@ -8894,22 +8894,22 @@ module soc_system_mm_interconnect_0 (
 		.CONSTANT_BURST_SIZE           (0),
 		.PACKING                       (0),
 		.ENABLE_ADDRESS_ALIGNMENT      (1)
-	) pedal_0_avalon_slave_cmd_width_adapter (
-		.clk                  (clk_0_clk_clk),                                            //       clk.clk
-		.reset                (audio_0_reset_reset_bridge_in_reset_reset),                // clk_reset.reset
-		.in_valid             (cmd_mux_005_src_valid),                                    //      sink.valid
-		.in_channel           (cmd_mux_005_src_channel),                                  //          .channel
-		.in_startofpacket     (cmd_mux_005_src_startofpacket),                            //          .startofpacket
-		.in_endofpacket       (cmd_mux_005_src_endofpacket),                              //          .endofpacket
-		.in_ready             (cmd_mux_005_src_ready),                                    //          .ready
-		.in_data              (cmd_mux_005_src_data),                                     //          .data
-		.out_endofpacket      (pedal_0_avalon_slave_cmd_width_adapter_src_endofpacket),   //       src.endofpacket
-		.out_data             (pedal_0_avalon_slave_cmd_width_adapter_src_data),          //          .data
-		.out_channel          (pedal_0_avalon_slave_cmd_width_adapter_src_channel),       //          .channel
-		.out_valid            (pedal_0_avalon_slave_cmd_width_adapter_src_valid),         //          .valid
-		.out_ready            (pedal_0_avalon_slave_cmd_width_adapter_src_ready),         //          .ready
-		.out_startofpacket    (pedal_0_avalon_slave_cmd_width_adapter_src_startofpacket), //          .startofpacket
-		.in_command_size_data (3'b000)                                                    // (terminated)
+	) photodiodes_0_avalon_slave_cmd_width_adapter (
+		.clk                  (clk_0_clk_clk),                                                  //       clk.clk
+		.reset                (audio_0_reset_reset_bridge_in_reset_reset),                      // clk_reset.reset
+		.in_valid             (cmd_mux_005_src_valid),                                          //      sink.valid
+		.in_channel           (cmd_mux_005_src_channel),                                        //          .channel
+		.in_startofpacket     (cmd_mux_005_src_startofpacket),                                  //          .startofpacket
+		.in_endofpacket       (cmd_mux_005_src_endofpacket),                                    //          .endofpacket
+		.in_ready             (cmd_mux_005_src_ready),                                          //          .ready
+		.in_data              (cmd_mux_005_src_data),                                           //          .data
+		.out_endofpacket      (photodiodes_0_avalon_slave_cmd_width_adapter_src_endofpacket),   //       src.endofpacket
+		.out_data             (photodiodes_0_avalon_slave_cmd_width_adapter_src_data),          //          .data
+		.out_channel          (photodiodes_0_avalon_slave_cmd_width_adapter_src_channel),       //          .channel
+		.out_valid            (photodiodes_0_avalon_slave_cmd_width_adapter_src_valid),         //          .valid
+		.out_ready            (photodiodes_0_avalon_slave_cmd_width_adapter_src_ready),         //          .ready
+		.out_startofpacket    (photodiodes_0_avalon_slave_cmd_width_adapter_src_startofpacket), //          .startofpacket
+		.in_command_size_data (3'b000)                                                          // (terminated)
 	);
 
 	soc_system_mm_interconnect_0_avalon_st_adapter #(
@@ -9046,15 +9046,15 @@ module soc_system_mm_interconnect_0 (
 		.outUseReady     (1),
 		.outReadyLatency (0)
 	) avalon_st_adapter_004 (
-		.in_clk_0_clk   (clk_0_clk_clk),                                        // in_clk_0.clk
-		.in_rst_0_reset (audio_0_reset_reset_bridge_in_reset_reset),            // in_rst_0.reset
-		.in_0_data      (photodiode_0_avalon_slave_agent_rdata_fifo_out_data),  //     in_0.data
-		.in_0_valid     (photodiode_0_avalon_slave_agent_rdata_fifo_out_valid), //         .valid
-		.in_0_ready     (photodiode_0_avalon_slave_agent_rdata_fifo_out_ready), //         .ready
-		.out_0_data     (avalon_st_adapter_004_out_0_data),                     //    out_0.data
-		.out_0_valid    (avalon_st_adapter_004_out_0_valid),                    //         .valid
-		.out_0_ready    (avalon_st_adapter_004_out_0_ready),                    //         .ready
-		.out_0_error    (avalon_st_adapter_004_out_0_error)                     //         .error
+		.in_clk_0_clk   (clk_0_clk_clk),                                   // in_clk_0.clk
+		.in_rst_0_reset (audio_0_reset_reset_bridge_in_reset_reset),       // in_rst_0.reset
+		.in_0_data      (pedal_0_avalon_slave_agent_rdata_fifo_out_data),  //     in_0.data
+		.in_0_valid     (pedal_0_avalon_slave_agent_rdata_fifo_out_valid), //         .valid
+		.in_0_ready     (pedal_0_avalon_slave_agent_rdata_fifo_out_ready), //         .ready
+		.out_0_data     (avalon_st_adapter_004_out_0_data),                //    out_0.data
+		.out_0_valid    (avalon_st_adapter_004_out_0_valid),               //         .valid
+		.out_0_ready    (avalon_st_adapter_004_out_0_ready),               //         .ready
+		.out_0_error    (avalon_st_adapter_004_out_0_error)                //         .error
 	);
 
 	soc_system_mm_interconnect_0_avalon_st_adapter_002 #(
@@ -9075,15 +9075,15 @@ module soc_system_mm_interconnect_0 (
 		.outUseReady     (1),
 		.outReadyLatency (0)
 	) avalon_st_adapter_005 (
-		.in_clk_0_clk   (clk_0_clk_clk),                                   // in_clk_0.clk
-		.in_rst_0_reset (audio_0_reset_reset_bridge_in_reset_reset),       // in_rst_0.reset
-		.in_0_data      (pedal_0_avalon_slave_agent_rdata_fifo_out_data),  //     in_0.data
-		.in_0_valid     (pedal_0_avalon_slave_agent_rdata_fifo_out_valid), //         .valid
-		.in_0_ready     (pedal_0_avalon_slave_agent_rdata_fifo_out_ready), //         .ready
-		.out_0_data     (avalon_st_adapter_005_out_0_data),                //    out_0.data
-		.out_0_valid    (avalon_st_adapter_005_out_0_valid),               //         .valid
-		.out_0_ready    (avalon_st_adapter_005_out_0_ready),               //         .ready
-		.out_0_error    (avalon_st_adapter_005_out_0_error)                //         .error
+		.in_clk_0_clk   (clk_0_clk_clk),                                         // in_clk_0.clk
+		.in_rst_0_reset (audio_0_reset_reset_bridge_in_reset_reset),             // in_rst_0.reset
+		.in_0_data      (photodiodes_0_avalon_slave_agent_rdata_fifo_out_data),  //     in_0.data
+		.in_0_valid     (photodiodes_0_avalon_slave_agent_rdata_fifo_out_valid), //         .valid
+		.in_0_ready     (photodiodes_0_avalon_slave_agent_rdata_fifo_out_ready), //         .ready
+		.out_0_data     (avalon_st_adapter_005_out_0_data),                      //    out_0.data
+		.out_0_valid    (avalon_st_adapter_005_out_0_valid),                     //         .valid
+		.out_0_ready    (avalon_st_adapter_005_out_0_ready),                     //         .ready
+		.out_0_error    (avalon_st_adapter_005_out_0_error)                      //         .error
 	);
 
 	soc_system_mm_interconnect_0_avalon_st_adapter #(
