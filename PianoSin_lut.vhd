@@ -552,6 +552,7 @@ X"FAD", X"FB7", X"FC1", X"FCB", X"FD6", X"FE1", X"FEA", X"FF5"
 );
 
 signal data : std_logic_vector(31 downto 0);
+signal unsignedIndex : unsigned(11 downto 0) := X"000";
 
 begin
 
@@ -559,7 +560,8 @@ rom_select: process (clk, en)
 begin
 	if (rising_edge(clk)) then
     if (en = '1') then
-		data <= (SIN_ROM(conv_integer(address_reg)) & x"00000");
+		unsignedIndex <= unsigned(address_reg);
+		data <= (SIN_ROM(to_integer(unsignedIndex)) & x"00000");
 		sin_out <= std_logic_vector(shift_right(signed(data), 20));
     end if;
   end if;

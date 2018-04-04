@@ -67,8 +67,8 @@ arm_ds.__init__|C:\intelFPGA\17.0\embedded\ds-5\sw\eclipse\dropins\plugins\com.a
 arm_ds.debugger_v1|C:\intelFPGA\17.0\embedded\ds-5\sw\eclipse\dropins\plugins\com.arm.debug.interpreter.jython.api_5.25.0.20160726_144552\arm_ds\debugger_v1.py
 arm_ds.internal|C:\intelFPGA\17.0\embedded\ds-5\sw\eclipse\dropins\plugins\com.arm.debug.interpreter.jython.api_5.25.0.20160726_144552\arm_ds\internal.py
 arm_ds.usecase_script|C:\intelFPGA\17.0\embedded\ds-5\sw\eclipse\dropins\plugins\com.arm.debug.interpreter.jython.api_5.25.0.20160726_144552\arm_ds\usecase_script.py
-arm_ds_launcher.__init__|C:\Users\chiasson\AppData\Roaming\ARM\DS-5_v5.25.0\workbench\configuration\org.eclipse.osgi\364\0\.cp\arm_ds_launcher\__init__.py
-arm_ds_launcher.targetcontrol|C:\Users\chiasson\AppData\Roaming\ARM\DS-5_v5.25.0\workbench\configuration\org.eclipse.osgi\364\0\.cp\arm_ds_launcher\targetcontrol.py
+arm_ds_launcher.__init__|C:\Users\rarog\AppData\Roaming\ARM\DS-5_v5.25.0\workbench\configuration\org.eclipse.osgi\364\0\.cp\arm_ds_launcher\__init__.py
+arm_ds_launcher.targetcontrol|C:\Users\rarog\AppData\Roaming\ARM\DS-5_v5.25.0\workbench\configuration\org.eclipse.osgi\364\0\.cp\arm_ds_launcher\targetcontrol.py
 array
 binascii
 bz2

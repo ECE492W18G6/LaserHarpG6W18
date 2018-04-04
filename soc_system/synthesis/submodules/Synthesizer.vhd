@@ -117,16 +117,17 @@ component Mux4X1 is
 	);
 end component Mux4X1;
 
-signal phase1_acc : std_logic_vector(31 downto 0);
-signal phase2_acc : std_logic_vector(31 downto 0);
-signal phase3_acc : std_logic_vector(31 downto 0);
-signal phase4_acc : std_logic_vector(31 downto 0);
-signal phase5_acc : std_logic_vector(31 downto 0);
-signal phase6_acc : std_logic_vector(31 downto 0);
-signal phase7_acc : std_logic_vector(31 downto 0);
-signal phase8_acc : std_logic_vector(31 downto 0);
+signal phase1_acc : std_logic_vector(31 downto 0) := X"00000000";
+signal phase2_acc : std_logic_vector(31 downto 0) := X"00000000";
+signal phase3_acc : std_logic_vector(31 downto 0) := X"00000000";
+signal phase4_acc : std_logic_vector(31 downto 0) := X"00000000";
+signal phase5_acc : std_logic_vector(31 downto 0) := X"00000000";
+signal phase6_acc : std_logic_vector(31 downto 0) := X"00000000";
+signal phase7_acc : std_logic_vector(31 downto 0) := X"00000000";
+signal phase8_acc : std_logic_vector(31 downto 0) := X"00000000";
 
 signal indexOut	: std_logic_vector(31 downto 0);
+signal indexIn	: std_logic_vector(11 downto 0);
 signal lut_data : std_logic_vector(31 downto 0);
 signal lut_data_reg : std_logic_vector(31 downto 0);
 
@@ -228,12 +229,14 @@ begin
 						phase7_acc <= unsigned(phase7_acc) + unsigned(phase_reg(11 downto 0));
 				when "111" => 
 						phase8_acc <= unsigned(phase8_acc) + unsigned(phase_reg(11 downto 0));
- 			end case;
+				when others => 			
+				end case;
 		end if;
 	end if;
 end process counterControl;
 
 lut_data <= indexOut;
+indexIn <= indexOut(11 downto 0);
 
 ---------------------------------
 -- Hide the latency of the LUT --

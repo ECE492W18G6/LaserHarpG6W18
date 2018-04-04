@@ -258,6 +258,9 @@ static  void  AudioTask (void *p_arg)
 					fraction_accumulators[i] = fraction_accumulators[i] - 1;
 				}
 				read = readFromSythesizer(SYNTH_BASE, enable);
+				if (i==7) {
+					i=7;
+				}
         	}
 
             if ((extend[i] % extendConstant) == 0) {

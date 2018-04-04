@@ -1,9 +1,9 @@
 HWLIBS/button.o: ../HWLIBS/button.c
 HWLIBS/button.o: ../HWLIBS/button.h
 HWLIBS/button.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av/socal/hps.h
-HWLIBS/button.o: C:/Users/chiasson/Documents/ece492/software/LaserHarpG6W18/uCOS-II/Ports/os_cpu.h
+HWLIBS/button.o: C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/uCOS-II/Ports/os_cpu.h
 HWLIBS/button.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av/socal/socal.h
-HWLIBS/button.o: C:/Users/chiasson/Documents/ece492/software/LaserHarpG6W18/uCOS-II/Source/os.h
-HWLIBS/button.o: C:/Users/chiasson/Documents/ece492/software/LaserHarpG6W18/uCOS-II/Source/ucos_ii.h
-HWLIBS/button.o: C:/Users/chiasson/Documents/ece492/software/LaserHarpG6W18/APP/app_cfg.h
-HWLIBS/button.o: C:/Users/chiasson/Documents/ece492/software/LaserHarpG6W18/APP/os_cfg.h
+HWLIBS/button.o: C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/uCOS-II/Source/os.h
+HWLIBS/button.o: C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/uCOS-II/Source/ucos_ii.h
+HWLIBS/button.o: C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app_cfg.h
+HWLIBS/button.o: C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/os_cfg.h
