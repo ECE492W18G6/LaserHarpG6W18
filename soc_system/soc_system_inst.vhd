@@ -80,18 +80,19 @@
 			memory_mem_odt                                   : out   std_logic;                                        -- mem_odt
 			memory_mem_dm                                    : out   std_logic_vector(3 downto 0);                     -- mem_dm
 			memory_oct_rzqin                                 : in    std_logic                     := 'X';             -- oct_rzqin
+			pedal_0_conduit_end_export                       : in    std_logic                     := 'X';             -- export
 			pll_0_outclk0_clk                                : out   std_logic;                                        -- clk
 			red_leds_external_connection_export              : out   std_logic_vector(9 downto 0);                     -- export
 			reset_reset_n                                    : in    std_logic                     := 'X';             -- reset_n
 			switches_external_connection_export              : in    std_logic_vector(9 downto 0)  := (others => 'X'); -- export
-			photodiode_0_conduit_end_export0                 : in    std_logic                     := 'X';             -- export0
-			photodiode_0_conduit_end_export1                 : in    std_logic                     := 'X';             -- export1
-			photodiode_0_conduit_end_export2                 : in    std_logic                     := 'X';             -- export2
-			photodiode_0_conduit_end_export3                 : in    std_logic                     := 'X';             -- export3
-			photodiode_0_conduit_end_export4                 : in    std_logic                     := 'X';             -- export4
-			photodiode_0_conduit_end_export5                 : in    std_logic                     := 'X';             -- export5
-			photodiode_0_conduit_end_export6                 : in    std_logic                     := 'X';             -- export6
-			photodiode_0_conduit_end_export7                 : in    std_logic                     := 'X'              -- export7
+			photodiodes_0_conduit_end_export1                : in    std_logic                     := 'X';             -- export1
+			photodiodes_0_conduit_end_export2                : in    std_logic                     := 'X';             -- export2
+			photodiodes_0_conduit_end_export3                : in    std_logic                     := 'X';             -- export3
+			photodiodes_0_conduit_end_export4                : in    std_logic                     := 'X';             -- export4
+			photodiodes_0_conduit_end_export5                : in    std_logic                     := 'X';             -- export5
+			photodiodes_0_conduit_end_export6                : in    std_logic                     := 'X';             -- export6
+			photodiodes_0_conduit_end_export7                : in    std_logic                     := 'X';             -- export7
+			photodiodes_0_conduit_end_export0                : in    std_logic                     := 'X'              -- export0
 		);
 	end component soc_system;
 
@@ -177,17 +178,18 @@
 			memory_mem_odt                                   => CONNECTED_TO_memory_mem_odt,                                   --                                            .mem_odt
 			memory_mem_dm                                    => CONNECTED_TO_memory_mem_dm,                                    --                                            .mem_dm
 			memory_oct_rzqin                                 => CONNECTED_TO_memory_oct_rzqin,                                 --                                            .oct_rzqin
+			pedal_0_conduit_end_export                       => CONNECTED_TO_pedal_0_conduit_end_export,                       --                         pedal_0_conduit_end.export
 			pll_0_outclk0_clk                                => CONNECTED_TO_pll_0_outclk0_clk,                                --                               pll_0_outclk0.clk
 			red_leds_external_connection_export              => CONNECTED_TO_red_leds_external_connection_export,              --                red_leds_external_connection.export
 			reset_reset_n                                    => CONNECTED_TO_reset_reset_n,                                    --                                       reset.reset_n
 			switches_external_connection_export              => CONNECTED_TO_switches_external_connection_export,              --                switches_external_connection.export
-			photodiode_0_conduit_end_export0                 => CONNECTED_TO_photodiode_0_conduit_end_export0,                 --                    photodiode_0_conduit_end.export0
-			photodiode_0_conduit_end_export1                 => CONNECTED_TO_photodiode_0_conduit_end_export1,                 --                                            .export1
-			photodiode_0_conduit_end_export2                 => CONNECTED_TO_photodiode_0_conduit_end_export2,                 --                                            .export2
-			photodiode_0_conduit_end_export3                 => CONNECTED_TO_photodiode_0_conduit_end_export3,                 --                                            .export3
-			photodiode_0_conduit_end_export4                 => CONNECTED_TO_photodiode_0_conduit_end_export4,                 --                                            .export4
-			photodiode_0_conduit_end_export5                 => CONNECTED_TO_photodiode_0_conduit_end_export5,                 --                                            .export5
-			photodiode_0_conduit_end_export6                 => CONNECTED_TO_photodiode_0_conduit_end_export6,                 --                                            .export6
-			photodiode_0_conduit_end_export7                 => CONNECTED_TO_photodiode_0_conduit_end_export7                  --                                            .export7
+			photodiodes_0_conduit_end_export1                => CONNECTED_TO_photodiodes_0_conduit_end_export1,                --                   photodiodes_0_conduit_end.export1
+			photodiodes_0_conduit_end_export2                => CONNECTED_TO_photodiodes_0_conduit_end_export2,                --                                            .export2
+			photodiodes_0_conduit_end_export3                => CONNECTED_TO_photodiodes_0_conduit_end_export3,                --                                            .export3
+			photodiodes_0_conduit_end_export4                => CONNECTED_TO_photodiodes_0_conduit_end_export4,                --                                            .export4
+			photodiodes_0_conduit_end_export5                => CONNECTED_TO_photodiodes_0_conduit_end_export5,                --                                            .export5
+			photodiodes_0_conduit_end_export6                => CONNECTED_TO_photodiodes_0_conduit_end_export6,                --                                            .export6
+			photodiodes_0_conduit_end_export7                => CONNECTED_TO_photodiodes_0_conduit_end_export7,                --                                            .export7
+			photodiodes_0_conduit_end_export0                => CONNECTED_TO_photodiodes_0_conduit_end_export0                 --                                            .export0
 		);
 

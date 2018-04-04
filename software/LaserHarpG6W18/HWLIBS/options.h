@@ -3,8 +3,14 @@
  *  Created on: March 9, 2018
  *  Authors: Adam Narten & Randi Derbyshire
  */
+#include <hps.h>
+
 #ifndef OPTIONS_H_
 #define OPTIONS_H_
+
+#define FPGA_TO_HPS_LW_ADDR(base)  ((void *) (((char *)  (ALT_LWFPGASLVS_ADDR))+ (base)))
+#define PEDAL_ADD 0x2100
+#define PEDAL_BASE FPGA_TO_HPS_LW_ADDR(PEDAL_ADD)
 
 #define C2_FREQUENCY 6.075
 #define NUM_STRINGS 8
@@ -45,20 +51,11 @@
 #define B 11
 #define NUM_KEYS 12
 
-#define REVERB_OFF 0
-#define REVERB_ON 1
-
-#define SUSTAIN_OFF 0
-#define SUSTAIN_ON 1
-
 void change_scale (void);
 void change_instrument (void);
 void change_octave (void);
 void change_key (void);
-void set_reverb(void);
-void remove_reverb(void);
-void set_sustain(void);
-void remove_sustain(void);
+int sustain_enabled(void);
 void update_LCD_string(void);
 int get_octave(void);
 void get_frequencies(int* integers, float* fractions);

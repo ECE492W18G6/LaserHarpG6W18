@@ -80,14 +80,15 @@
 			memory_mem_odt                                   : out   std_logic;                                        -- mem_odt
 			memory_mem_dm                                    : out   std_logic_vector(3 downto 0);                     -- mem_dm
 			memory_oct_rzqin                                 : in    std_logic                     := 'X';             -- oct_rzqin
-			photodiode_0_conduit_end_export0                 : in    std_logic                     := 'X';             -- export0
-			photodiode_0_conduit_end_export1                 : in    std_logic                     := 'X';             -- export1
-			photodiode_0_conduit_end_export2                 : in    std_logic                     := 'X';             -- export2
-			photodiode_0_conduit_end_export3                 : in    std_logic                     := 'X';             -- export3
-			photodiode_0_conduit_end_export4                 : in    std_logic                     := 'X';             -- export4
-			photodiode_0_conduit_end_export5                 : in    std_logic                     := 'X';             -- export5
-			photodiode_0_conduit_end_export6                 : in    std_logic                     := 'X';             -- export6
-			photodiode_0_conduit_end_export7                 : in    std_logic                     := 'X';             -- export7
+			pedal_0_conduit_end_export                       : in    std_logic                     := 'X';             -- export
+			photodiodes_0_conduit_end_export1                : in    std_logic                     := 'X';             -- export1
+			photodiodes_0_conduit_end_export2                : in    std_logic                     := 'X';             -- export2
+			photodiodes_0_conduit_end_export3                : in    std_logic                     := 'X';             -- export3
+			photodiodes_0_conduit_end_export4                : in    std_logic                     := 'X';             -- export4
+			photodiodes_0_conduit_end_export5                : in    std_logic                     := 'X';             -- export5
+			photodiodes_0_conduit_end_export6                : in    std_logic                     := 'X';             -- export6
+			photodiodes_0_conduit_end_export7                : in    std_logic                     := 'X';             -- export7
+			photodiodes_0_conduit_end_export0                : in    std_logic                     := 'X';             -- export0
 			pll_0_outclk0_clk                                : out   std_logic;                                        -- clk
 			red_leds_external_connection_export              : out   std_logic_vector(9 downto 0);                     -- export
 			reset_reset_n                                    : in    std_logic                     := 'X';             -- reset_n

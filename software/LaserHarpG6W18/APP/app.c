@@ -237,6 +237,8 @@ static  void  AudioTask (void *p_arg)
 	// TODO: This should be determined by the button options
 	int instrument = 1;
 	int extend[8] = {0, 0, 0, 0, 0, 0, 0};
+	int enable[NUM_STRINGS] = {0, 0, 0, 0, 0, 0, 0};
+	int enable_flag[NUM_STRINGS] = {0, 0, 0, 0, 0, 0, 0};
 	int extendConstant = 16;
 	float envelope[8] = {0,0,0,0,0,0,0,0};
 
@@ -250,19 +252,34 @@ static  void  AudioTask (void *p_arg)
 
         for (i = 0; i < NUM_STRINGS; i++) {
         	writeFreqToSynthesizer(SYNTH_BASE[i], integers[i]);
-            fraction_accumulators[i] = fraction_accumulators[i] + fractions[i];
-            int enable = (photodiodes & DIODE_MASK[i]);
-            if (fraction_accumulators[i] > 1) {
-            	alt_write_word(SYNTH_BASE[i], 1);
-            	fraction_accumulators[i] = fraction_accumulators[i] - 1;
-            }
-            if ((extend[i] % extendConstant) == 0) {
-				envelope[i] = readFromEnvelope(ENVELOPE_BASE, i, (enable <= 0), instrument);
+        	fraction_accumulators[i] = fraction_accumulators[i] + fractions[i];
+			if (fraction_accumulators[i] > 1) {
+				alt_write_word(SYNTH_BASE[i], 1);
+				fraction_accumulators[i] = fraction_accumulators[i] - 1;
+			}
+
+			int beam_enable = (photodiodes & DIODE_MASK[i]);
+			if (sustain_enabled()) {
+				if (enable[i] <= beam_enable) {
+					if (!enable_flag[i]) { // beam was not being broken but now is
+						readFromEnvelope(ENVELOPE_BASE, i, (0 <= 0), instrument); // reset envelope
+					}
+					enable[i] = beam_enable; // set enable accordingly
+					enable_flag[i] = 1; // beam is being broken
+				} else if (enable[i] > beam_enable) { // sustaining but beam no longer broken
+					enable_flag[i] = 0; // just change flag, not enable
+				}
+			} else { // sustain disabled
+				enable[i] = beam_enable;
+			}
+
+			if ((extend[i] % extendConstant) == 0) {
+				envelope[i] = readFromEnvelope(ENVELOPE_BASE, i, (enable[i] <= 0), instrument);
 			}
 			extend[i] = extend[i] + 1;
-			INT32S read = readFromSythesizer(SYNTH_BASE[i], enable);
+			INT32S read = readFromSythesizer(SYNTH_BASE[i], enable[i]);
 			POLY_BUFFER[0] += (INT32S) (read * envelope[i]);
-        }
+		}
 		write_audio_data(POLY_BUFFER, 1);
     }
 }
