@@ -87,6 +87,7 @@ INT32S SYNTH_VALUES[NUM_STRINGS];
 INT32S POLY_BUFFER[NUM_STRINGS];
 float fractions[NUM_STRINGS];
 int integers[NUM_STRINGS];
+int CHANGED_INSTRUMENT = 0;
 float fraction_accumulators[NUM_STRINGS];
 
 /*
@@ -108,6 +109,18 @@ int main ()
 {
     INT8U os_err;
 
+    ALT_BRIDGE_t lw_bridge = ALT_BRIDGE_LWH2F;
+	ALT_STATUS_CODE err = alt_bridge_init(lw_bridge, NULL, NULL);
+
+	const char name[] = "Nancy's Tutorial 1 UART Demo\n\r";
+	ALT_16550_DEVICE_t uart0 = ALT_16550_DEVICE_SOCFPGA_UART0;
+	ALT_16550_HANDLE_t hdl_uart0;
+	err = alt_16550_init(uart0, NULL, NULL, &hdl_uart0);
+	err = alt_16550_enable(&hdl_uart0);
+	err = alt_16550_fifo_enable(&hdl_uart0);
+	err = alt_16550_fifo_clear_rx(&hdl_uart0);
+	err = alt_16550_fifo_write_safe(&hdl_uart0, name, strlen(name), true);
+
     BSP_WatchDog_Reset();                                       /* Reset the watchdog as soon as possible.              */
 
                                                                 /* Scatter loading is complete. Now the caches can be activated.*/
@@ -123,19 +136,6 @@ int main ()
 
     OSInit();
 
-    ALT_BRIDGE_t lw_bridge = ALT_BRIDGE_LWH2F;
-    ALT_STATUS_CODE err = alt_bridge_init(lw_bridge, NULL, NULL);
-    const char name[] = "Nancy's Tutorial 1 UART Demo\n\r";
-    ALT_16550_DEVICE_t uart0 = ALT_16550_DEVICE_SOCFPGA_UART0;
-    ALT_16550_HANDLE_t hdl_uart0;
-    err = alt_16550_init(uart0, NULL, NULL, &hdl_uart0);
-    err = alt_16550_enable(&hdl_uart0);
-    err = alt_16550_fifo_enable(&hdl_uart0);
-    err = alt_16550_fifo_clear_rx(&hdl_uart0);
-    err = alt_16550_fifo_write_safe(&hdl_uart0,
-    name,
-    strlen(name),
-    true);
 
     os_err = OSTaskCreateExt((void (*)(void *)) AppTask,   /* Create the start task.                               */
                              (void          * ) 0,
@@ -232,13 +232,6 @@ static  void  AppTask (void *p_arg)
 * Notes       : (1) The ticker MUST be initialized AFTER multitasking has started.
 *********************************************************************************************************
 */
-INT32S countBits(INT8U number) {
-	INT32S res;
-	for (res = 0; number; number >>= 1) {
-	  res += number & 1;
-	}
-	return res;
-}
 
 static  void  AudioTask (void *p_arg)
 {
@@ -281,12 +274,13 @@ static  void  AudioTask (void *p_arg)
 			INT32S read = 0;
         	fraction_accumulators[i] = fraction_accumulators[i] + fractions[i];
 			if (fraction_accumulators[i] > 1) {
-				writeFreqToSynthesizer(SYNTH_BASE, integers[i]+1, i, instrument);
+				writeFreqToSynthesizer((void *)0xff201000, integers[i]+1, i, instrument);
 				fraction_accumulators[i] = fraction_accumulators[i] - 1;
 			} else {
-				writeFreqToSynthesizer(SYNTH_BASE, integers[i], i, instrument);
+				writeFreqToSynthesizer((void *)0xff201000, integers[i], i, instrument);
 			}
-			if (sustain_enabled()) {
+			read = readFromSythesizer((void *)0xff201000, enable[i]);
+			if ((sustain_enabled() || instrument == HARP)) {
 				if (enable[i] <= beam_enable) {
 					if (!enable_flag[i]) { // beam was not being broken but now is
 						readFromEnvelope(ENVELOPE_BASE, i, (0 <= 0), instrument); // reset envelope
@@ -296,15 +290,20 @@ static  void  AudioTask (void *p_arg)
 				} else if (enable[i] > beam_enable) { // sustaining but beam no longer broken
 					enable_flag[i] = 0; // just change flag, not enable
 				}
-			} else { // sustain disabled
+			} else  { // sustain disabled
+//				if(enable[i] > beam_enable && instrument == PIANO) {
+//					quickPianoDecay(read);
+//				}
 				enable[i] = beam_enable;
 			}
 
 			if ((extend[i] % extendConstant) == 0) {
 				envelope[i] = readFromEnvelope(ENVELOPE_BASE, i, (enable[i] <= 0), instrument);
 			}
+			if (instrument == CLARINET) {
+				envelope[i] = 1;
+			}
 			extend[i] = extend[i] + 1;
-			read = readFromSythesizer(SYNTH_BASE, enable[i]);
 			POLY_BUFFER[0] += (INT32S) (read * envelope[i]);
 		}
 		write_audio_data(POLY_BUFFER, 1);

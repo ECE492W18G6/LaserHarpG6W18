@@ -146,9 +146,9 @@ void InitLCD(void)
 		sem = OSSemCreate(1);
 		if (sem != 0)
 			sem_inited = true;
-		else {
-			//printf("LCD::Init sem not valid\n");
-		}
+//		else {
+//			//printf("LCD::Init sem not valid\n");
+//		}
 	}
 	OSSemPend(sem,WAIT_FOREVER, &err);
 		if( err == OS_ERR_NONE)
@@ -156,10 +156,10 @@ void InitLCD(void)
 			send_cmd(CMD_DISPLAY|DISPLAY_ON|DISPLAY_NOCURSOR|DISPLAY_NOBLINK);
 			send_cmd(CMD_CLEAR);
 			err = OSSemPost(sem);
-			//if (err != OS_ERR_NONE) printf("Lcd::Init Error: %i \n", err);
-		} //else {
-			//printf("Lcd::Init Error: %i \n", err);
-		//}
+//			if (err != OS_ERR_NONE) //printf("Lcd::Init Error: %i \n", err);
+//		} else {
+//			//printf("Lcd::Init Error: %i \n", err);
+		}
 
 
 
@@ -184,10 +184,10 @@ void ClearLCD(void)
 			send_cmd(CMD_CLEAR);
 		OSTimeDly(OS_TICKS_PER_SEC/10);
 		err = OSSemPost(sem);
-		//if (err != OS_ERR_NONE) printf("Lcd::Clear Error: %i", err);
-	} //else {
-		//printf("Lcd::Clear Error: %i", err);
-	//}
+//		if (err != OS_ERR_NONE) //printf("Lcd::Clear Error: %i", err);
+//	} else {
+//		//printf("Lcd::Clear Error: %i", err);
+	}
 }
 
 /* Name: Home
@@ -207,10 +207,10 @@ void HomeLCD(void)
 		position = 0;
 		OSTimeDly(OS_TICKS_PER_SEC/10);
 		err = OSSemPost(sem);
-		//if (err != OS_ERR_NONE) printf ("Lcd::Home Error: %i", err);
-	} //else {
-		//printf("Lcd::Clear Error: %i", err);
-	//}
+//		if (err != OS_ERR_NONE) printf ("Lcd::Home Error: %i", err);
+//	} else {
+//		printf("Lcd::Clear Error: %i", err);
+	}
 }
 
 /* Name: MoveCursor
@@ -232,10 +232,10 @@ void MoveCursorLCD(unsigned char pos)
 	{
 		move(pos);
 		err = OSSemPost(sem);
-		//if (err != OS_ERR_NONE) printf("Lcd::MoveCursor Error: %i \n", err);
-	} //else {
-		//printf("Lcd::MoveCursor Error: %i", err);
-	//}
+//		if (err != OS_ERR_NONE) printf("Lcd::MoveCursor Error: %i \n", err);
+//	} else {
+//		printf("Lcd::MoveCursor Error: %i", err);
+	}
 }
 
 /* Name: PrintChar
@@ -255,10 +255,10 @@ void PrintCharLCD( char c)
 	{
 		print_char( c);
 		err = OSSemPost(sem);
-		//if (err != OS_ERR_NONE) printf ("Lcd::PrintChar Error: %i \n",err);
-	} //else {
-		//printf("Lcd::PrintChar Error: %i \n", err);
-	//}
+//		if (err != OS_ERR_NONE) printf ("Lcd::PrintChar Error: %i \n",err);
+//	} else {
+//		printf("Lcd::PrintChar Error: %i \n", err);
+	}
 }
 
 /* Name: PrintString
@@ -283,9 +283,8 @@ void PrintStringLCD( const char * str)
 			i++;
 		}
 		err = OSSemPost(sem);
-		//if (err != OS_ERR_NONE) printf ("LCD::PrintString Error: %i", err);
-	} //else {
-		//printf ("LCD::PrintChar Error: %i",err);
-	//}
+//		if (err != OS_ERR_NONE) printf ("LCD::PrintString Error: %i", err);
+//	} else {
+//		printf ("LCD::PrintChar Error: %i",err);
+	}
 }
-

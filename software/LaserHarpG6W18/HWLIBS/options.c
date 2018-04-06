@@ -32,6 +32,7 @@ char key[2];
 
 float frequencies[NUM_STRINGS+1];
 
+
 void change_scale() {
 	SCALE = (SCALE + 1) % NUM_SCALES;
 }

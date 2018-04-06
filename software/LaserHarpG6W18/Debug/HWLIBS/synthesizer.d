@@ -22,3 +22,4 @@ HWLIBS/synthesizer.o: C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W
 HWLIBS/synthesizer.o: C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/uC-CPU/cpu_cache.h
 HWLIBS/synthesizer.o: C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/uCOS-II/Source/os.h
 HWLIBS/synthesizer.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/hwlib.h
+HWLIBS/synthesizer.o: ../HWLIBS/audio.h
