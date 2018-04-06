@@ -1,15 +1,15 @@
--- Original Author: Adam Narten
--- This file was auto-generated as a prototype implementation of a module
--- created in component editor.  It ties off all outputs to ground and
--- ignores all inputs.  It needs to be edited to make it do something
--- useful.
+--------------------------------------------------------------------------------------------------------
+-- Original Author : Adam Narten																								--
+-- Date created: April 3, 2018																								--
+-- This program is the file for the custom Photodiodes component for the Winter18 Laser Harp in ECE492--
+--------------------------------------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
 
-entity photodiode is
+entity Photodiodes is
 	port (
 		avalon_slave_read_n   : in  std_logic                     := '0'; -- avalon_slave.read_n
 		avalon_slave_readdata : out std_logic_vector(7 downto 0);        --             .readdata
@@ -24,9 +24,9 @@ entity photodiode is
 		clk                   : in  std_logic                     := '0'; --        clock.clk
 		reset_n               : in  std_logic                     := '0'  --        reset.reset_n
 	);
-end entity photodiode;
+end entity Photodiodes;
 
-architecture rtl of photodiode is
+architecture rtl of Photodiodes is
 begin
 	process(reset_n, clk, conduit_end_0, conduit_end_1, conduit_end_2, conduit_end_3,
 				conduit_end_4, conduit_end_5, conduit_end_6, conduit_end_7) is
@@ -79,4 +79,4 @@ begin
 	end process ;
 	
 
-end architecture rtl; -- of photodiode
+end architecture rtl; -- of Photodiodes

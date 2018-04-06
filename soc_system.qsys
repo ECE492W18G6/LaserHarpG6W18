@@ -13,7 +13,7 @@
    {
       datum _sortIndex
       {
-         value = "11";
+         value = "10";
          type = "int";
       }
    }
@@ -30,11 +30,43 @@
          type = "String";
       }
    }
-   element Synthesizer_0
+   element Pedal_0
    {
       datum _sortIndex
       {
          value = "12";
+         type = "int";
+      }
+   }
+   element Pedal_0.avalon_slave
+   {
+      datum baseAddress
+      {
+         value = "8448";
+         type = "String";
+      }
+   }
+   element Photodiodes_0
+   {
+      datum _sortIndex
+      {
+         value = "11";
+         type = "int";
+      }
+   }
+   element Photodiodes_0.avalon_slave
+   {
+      datum baseAddress
+      {
+         value = "8192";
+         type = "String";
+      }
+   }
+   element Synthesizer_0
+   {
+      datum _sortIndex
+      {
+         value = "13";
          type = "int";
       }
    }
@@ -49,6 +81,62 @@
       {
          value = "4096";
          type = "String";
+      }
+   }
+   element Synthesizer_1
+   {
+      datum _sortIndex
+      {
+         value = "12";
+         type = "int";
+      }
+   }
+   element Synthesizer_2
+   {
+      datum _sortIndex
+      {
+         value = "13";
+         type = "int";
+      }
+   }
+   element Synthesizer_3
+   {
+      datum _sortIndex
+      {
+         value = "14";
+         type = "int";
+      }
+   }
+   element Synthesizer_4
+   {
+      datum _sortIndex
+      {
+         value = "15";
+         type = "int";
+      }
+   }
+   element Synthesizer_5
+   {
+      datum _sortIndex
+      {
+         value = "16";
+         type = "int";
+      }
+   }
+   element Synthesizer_6
+   {
+      datum _sortIndex
+      {
+         value = "17";
+         type = "int";
+      }
+   }
+   element Synthesizer_7
+   {
+      datum _sortIndex
+      {
+         value = "18";
+         type = "int";
       }
    }
    element audio_0
@@ -144,27 +232,6 @@
       {
          value = "1";
          type = "int";
-      }
-   }
-   element photodiode_0
-   {
-      datum _sortIndex
-      {
-         value = "10";
-         type = "int";
-      }
-   }
-   element photodiode_0.avalon_slave
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "8192";
-         type = "String";
       }
    }
    element pll_0
@@ -486,8 +553,13 @@
  <interface name="hps_io" internal="hps_0.hps_io" type="conduit" dir="end" />
  <interface name="memory" internal="hps_0.memory" type="conduit" dir="end" />
  <interface
-   name="photodiode_0_conduit_end"
-   internal="photodiode_0.conduit_end"
+   name="pedal_0_conduit_end"
+   internal="Pedal_0.conduit_end"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="photodiodes_0_conduit_end"
+   internal="Photodiodes_0.conduit_end"
    type="conduit"
    dir="end" />
  <interface
@@ -511,6 +583,8 @@
    kind="EnvelopeController"
    version="1.0"
    enabled="1" />
+ <module name="Pedal_0" kind="Pedal" version="1.0" enabled="1" />
+ <module name="Photodiodes_0" kind="Photodiodes" version="1.0" enabled="1" />
  <module name="Synthesizer_0" kind="Synthesizer" version="1.0" enabled="1" />
  <module
    name="audio_0"
@@ -1105,7 +1179,6 @@
   <parameter name="usb_mp_clk_div" value="0" />
   <parameter name="use_default_mpu_clk" value="false" />
  </module>
- <module name="photodiode_0" kind="photodiode" version="1.0" enabled="1" />
  <module name="pll_0" kind="altera_pll" version="17.0" enabled="1">
   <parameter name="debug_print_output" value="false" />
   <parameter name="debug_use_rbc_taf_method" value="false" />
@@ -1384,7 +1457,16 @@
    kind="avalon"
    version="17.0"
    start="hps_0.h2f_lw_axi_master"
-   end="photodiode_0.avalon_slave">
+   end="Pedal_0.avalon_slave">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x2100" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="17.0"
+   start="hps_0.h2f_lw_axi_master"
+   end="Photodiodes_0.avalon_slave">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x2000" />
   <parameter name="defaultConnection" value="false" />
@@ -1454,11 +1536,12 @@
    version="17.0"
    start="clk_0.clk"
    end="EnvelopeController_0.clock" />
+ <connection kind="clock" version="17.0" start="clk_0.clk" end="Pedal_0.clock" />
  <connection
    kind="clock"
    version="17.0"
    start="clk_0.clk"
-   end="photodiode_0.clock" />
+   end="Photodiodes_0.clock" />
  <connection
    kind="clock"
    version="17.0"
@@ -1536,7 +1619,12 @@
    kind="reset"
    version="17.0"
    start="clk_0.clk_reset"
-   end="photodiode_0.reset" />
+   end="Pedal_0.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
+   start="clk_0.clk_reset"
+   end="Photodiodes_0.reset" />
  <connection
    kind="reset"
    version="17.0"
@@ -1587,7 +1675,12 @@
    kind="reset"
    version="17.0"
    start="hps_0.h2f_reset"
-   end="photodiode_0.reset" />
+   end="Pedal_0.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
+   start="hps_0.h2f_reset"
+   end="Photodiodes_0.reset" />
  <connection
    kind="reset"
    version="17.0"

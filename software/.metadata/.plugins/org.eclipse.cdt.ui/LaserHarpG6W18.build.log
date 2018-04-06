@@ -1,12 +1,8 @@
-13:17:50 **** Incremental Build of configuration Debug for project LaserHarpG6W18 ****
+14:00:40 **** Incremental Build of configuration Debug for project LaserHarpG6W18 ****
 make all 
 'Building file: ../APP/app.c'
 'Invoking: ARM C Compiler 5'
 armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\rarog\ECE492\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="APP" -c -o "APP/app.o" "../APP/app.c"
-"../APP/app.c", line 265: Warning:  #550-D: variable "envelope" was set but never used
-  	float envelope[8] = {0,0,0,0,0,0,0,0};
-  	      ^
-../APP/app.c: 1 warning, 0 errors
 'Finished building: ../APP/app.c'
 ' '
 'Building target: LaserHarpG6W18.axf'
@@ -24,7 +20,7 @@ Image component sizes
        404          4          0          0          0      79356   alt_bridge_manager.o
      31208        864          0        224          0      34898   alt_clock_manager.o
       3624        832        207          0          0      16434   alt_fpga_manager.o
-      1124         88         32          0      32928       4629   app.o
+      1324         88         32          0      32928       4785   app.o
         96          0          0          0          0        560   armv7a_tthelp.o
         92          4          0          0          0       1143   audio.o
         32          0          0          0          0        579   audio_cfg.o
@@ -42,7 +38,7 @@ Image component sizes
          0          0          0          0          0      13440   lib_ascii.o
          0          0          0          0          0       1456   lib_math.o
       5136         76          0          4   16777236      27489   lib_mem.o
-      7416        380          0         26         76       5243   options.o
+      7360        376          0         26         76       4987   options.o
       5836        160        256         80      10920      24451   os_core.o
        988          0          0          0          0        548   os_cpu_a_vfp-d32.o
        608         36          0         12       4096      14697   os_cpu_c.o
@@ -57,7 +53,7 @@ Image component sizes
        176          0          0          0          0       1937   synthesizer.o
 
     ----------------------------------------------------------------------
-     81448       3024        926        376   50425768     327485   Object Totals
+     81592       3020        926        376   50425768     327385   Object Totals
          0          0         48          0   33599488          0   (incl. Generated)
          4          4          5          5          0          0   (incl. Padding)
 
@@ -132,20 +128,20 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     86610       3506       1070        376   50425864     322209   Grand Totals
-     86610       3506       1070        112   50425864     322209   ELF Image Totals (compressed)
-     86610       3506       1070        112          0          0   ROM Totals
+     86754       3502       1070        376   50425864     322109   Grand Totals
+     86754       3502       1070        112   50425864     322109   ELF Image Totals (compressed)
+     86754       3502       1070        112          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                87680 (  85.63kB)
+    Total RO  Size (Code + RO Data)                87824 (  85.77kB)
     Total RW  Size (RW Data + ZI Data)          50426240 (49244.38kB)
-    Total ROM Size (Code + RO Data + RW Data)      87792 (  85.73kB)
+    Total ROM Size (Code + RO Data + RW Data)      87936 (  85.88kB)
 
 ==============================================================================
 
 'Finished building target: LaserHarpG6W18.axf'
 ' '
 
-13:17:51 Build Finished (took 764ms)
+14:00:41 Build Finished (took 765ms)
 

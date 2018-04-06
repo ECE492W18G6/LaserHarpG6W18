@@ -160,6 +160,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "GPIO_0_17",
+					"strict" : false
+				},
+				{
 					"name" : "GPIO_0_28",
 					"strict" : false
 				},

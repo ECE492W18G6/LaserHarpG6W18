@@ -1569,18 +1569,19 @@ set_location_assignment PIN_G21 -to KEY
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY
 set_location_assignment PIN_G21 -to HPS_KEY_N
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_KEY_N
+set_global_assignment -name VHDL_FILE ViolinSin_lut.vhd
 set_global_assignment -name VHDL_FILE PianoSin_lut.vhd
 set_global_assignment -name VHDL_FILE HarpSin_lut.vhd
 set_global_assignment -name VHDL_FILE ClarinetSin_lut.vhd
-set_global_assignment -name VHDL_FILE ViolinSin_lut.vhd
+set_global_assignment -name VHDL_FILE EnvelopeController.vhd
 set_global_assignment -name VHDL_FILE Mux4X1.vhd
 set_global_assignment -name VHDL_FILE Mux8X1.vhd
-set_global_assignment -name VHDL_FILE EnvelopeController.vhd
+set_global_assignment -name VHDL_FILE Pedal.vhd
+set_global_assignment -name VHDL_FILE Photodiodes.vhd
 set_global_assignment -name VHDL_FILE PianoEnvelope_lut.vhd
 set_global_assignment -name VHDL_FILE PianoEnvelope.vhd
-set_global_assignment -name VHDL_FILE photodiode.vhd
-set_global_assignment -name VHDL_FILE Synthesizer.vhd
 set_global_assignment -name VHDL_FILE sin_lut.vhd
+set_global_assignment -name VHDL_FILE Synthesizer.vhd
 set_global_assignment -name VHDL_FILE toplevel.vhd
 set_global_assignment -name TCL_SCRIPT_FILE ../Presets_Pins/pin_assignment_DE1_SoC.tcl
 set_global_assignment -name QIP_FILE soc_system/synthesis/soc_system.qip
