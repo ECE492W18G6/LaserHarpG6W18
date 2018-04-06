@@ -28,3 +28,8 @@ APP/app.o: C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/HWLIBS/o
 APP/app.o: ../APP/app.h
 APP/app.o: C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/HWLIBS/button.h
 APP/app.o: C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/uCOS-II/Source/os.h
+APP/app.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av/alt_bridge_manager.h
+APP/app.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/alt_16550_uart.h
+APP/app.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av/alt_clock_manager.h
+APP/app.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av/alt_clock_group.h
+APP/app.o: C:/intelFPGA/17.0/embedded/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av/socal/alt_clkmgr.h

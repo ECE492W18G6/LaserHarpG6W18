@@ -30,14 +30,14 @@
 #define PHOTODIODE_ADD 0x2000
 #define PHOTODIODE_BASE FPGA_TO_HPS_LW_ADDR(PHOTODIODE_ADD)
 
-#define DIODE_0_MASK 1
-#define DIODE_1_MASK 2
-#define DIODE_2_MASK 4
-#define DIODE_3_MASK 8
-#define DIODE_4_MASK 16
-#define DIODE_5_MASK 32
-#define DIODE_6_MASK 64
-#define DIODE_7_MASK 128
+#define DIODE_0_MASK 64
+#define DIODE_1_MASK 128
+#define DIODE_2_MASK 1
+#define DIODE_3_MASK 2
+#define DIODE_4_MASK 4
+#define DIODE_5_MASK 8
+#define DIODE_6_MASK 16
+#define DIODE_7_MASK 32
 
 /*
 *********************************************************************************************************

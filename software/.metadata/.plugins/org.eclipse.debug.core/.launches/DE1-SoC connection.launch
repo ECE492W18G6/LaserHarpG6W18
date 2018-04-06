@@ -1,46 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.arm.debugger.launcher2">
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data" value="17297087"/>
-<mapEntry key="*Fetching Data Model" value="147061"/>
-<mapEntry key="*list global low level symbols" value="2796365"/>
-<mapEntry key="*loading memory from target" value="14016702"/>
-<mapEntry key="*loading values from target" value="1628565"/>
-<mapEntry key="*updating variables" value="910831"/>
-<mapEntry key="AddEventObserver" value="1056931"/>
-<mapEntry key="Evaluate" value="595521"/>
-<mapEntry key="Retrieving globals list" value="2107104"/>
-<mapEntry key="areCachesAvailable" value="585362"/>
-<mapEntry key="break" value="28343314"/>
-<mapEntry key="continue" value="20451407"/>
+<mapEntry key="*Fetching Data" value="66901834"/>
+<mapEntry key="*Fetching Data Model" value="290253"/>
+<mapEntry key="*list global low level symbols" value="587401"/>
+<mapEntry key="*loading memory from target" value="15183346"/>
+<mapEntry key="*loading values from target" value="2967858"/>
+<mapEntry key="*updating variables" value="877786"/>
+<mapEntry key="AddEventObserver" value="443520"/>
+<mapEntry key="Evaluate" value="2876752"/>
+<mapEntry key="Retrieving globals list" value="1731487"/>
+<mapEntry key="areCachesAvailable" value="459370"/>
+<mapEntry key="break" value="11180153"/>
+<mapEntry key="continue" value="21251279"/>
 <mapEntry key="core" value="8392234"/>
 <mapEntry key="disassemble" value="23941900"/>
 <mapEntry key="evaluate address" value="378266"/>
-<mapEntry key="file" value="46608046"/>
-<mapEntry key="finish" value="31789447"/>
-<mapEntry key="get byte order" value="178269"/>
-<mapEntry key="get capabilities" value="230232"/>
-<mapEntry key="get execution addresss" value="283553"/>
-<mapEntry key="get source lines" value="339064"/>
-<mapEntry key="getValidEncodings" value="444176"/>
-<mapEntry key="initialize command help" value="25336038"/>
-<mapEntry key="interrupt" value="32450690"/>
-<mapEntry key="list breakpoints" value="267570"/>
-<mapEntry key="list instruction sets" value="102797"/>
-<mapEntry key="list signals" value="7181407"/>
-<mapEntry key="list watchpoints" value="474977"/>
-<mapEntry key="loadfile" value="680705846"/>
-<mapEntry key="next" value="59402144"/>
-<mapEntry key="remove" value="14385584"/>
-<mapEntry key="set CWD" value="790959"/>
-<mapEntry key="set breakpoint properties" value="32897098"/>
-<mapEntry key="set debug-from" value="424230"/>
-<mapEntry key="source altera_target_check.py" value="211791630"/>
-<mapEntry key="source preloader.ds" value="6742114686"/>
-<mapEntry key="start" value="66873143"/>
-<mapEntry key="step" value="48841256"/>
-<mapEntry key="toggleBreakpoint" value="28366740"/>
-<mapEntry key="waitForTargetToStop" value="442787224"/>
+<mapEntry key="file" value="791086692"/>
+<mapEntry key="finish" value="141482346"/>
+<mapEntry key="get byte order" value="149614"/>
+<mapEntry key="get capabilities" value="94179"/>
+<mapEntry key="get execution addresss" value="252140"/>
+<mapEntry key="get source lines" value="127934"/>
+<mapEntry key="getValidEncodings" value="358451"/>
+<mapEntry key="initialize command help" value="19792416"/>
+<mapEntry key="interrupt" value="8967005"/>
+<mapEntry key="list breakpoints" value="264848"/>
+<mapEntry key="list instruction sets" value="604442"/>
+<mapEntry key="list signals" value="18913886"/>
+<mapEntry key="list watchpoints" value="257356"/>
+<mapEntry key="loadfile" value="916107738"/>
+<mapEntry key="next" value="64856431"/>
+<mapEntry key="reload-symbol-file" value="15188800"/>
+<mapEntry key="remove" value="19674905"/>
+<mapEntry key="set CWD" value="668509"/>
+<mapEntry key="set breakpoint properties" value="24287741"/>
+<mapEntry key="set debug-from" value="895760"/>
+<mapEntry key="source altera_target_check.py" value="202860838"/>
+<mapEntry key="source preloader.ds" value="6200455922"/>
+<mapEntry key="start" value="61678904"/>
+<mapEntry key="step" value="36586639"/>
+<mapEntry key="toggleBreakpoint" value="21220622"/>
+<mapEntry key="waitForTargetToStop" value="249516372"/>
 <mapEntry key="write expression" value="42402046"/>
 </mapAttribute>
 <intAttribute key="DEBUG_TAB..RESOURCES.COUNT" value="0"/>
@@ -51,43 +52,37 @@
 <stringAttribute key="FILES.DEBUG_RESIDENT_ANDROID.RESOURCES.0.VALUE" value=""/>
 <intAttribute key="FILES.DEBUG_RESIDENT_ANDROID.RESOURCES.COUNT" value="1"/>
 <listAttribute key="FILES.DEBUG_RESIDENT_APP"/>
-<stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.0.TYPE" value="TARGET_WORKING_DIR"/>
+<stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.0.TYPE" value="APPLICATION_ON_TARGET"/>
 <stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.0.VALUE" value=""/>
-<stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.1.TYPE" value="APPLICATION_ON_TARGET"/>
+<stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.1.TYPE" value="TARGET_WORKING_DIR"/>
 <stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.1.VALUE" value=""/>
 <intAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.COUNT" value="2"/>
-<listAttribute key="FILES.DOWNLOAD_AND_DEBUG">
-<listEntry value="ON_DEMAND_LOAD"/>
-<listEntry value="ALSO_LOAD_SYMBOLS"/>
-</listAttribute>
+<listAttribute key="FILES.DOWNLOAD_AND_DEBUG"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.0.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.0.OPTION.ON_DEMAND_LOAD" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.0.TYPE" value="TARGET_DOWNLOAD_DIR"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.0.VALUE" value=""/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.1.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.1.OPTION.ON_DEMAND_LOAD" value="true"/>
-<stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.1.TYPE" value="TARGET_WORKING_DIR"/>
+<stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.1.TYPE" value="APP_ON_HOST_TO_DOWNLOAD"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.1.VALUE" value=""/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.2.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.2.OPTION.ON_DEMAND_LOAD" value="true"/>
-<stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.2.TYPE" value="APP_ON_HOST_TO_DOWNLOAD"/>
+<stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.2.TYPE" value="TARGET_WORKING_DIR"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.2.VALUE" value=""/>
 <intAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.COUNT" value="3"/>
-<listAttribute key="FILES.DOWNLOAD_DEBUG">
-<listEntry value="ON_DEMAND_LOAD"/>
-<listEntry value="ALSO_LOAD_SYMBOLS"/>
-</listAttribute>
+<listAttribute key="FILES.DOWNLOAD_DEBUG"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.OPTION.ON_DEMAND_LOAD" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.TYPE" value="TARGET_DOWNLOAD_DIR"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.VALUE" value=""/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.OPTION.ON_DEMAND_LOAD" value="true"/>
-<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.TYPE" value="TARGET_WORKING_DIR"/>
+<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.TYPE" value="APP_ON_HOST_TO_DOWNLOAD"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.VALUE" value=""/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.2.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.2.OPTION.ON_DEMAND_LOAD" value="true"/>
-<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.2.TYPE" value="APP_ON_HOST_TO_DOWNLOAD"/>
+<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.2.TYPE" value="TARGET_WORKING_DIR"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.2.VALUE" value=""/>
 <intAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.COUNT" value="3"/>
 <intAttribute key="FILES.DOWNLOAD_DEBUG_ANDROID.RESOURCES.COUNT" value="0"/>
@@ -190,10 +185,22 @@
 <listEntry value="1"/>
 <listEntry value="formatter"/>
 <listEntry value="Hexadecimal"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/HWLIBS/synthesizer.c::writeFreqToSynthesizer::combined"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::countBits::number"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Binary"/>
 <listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTask::envelope"/>
 <listEntry value="1"/>
 <listEntry value="element formatter"/>
 <listEntry value="Float"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTask::$0::photodiodes"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Binary"/>
 <listEntry value="LOCALS:Locals:VALUE:C:/Users/rarog/ECE492/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AudioTask::$0::$0::read"/>
 <listEntry value="1"/>
 <listEntry value="formatter"/>
@@ -243,7 +250,7 @@
 <stringAttribute key="debugger.view.NewRegisterView:DebugOutlineColumnState" value="OutlineConfig1&#9;8&#9;0&#9;true&#9;false&#9;111&#9;-1&#9;true&#9;1&#9;false&#9;true&#9;90&#9;-1&#9;true&#9;2&#9;true&#9;true&#9;46&#9;-1&#9;true&#9;3&#9;false&#9;true&#9;43&#9;-1&#9;true&#9;4&#9;false&#9;true&#9;50&#9;-1&#9;true&#9;5&#9;true&#9;true&#9;37&#9;-1&#9;true&#9;6&#9;false&#9;true&#9;62&#9;-1&#9;true&#9;7&#9;true&#9;true&#9;53&#9;-1&#9;true"/>
 <stringAttribute key="debugger.view.NewRegisterView:_selectedRegisterSet" value="All registers"/>
 <mapAttribute key="debugger.view.NewRegisterView_registerSets"/>
-<stringAttribute key="debugger.view.VariableTreeView:DebugOutlineColumnState" value="OutlineConfig1&#9;8&#9;0&#9;true&#9;false&#9;150&#9;-1&#9;true&#9;1&#9;false&#9;true&#9;90&#9;-1&#9;true&#9;2&#9;true&#9;false&#9;262&#9;-1&#9;true&#9;3&#9;true&#9;false&#9;119&#9;-1&#9;true&#9;4&#9;true&#9;true&#9;50&#9;-1&#9;true&#9;5&#9;true&#9;true&#9;37&#9;-1&#9;true&#9;6&#9;true&#9;true&#9;62&#9;-1&#9;true&#9;7&#9;true&#9;true&#9;53&#9;-1&#9;true"/>
+<stringAttribute key="debugger.view.VariableTreeView:DebugOutlineColumnState" value="OutlineConfig1&#9;8&#9;0&#9;true&#9;false&#9;124&#9;-1&#9;true&#9;1&#9;false&#9;true&#9;90&#9;-1&#9;true&#9;2&#9;true&#9;false&#9;262&#9;-1&#9;true&#9;3&#9;true&#9;false&#9;119&#9;-1&#9;true&#9;4&#9;true&#9;true&#9;50&#9;-1&#9;true&#9;5&#9;true&#9;true&#9;37&#9;-1&#9;true&#9;6&#9;true&#9;true&#9;62&#9;-1&#9;true&#9;7&#9;true&#9;true&#9;53&#9;-1&#9;true"/>
 <listAttribute key="debugger.view.VariableTreeView:USER_ADDED_FILE_STATICS"/>
 <listAttribute key="debugger.view.VariableTreeView:USER_ADDED_GLOBALS"/>
 <booleanAttribute key="debugger.view.register.DrawAsHex" value="false"/>
