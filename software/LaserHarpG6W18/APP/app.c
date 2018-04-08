@@ -210,8 +210,15 @@ static  void  AppTask (void *p_arg)
         	if (key_0_pressed()) {
 				change_octave();
         	}
-			update_LCD_string();
         }
+
+        INT32U switches = alt_read_word(SWITCH_BASE);
+        if (switches & SWITCH_0_MASK == 1) {
+        	pedal_function(1);
+        } else {
+        	pedal_function(0);
+        }
+        update_LCD_string();
 
 		OSTimeDlyHMSM(0,0,0,50);
     }
@@ -252,24 +259,21 @@ static  void  AudioTask (void *p_arg)
 
 	int DIODE_MASK[8] = {DIODE_0_MASK, DIODE_1_MASK, DIODE_2_MASK, DIODE_3_MASK, DIODE_4_MASK, DIODE_5_MASK, DIODE_6_MASK, DIODE_7_MASK};
 
-	// TODO: This should be determined by the button options
-	int instrument = 1;
-	int extend[8] = {0, 0, 0, 0, 0, 0, 0};
+	int extend[NUM_STRINGS] = {0, 0, 0, 0, 0, 0, 0};
 	int enable[NUM_STRINGS] = {0, 0, 0, 0, 0, 0, 0};
 	int enable_flag[NUM_STRINGS] = {0, 0, 0, 0, 0, 0, 0};
-	int extendConstant = 16;
-	float envelope[8] = {0,0,0,0,0,0,0,0};
+	float envelope[NUM_STRINGS] = {0,0,0,0,0,0,0,0};
 
 	int i;
     for(;;) {
         BSP_WatchDog_Reset();				/* Reset the watchdog.   */
-
         POLY_BUFFER[0] = 0;
         get_frequencies(integers, fractions);
         INT8U photodiodes = (INT8U) alt_read_byte(PHOTODIODE_BASE);
-        instrument = get_instrument();
+        int instrument = get_instrument();
         
 		for (i = 0; i < NUM_STRINGS; i++) {
+	    	int extendConstant = 16;
         	int beam_enable = (photodiodes & DIODE_MASK[i]);
 			INT32S read = 0;
         	fraction_accumulators[i] = fraction_accumulators[i] + fractions[i];
@@ -280,7 +284,7 @@ static  void  AudioTask (void *p_arg)
 				writeFreqToSynthesizer((void *)0xff201000, integers[i], i, instrument);
 			}
 			read = readFromSythesizer((void *)0xff201000, enable[i]);
-			if ((sustain_enabled() || instrument == HARP)) {
+			if ((sustain_enabled() || instrument != CLARINET )) {
 				if (enable[i] <= beam_enable) {
 					if (!enable_flag[i]) { // beam was not being broken but now is
 						readFromEnvelope(ENVELOPE_BASE, i, (0 <= 0), instrument); // reset envelope
@@ -288,12 +292,12 @@ static  void  AudioTask (void *p_arg)
 					enable[i] = beam_enable; // set enable accordingly
 					enable_flag[i] = 1; // beam is being broken
 				} else if (enable[i] > beam_enable) { // sustaining but beam no longer broken
+					if (!sustain_enabled() && (instrument == PIANO || instrument == HARPSICHORD)) {
+						extendConstant = 5;
+					}
 					enable_flag[i] = 0; // just change flag, not enable
 				}
 			} else  { // sustain disabled
-//				if(enable[i] > beam_enable && instrument == PIANO) {
-//					quickPianoDecay(read);
-//				}
 				enable[i] = beam_enable;
 			}
 

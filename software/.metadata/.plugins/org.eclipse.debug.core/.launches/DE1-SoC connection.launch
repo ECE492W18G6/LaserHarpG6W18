@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.arm.debugger.launcher2">
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data" value="533998"/>
-<mapEntry key="*Fetching Data Model" value="143898"/>
-<mapEntry key="*list global low level symbols" value="1312618"/>
-<mapEntry key="*loading memory from target" value="11734254"/>
-<mapEntry key="*loading values from target" value="12362468"/>
-<mapEntry key="*updating variables" value="665192"/>
-<mapEntry key="AddEventObserver" value="378971"/>
-<mapEntry key="Evaluate" value="1438388"/>
-<mapEntry key="Retrieving globals list" value="2132087"/>
-<mapEntry key="areCachesAvailable" value="463607"/>
-<mapEntry key="break" value="12026189"/>
-<mapEntry key="continue" value="25372918"/>
+<mapEntry key="*Fetching Data" value="753387"/>
+<mapEntry key="*Fetching Data Model" value="185299"/>
+<mapEntry key="*list global low level symbols" value="7853271"/>
+<mapEntry key="*loading memory from target" value="13541289"/>
+<mapEntry key="*loading values from target" value="12131668"/>
+<mapEntry key="*updating variables" value="667725"/>
+<mapEntry key="AddEventObserver" value="228158"/>
+<mapEntry key="Evaluate" value="709694"/>
+<mapEntry key="Retrieving globals list" value="2070948"/>
+<mapEntry key="areCachesAvailable" value="475730"/>
+<mapEntry key="break" value="28224055"/>
+<mapEntry key="continue" value="25204679"/>
 <mapEntry key="core" value="8392234"/>
-<mapEntry key="disassemble" value="29486598"/>
+<mapEntry key="disassemble" value="22452888"/>
 <mapEntry key="evaluate address" value="378266"/>
-<mapEntry key="file" value="53741385"/>
-<mapEntry key="finish" value="31789447"/>
-<mapEntry key="get byte order" value="554775"/>
-<mapEntry key="get capabilities" value="144087"/>
-<mapEntry key="get execution addresss" value="170936"/>
-<mapEntry key="get source lines" value="191035"/>
-<mapEntry key="getValidEncodings" value="395012"/>
-<mapEntry key="initialize command help" value="22611628"/>
-<mapEntry key="interrupt" value="32450690"/>
-<mapEntry key="list breakpoints" value="260990"/>
-<mapEntry key="list instruction sets" value="86078"/>
-<mapEntry key="list signals" value="16714014"/>
-<mapEntry key="list watchpoints" value="454851"/>
-<mapEntry key="loadfile" value="853836374"/>
-<mapEntry key="next" value="116254945"/>
-<mapEntry key="remove" value="20431283"/>
-<mapEntry key="set CWD" value="856031"/>
-<mapEntry key="set breakpoint properties" value="18448204"/>
-<mapEntry key="set debug-from" value="484256"/>
-<mapEntry key="source altera_target_check.py" value="255991481"/>
-<mapEntry key="source preloader.ds" value="6509461611"/>
-<mapEntry key="start" value="49299416"/>
-<mapEntry key="step" value="58742393"/>
-<mapEntry key="toggleBreakpoint" value="15064810"/>
-<mapEntry key="waitForTargetToStop" value="250751813"/>
+<mapEntry key="file" value="15212508"/>
+<mapEntry key="finish" value="22182054"/>
+<mapEntry key="get byte order" value="158554"/>
+<mapEntry key="get capabilities" value="59395"/>
+<mapEntry key="get execution addresss" value="311438"/>
+<mapEntry key="get source lines" value="293762"/>
+<mapEntry key="getValidEncodings" value="375868"/>
+<mapEntry key="initialize command help" value="19317116"/>
+<mapEntry key="interrupt" value="49787427"/>
+<mapEntry key="list breakpoints" value="135121"/>
+<mapEntry key="list instruction sets" value="125742"/>
+<mapEntry key="list signals" value="2448978"/>
+<mapEntry key="list watchpoints" value="151216"/>
+<mapEntry key="loadfile" value="898726469"/>
+<mapEntry key="next" value="63701658"/>
+<mapEntry key="remove" value="38084995"/>
+<mapEntry key="set CWD" value="371504"/>
+<mapEntry key="set breakpoint properties" value="30067789"/>
+<mapEntry key="set debug-from" value="969799"/>
+<mapEntry key="source altera_target_check.py" value="257276993"/>
+<mapEntry key="source preloader.ds" value="2394048493"/>
+<mapEntry key="start" value="48697537"/>
+<mapEntry key="step" value="46112506"/>
+<mapEntry key="toggleBreakpoint" value="31078715"/>
+<mapEntry key="waitForTargetToStop" value="262236850"/>
 <mapEntry key="write expression" value="42402046"/>
 </mapAttribute>
 <intAttribute key="DEBUG_TAB..RESOURCES.COUNT" value="0"/>
@@ -51,9 +51,9 @@
 <stringAttribute key="FILES.DEBUG_RESIDENT_ANDROID.RESOURCES.0.VALUE" value=""/>
 <intAttribute key="FILES.DEBUG_RESIDENT_ANDROID.RESOURCES.COUNT" value="1"/>
 <listAttribute key="FILES.DEBUG_RESIDENT_APP"/>
-<stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.0.TYPE" value="APPLICATION_ON_TARGET"/>
+<stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.0.TYPE" value="TARGET_WORKING_DIR"/>
 <stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.0.VALUE" value=""/>
-<stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.1.TYPE" value="TARGET_WORKING_DIR"/>
+<stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.1.TYPE" value="APPLICATION_ON_TARGET"/>
 <stringAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.1.VALUE" value=""/>
 <intAttribute key="FILES.DEBUG_RESIDENT_APP.RESOURCES.COUNT" value="2"/>
 <listAttribute key="FILES.DOWNLOAD_AND_DEBUG"/>
@@ -212,6 +212,10 @@
 <listEntry value="1"/>
 <listEntry value="element formatter"/>
 <listEntry value="Signed Decimal"/>
+<listEntry value="LOCALS:Locals:VALUE:C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/APP/app.c::AppTask::$0::switches"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
 </listAttribute>
 <booleanAttribute key="VFS_ENABLED" value="true"/>
 <stringAttribute key="VFS_LOCAL_DIR" value="${workspace_loc}"/>
@@ -225,11 +229,13 @@
 </listAttribute>
 <listAttribute key="com.arm.debug.views.common.AddressTracker.debugger.view.MemoryView.addresses">
 <listEntry value=""/>
+<listEntry value="0xff202100"/>
 <listEntry value="0xff201000"/>
 <listEntry value="0xff20100"/>
 </listAttribute>
 <listAttribute key="com.arm.debug.views.common.AddressTracker.debugger.view.MemoryView.ranges">
 <listEntry value=""/>
+<listEntry value="1024"/>
 <listEntry value="1024"/>
 <listEntry value="1024"/>
 </listAttribute>
@@ -273,7 +279,7 @@
 <stringAttribute key="os_extension_id" value="com.arm.debug.os.ucosii"/>
 <stringAttribute key="rddi_type" value="rddi-debug-rvi"/>
 <booleanAttribute key="runAfterConnect" value="false"/>
-<stringAttribute key="runTargetInitializationScript" value="C:\Users\rarog\ECE492\terasic_preloader\preloader.ds"/>
+<stringAttribute key="runTargetInitializationScript" value="C:\Users\anarten\ECE492_Projects\eclass_preloader\preloader.ds"/>
 <stringAttribute key="rvi_address" value="DE-SoC on localhost [USB-1]:DE-SoC USB-1"/>
 <listAttribute key="setup">
 <listEntry value="CDB://../../../Scripts/altera_debug_server.py"/>

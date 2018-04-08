@@ -39,6 +39,15 @@
 #define DIODE_6_MASK 16
 #define DIODE_7_MASK 32
 
+#define SWITCH_0_MASK 1
+#define SWITCH_1_MASK 2
+#define SWITCH_2_MASK 4
+#define SWITCH_3_MASK 8
+#define SWITCH_4_MASK 16
+#define SWITCH_5_MASK 32
+#define SWITCH_6_MASK 64
+#define SWITCH_7_MASK 128
+
 /*
 *********************************************************************************************************
 *                                      LOCAL FUNCTION PROTOTYPES
