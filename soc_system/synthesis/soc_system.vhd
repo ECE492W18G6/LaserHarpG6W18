@@ -107,12 +107,12 @@ end entity soc_system;
 architecture rtl of soc_system is
 	component EnvelopeController is
 		port (
-			data_out : out std_logic_vector(31 downto 0);                    -- readdata
+			clk      : in  std_logic                     := 'X';             -- clk
+			reset    : in  std_logic                     := 'X';             -- reset
 			read     : in  std_logic                     := 'X';             -- read
 			write    : in  std_logic                     := 'X';             -- write
 			data_in  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
-			reset    : in  std_logic                     := 'X';             -- reset
-			clk      : in  std_logic                     := 'X'              -- clk
+			data_out : out std_logic_vector(31 downto 0)                     -- readdata
 		);
 	end component EnvelopeController;
 
@@ -143,16 +143,16 @@ architecture rtl of soc_system is
 		);
 	end component Photodiodes;
 
-	component synthesizer is
+	component Synthesizer is
 		port (
 			clk       : in  std_logic                     := 'X';             -- clk
 			reset     : in  std_logic                     := 'X';             -- reset
-			phase_reg : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
-			data_out  : out std_logic_vector(31 downto 0);                    -- readdata
+			write     : in  std_logic                     := 'X';             -- write
 			read      : in  std_logic                     := 'X';             -- read
-			write     : in  std_logic                     := 'X'              -- write
+			phase_reg : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			data_out  : out std_logic_vector(31 downto 0)                     -- readdata
 		);
-	end component synthesizer;
+	end component Synthesizer;
 
 	component soc_system_audio_0 is
 		port (
@@ -448,10 +448,10 @@ architecture rtl of soc_system is
 			character_lcd_0_avalon_lcd_slave_writedata                          : out std_logic_vector(7 downto 0);                     -- writedata
 			character_lcd_0_avalon_lcd_slave_waitrequest                        : in  std_logic                     := 'X';             -- waitrequest
 			character_lcd_0_avalon_lcd_slave_chipselect                         : out std_logic;                                        -- chipselect
-			EnvelopeController_0_avalon_slave_write                             : out std_logic;                                        -- write
-			EnvelopeController_0_avalon_slave_read                              : out std_logic;                                        -- read
-			EnvelopeController_0_avalon_slave_readdata                          : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
-			EnvelopeController_0_avalon_slave_writedata                         : out std_logic_vector(31 downto 0);                    -- writedata
+			EnvelopeController_0_avalon_slave_0_write                           : out std_logic;                                        -- write
+			EnvelopeController_0_avalon_slave_0_read                            : out std_logic;                                        -- read
+			EnvelopeController_0_avalon_slave_0_readdata                        : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			EnvelopeController_0_avalon_slave_0_writedata                       : out std_logic_vector(31 downto 0);                    -- writedata
 			Pedal_0_avalon_slave_read                                           : out std_logic;                                        -- read
 			Pedal_0_avalon_slave_readdata                                       : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- readdata
 			Photodiodes_0_avalon_slave_read                                     : out std_logic;                                        -- read
@@ -682,10 +682,6 @@ architecture rtl of soc_system is
 	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_read                       : std_logic;                     -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_read -> character_lcd_0:read
 	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_write                      : std_logic;                     -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_write -> character_lcd_0:write
 	signal mm_interconnect_0_character_lcd_0_avalon_lcd_slave_writedata                  : std_logic_vector(7 downto 0);  -- mm_interconnect_0:character_lcd_0_avalon_lcd_slave_writedata -> character_lcd_0:writedata
-	signal mm_interconnect_0_envelopecontroller_0_avalon_slave_readdata                  : std_logic_vector(31 downto 0); -- EnvelopeController_0:data_out -> mm_interconnect_0:EnvelopeController_0_avalon_slave_readdata
-	signal mm_interconnect_0_envelopecontroller_0_avalon_slave_read                      : std_logic;                     -- mm_interconnect_0:EnvelopeController_0_avalon_slave_read -> EnvelopeController_0:read
-	signal mm_interconnect_0_envelopecontroller_0_avalon_slave_write                     : std_logic;                     -- mm_interconnect_0:EnvelopeController_0_avalon_slave_write -> EnvelopeController_0:write
-	signal mm_interconnect_0_envelopecontroller_0_avalon_slave_writedata                 : std_logic_vector(31 downto 0); -- mm_interconnect_0:EnvelopeController_0_avalon_slave_writedata -> EnvelopeController_0:data_in
 	signal mm_interconnect_0_pedal_0_avalon_slave_readdata                               : std_logic_vector(7 downto 0);  -- Pedal_0:avalon_slave_readdata -> mm_interconnect_0:Pedal_0_avalon_slave_readdata
 	signal mm_interconnect_0_pedal_0_avalon_slave_read                                   : std_logic;                     -- mm_interconnect_0:Pedal_0_avalon_slave_read -> mm_interconnect_0_pedal_0_avalon_slave_read:in
 	signal mm_interconnect_0_photodiodes_0_avalon_slave_readdata                         : std_logic_vector(7 downto 0);  -- Photodiodes_0:avalon_slave_readdata -> mm_interconnect_0:Photodiodes_0_avalon_slave_readdata
@@ -694,6 +690,10 @@ architecture rtl of soc_system is
 	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_read                           : std_logic;                     -- mm_interconnect_0:Synthesizer_0_avalon_slave_0_read -> Synthesizer_0:read
 	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_write                          : std_logic;                     -- mm_interconnect_0:Synthesizer_0_avalon_slave_0_write -> Synthesizer_0:write
 	signal mm_interconnect_0_synthesizer_0_avalon_slave_0_writedata                      : std_logic_vector(31 downto 0); -- mm_interconnect_0:Synthesizer_0_avalon_slave_0_writedata -> Synthesizer_0:phase_reg
+	signal mm_interconnect_0_envelopecontroller_0_avalon_slave_0_readdata                : std_logic_vector(31 downto 0); -- EnvelopeController_0:data_out -> mm_interconnect_0:EnvelopeController_0_avalon_slave_0_readdata
+	signal mm_interconnect_0_envelopecontroller_0_avalon_slave_0_read                    : std_logic;                     -- mm_interconnect_0:EnvelopeController_0_avalon_slave_0_read -> EnvelopeController_0:read
+	signal mm_interconnect_0_envelopecontroller_0_avalon_slave_0_write                   : std_logic;                     -- mm_interconnect_0:EnvelopeController_0_avalon_slave_0_write -> EnvelopeController_0:write
+	signal mm_interconnect_0_envelopecontroller_0_avalon_slave_0_writedata               : std_logic_vector(31 downto 0); -- mm_interconnect_0:EnvelopeController_0_avalon_slave_0_writedata -> EnvelopeController_0:data_in
 	signal mm_interconnect_0_sysid_qsys_0_control_slave_readdata                         : std_logic_vector(31 downto 0); -- sysid_qsys_0:readdata -> mm_interconnect_0:sysid_qsys_0_control_slave_readdata
 	signal mm_interconnect_0_sysid_qsys_0_control_slave_address                          : std_logic_vector(0 downto 0);  -- mm_interconnect_0:sysid_qsys_0_control_slave_address -> sysid_qsys_0:address
 	signal mm_interconnect_0_switches_s1_chipselect                                      : std_logic;                     -- mm_interconnect_0:switches_s1_chipselect -> switches:chipselect
@@ -733,12 +733,12 @@ begin
 
 	envelopecontroller_0 : component EnvelopeController
 		port map (
-			data_out => mm_interconnect_0_envelopecontroller_0_avalon_slave_readdata,  -- avalon_slave.readdata
-			read     => mm_interconnect_0_envelopecontroller_0_avalon_slave_read,      --             .read
-			write    => mm_interconnect_0_envelopecontroller_0_avalon_slave_write,     --             .write
-			data_in  => mm_interconnect_0_envelopecontroller_0_avalon_slave_writedata, --             .writedata
-			reset    => rst_controller_reset_out_reset,                                --        reset.reset
-			clk      => clk_clk                                                        --        clock.clk
+			clk      => clk_clk,                                                         --          clock.clk
+			reset    => rst_controller_reset_out_reset,                                  --          reset.reset
+			read     => mm_interconnect_0_envelopecontroller_0_avalon_slave_0_read,      -- avalon_slave_0.read
+			write    => mm_interconnect_0_envelopecontroller_0_avalon_slave_0_write,     --               .write
+			data_in  => mm_interconnect_0_envelopecontroller_0_avalon_slave_0_writedata, --               .writedata
+			data_out => mm_interconnect_0_envelopecontroller_0_avalon_slave_0_readdata   --               .readdata
 		);
 
 	pedal_0 : component Pedal
@@ -766,14 +766,14 @@ begin
 			conduit_end_0         => photodiodes_0_conduit_end_export0                            --             .export0
 		);
 
-	synthesizer_0 : component synthesizer
+	synthesizer_0 : component Synthesizer
 		port map (
 			clk       => clk_clk,                                                  --          clock.clk
 			reset     => rst_controller_reset_out_reset,                           --          reset.reset
-			phase_reg => mm_interconnect_0_synthesizer_0_avalon_slave_0_writedata, -- avalon_slave_0.writedata
-			data_out  => mm_interconnect_0_synthesizer_0_avalon_slave_0_readdata,  --               .readdata
+			write     => mm_interconnect_0_synthesizer_0_avalon_slave_0_write,     -- avalon_slave_0.write
 			read      => mm_interconnect_0_synthesizer_0_avalon_slave_0_read,      --               .read
-			write     => mm_interconnect_0_synthesizer_0_avalon_slave_0_write      --               .write
+			phase_reg => mm_interconnect_0_synthesizer_0_avalon_slave_0_writedata, --               .writedata
+			data_out  => mm_interconnect_0_synthesizer_0_avalon_slave_0_readdata   --               .readdata
 		);
 
 	audio_0 : component soc_system_audio_0
@@ -1061,10 +1061,10 @@ begin
 			character_lcd_0_avalon_lcd_slave_writedata                          => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_writedata,                  --                                                              .writedata
 			character_lcd_0_avalon_lcd_slave_waitrequest                        => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_waitrequest,                --                                                              .waitrequest
 			character_lcd_0_avalon_lcd_slave_chipselect                         => mm_interconnect_0_character_lcd_0_avalon_lcd_slave_chipselect,                 --                                                              .chipselect
-			EnvelopeController_0_avalon_slave_write                             => mm_interconnect_0_envelopecontroller_0_avalon_slave_write,                     --                             EnvelopeController_0_avalon_slave.write
-			EnvelopeController_0_avalon_slave_read                              => mm_interconnect_0_envelopecontroller_0_avalon_slave_read,                      --                                                              .read
-			EnvelopeController_0_avalon_slave_readdata                          => mm_interconnect_0_envelopecontroller_0_avalon_slave_readdata,                  --                                                              .readdata
-			EnvelopeController_0_avalon_slave_writedata                         => mm_interconnect_0_envelopecontroller_0_avalon_slave_writedata,                 --                                                              .writedata
+			EnvelopeController_0_avalon_slave_0_write                           => mm_interconnect_0_envelopecontroller_0_avalon_slave_0_write,                   --                           EnvelopeController_0_avalon_slave_0.write
+			EnvelopeController_0_avalon_slave_0_read                            => mm_interconnect_0_envelopecontroller_0_avalon_slave_0_read,                    --                                                              .read
+			EnvelopeController_0_avalon_slave_0_readdata                        => mm_interconnect_0_envelopecontroller_0_avalon_slave_0_readdata,                --                                                              .readdata
+			EnvelopeController_0_avalon_slave_0_writedata                       => mm_interconnect_0_envelopecontroller_0_avalon_slave_0_writedata,               --                                                              .writedata
 			Pedal_0_avalon_slave_read                                           => mm_interconnect_0_pedal_0_avalon_slave_read,                                   --                                          Pedal_0_avalon_slave.read
 			Pedal_0_avalon_slave_readdata                                       => mm_interconnect_0_pedal_0_avalon_slave_readdata,                               --                                                              .readdata
 			Photodiodes_0_avalon_slave_read                                     => mm_interconnect_0_photodiodes_0_avalon_slave_read,                             --                                    Photodiodes_0_avalon_slave.read

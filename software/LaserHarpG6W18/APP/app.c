@@ -213,11 +213,14 @@ static  void  AppTask (void *p_arg)
         }
 
         INT32U switches = alt_read_word(SWITCH_BASE);
-        if (switches & SWITCH_0_MASK == 1) {
-        	pedal_function(1);
-        } else {
-        	pedal_function(0);
-        }
+		if ((switches & (SWITCH_0_MASK | SWITCH_2_MASK)) == (SWITCH_0_MASK | SWITCH_2_MASK)) {
+			pedal_function(2);
+		} else if ((switches & SWITCH_0_MASK) == SWITCH_0_MASK) {
+			pedal_function(1);
+		} else {
+			pedal_function(0);
+		}
+
         update_LCD_string();
 
 		OSTimeDlyHMSM(0,0,0,50);

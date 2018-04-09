@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="MODE" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="mode"/>
+			<item value="MODE"/>
 			<item value="get_o"/>
 			<item value="get_oc"/>
 			<item value="printf"/>
 			<item value="print"/>
 			<item value="ClarinetInstrument"/>
 			<item value="PianoInstrument"/>
-			<item value="HarpInstrument"/>
-			<item value="AUDIO_BUFFER_SIZE"/>
 		</list>
 		<list key="replacehistory">
 		</list>

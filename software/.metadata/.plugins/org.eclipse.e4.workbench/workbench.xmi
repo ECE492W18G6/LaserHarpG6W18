@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_eaTl4TnUEeijOvj41ZSVZQ" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_eaTl4jnUEeijOvj41ZSVZQ" bindingContexts="_eaTl5DnUEeijOvj41ZSVZQ">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;app.c&quot; tooltip=&quot;LaserHarpG6W18/APP/app.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/APP/app.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;synthesizer.c&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/synthesizer.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/HWLIBS/synthesizer.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;options.c&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/options.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/HWLIBS/options.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;audio.c&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/audio.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/HWLIBS/audio.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.cdt.ui.ExternalEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;socal.h&quot; tooltip=&quot;C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal\socal.h&quot;>&#xD;&#xA;&lt;persistable path=&quot;C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal\socal.h&quot; project=&quot;LaserHarpG6W18&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;button.c&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/button.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/HWLIBS/button.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;options.h&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/options.h&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/HWLIBS/options.h&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;lcd.c&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/lcd.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/HWLIBS/lcd.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;app.h&quot; tooltip=&quot;LaserHarpG6W18/APP/app.h&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/APP/app.h&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;synthesizer.h&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/synthesizer.h&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/HWLIBS/synthesizer.h&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;app.c&quot; tooltip=&quot;LaserHarpG6W18/APP/app.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/APP/app.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;options.c&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/options.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/HWLIBS/options.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;audio.c&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/audio.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/HWLIBS/audio.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.cdt.ui.ExternalEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;socal.h&quot; tooltip=&quot;C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal\socal.h&quot;>&#xD;&#xA;&lt;persistable path=&quot;C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal\socal.h&quot; project=&quot;LaserHarpG6W18&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;app.h&quot; tooltip=&quot;LaserHarpG6W18/APP/app.h&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/APP/app.h&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;synthesizer.c&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/synthesizer.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/HWLIBS/synthesizer.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;button.c&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/button.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/HWLIBS/button.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;options.h&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/options.h&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/HWLIBS/options.h&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;lcd.c&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/lcd.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/HWLIBS/lcd.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;synthesizer.h&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/synthesizer.h&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LaserHarpG6W18/HWLIBS/synthesizer.h&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
   <tags>com.arm.debugger.ux.debugPerspectivemodel_created</tags>
@@ -140,11 +140,12 @@
           <tags>persp.perspSC:org.eclipse.cdt.ui.CPerspective</tags>
           <tags>persp.perspSC:com.arm.debug.config.perspective</tags>
           <tags>persp.perspSC:com.ldra.lite_arm956.LDRAPerspective</tags>
-          <tags>persp.actionSet:com.arm.newsfeed.actionSetNewNews</tags>
+          <tags>persp.actionSet:com.arm.newsfeed.actionSetNoNewNews</tags>
           <children xsi:type="basic:PartSashContainer" xmi:id="_e7zJmznUEeijOvj41ZSVZQ" selectedElement="_e7zJvznUEeijOvj41ZSVZQ">
             <children xsi:type="basic:PartSashContainer" xmi:id="_e7zJnDnUEeijOvj41ZSVZQ" containerData="3500" selectedElement="_e7zJnTnUEeijOvj41ZSVZQ" horizontal="true">
               <children xsi:type="basic:PartStack" xmi:id="_e7zJnTnUEeijOvj41ZSVZQ" elementId="top.left" containerData="3000" selectedElement="_e7zJnjnUEeijOvj41ZSVZQ">
                 <tags>newtablook</tags>
+                <tags>active</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_e7zJnjnUEeijOvj41ZSVZQ" elementId="debugger.view.ControlView" ref="_e7p_4DnUEeijOvj41ZSVZQ"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_e7zJnznUEeijOvj41ZSVZQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_e7zJYDnUEeijOvj41ZSVZQ"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_e7zJoDnUEeijOvj41ZSVZQ" elementId="org.eclipse.rse.ui.view.systemView" ref="_e7zJYTnUEeijOvj41ZSVZQ"/>
@@ -254,45 +255,36 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_e7p_cDnUEeijOvj41ZSVZQ" elementId="org.eclipse.ui.editorss" selectedElement="_e7p_cTnUEeijOvj41ZSVZQ">
-      <children xsi:type="basic:PartStack" xmi:id="_e7p_cTnUEeijOvj41ZSVZQ" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_g2Bm0DtHEei85a1QJ4ugSg">
+      <children xsi:type="basic:PartStack" xmi:id="_e7p_cTnUEeijOvj41ZSVZQ" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_g7nsEDnUEeijOvj41ZSVZQ">
         <tags>newtablook</tags>
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
-        <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_g7nsEDnUEeijOvj41ZSVZQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="app.c" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;app.c&quot; partName=&quot;app.c&quot; title=&quot;app.c&quot; tooltip=&quot;LaserHarpG6W18/APP/app.c&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LaserHarpG6W18/APP/app.c&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3795&quot; selectionTopPixel=&quot;3795&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;app.c&quot; partName=&quot;app.c&quot; title=&quot;app.c&quot; tooltip=&quot;LaserHarpG6W18/APP/app.c&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LaserHarpG6W18/APP/app.c&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;7439&quot; selectionTopPixel=&quot;1230&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_Vk8DgDnbEei619r2jIuMww" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="app.h" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;app.h&quot; partName=&quot;app.h&quot; title=&quot;app.h&quot; tooltip=&quot;LaserHarpG6W18/APP/app.h&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LaserHarpG6W18/APP/app.h&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1940&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;app.h&quot; partName=&quot;app.h&quot; title=&quot;app.h&quot; tooltip=&quot;LaserHarpG6W18/APP/app.h&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LaserHarpG6W18/APP/app.h&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1650&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_g2Bm0DtHEei85a1QJ4ugSg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="options.c" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;options.c&quot; partName=&quot;options.c&quot; title=&quot;options.c&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/options.c&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LaserHarpG6W18/HWLIBS/options.c&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;7413&quot; selectionTopPixel=&quot;870&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;options.c&quot; partName=&quot;options.c&quot; title=&quot;options.c&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/options.c&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LaserHarpG6W18/HWLIBS/options.c&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1720&quot; selectionTopPixel=&quot;3254&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
           <tags>removeOnHide</tags>
-          <tags>active</tags>
-          <tags>activeOnClose</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_g7hx4DtHEei85a1QJ4ugSg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="options.h" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;options.h&quot; partName=&quot;options.h&quot; title=&quot;options.h&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/options.h&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LaserHarpG6W18/HWLIBS/options.h&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1321&quot; selectionTopPixel=&quot;475&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;options.h&quot; partName=&quot;options.h&quot; title=&quot;options.h&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/options.h&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LaserHarpG6W18/HWLIBS/options.h&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1321&quot; selectionTopPixel=&quot;180&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_8HxHcDtMEei85a1QJ4ugSg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="button.c" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;button.c&quot; partName=&quot;button.c&quot; title=&quot;button.c&quot; tooltip=&quot;LaserHarpG6W18/HWLIBS/button.c&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LaserHarpG6W18/HWLIBS/button.c&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1178&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="__rP1QDtMEei85a1QJ4ugSg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="socal.h" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;socal.h&quot; partName=&quot;socal.h&quot; title=&quot;socal.h&quot; tooltip=&quot;C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal\socal.h&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.cdt.ui.ExternalEditorInputFactory&quot; path=&quot;C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal\socal.h&quot; project=&quot;LaserHarpG6W18&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;5005&quot; selectionTopPixel=&quot;1380&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
           <tags>removeOnHide</tags>
@@ -315,6 +307,8 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:DS-5 Debugger</tags>
+      <tags>active</tags>
+      <tags>activeOnClose</tags>
       <menus xmi:id="_e-ep8DnUEeijOvj41ZSVZQ" elementId="debugger.view.ControlView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -676,7 +670,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_e3fRIjnUEeijOvj41ZSVZQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_8IKihztsEeiPhfx_YyouiA" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_ea6FlDnUEeijOvj41ZSVZQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_DqznwDwhEeiom-FOoYP_kg" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_ea6FlDnUEeijOvj41ZSVZQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_e3fRIznUEeijOvj41ZSVZQ" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -685,10 +679,10 @@
       <children xsi:type="menu:ToolBar" xmi:id="_e9SXIDnUEeijOvj41ZSVZQ" elementId="com.arm.debugger.launchActionSet">
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_mm6lgDnVEeijOvj41ZSVZQ" elementId="com.arm.newsfeed.actionSetNewNews">
+      <children xsi:type="menu:ToolBar" xmi:id="_mm6lgDnVEeijOvj41ZSVZQ" elementId="com.arm.newsfeed.actionSetNewNews" visible="false">
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_e8GrYDnUEeijOvj41ZSVZQ" elementId="com.arm.newsfeed.actionSetNoNewNews" visible="false">
+      <children xsi:type="menu:ToolBar" xmi:id="_e8GrYDnUEeijOvj41ZSVZQ" elementId="com.arm.newsfeed.actionSetNoNewNews">
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_fZtNYDnUEeijOvj41ZSVZQ" elementId="org.eclipse.cdt.ui.CElementCreationActionSet" visible="false">
@@ -709,7 +703,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_e3fRJznUEeijOvj41ZSVZQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_8ITscDtsEeiPhfx_YyouiA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_ea6FSjnUEeijOvj41ZSVZQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_DrDfYDwhEeiom-FOoYP_kg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_ea6FSjnUEeijOvj41ZSVZQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_e3fRKDnUEeijOvj41ZSVZQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -743,8 +737,25 @@
         <tags>Draggable</tags>
       </children>
     </trimBars>
-    <trimBars xmi:id="_e7NTgDnUEeijOvj41ZSVZQ" elementId="org.eclipse.ui.trim.vertical1" side="Left"/>
-    <trimBars xmi:id="_e7NTgTnUEeijOvj41ZSVZQ" elementId="org.eclipse.ui.trim.vertical2" side="Right"/>
+    <trimBars xmi:id="_e7NTgDnUEeijOvj41ZSVZQ" elementId="org.eclipse.ui.trim.vertical1" toBeRendered="false" side="Left">
+      <children xsi:type="menu:ToolControl" xmi:id="_D2TGQDxGEeiom-FOoYP_kg" elementId="top.left(com.arm.debugger.ux.debugPerspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+        <tags>TrimStack</tags>
+      </children>
+    </trimBars>
+    <trimBars xmi:id="_e7NTgTnUEeijOvj41ZSVZQ" elementId="org.eclipse.ui.trim.vertical2" toBeRendered="false" side="Right">
+      <children xsi:type="menu:ToolControl" xmi:id="_D2cQMDxGEeiom-FOoYP_kg" elementId="top.middle(com.arm.debugger.ux.debugPerspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+        <tags>TrimStack</tags>
+      </children>
+      <children xsi:type="menu:ToolControl" xmi:id="_D2mBMDxGEeiom-FOoYP_kg" elementId="top.right(com.arm.debugger.ux.debugPerspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+        <tags>TrimStack</tags>
+      </children>
+      <children xsi:type="menu:ToolControl" xmi:id="_D2mBMTxGEeiom-FOoYP_kg" elementId="editor.right(com.arm.debugger.ux.debugPerspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+        <tags>TrimStack</tags>
+      </children>
+      <children xsi:type="menu:ToolControl" xmi:id="_D2vLIDxGEeiom-FOoYP_kg" elementId="bottom.right(com.arm.debugger.ux.debugPerspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+        <tags>TrimStack</tags>
+      </children>
+    </trimBars>
   </children>
   <bindingTables xmi:id="_eaTl4znUEeijOvj41ZSVZQ" contributorURI="platform:/plugin/org.eclipse.platform" bindingContext="_eaTl5DnUEeijOvj41ZSVZQ">
     <bindings xmi:id="_ebppyTnUEeijOvj41ZSVZQ" keySequence="CTRL+A" command="_ea6ERznUEeijOvj41ZSVZQ"/>

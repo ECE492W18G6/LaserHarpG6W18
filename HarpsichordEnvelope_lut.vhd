@@ -14,7 +14,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use IEEE.STD_LOGIC_UNSIGNED.all;
 
-entity ViolinEnvelope_lut is 
+entity HarpsichordEnvelope_lut is 
 
 	port(
 	-- system signals
@@ -27,9 +27,9 @@ entity ViolinEnvelope_lut is
 	data_out 	: out std_logic_vector(31 downto 0)
 	);
 	
-end ViolinEnvelope_lut;
+end HarpsichordEnvelope_lut;
 
-architecture rtl of ViolinEnvelope_lut is
+architecture rtl of HarpsichordEnvelope_lut is
 
 type rom_type is array (0 to 4095) of std_logic_vector (31 downto 0);
 

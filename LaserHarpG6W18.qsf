@@ -1569,7 +1569,7 @@ set_location_assignment PIN_G21 -to KEY
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY
 set_location_assignment PIN_G21 -to HPS_KEY_N
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_KEY_N
-set_global_assignment -name VHDL_FILE ViolinSin_lut.vhd
+set_global_assignment -name VHDL_FILE HarpsichordSin_lut.vhd
 set_global_assignment -name VHDL_FILE PianoSin_lut.vhd
 set_global_assignment -name VHDL_FILE HarpSin_lut.vhd
 set_global_assignment -name VHDL_FILE ClarinetSin_lut.vhd

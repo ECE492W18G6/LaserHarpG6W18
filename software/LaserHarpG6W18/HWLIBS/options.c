@@ -34,16 +34,22 @@ char key[2];
 
 float frequencies[NUM_STRINGS+1];
 
-
 void change_scale() {
 	SCALE = (SCALE + 1) % NUM_SCALES;
 }
 
 int get_octave() {
-	if (MODE != 0 && alt_read_word(PEDAL_BASE)) {
+	INT32U switches = alt_read_word(SWITCH_BASE);
+	if (MODE == 2 && alt_read_word(PEDAL_BASE)) {
 		int o = OCTAVE + 1;
 		if (o > MAX_OCTAVE) {
 			return MIN_OCTAVE;
+		}
+		return o;
+	} else if (MODE == 1 && alt_read_word(PEDAL_BASE)) {
+		int o = OCTAVE - 1;
+		if (o < MIN_OCTAVE) {
+			return MAX_OCTAVE;
 		}
 		return o;
 	}
@@ -88,7 +94,6 @@ void get_frequencies(int* integers, float* fractions) {
 		fractions[i] = frequencies[i+1] - integers[i];
 	}
 }
-
 
 
 void update_LCD_string() {
@@ -187,7 +192,7 @@ void update_LCD_string() {
 		default:
 			sprintf(instrument, "Harp");
 	}
-	switch (OCTAVE) {
+	switch (get_octave()) {
 		case OCTAVE_2:
 			sprintf(octave, " Octave 2      ");
 			break;

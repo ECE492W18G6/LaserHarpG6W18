@@ -61,7 +61,7 @@ component ClarinetSin_lut is
 
 end component ClarinetSin_lut;
 
-component ViolinSin_lut is 
+component HarpsichordSin_lut is 
 
 	port (
 	clk : in std_logic;
@@ -72,7 +72,7 @@ component ViolinSin_lut is
 	sin_out  : out std_logic_vector(31 downto 0)
 	);
 
-end component ViolinSin_lut;
+end component HarpsichordSin_lut;
 
 component HarpSin_lut is 
 
@@ -137,7 +137,7 @@ signal diodeSel		: std_logic_vector(2 downto 0);
 signal Harplut_data		: std_logic_vector(31 downto 0) := X"00000000";
 signal Pianolut_data		: std_logic_vector(31 downto 0) := X"00000000";
 signal Clarinetlut_data	: std_logic_vector(31 downto 0) := X"00000000";
-signal Violinlut_data	: std_logic_vector(31 downto 0) := X"00000000";
+signal Harpsichordlut_data	: std_logic_vector(31 downto 0) := X"00000000";
 
 
 begin
@@ -162,11 +162,11 @@ Clarinetlut: component ClarinetSin_lut  port map (
 		sin_out 	=> Clarinetlut_data
  );
  
-Violinlut: component ViolinSin_lut  port map (
+Harpsichordlut: component HarpsichordSin_lut  port map (
 		clk       => clk,
 		en        => write,
     	address_reg      => indexOut(11 downto 0),
-		sin_out 	=> Violinlut_data
+		sin_out 	=> Harpsichordlut_data
  );
  
 Harplut: component HarpSin_lut  port map (
@@ -196,7 +196,7 @@ mux4: component Mux4X1 port map (
 	data_in0	=> Harplut_data,
 	data_in1	=> Pianolut_data,
 	data_in2	=> Clarinetlut_data,
-	data_in3	=> Violinlut_data,
+	data_in3	=> Harpsichordlut_data,
 	data_out	=> data_out
 );
 
