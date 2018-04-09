@@ -1,13 +1,18 @@
-11:37:40 **** Incremental Build of configuration Debug for project LaserHarpG6W18 ****
+16:38:19 **** Incremental Build of configuration Debug for project LaserHarpG6W18 ****
 make all 
+'Building file: ../HWLIBS/options.c'
+'Invoking: ARM C Compiler 5'
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\APP" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\BSP" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="HWLIBS" -c -o "HWLIBS/options.o" "../HWLIBS/options.c"
+'Finished building: ../HWLIBS/options.c'
+' '
 'Building file: ../APP/app.c'
 'Invoking: ARM C Compiler 5'
-armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\APP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\anarten\ECE492_Projects\LaserHarpG6W18\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="APP" -c -o "APP/app.o" "../APP/app.c"
+armcc --cpu=Cortex-A9 --no_unaligned_access -Dsoc_cv_av -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\APP" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\BSP" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\BSP\OS" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"C:\intelFPGA\17.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\HWLIBS" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\uC-CPU\ARM-Cortex-A" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\uC-CPU" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\uC-LIBS" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\uCOS-II\Ports" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\uCOS-II\Source" -I"C:\Users\chiasson\Documents\ece492\software\LaserHarpG6W18\BSP\ARM_Compiler" --c99 --gnu -O0 -g --md --depend_format=unix_escaped --no_depend_system_headers --depend_dir="APP" -c -o "APP/app.o" "../APP/app.c"
 'Finished building: ../APP/app.c'
 ' '
 'Building target: LaserHarpG6W18.axf'
 'Invoking: ARM Linker 5'
-armlink --cpu=Cortex-A9 --entry=Start --scatter=""C:/Users/anarten/ECE492_Projects/LaserHarpG6W18/software/LaserHarpG6W18/BSP/ARM_COMPILER/scatter.scat"" --info=sizes -o "LaserHarpG6W18.axf"  ./uCOS-II/Source/os_core.o ./uCOS-II/Source/os_dbg_r.o ./uCOS-II/Source/os_flag.o ./uCOS-II/Source/os_mbox.o ./uCOS-II/Source/os_mem.o ./uCOS-II/Source/os_mutex.o ./uCOS-II/Source/os_q.o ./uCOS-II/Source/os_sem.o ./uCOS-II/Source/os_task.o ./uCOS-II/Source/os_time.o ./uCOS-II/Source/os_tmr.o  ./uCOS-II/Ports/os_cpu_a_vfp-d32.o ./uCOS-II/Ports/os_cpu_c.o  ./uC-LIBS/lib_ascii.o ./uC-LIBS/lib_math.o ./uC-LIBS/lib_mem.o ./uC-LIBS/lib_str.o  ./uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2.o ./uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2_a.o  ./uC-CPU/ARM-Cortex-A/cpu_a.o  ./uC-CPU/cpu_core.o  ./HWLIBS/alt_16550_uart.o ./HWLIBS/alt_bridge_manager.o ./HWLIBS/alt_clock_manager.o ./HWLIBS/alt_fpga_manager.o ./HWLIBS/audio.o ./HWLIBS/audio_cfg.o ./HWLIBS/button.o ./HWLIBS/lcd.o ./HWLIBS/options.o ./HWLIBS/synthesizer.o  ./BSP/OS/bsp_os.o  ./BSP/ARM_Compiler/armv7a_tthelp.o ./BSP/ARM_Compiler/bsp_cache.o ./BSP/ARM_Compiler/startup.o  ./BSP/bsp.o ./BSP/bsp_int.o ./BSP/cpu_bsp.o  ./APP/app.o   
+armlink --cpu=Cortex-A9 --entry=Start --scatter=""C:/Users/chiasson/Documents/ece492/software/LaserHarpG6W18/BSP/ARM_COMPILER/scatter.scat"" --info=sizes -o "LaserHarpG6W18.axf"  ./uCOS-II/Source/os_core.o ./uCOS-II/Source/os_dbg_r.o ./uCOS-II/Source/os_flag.o ./uCOS-II/Source/os_mbox.o ./uCOS-II/Source/os_mem.o ./uCOS-II/Source/os_mutex.o ./uCOS-II/Source/os_q.o ./uCOS-II/Source/os_sem.o ./uCOS-II/Source/os_task.o ./uCOS-II/Source/os_time.o ./uCOS-II/Source/os_tmr.o  ./uCOS-II/Ports/os_cpu_a_vfp-d32.o ./uCOS-II/Ports/os_cpu_c.o  ./uC-LIBS/lib_ascii.o ./uC-LIBS/lib_math.o ./uC-LIBS/lib_mem.o ./uC-LIBS/lib_str.o  ./uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2.o ./uC-CPU/Cache/cpu_cache_armv7_generic_l1_l2c310_l2_a.o  ./uC-CPU/ARM-Cortex-A/cpu_a.o  ./uC-CPU/cpu_core.o  ./HWLIBS/alt_16550_uart.o ./HWLIBS/alt_bridge_manager.o ./HWLIBS/alt_clock_manager.o ./HWLIBS/alt_fpga_manager.o ./HWLIBS/audio.o ./HWLIBS/audio_cfg.o ./HWLIBS/button.o ./HWLIBS/lcd.o ./HWLIBS/options.o ./HWLIBS/synthesizer.o  ./BSP/OS/bsp_os.o  ./BSP/ARM_Compiler/armv7a_tthelp.o ./BSP/ARM_Compiler/bsp_cache.o ./BSP/ARM_Compiler/startup.o  ./BSP/bsp.o ./BSP/bsp_int.o ./BSP/cpu_bsp.o  ./APP/app.o   
 
 ==============================================================================
 
@@ -16,111 +21,80 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1112         56         64          0      32928       3635   app.o
-        96          0          0          0          0        572   armv7a_tthelp.o
-        92          4          0          0          0       1163   audio.o
-        32          0          0          0          0        591   audio_cfg.o
-       136         16          0          0          0       1333   bsp.o
-       436          0          0          0          0        904   bsp_cache.o
-       832         32          0          0       1024       5835   bsp_int.o
-       280         12          0          0          0       3002   bsp_os.o
-       240          8          0          4          0       1528   button.o
-        96          0          0          0          0        792   cpu_a.o
-       220          4          0          0          0       1332   cpu_bsp.o
-        44         12          0          8          0        942   cpu_cache_armv7_generic_l1_l2c310_l2.o
-       204          0          0          0          0        680   cpu_cache_armv7_generic_l1_l2c310_l2_a.o
-       888         20        260          4          0       6920   cpu_core.o
-      1440        276          0          9          0       2585   lcd.o
-         0          0          0          0          0      13532   lib_ascii.o
-         0          0          0          0          0       1508   lib_math.o
-      5136         76          0          4   16777236      27601   lib_mem.o
-      7384        392          0         26         76       5012   options.o
-      5836        160        256         80      10920      24563   os_core.o
-       988          0          0          0          0        556   os_cpu_a_vfp-d32.o
-       608         36          0         12       4096      14781   os_cpu_c.o
-       376        184        118          0          0      12165   os_dbg_r.o
-      3768         36          0          0          0       7744   os_flag.o
-      1096         16          0          0          0       3776   os_mem.o
-      2916         28          0          0          0       6257   os_q.o
-      1832         20          0          0          0       4518   os_sem.o
-      3992         48          0          0          0       9044   os_task.o
-       796         28          0          0          0       1982   os_time.o
-       496         76          0          0          0        788   startup.o
-       140          0          0          0          0       1885   synthesizer.o
+      5136         20          0          0          0      29234   alt_16550_uart.o
+       404          4          0          0          0      79352   alt_bridge_manager.o
+     31208        864          0        224          0      34886   alt_clock_manager.o
+      3624        832        207          0          0      16426   alt_fpga_manager.o
+      1416         92         32          0      32928       4642   app.o
+        96          0          0          0          0        560   armv7a_tthelp.o
+        92          4          0          0          0       1139   audio.o
+        32          0          0          0          0        575   audio_cfg.o
+       136         16          0          0          0       1321   bsp.o
+       436          0          0          0          0        892   bsp_cache.o
+       832         32          0          0       1024       5727   bsp_int.o
+       280         12          0          0          0       2934   bsp_os.o
+       240          8          0          4          0       1504   button.o
+        96          0          0          0          0        780   cpu_a.o
+       220          4          0          0          0       1320   cpu_bsp.o
+        44         12          0          8          0        914   cpu_cache_armv7_generic_l1_l2c310_l2.o
+       204          0          0          0          0        664   cpu_cache_armv7_generic_l1_l2c310_l2_a.o
+       888         20        260          4          0       6820   cpu_core.o
+       920         16          0          9          0       2437   lcd.o
+         0          0          0          0          0      13420   lib_ascii.o
+         0          0          0          0          0       1444   lib_math.o
+      5136         76          0          4   16777236      27473   lib_mem.o
+      7336        372          0         30         76       5395   options.o
+      5836        160        256         80      10920      24431   os_core.o
+       988          0          0          0          0        544   os_cpu_a_vfp-d32.o
+       608         36          0         12       4096      14681   os_cpu_c.o
+       376        184        118          0          0      12057   os_dbg_r.o
+      3768         36          0          0          0       7704   os_flag.o
+      1096         16          0          0          0       3736   os_mem.o
+      2916         28          0          0          0       6217   os_q.o
+      1832         20          0          0          0       4478   os_sem.o
+      3992         48          0          0          0       9008   os_task.o
+       796         28          0          0          0       1970   os_time.o
+       496         76          0          0          0        776   startup.o
+       280          0          0          0          0       2317   synthesizer.o
 
     ----------------------------------------------------------------------
-     41520       1548        718        152   50425768     167526   Object Totals
-         0          0         16          0   33599488          0   (incl. Generated)
-         8          8          4          5          0          0   (incl. Padding)
+     81764       3020        926        380   50425768     327778   Object Totals
+         0          0         48          0   33599488          0   (incl. Generated)
+         4          4          5          5          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
 
+        90          0          0          0          0          0   __dczerorl2.o
          8          0          0          0          0         68   __main.o
-       104          0          0          0          0         84   __printf.o
+        40          0          0          0          0         84   __printf_nopercent.o
          0          0          0          0          0          0   __rtentry.o
         12          0          0          0          0          0   __rtentry2.o
          8          4          0          0          0          0   __rtentry6.o
         52          8          0          0          0          0   __scatter.o
+        26          0          0          0          0          0   __scatter_copy.o
         28          0          0          0          0          0   __scatter_zi.o
         48          6          0          0          0         96   _printf_char_common.o
-        36          4          0          0          0         80   _printf_char_file.o
-       112         16          0          0          0         92   _printf_dec.o
-         6          0          0          0          0          0   _printf_i.o
-       178          0          0          0          0         88   _printf_intcommon.o
-         0          0          0          0          0          0   _printf_percent.o
-         4          0          0          0          0          0   _printf_percent_end.o
         22          0          0          0          0        100   _rserrno.o
         10          0          0          0          0         68   _sputc.o
        416          0          0          0          0        144   aeabi_sdiv.o
-        10          0          0          0          0         68   defsig_exit.o
-        50          0          0          0          0         88   defsig_general.o
-        80         58          0          0          0         76   defsig_rtmem_inner.o
-        14          0          0          0          0         80   defsig_rtmem_outer.o
-        52         38          0          0          0         76   defsig_rtred_inner.o
-        14          0          0          0          0         80   defsig_rtred_outer.o
         18          0          0          0          0         80   exit.o
-        76          0          0          0          0         88   fclose.o
-         8          0          0          0          0         68   ferror.o
-       470          0          0          0          0         88   flsbuf.o
-       236          4          0          0          0        128   fopen.o
-        26          0          0          0          0         68   fputc.o
-       248          6          0          0          0         84   fseek.o
-        66          0          0          0          0         76   ftell.o
-        94          0          0          0          0         80   h1_alloc.o
-        48          0          0          0          0         68   h1_extend.o
-        78          0          0          0          0         80   h1_free.o
-        14          0          0          0          0         84   h1_init.o
-        80          6          0          4          0         96   heapauxa.o
-         4          0          0          0          0        136   hguard.o
          0          0          0          0          0          0   indicate_semi.o
-       136          0          0          0          0        168   init_alloc.o
-       312         46          0          0          0        112   initio.o
          2          0          0          0          0          0   libinit.o
-        10          0          0          0          0          0   libinit2.o
-        16          8          0          0          0          0   libinit4.o
+         6          0          0          0          0          0   libinit2.o
          2          0          0          0          0          0   libshutdown.o
-         6          0          0          0          0          0   libshutdown2.o
+         2          0          0          0          0          0   libshutdown2.o
          0          0          0          0         96          0   libspace.o
        816         64          0          0          0         84   lludiv5.o
-         0          0          0          0          0          0   maybetermalloc1.o
-        24          4          0          0          0         84   noretval__2printf.o
         40          6          0          0          0         84   noretval__2sprintf.o
          8          4          0          0          0         68   rt_errno_addr_intlibspace.o
-         8          4          0          0          0         68   rt_heap_descriptor_intlibspace.o
         80          0          0          0          0        172   rt_neon_memclr_w.o
        124          0          0          0          0        192   rt_noneon_memcpy_w_ca9.o
          2          0          0          0          0          0   rtexit.o
         10          0          0          0          0          0   rtexit2.o
-        44          0          0          0          0         68   rtudiv10.o
-        70          0          0          0          0         80   setvbuf.o
-       240          6          0          0          0        156   stdio.o
-         0          0          0         12        252          0   stdio_streams.o
         58          0          0          0          0         68   strlen.o
         12          4          0          0          0         68   sys_exit.o
-       102          0         12          0          0        240   sys_io.o
-        14          0          0          0          0         76   sys_wrch.o
          2          0          0          0          0         68   use_no_semi.o
         16          4          0          0          0        116   dcheck1.o
         10          0          0          0          0        116   fpinit.o
@@ -138,19 +112,19 @@ Image component sizes
        102          0          0          0          0        140   sqrt.o
 
     ----------------------------------------------------------------------
-      8082        682        156         16        348       6484   Library Totals
-        22          0          0          0          0          0   (incl. Padding)
+      5158        482        144          0         96       3560   Library Totals
+        24          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-      4868        296         12         16        348       4368   c_2.l
+      1942         96          0          0         96       1444   c_2.l
        266          4          0          0          0        580   fz_2v.l
       2926        382        144          0          0       1536   m_2v.l
 
     ----------------------------------------------------------------------
-      8082        682        156         16        348       6484   Library Totals
+      5158        482        144          0         96       3560   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -159,20 +133,20 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     49602       2230        874        168   50426116     164926   Grand Totals
-     49602       2230        874        168   50426116     164926   ELF Image Totals
-     49602       2230        874        168          0          0   ROM Totals
+     86922       3502       1070        380   50425864     322502   Grand Totals
+     86922       3502       1070        112   50425864     322502   ELF Image Totals (compressed)
+     86922       3502       1070        112          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                50476 (  49.29kB)
-    Total RW  Size (RW Data + ZI Data)          50426284 (49244.42kB)
-    Total ROM Size (Code + RO Data + RW Data)      50644 (  49.46kB)
+    Total RO  Size (Code + RO Data)                87992 (  85.93kB)
+    Total RW  Size (RW Data + ZI Data)          50426244 (49244.38kB)
+    Total ROM Size (Code + RO Data + RW Data)      88104 (  86.04kB)
 
 ==============================================================================
 
 'Finished building target: LaserHarpG6W18.axf'
 ' '
 
-11:37:41 Build Finished (took 829ms)
+16:38:20 Build Finished (took 1s.155ms)
 

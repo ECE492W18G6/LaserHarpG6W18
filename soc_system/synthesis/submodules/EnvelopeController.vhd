@@ -13,7 +13,7 @@
 -- -------------------------------------------------------------------------------------------------------------------------- --
 -- | 0 - 2  | The number of the diode you want to get the envelope value for. i.e: 000 => diode 0, 010 => diode 2 etc.      | --					
 -- |   3    | If this is '1', then the currently selected diode will reset its position in the envelope LUT to 0            | --
--- | 4 - 5  | Selects which instruments LUT you want to step through, 00 => Harp, 01 => Piano, 10 => Clarinet, 11 => Violin | -- 
+-- | 4 - 5  | Selects which instruments LUT you want to step through, 00 => Harp, 01 => Piano, 10 => Clarinet, 11 => harpsichord | -- 
 --  ------------------------------------------------------------------------------------------------------------------------- --
 -- This component works by keeping a counter signal for each diode, when the user writes their options, the counters are      --
 -- muxed together with bits 0 - 2, to select which counter should go through to the LUT. The counter is used as an index      --
@@ -74,7 +74,7 @@ component ClarinetEnvelope_lut is
 
 end component ClarinetEnvelope_lut;
 
-component ViolinEnvelope_lut is 
+component HarpsichordEnvelope_lut is 
 	port (
 	clk 			: in std_logic;
 	en				: in std_logic;
@@ -83,7 +83,7 @@ component ViolinEnvelope_lut is
 	data_out  	: out std_logic_vector(31 downto 0)
 	);
 
-end component ViolinEnvelope_lut;
+end component HarpsichordEnvelope_lut;
 
 component Mux8X1 is
 	generic (N : Integer := 12);
@@ -128,7 +128,7 @@ signal counterOut			: std_logic_vector(11 downto 0) := X"000";
 signal harpLUT_out		: std_logic_vector(31 downto 0) := X"00000000";
 signal pianoLUT_out		: std_logic_vector(31 downto 0) := X"00000000";
 signal clarinetLUT_out	: std_logic_vector(31 downto 0) := X"00000000";
-signal violinLUT_out		: std_logic_vector(31 downto 0) := X"00000000";
+signal harpsichordLUT_out		: std_logic_vector(31 downto 0) := X"00000000";
 
 begin
 
@@ -156,12 +156,12 @@ ClarinetLUT: component ClarinetEnvelope_lut  port map (
 		data_out 	=> clarinetLUT_out
 );
 
-ViolinLUT: component ViolinEnvelope_lut  port map (
+HarpsichordLUT: component HarpsichordEnvelope_lut  port map (
 		clk      	=> clk,
 		en       	=> write,
 		reset 		=> reset,
 		index			=> counterOut,
-		data_out 	=> violinLUT_out
+		data_out 	=> harpsichordLUT_out
 );
 
 mux8: component Mux8X1 port map (
@@ -184,7 +184,7 @@ mux4: component Mux4X1 port map (
 	data_in0	=> harpLUT_out,
 	data_in1	=> pianoLUT_out,
 	data_in2	=> clarinetLUT_out,
-	data_in3	=> violinLUT_out,
+	data_in3	=> harpsichordLUT_out,
 	data_out	=> data_out
 );
 

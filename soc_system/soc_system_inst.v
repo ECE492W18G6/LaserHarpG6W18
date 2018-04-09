@@ -80,10 +80,6 @@
 		.memory_mem_dm                                    (<connected-to-memory_mem_dm>),                                    //                                            .mem_dm
 		.memory_oct_rzqin                                 (<connected-to-memory_oct_rzqin>),                                 //                                            .oct_rzqin
 		.pedal_0_conduit_end_export                       (<connected-to-pedal_0_conduit_end_export>),                       //                         pedal_0_conduit_end.export
-		.pll_0_outclk0_clk                                (<connected-to-pll_0_outclk0_clk>),                                //                               pll_0_outclk0.clk
-		.red_leds_external_connection_export              (<connected-to-red_leds_external_connection_export>),              //                red_leds_external_connection.export
-		.reset_reset_n                                    (<connected-to-reset_reset_n>),                                    //                                       reset.reset_n
-		.switches_external_connection_export              (<connected-to-switches_external_connection_export>),              //                switches_external_connection.export
 		.photodiodes_0_conduit_end_export1                (<connected-to-photodiodes_0_conduit_end_export1>),                //                   photodiodes_0_conduit_end.export1
 		.photodiodes_0_conduit_end_export2                (<connected-to-photodiodes_0_conduit_end_export2>),                //                                            .export2
 		.photodiodes_0_conduit_end_export3                (<connected-to-photodiodes_0_conduit_end_export3>),                //                                            .export3
@@ -91,6 +87,10 @@
 		.photodiodes_0_conduit_end_export5                (<connected-to-photodiodes_0_conduit_end_export5>),                //                                            .export5
 		.photodiodes_0_conduit_end_export6                (<connected-to-photodiodes_0_conduit_end_export6>),                //                                            .export6
 		.photodiodes_0_conduit_end_export7                (<connected-to-photodiodes_0_conduit_end_export7>),                //                                            .export7
-		.photodiodes_0_conduit_end_export0                (<connected-to-photodiodes_0_conduit_end_export0>)                 //                                            .export0
+		.photodiodes_0_conduit_end_export0                (<connected-to-photodiodes_0_conduit_end_export0>),                //                                            .export0
+		.pll_0_outclk0_clk                                (<connected-to-pll_0_outclk0_clk>),                                //                               pll_0_outclk0.clk
+		.red_leds_external_connection_export              (<connected-to-red_leds_external_connection_export>),              //                red_leds_external_connection.export
+		.reset_reset_n                                    (<connected-to-reset_reset_n>),                                    //                                       reset.reset_n
+		.switches_external_connection_export              (<connected-to-switches_external_connection_export>)               //                switches_external_connection.export
 	);
 

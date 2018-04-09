@@ -62,6 +62,7 @@
 #include <hwlib.h>
 #include <math.h>
 
+
 #include "lcd.h"
 #include "synthesizer.h"
 #include "audio_cfg.h"
@@ -69,6 +70,9 @@
 #include "options.h"
 #include "app.h"
 #include "button.h"
+#include <alt_bridge_manager.h>
+#include <alt_16550_uart.h>
+#include <string.h>
 
 /*
 *********************************************************************************************************
@@ -83,6 +87,7 @@ INT32S SYNTH_VALUES[NUM_STRINGS];
 INT32S POLY_BUFFER[NUM_STRINGS];
 float fractions[NUM_STRINGS];
 int integers[NUM_STRINGS];
+int CHANGED_INSTRUMENT = 0;
 float fraction_accumulators[NUM_STRINGS];
 
 /*
@@ -104,6 +109,18 @@ int main ()
 {
     INT8U os_err;
 
+    ALT_BRIDGE_t lw_bridge = ALT_BRIDGE_LWH2F;
+	ALT_STATUS_CODE err = alt_bridge_init(lw_bridge, NULL, NULL);
+
+	const char name[] = "Nancy's Tutorial 1 UART Demo\n\r";
+	ALT_16550_DEVICE_t uart0 = ALT_16550_DEVICE_SOCFPGA_UART0;
+	ALT_16550_HANDLE_t hdl_uart0;
+	err = alt_16550_init(uart0, NULL, NULL, &hdl_uart0);
+	err = alt_16550_enable(&hdl_uart0);
+	err = alt_16550_fifo_enable(&hdl_uart0);
+	err = alt_16550_fifo_clear_rx(&hdl_uart0);
+	err = alt_16550_fifo_write_safe(&hdl_uart0, name, strlen(name), true);
+
     BSP_WatchDog_Reset();                                       /* Reset the watchdog as soon as possible.              */
 
                                                                 /* Scatter loading is complete. Now the caches can be activated.*/
@@ -118,6 +135,7 @@ int main ()
     BSP_Init();
 
     OSInit();
+
 
     os_err = OSTaskCreateExt((void (*)(void *)) AppTask,   /* Create the start task.                               */
                              (void          * ) 0,
@@ -192,8 +210,18 @@ static  void  AppTask (void *p_arg)
         	if (key_0_pressed()) {
 				change_octave();
         	}
-			update_LCD_string();
         }
+
+        INT32U switches = alt_read_word(SWITCH_BASE);
+		if ((switches & (SWITCH_0_MASK | SWITCH_2_MASK)) == (SWITCH_0_MASK | SWITCH_2_MASK)) {
+			pedal_function(2);
+		} else if ((switches & SWITCH_0_MASK) == SWITCH_0_MASK) {
+			pedal_function(1);
+		} else {
+			pedal_function(0);
+		}
+
+        update_LCD_string();
 
 		OSTimeDlyHMSM(0,0,0,50);
     }
@@ -214,6 +242,7 @@ static  void  AppTask (void *p_arg)
 * Notes       : (1) The ticker MUST be initialized AFTER multitasking has started.
 *********************************************************************************************************
 */
+
 static  void  AudioTask (void *p_arg)
 {
     // Configure audio device
@@ -231,35 +260,34 @@ static  void  AudioTask (void *p_arg)
 
 	update_LCD_string();
 
-	char *SYNTH_BASE[8] = {SYNTH0_BASE, SYNTH1_BASE, SYNTH2_BASE, SYNTH3_BASE, SYNTH4_BASE, SYNTH5_BASE, SYNTH6_BASE, SYNTH7_BASE};
 	int DIODE_MASK[8] = {DIODE_0_MASK, DIODE_1_MASK, DIODE_2_MASK, DIODE_3_MASK, DIODE_4_MASK, DIODE_5_MASK, DIODE_6_MASK, DIODE_7_MASK};
 
-	// TODO: This should be determined by the button options
-	int instrument = 1;
-	int extend[8] = {0, 0, 0, 0, 0, 0, 0};
+	int extend[NUM_STRINGS] = {0, 0, 0, 0, 0, 0, 0};
 	int enable[NUM_STRINGS] = {0, 0, 0, 0, 0, 0, 0};
 	int enable_flag[NUM_STRINGS] = {0, 0, 0, 0, 0, 0, 0};
-	int extendConstant = 16;
-	float envelope[8] = {0,0,0,0,0,0,0,0};
+	float envelope[NUM_STRINGS] = {0,0,0,0,0,0,0,0};
 
 	int i;
     for(;;) {
         BSP_WatchDog_Reset();				/* Reset the watchdog.   */
-
         POLY_BUFFER[0] = 0;
         get_frequencies(integers, fractions);
         INT8U photodiodes = (INT8U) alt_read_byte(PHOTODIODE_BASE);
-
-        for (i = 0; i < NUM_STRINGS; i++) {
-        	writeFreqToSynthesizer(SYNTH_BASE[i], integers[i]);
+        int instrument = get_instrument();
+        
+		for (i = 0; i < NUM_STRINGS; i++) {
+	    	int extendConstant = 16;
+        	int beam_enable = (photodiodes & DIODE_MASK[i]);
+			INT32S read = 0;
         	fraction_accumulators[i] = fraction_accumulators[i] + fractions[i];
 			if (fraction_accumulators[i] > 1) {
-				alt_write_word(SYNTH_BASE[i], 1);
+				writeFreqToSynthesizer((void *)0xff201000, integers[i]+1, i, instrument);
 				fraction_accumulators[i] = fraction_accumulators[i] - 1;
+			} else {
+				writeFreqToSynthesizer((void *)0xff201000, integers[i], i, instrument);
 			}
-
-			int beam_enable = (photodiodes & DIODE_MASK[i]);
-			if (sustain_enabled()) {
+			read = readFromSythesizer((void *)0xff201000, enable[i]);
+			if ((sustain_enabled() || instrument != CLARINET )) {
 				if (enable[i] <= beam_enable) {
 					if (!enable_flag[i]) { // beam was not being broken but now is
 						readFromEnvelope(ENVELOPE_BASE, i, (0 <= 0), instrument); // reset envelope
@@ -267,17 +295,22 @@ static  void  AudioTask (void *p_arg)
 					enable[i] = beam_enable; // set enable accordingly
 					enable_flag[i] = 1; // beam is being broken
 				} else if (enable[i] > beam_enable) { // sustaining but beam no longer broken
+					if (!sustain_enabled() && (instrument == PIANO || instrument == HARPSICHORD)) {
+						extendConstant = 5;
+					}
 					enable_flag[i] = 0; // just change flag, not enable
 				}
-			} else { // sustain disabled
+			} else  { // sustain disabled
 				enable[i] = beam_enable;
 			}
 
 			if ((extend[i] % extendConstant) == 0) {
 				envelope[i] = readFromEnvelope(ENVELOPE_BASE, i, (enable[i] <= 0), instrument);
 			}
+			if (instrument == CLARINET) {
+				envelope[i] = 1;
+			}
 			extend[i] = extend[i] + 1;
-			INT32S read = readFromSythesizer(SYNTH_BASE[i], enable[i]);
 			POLY_BUFFER[0] += (INT32S) (read * envelope[i]);
 		}
 		write_audio_data(POLY_BUFFER, 1);

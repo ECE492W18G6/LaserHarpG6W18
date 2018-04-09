@@ -13,11 +13,11 @@
    {
       datum _sortIndex
       {
-         value = "10";
+         value = "13";
          type = "int";
       }
    }
-   element EnvelopeController_0.avalon_slave
+   element EnvelopeController_0.avalon_slave_0
    {
       datum _lockedAddress
       {
@@ -34,7 +34,7 @@
    {
       datum _sortIndex
       {
-         value = "20";
+         value = "11";
          type = "int";
       }
    }
@@ -50,7 +50,7 @@
    {
       datum _sortIndex
       {
-         value = "19";
+         value = "10";
          type = "int";
       }
    }
@@ -66,7 +66,7 @@
    {
       datum _sortIndex
       {
-         value = "11";
+         value = "12";
          type = "int";
       }
    }
@@ -91,38 +91,12 @@
          type = "int";
       }
    }
-   element Synthesizer_1.avalon_slave_0
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "4352";
-         type = "String";
-      }
-   }
    element Synthesizer_2
    {
       datum _sortIndex
       {
          value = "13";
          type = "int";
-      }
-   }
-   element Synthesizer_2.avalon_slave_0
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "4608";
-         type = "String";
       }
    }
    element Synthesizer_3
@@ -133,38 +107,12 @@
          type = "int";
       }
    }
-   element Synthesizer_3.avalon_slave_0
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "4864";
-         type = "String";
-      }
-   }
    element Synthesizer_4
    {
       datum _sortIndex
       {
          value = "15";
          type = "int";
-      }
-   }
-   element Synthesizer_4.avalon_slave_0
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "5120";
-         type = "String";
       }
    }
    element Synthesizer_5
@@ -175,19 +123,6 @@
          type = "int";
       }
    }
-   element Synthesizer_5.avalon_slave_0
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "5376";
-         type = "String";
-      }
-   }
    element Synthesizer_6
    {
       datum _sortIndex
@@ -196,38 +131,12 @@
          type = "int";
       }
    }
-   element Synthesizer_6.avalon_slave_0
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "5632";
-         type = "String";
-      }
-   }
    element Synthesizer_7
    {
       datum _sortIndex
       {
          value = "18";
          type = "int";
-      }
-   }
-   element Synthesizer_7.avalon_slave_0
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "5888";
-         type = "String";
       }
    }
    element audio_0
@@ -347,6 +256,22 @@
       {
          value = "1";
          type = "boolean";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
       }
    }
    element soc_system
@@ -669,13 +594,6 @@
  <module name="Pedal_0" kind="Pedal" version="1.0" enabled="1" />
  <module name="Photodiodes_0" kind="Photodiodes" version="1.0" enabled="1" />
  <module name="Synthesizer_0" kind="Synthesizer" version="1.0" enabled="1" />
- <module name="Synthesizer_1" kind="Synthesizer" version="1.0" enabled="1" />
- <module name="Synthesizer_2" kind="Synthesizer" version="1.0" enabled="1" />
- <module name="Synthesizer_3" kind="Synthesizer" version="1.0" enabled="1" />
- <module name="Synthesizer_4" kind="Synthesizer" version="1.0" enabled="1" />
- <module name="Synthesizer_5" kind="Synthesizer" version="1.0" enabled="1" />
- <module name="Synthesizer_6" kind="Synthesizer" version="1.0" enabled="1" />
- <module name="Synthesizer_7" kind="Synthesizer" version="1.0" enabled="1" />
  <module
    name="audio_0"
    kind="altera_up_avalon_audio"
@@ -1538,15 +1456,6 @@
    kind="avalon"
    version="17.0"
    start="hps_0.h2f_lw_axi_master"
-   end="EnvelopeController_0.avalon_slave">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1800" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.0"
-   start="hps_0.h2f_lw_axi_master"
    end="Pedal_0.avalon_slave">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x2100" />
@@ -1574,63 +1483,9 @@
    kind="avalon"
    version="17.0"
    start="hps_0.h2f_lw_axi_master"
-   end="Synthesizer_1.avalon_slave_0">
+   end="EnvelopeController_0.avalon_slave_0">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1100" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.0"
-   start="hps_0.h2f_lw_axi_master"
-   end="Synthesizer_2.avalon_slave_0">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1200" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.0"
-   start="hps_0.h2f_lw_axi_master"
-   end="Synthesizer_3.avalon_slave_0">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1300" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.0"
-   start="hps_0.h2f_lw_axi_master"
-   end="Synthesizer_4.avalon_slave_0">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1400" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.0"
-   start="hps_0.h2f_lw_axi_master"
-   end="Synthesizer_5.avalon_slave_0">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1500" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.0"
-   start="hps_0.h2f_lw_axi_master"
-   end="Synthesizer_6.avalon_slave_0">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1600" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.0"
-   start="hps_0.h2f_lw_axi_master"
-   end="Synthesizer_7.avalon_slave_0">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1700" />
+  <parameter name="baseAddress" value="0x1800" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1684,11 +1539,12 @@
    version="17.0"
    start="clk_0.clk"
    end="character_lcd_0.clk" />
+ <connection kind="clock" version="17.0" start="clk_0.clk" end="Pedal_0.clock" />
  <connection
    kind="clock"
    version="17.0"
    start="clk_0.clk"
-   end="EnvelopeController_0.clock" />
+   end="Photodiodes_0.clock" />
  <connection
    kind="clock"
    version="17.0"
@@ -1698,43 +1554,7 @@
    kind="clock"
    version="17.0"
    start="clk_0.clk"
-   end="Synthesizer_1.clock" />
- <connection
-   kind="clock"
-   version="17.0"
-   start="clk_0.clk"
-   end="Synthesizer_2.clock" />
- <connection
-   kind="clock"
-   version="17.0"
-   start="clk_0.clk"
-   end="Synthesizer_3.clock" />
- <connection
-   kind="clock"
-   version="17.0"
-   start="clk_0.clk"
-   end="Synthesizer_4.clock" />
- <connection
-   kind="clock"
-   version="17.0"
-   start="clk_0.clk"
-   end="Synthesizer_5.clock" />
- <connection
-   kind="clock"
-   version="17.0"
-   start="clk_0.clk"
-   end="Synthesizer_6.clock" />
- <connection
-   kind="clock"
-   version="17.0"
-   start="clk_0.clk"
-   end="Synthesizer_7.clock" />
- <connection kind="clock" version="17.0" start="clk_0.clk" end="Pedal_0.clock" />
- <connection
-   kind="clock"
-   version="17.0"
-   start="clk_0.clk"
-   end="Photodiodes_0.clock" />
+   end="EnvelopeController_0.clock" />
  <connection
    kind="clock"
    version="17.0"
@@ -1802,7 +1622,12 @@
    kind="reset"
    version="17.0"
    start="clk_0.clk_reset"
-   end="EnvelopeController_0.reset" />
+   end="Pedal_0.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
+   start="clk_0.clk_reset"
+   end="Photodiodes_0.reset" />
  <connection
    kind="reset"
    version="17.0"
@@ -1812,47 +1637,7 @@
    kind="reset"
    version="17.0"
    start="clk_0.clk_reset"
-   end="Synthesizer_1.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="clk_0.clk_reset"
-   end="Synthesizer_2.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="clk_0.clk_reset"
-   end="Synthesizer_3.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="clk_0.clk_reset"
-   end="Synthesizer_4.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="clk_0.clk_reset"
-   end="Synthesizer_5.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="clk_0.clk_reset"
-   end="Synthesizer_6.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="clk_0.clk_reset"
-   end="Synthesizer_7.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="clk_0.clk_reset"
-   end="Pedal_0.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="clk_0.clk_reset"
-   end="Photodiodes_0.reset" />
+   end="EnvelopeController_0.reset" />
  <connection
    kind="reset"
    version="17.0"
@@ -1893,7 +1678,12 @@
    kind="reset"
    version="17.0"
    start="hps_0.h2f_reset"
-   end="EnvelopeController_0.reset" />
+   end="Pedal_0.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
+   start="hps_0.h2f_reset"
+   end="Photodiodes_0.reset" />
  <connection
    kind="reset"
    version="17.0"
@@ -1903,47 +1693,7 @@
    kind="reset"
    version="17.0"
    start="hps_0.h2f_reset"
-   end="Synthesizer_1.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="hps_0.h2f_reset"
-   end="Synthesizer_2.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="hps_0.h2f_reset"
-   end="Synthesizer_3.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="hps_0.h2f_reset"
-   end="Synthesizer_4.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="hps_0.h2f_reset"
-   end="Synthesizer_5.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="hps_0.h2f_reset"
-   end="Synthesizer_6.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="hps_0.h2f_reset"
-   end="Synthesizer_7.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="hps_0.h2f_reset"
-   end="Pedal_0.reset" />
- <connection
-   kind="reset"
-   version="17.0"
-   start="hps_0.h2f_reset"
-   end="Photodiodes_0.reset" />
+   end="EnvelopeController_0.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />

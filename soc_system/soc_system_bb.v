@@ -81,10 +81,6 @@ module soc_system (
 	memory_mem_dm,
 	memory_oct_rzqin,
 	pedal_0_conduit_end_export,
-	pll_0_outclk0_clk,
-	red_leds_external_connection_export,
-	reset_reset_n,
-	switches_external_connection_export,
 	photodiodes_0_conduit_end_export1,
 	photodiodes_0_conduit_end_export2,
 	photodiodes_0_conduit_end_export3,
@@ -92,7 +88,11 @@ module soc_system (
 	photodiodes_0_conduit_end_export5,
 	photodiodes_0_conduit_end_export6,
 	photodiodes_0_conduit_end_export7,
-	photodiodes_0_conduit_end_export0);	
+	photodiodes_0_conduit_end_export0,
+	pll_0_outclk0_clk,
+	red_leds_external_connection_export,
+	reset_reset_n,
+	switches_external_connection_export);	
 
 	input		audio_0_external_interface_ADCDAT;
 	input		audio_0_external_interface_ADCLRCK;
@@ -175,10 +175,6 @@ module soc_system (
 	output	[3:0]	memory_mem_dm;
 	input		memory_oct_rzqin;
 	input		pedal_0_conduit_end_export;
-	output		pll_0_outclk0_clk;
-	output	[9:0]	red_leds_external_connection_export;
-	input		reset_reset_n;
-	input	[9:0]	switches_external_connection_export;
 	input		photodiodes_0_conduit_end_export1;
 	input		photodiodes_0_conduit_end_export2;
 	input		photodiodes_0_conduit_end_export3;
@@ -187,4 +183,8 @@ module soc_system (
 	input		photodiodes_0_conduit_end_export6;
 	input		photodiodes_0_conduit_end_export7;
 	input		photodiodes_0_conduit_end_export0;
+	output		pll_0_outclk0_clk;
+	output	[9:0]	red_leds_external_connection_export;
+	input		reset_reset_n;
+	input	[9:0]	switches_external_connection_export;
 endmodule

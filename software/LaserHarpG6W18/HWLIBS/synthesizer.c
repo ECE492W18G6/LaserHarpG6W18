@@ -18,9 +18,15 @@
 #include  <hwlib.h>
 #include  <math.h>
 
+#include "audio.h"
 
-void writeFreqToSynthesizer(void *diode, float frequnecy) {
-	alt_write_word(diode, frequnecy);
+void writeFreqToSynthesizer(void *synthBase, int frequency, int diode, int instrument) {
+	int combined = 0;
+	int frequency12Bits = (int) 0xFFF & frequency;
+	combined = (combined | diode) << 2;
+	combined = (combined | instrument) << 12;
+	combined = (combined | frequency12Bits);
+	alt_write_word(synthBase, combined);
 }
 
 INT32S readFromSythesizer(void *diode, int enabled) {
@@ -44,4 +50,13 @@ int EnvelopeOptions(int diode, int reset, int instrument) {
 	combined = (combined | reset) << 3;
 	combined = (combined | diode);
 	return combined;
+}
+
+void quickPianoDecay(INT32S startingValue) {
+	INT32S decayBuffer[200];
+	int i;
+	for(i = 0; i < 200; i++) {
+		decayBuffer[i] = (INT32S) (startingValue * pow(2, -i));
+	}
+	write_audio_data(decayBuffer, 200);
 }

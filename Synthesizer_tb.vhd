@@ -55,22 +55,24 @@ begin
 	clk_SIG <= '0';
 	wait for 10 ns;
 	-- initialize frequency and enable write signal
-	frequency <= x"00000001";
 	write_SIG <= '1';
 	-- toggle clock
-	for I in 0 to 6 loop
-		clk_SIG <= '1'; -- transition on rising edge
-		wait for 10 ns;
-		clk_SIG <= '0';
-		wait for 10 ns;
-	end loop;
-	frequency <= x"00000008"; -- change frequency and continue
-	-- toggle clock
-	for I in 0 to 6 loop
-		clk_SIG <= '1'; -- transition on rising edge
-		wait for 10 ns;
-		clk_SIG <= '0';
-		wait for 10 ns;
+	for I in 0 to 1000000 loop
+		frequency <= x"00000001";
+		for X in 0 to 10 loop
+			clk_SIG <= '1'; -- transition on rising edge
+			wait for 1 ns;
+			clk_SIG <= '0';
+			wait for 1 ns;
+		end loop;
+		frequency <= x"00004001";
+		for X in 0 to 10 loop
+			clk_SIG <= '1'; -- transition on rising edge
+			wait for 1 ns;
+			clk_SIG <= '0';
+			wait for 1 ns;
+		end loop;
+		
 	end loop;
   end process;
      
