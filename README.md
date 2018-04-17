@@ -49,8 +49,8 @@ A polyphonic laser harp with selectable instruments, scales, keys, and octaves.
 - **ClarinetEnvelope_lut.vhd** - Sound envelope for the clarinet; *Executed*
 - **HarpsichordEnvelope_lut.vhd** - Sound envelope for the harpsichord; *Executed*
 - **PianoEnvelope_lut.vhd** - Sound envelope for the piano; *Executed*
-- **MUX4x1.vhd** - *Executed*
-- **MUX8x1.vhd** - *Executed*
+- **MUX4x1.vhd** - A generic n-bit multiplexer which takes in 4 std_logic_vector signals, 2 selector bits and outputs the selected signal; *Executed*
+- **MUX8x1.vhd** - A generic n-bit multiplexer which takes in 8 std_logic_vector signals, 3 selector bits and outputs the selected signal; *Executed*
 - **Pedal.vhd** - Pedal file functions for when the pedal is pushed down; *Executed*
 
 ## Adapted Source Code
