@@ -99,7 +99,7 @@ void get_frequencies(int* integers, float* fractions) {
 void update_LCD_string() {
 
 	switch (SCALE) {
-		case MAJOR: // TONE TONE SEMITONE TONE TONE TONE SEMITONE
+		case MAJOR: // TONE | TONE | SEMITONE | TONE | TONE | TONE | SEMITONE
 			sprintf(scale, "Major Scale      ");
 			frequencies[1] = ( C2_FREQUENCY * pow(2,(double)KEY/12)   * pow(2,get_octave()-2) );
 			frequencies[2] = ( C2_FREQUENCY * pow(2,(double)(KEY+2)/12) * pow(2,get_octave()-2) );
@@ -110,7 +110,7 @@ void update_LCD_string() {
 			frequencies[7] = ( C2_FREQUENCY * pow(2,(double)(KEY+11)/12) * pow(2,get_octave()-2) );
 			frequencies[8] = ( C2_FREQUENCY * pow(2,(double)(KEY+12)/12) * pow(2,get_octave()-2) );
 			break;
-		case NATURAL_MINOR: // TONE SEMITONE TONE TONE SEMITONE TONE TONE
+		case NATURAL_MINOR: // TONE | SEMITONE | TONE | TONE | SEMITONE | TONE | TONE
 			sprintf(scale, "Nat. Minor Scale ");
 			frequencies[1] = ( C2_FREQUENCY * pow(2,(double)KEY/12) * pow(2,get_octave()-2) );
 			frequencies[2] = ( C2_FREQUENCY * pow(2,(double)(KEY+2)/12) * pow(2,get_octave()-2) );
@@ -121,7 +121,7 @@ void update_LCD_string() {
 			frequencies[7] = ( C2_FREQUENCY * pow(2,(double)(KEY+10)/12) * pow(2,get_octave()-2) );
 			frequencies[8] = ( C2_FREQUENCY * pow(2,(double)(KEY+12)/12) * pow(2,get_octave()-2) );
 			break;
-		case HARMONIC_MINOR: // TONE SEMITONE TONE TONE SEMITONE TONE TONE
+		case HARMONIC_MINOR: // TONE | SEMITONE | TONE | TONE | SEMITONE | 3 | SEMITONE
 			sprintf(scale, "Har. Minor Scale ");
 			frequencies[1] = ( C2_FREQUENCY * pow(2,(double)KEY/12) * pow(2,get_octave()-2) );
 			frequencies[2] = ( C2_FREQUENCY * pow(2,(double)(KEY+2)/12) * pow(2,get_octave()-2) );
@@ -132,7 +132,7 @@ void update_LCD_string() {
 			frequencies[7] = ( C2_FREQUENCY * pow(2,(double)(KEY+11)/12) * pow(2,get_octave()-2) );
 			frequencies[8] = ( C2_FREQUENCY * pow(2,(double)(KEY+12)/12) * pow(2,get_octave()-2) );
 			break;
-		case MELODIC_MINOR: // TONE SEMITONE TONE TONE SEMITONE TONE TONE
+		case MELODIC_MINOR: // TONE | SEMITONE | TONE | TONE | TONE | TONE | SEMITONE
 			sprintf(scale, "Mel. Minor Scale ");
 			frequencies[1] = ( C2_FREQUENCY * pow(2,(double)KEY/12) * pow(2,get_octave()-2) );
 			frequencies[2] = ( C2_FREQUENCY * pow(2,(double)(KEY+2)/12) * pow(2,get_octave()-2) );
@@ -154,7 +154,7 @@ void update_LCD_string() {
 			frequencies[7] = ( C2_FREQUENCY * pow(2,(double)(KEY+12)/12) * pow(2,get_octave()-2) );
 			frequencies[8] = ( C2_FREQUENCY * pow(2,(double)(KEY+15)/12) * pow(2,get_octave()-2) );
 			break;
-		case DORIAN: // TONE SEMITONE TONE TONE TONE SEMITONE TONE
+		case DORIAN: // TONE | SEMITONE | TONE | TONE | TONE | SEMITONE | TONE
 			sprintf(scale, "Dorian Scale     ");
 			frequencies[1] = ( C2_FREQUENCY * pow(2,(double)KEY/12) * pow(2,get_octave()-2) );
 			frequencies[2] = ( C2_FREQUENCY * pow(2,(double)(KEY+2)/12) * pow(2,get_octave()-2) );
